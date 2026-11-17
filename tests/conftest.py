@@ -122,6 +122,55 @@ def openedx_archive(tmp_path: Path) -> Path:
 
 
 @pytest.fixture
+def a11y_openedx_archive(tmp_path: Path) -> Path:
+    root = tmp_path / "openedx-src"
+    files = {
+        "course.xml": """\
+            <course url_name="course1" org="TestOrg" course="TEST101" />
+        """,
+        "course/course1.xml": """\
+            <course display_name="Test Open edX Course">
+              <chapter url_name="ch1" />
+            </course>
+        """,
+        "chapter/ch1.xml": """\
+            <chapter display_name="Chapter One">
+              <sequential url_name="seq1" />
+            </chapter>
+        """,
+        "sequential/seq1.xml": """\
+            <sequential display_name="Sequential One">
+              <vertical url_name="vert1" />
+            </sequential>
+        """,
+        "vertical/vert1.xml": """\
+            <vertical display_name="Vertical One">
+              <html url_name="html1" display_name="Intro HTML" />
+              <video url_name="vid1" display_name="Lecture Video" />
+            </vertical>
+        """,
+        "html/html1.xml": """\
+            <html display_name="Intro HTML" filename="html1.html" />
+        """,
+        "html/html1.html": """\
+            <h2>Images</h2>
+            <img src="/static/cpu.png">
+            <img src="/static/chart.png" alt="chart.png">
+            <img src="/static/diagram.png" alt="Diagram of a computer with CPU and memory">
+        """,
+        "video/vid1.xml": """\
+            <video display_name="Lecture Video" youtube_id_1_0="abc12345678" />
+        """,
+        "static/handout.pdf": b"%PDF-1.4 fixture handout",
+        "static/cpu.png": b"fake image cpu",
+        "static/chart.png": b"fake image chart",
+        "static/diagram.png": b"fake image diagram",
+    }
+    _write_tree(root, files)
+    return _tar_tree(root, tmp_path / "openedx.tar.gz")
+
+
+@pytest.fixture
 def moodle_archive(tmp_path: Path) -> Path:
     root = tmp_path / "moodle-src"
     content_hash = "a" * 40
