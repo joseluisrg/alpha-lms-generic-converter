@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 from typing import Iterable, List, Optional
 
+from core.accessibility import check_images
 from core.errors import UnsupportedTargetError
 from core.identity import stable_id
 from domain.entities import ContentNode, Course, MappingNote
@@ -175,6 +176,7 @@ class ValidationService:
             notes.append(self._note(course, "INTEGRITY_ERROR", Severity.ERROR,
                 message, target_name))
 
+        notes.extend(check_images(course))
         notes.append(self._note(course, "MIGRATION_SUMMARY", Severity.INFO,
             self._summary(course, chapters, notes, target_name), target_name))
 
