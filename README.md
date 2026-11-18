@@ -109,7 +109,8 @@ uv run pytest --cov=core --cov=adapters --cov=persistence --cov=cli
 uv build
 ```
 
-See [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) for contribution guidance.
+See [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) for contribution guidance and
+[`docs/RELEASING.md`](docs/RELEASING.md) for the release checklist.
 
 ## License
 

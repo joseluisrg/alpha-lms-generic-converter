@@ -31,13 +31,13 @@ Status as of 2026-11-18.
 | Area | Status | Evidence | Remaining work |
 | --- | --- | --- | --- |
 | Repository hygiene | Complete | Generated course exports are untracked; dead modules removed; repository policies added in `400850c`, `64e4127`, and `bcb4da4` | Decide whether historical generated data requires a git history rewrite |
-| Packaging and configuration | Complete | `uv build` succeeds; clean-venv wheel install works; `lms-converter --version` works outside the repository; centralized `Settings` added in `5729227` | Add release automation and CI installation checks |
+| Packaging and configuration | Complete | `uv build` succeeds; clean-venv wheel install works; `lms-converter --version` works outside the repository; centralized `Settings` added in `5729227`; tag-driven release workflow with version/changelog checks, release artifacts, checksums, and CI artifact retention added in `.github/workflows/release.yml`, `scripts/check_release.py`, and `docs/RELEASING.md` | — |
 | Security and input controls | Complete | Committed in `235b2f5`; bounded uploads, archive and XML limits, output containment, production auth, owner-scoped jobs, and sanitized UI errors | Add container and supply-chain controls |
 | Persistence | Partial | SQLite job records, lifecycle states, and owner field exist | Add schema versioning, stop running DDL on reads, add retention and backup/restore tests |
 | Migration fidelity | Partial | Canonical model, Moodle/Open edX adapters, validation notes, and JSON/HTML reports exist | Build a golden corpus, real-LMS import harness, and versioned fidelity scorecard |
-| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 68 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI | Add nightly performance and fuzz layers |
+| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 75 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI | Add nightly performance and fuzz layers |
 | Operations | Not started | No deployment runbook, health checks, metrics, or container image | Add observability, deployment artifacts, backup/restore drill, and operator documentation |
-| Documentation | Partial | README, security policy, contribution guide, changelog, license, and architecture diagram exist | Add architecture reference, deployment runbook, format matrix, and release checklist |
+| Documentation | Partial | README, security policy, contribution guide, changelog, license, architecture diagram, and release checklist exist | Add architecture reference, deployment runbook, and format matrix |
 | Real-LMS certification | Not started | No live Moodle or Open edX environment available | Provision pinned test environments and run import certification |
 
 ## 3. Objectives and success criteria

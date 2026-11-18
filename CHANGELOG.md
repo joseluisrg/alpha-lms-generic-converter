@@ -6,6 +6,8 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 
 ## Unreleased
 
+## [0.1.0a1] - 2026-11-18
+
 ### Added
 
 - Apache-2.0 license.
@@ -27,6 +29,8 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 - CI workflow running lint, format, type checks, tests with a coverage policy, security scans, dependency audit, and a build/install smoke test on Python 3.12 and 3.13.
 - Developer quality tooling: `ruff` lint/format, `mypy` type checks, `bandit` security scans, `pip-audit` dependency audits, and a coverage floor enforced at 80%.
 - `scripts/ci_smoke.py`, which exercises a clean wheel install through inspect, migrate, and report on a generated fixture.
+- Tag-driven release workflow that validates the tag against the project version and changelog, repeats the quality gates, builds and smoke-tests the wheel and source distribution, publishes checksums and a GitHub Release, and retains CI build artifacts.
+- `scripts/check_release.py` for release metadata validation and changelog notes extraction, with a release checklist in `docs/RELEASING.md`.
 
 ### Changed
 
