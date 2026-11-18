@@ -349,17 +349,22 @@ if st.session_state.get("show_report_dialog") and st.session_state.get("report_j
 
 # File upload and source detection
 uploaded_file = st.file_uploader(
-    "Upload course export (.mbz or .tar.gz)", type=["mbz", "tar.gz"], key="course_uploader"
+    "Upload course export (.mbz, .tar.gz, or .tgz)",
+    type=["mbz", "gz", "tgz"],
+    key="course_uploader",
 )
 
 if uploaded_file is None:
     st.info("Please upload a course export file to begin.")
     st.stop()
 
-# Auto-detect source from file extension
-if uploaded_file.name.endswith(".mbz"):
+# Auto-detect source from file extension. Compound extensions like .tar.gz
+# cannot be expressed in the browser's accept attribute, so the uploader
+# filters on .gz/.tgz and the exact suffix is validated by save_upload().
+upload_name = uploaded_file.name.lower()
+if upload_name.endswith(".mbz"):
     source_lms = "moodle"
-elif uploaded_file.name.endswith(".tar.gz"):
+elif upload_name.endswith((".tar.gz", ".tgz")):
     source_lms = "openedx"
 else:
     source_lms = fallback_lms

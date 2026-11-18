@@ -50,6 +50,8 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 - Duplicate question identifiers could be emitted across assessments.
 - Open edX nested asset paths were flattened.
 - Reused target adapters could leak state between exports.
+- The web uploader now accepts Open edX `.tar.gz` and `.tgz` exports; browsers cannot filter on compound extensions, so the picker previously offered only `.mbz`.
+- The CI workflow pins `astral-sh/setup-uv` to a published tag (`v10.3.3`) so jobs can resolve the action.
 
 ### Removed
 
