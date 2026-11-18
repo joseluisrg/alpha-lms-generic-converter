@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from importlib.metadata import version as package_version
 from pathlib import Path
 
 from typer.testing import CliRunner
@@ -65,4 +66,4 @@ def test_cli_reports_installed_version():
     result = CliRunner().invoke(app, ["--version"])
 
     assert result.exit_code == 0
-    assert result.output.strip() == "0.1.0"
+    assert result.output.strip() == package_version("lms-converter")

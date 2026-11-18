@@ -6,6 +6,8 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 
 ## Unreleased
 
+## [0.1.0a1] - 2026-11-18
+
 ### Added
 
 - Apache-2.0 license.
