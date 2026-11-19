@@ -9,6 +9,7 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 ### Added
 
 - Database schema versioning via `PRAGMA user_version`, one-time startup migrations for legacy databases, and repository reads that no longer execute DDL.
+- Configurable retention cleanup for expired job rows, extracted paths, outputs, and upload sessions, with dry-run support and a `cleanup` CLI command.
 
 ### Changed
 

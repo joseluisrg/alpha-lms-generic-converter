@@ -99,11 +99,13 @@ def cleanup_expired_uploads(
     *,
     max_age_seconds: int | None = None,
     now: float | None = None,
+    dry_run: bool = False,
 ) -> int:
     """Remove session directories older than the configured TTL.
 
-    Returns the number of session directories removed.  Symlinks are ignored so
-    cleanup cannot be redirected outside the upload root.
+    Returns the number of session directories removed (or would be removed in
+    dry-run mode).  Symlinks are ignored so cleanup cannot be redirected
+    outside the upload root.
     """
     cfg = settings or get_settings()
     ttl = cfg.upload_ttl_seconds if max_age_seconds is None else max_age_seconds
@@ -118,7 +120,8 @@ def cleanup_expired_uploads(
                 continue
             if entry.stat().st_mtime >= cutoff:
                 continue
-            shutil.rmtree(entry)
+            if not dry_run:
+                shutil.rmtree(entry)
             removed += 1
         except OSError:
             continue

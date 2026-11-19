@@ -105,6 +105,7 @@ def main() -> None:
             raise SystemExit("FAILED: migration did not produce an output file")
 
         run(args.cli, env, "report", job_id, "--format", "json")
+        run(args.cli, env, "cleanup", "--dry-run")
 
     print("Smoke test passed.")
 
