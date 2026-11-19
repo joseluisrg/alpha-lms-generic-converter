@@ -37,7 +37,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-ui = ["streamlit>=1.57.0"]
+ui = ["streamlit>=1.67.0"]
 
 [project.urls]
 Homepage = "https://github.com/olgakazarina-guds/Team-Delta"
