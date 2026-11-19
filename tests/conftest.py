@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from core.config import reset_settings
+from persistence.repositories import init_db
 
 
 @pytest.fixture(autouse=True)
@@ -16,6 +17,12 @@ def isolated_settings(tmp_path: Path, monkeypatch):
     reset_settings()
     yield
     reset_settings()
+
+
+@pytest.fixture(autouse=True)
+def initialized_database(isolated_settings):
+    """Initialize the SQLite schema for tests that use persistence."""
+    init_db()
 
 
 def _write_tree(root: Path, files: dict[str, str | bytes]) -> None:

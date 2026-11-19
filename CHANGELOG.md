@@ -6,6 +6,10 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 
 ## Unreleased
 
+### Added
+
+- Database schema versioning via `PRAGMA user_version`, one-time startup migrations for legacy databases, and repository reads that no longer execute DDL.
+
 ## [0.1.0a1] - 2026-11-18
 
 ### Added

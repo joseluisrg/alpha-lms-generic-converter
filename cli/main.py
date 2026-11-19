@@ -16,6 +16,8 @@ from importlib.metadata import version as package_version
 import typer
 
 from cli.commands import inspect_command, migrate_command, report_command
+from core.errors import SchemaVersionError
+from persistence.repositories import init_db
 
 # Create Typer application with help text
 app = typer.Typer(help="LMS Converter - Migrate courses between Open edX and Moodle")
@@ -48,7 +50,11 @@ def main(
     Use 'inspect' to analyze a course and check migration readiness.
     Use 'migrate' to convert a course from one LMS to another.
     """
-    pass
+    try:
+        init_db()
+    except SchemaVersionError as exc:
+        typer.echo(f"Error: {exc}", err=True)
+        raise typer.Exit(1) from exc
 
 
 # Register commands
