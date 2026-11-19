@@ -12,6 +12,11 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 - Configurable retention cleanup for expired job rows, extracted paths, outputs, and upload sessions, with dry-run support and a `cleanup` CLI command.
 - Golden migration corpus with synthetic Open edX and Moodle source trees, canonical IR/report/export snapshots, frozen binary contracts, malformed and malicious inputs, feature-coverage enforcement, fixture hygiene checks, and `scripts/update_golden.py`.
 - Stable source question identifiers for Open edX and Moodle questions, removing random UUIDs from parser output.
+- Hardened multi-stage container image with a digest-pinned Python base, hash-locked runtime dependencies, non-root execution, root-owned application files, a health check, and production fail-closed defaults.
+- Hardened `compose.yaml` with a read-only root filesystem, writable data volume and `/tmp`, dropped capabilities, `no-new-privileges`, PID/memory/CPU limits, log rotation, and loopback-only port binding.
+- CycloneDX SBOM generation and validation through `scripts/generate_sbom.py` and `scripts/validate_sbom.py`, published as a CI artifact and attached to releases.
+- Container build, non-root, CLI smoke, and web health checks in CI.
+- Deployment guide covering Compose, reverse-proxy authentication, CLI usage, hardening controls, upgrades, and supply-chain checks.
 
 ### Changed
 

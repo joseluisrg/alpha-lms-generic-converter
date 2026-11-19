@@ -43,7 +43,10 @@ uv run pip-audit
 uv run pytest --cov --cov-report=term-missing
 uv run pytest tests/golden -q
 uv run python scripts/update_golden.py --check
+uv run python scripts/generate_sbom.py --output dist/sbom.json
+uv run python scripts/validate_sbom.py dist/sbom.json
 uv build
+docker build --pull -t lms-converter:local .
 ```
 
 ## Code contributions
@@ -68,8 +71,9 @@ uv build
 - Do not add comments that restate the code. Explain non-obvious decisions only.
 
 CI enforces `ruff` lint and formatting, `mypy`, `bandit`, `pip-audit`, the test
-suite with an 80% coverage floor, and a clean wheel build/install. Run the same
-commands locally before opening a pull request.
+suite with an 80% coverage floor, a clean wheel build/install, and a hardened
+container build/smoke test. It also publishes a CycloneDX SBOM artifact. Run the
+same commands locally before opening a pull request.
 
 ## Test data and privacy
 

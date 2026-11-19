@@ -4,7 +4,7 @@ Vendor-neutral course migration between Moodle and Open edX.
 
 LMS Converter parses course packages, maps them to a canonical course model, validates migration readiness, and generates restore-shaped Moodle backups or Open edX exports. Every migration produces a report describing what was preserved, what changed, and what needs human review.
 
-> Status: alpha. The conversion pipeline is usable, but real-LMS certification and production hardening are still in progress. See [`docs/production-readiness-plan.md`](docs/production-readiness-plan.md).
+> Status: alpha. The conversion pipeline is usable, but real-LMS certification and operator runbooks are still in progress. See [`docs/production-readiness-plan.md`](docs/production-readiness-plan.md).
 
 ## Features
 
@@ -21,6 +21,7 @@ LMS Converter parses course packages, maps them to a canonical course model, val
 
 - Python 3.12 or newer.
 - [uv](https://docs.astral.sh/uv/) for development and reproducible installs.
+- Docker with Compose v2 for container deployment.
 
 ## Install
 
@@ -65,6 +66,26 @@ uv run lms-converter cleanup --apply --retention-days 7
 ```bash
 uv run --extra ui streamlit run streamlit_app.py
 ```
+
+## Container
+
+The hardened image runs the Streamlit UI as a non-root user with a read-only
+source tree and a single writable data volume:
+
+```bash
+docker build --pull -t lms-converter:0.1.0a1 .
+docker run --rm \
+  -p 127.0.0.1:8501:8501 \
+  -e LMS_CONVERTER_ENV=development \
+  -e LMS_CONVERTER_AUTH_MODE=none \
+  -v lms-data:/app/data \
+  lms-converter:0.1.0a1
+```
+
+Development mode has no authentication and must remain bound to localhost. For
+production, use `compose.yaml` behind an authenticating reverse proxy. See
+[`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for production settings, CLI usage,
+resource limits, upgrades, and SBOM generation.
 
 ## Configuration
 

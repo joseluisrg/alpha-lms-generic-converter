@@ -38,7 +38,7 @@ publish to PyPI. Every release is built from a tag that points to a commit on
    ```
 
 7. Watch the `Release` workflow and verify:
-   - the wheel, source distribution, and `SHA256SUMS` are attached;
+   - the wheel, source distribution, CycloneDX SBOM, and `SHA256SUMS` are attached;
    - release notes match the changelog section;
    - pre-release flags are correct;
    - the wheel installs and the CLI smoke test passes.
@@ -65,7 +65,9 @@ installs the wheel, and uploads workflow artifacts.
 - Wheel and source distribution filenames contain the release version.
 - The wheel installs in a clean virtual environment and passes the CLI smoke
   test.
-- Checksums are generated for every published artifact.
+- A CycloneDX SBOM is generated and validated for the production dependency set.
+- The hardened container image builds and runs as a non-root user.
+- Checksums are generated for every published artifact, including the SBOM.
 
 ## Rollback
 

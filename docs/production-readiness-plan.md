@@ -12,7 +12,7 @@
 | Repository | `olgakazarina-guds/Team-Delta` |
 | Branch | `phase2/lms-migration` |
 | Review cycle | Monthly and at milestone completion |
-| Related documents | `README.md`, `SECURITY.md`, `CHANGELOG.md`, `docs/CONTRIBUTING.md`, `LICENSE` |
+| Related documents | `README.md`, `SECURITY.md`, `CHANGELOG.md`, `docs/CONTRIBUTING.md`, `docs/DEPLOYMENT.md`, `LICENSE` |
 
 ## 1. Executive summary
 
@@ -32,12 +32,12 @@ Status as of 2026-11-19.
 | --- | --- | --- | --- |
 | Repository hygiene | Complete | Generated course exports are untracked; dead modules removed; repository policies added in `400850c`, `64e4127`, and `bcb4da4` | Decide whether historical generated data requires a git history rewrite |
 | Packaging and configuration | Complete | `uv build` succeeds; clean-venv wheel install works; `lms-converter --version` works outside the repository; centralized `Settings` added in `5729227`; tag-driven release workflow with version/changelog checks, release artifacts, checksums, and CI artifact retention added in `.github/workflows/release.yml`, `scripts/check_release.py`, and `docs/RELEASING.md` | — |
-| Security and input controls | Complete | Committed in `235b2f5`; bounded uploads, archive and XML limits, output containment, production auth, owner-scoped jobs, and sanitized UI errors | Add container and supply-chain controls |
+| Security and input controls | Complete | Committed in `235b2f5`; bounded uploads, archive and XML limits, output containment, production auth, owner-scoped jobs, and sanitized UI errors; PR-11 adds a digest-pinned non-root container, hash-locked runtime dependencies, SBOM generation, and CI container smoke checks | Add image vulnerability scanning |
 | Persistence | Partial | SQLite job records, lifecycle states, owner field, and `PRAGMA user_version` schema migrations exist; PR-05 removed DDL from repository reads; PR-06 adds configurable retention cleanup with dry-run mode | Add backup/restore tests |
 | Migration fidelity | Partial | Canonical model, Moodle/Open edX adapters, validation notes, and JSON/HTML reports exist; PR-07 adds a synthetic golden corpus with canonical IR, report, and target-export snapshots plus malformed and malicious fixtures | Build the real-LMS import harness and versioned fidelity scorecard |
-| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 117 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI | Add nightly performance and fuzz layers |
-| Operations | Not started | No deployment runbook, health checks, metrics, or container image | Add observability, deployment artifacts, backup/restore drill, and operator documentation |
-| Documentation | Partial | README, security policy, contribution guide, changelog, license, architecture diagram, and release checklist exist | Add architecture reference, deployment runbook, and format matrix |
+| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 123 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI; PR-11 adds container build, non-root, CLI smoke, web health, and SBOM generation/validation checks | Add nightly performance and fuzz layers |
+| Operations | Partial | PR-11 adds a hardened Dockerfile, Compose deployment, health checks, resource limits, log rotation, and a deployment guide | Add metrics, backup/restore drill, and the full operator runbook |
+| Documentation | Partial | README, security policy, contribution guide, changelog, license, architecture diagram, release checklist, and container deployment guide exist | Add architecture reference, full operator runbook, and format matrix |
 | Real-LMS certification | Not started | No live Moodle or Open edX environment available | Provision pinned test environments and run import certification |
 
 ## 3. Objectives and success criteria
@@ -168,7 +168,7 @@ R = responsible, A = accountable, C = consulted, I = informed.
 
 ### CI gates
 
-Implemented in `.github/workflows/ci.yml` for gates 1-9; gate 10 follows PR-08.
+Implemented in `.github/workflows/ci.yml` for gates 1-11; gate 12 follows PR-08.
 
 1. `uv sync --frozen --group dev`
 2. `ruff check` and `ruff format --check`
@@ -178,8 +178,10 @@ Implemented in `.github/workflows/ci.yml` for gates 1-9; gate 10 follows PR-08.
 6. `pip-audit`
 7. Build wheel and source distribution
 8. Install the wheel in a clean virtual environment
-9. Smoke-test the CLI and one fixture migration
-10. Run nightly LMS certification after PR-08 is complete
+9. Generate and validate a CycloneDX SBOM for production dependencies
+10. Build the hardened container; verify non-root execution, CLI smoke, and web health
+11. Smoke-test the CLI and one fixture migration
+12. Run nightly LMS certification after PR-08 is complete
 
 ### Release gates
 
@@ -191,6 +193,7 @@ A release is approved only when:
 - Existing databases migrate without data loss.
 - Backup and restore have been exercised.
 - The supported feature matrix passes LMS import certification.
+- The container image builds, runs as non-root, and ships with an SBOM.
 - README, changelog, security policy, and operator runbook match the release.
 - Project Lead, Tech Lead, QA, and Security/DevOps have signed off.
 
