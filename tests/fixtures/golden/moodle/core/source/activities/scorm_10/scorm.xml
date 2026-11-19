@@ -1,0 +1,9 @@
+<scorm id="10">
+  <name>SCORM Package</name>
+  <version>SCORM_1.2</version>
+  <launch>index.html</launch>
+  <skipview>2</skipview>
+  <auto>0</auto>
+  <grademethod>1</grademethod>
+  <maxgrade>10</maxgrade>
+</scorm>

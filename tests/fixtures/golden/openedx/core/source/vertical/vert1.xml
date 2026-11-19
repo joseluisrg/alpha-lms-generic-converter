@@ -1,0 +1,6 @@
+<vertical display_name="Content and Quiz">
+  <html url_name="html1" display_name="Welcome" />
+  <video url_name="vid1" display_name="Lecture" />
+  <problem url_name="prob1" display_name="Knowledge Check" />
+  <discussion url_name="disc1" display_name="Forum" />
+</vertical>

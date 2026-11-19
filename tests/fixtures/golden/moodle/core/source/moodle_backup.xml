@@ -1,0 +1,36 @@
+<moodle_backup>
+          <information>
+            <name>synthetic-core.mbz</name>
+            <contents>
+              <activities>
+<activity><moduleid>2</moduleid><sectionid>1</sectionid><modulename>page</modulename><title>Page</title><directory>activities/page_2</directory></activity>
+<activity><moduleid>3</moduleid><sectionid>1</sectionid><modulename>label</modulename><title>Label HTML</title><directory>activities/label_3</directory></activity>
+<activity><moduleid>4</moduleid><sectionid>1</sectionid><modulename>label</modulename><title>Label Video</title><directory>activities/label_4</directory></activity>
+<activity><moduleid>5</moduleid><sectionid>1</sectionid><modulename>url</modulename><title>YouTube Link</title><directory>activities/url_5</directory></activity>
+<activity><moduleid>6</moduleid><sectionid>1</sectionid><modulename>url</modulename><title>External Link</title><directory>activities/url_6</directory></activity>
+<activity><moduleid>7</moduleid><sectionid>1</sectionid><modulename>quiz</modulename><title>Core Quiz</title><directory>activities/quiz_7</directory></activity>
+<activity><moduleid>8</moduleid><sectionid>1</sectionid><modulename>resource</modulename><title>Handout</title><directory>activities/resource_8</directory></activity>
+<activity><moduleid>9</moduleid><sectionid>1</sectionid><modulename>resource</modulename><title>Video File</title><directory>activities/resource_9</directory></activity>
+<activity><moduleid>10</moduleid><sectionid>1</sectionid><modulename>scorm</modulename><title>SCORM Package</title><directory>activities/scorm_10</directory></activity>
+<activity><moduleid>11</moduleid><sectionid>1</sectionid><modulename>forum</modulename><title>Forum</title><directory>activities/forum_11</directory></activity>
+<activity><moduleid>12</moduleid><sectionid>1</sectionid><modulename>workshop</modulename><title>Workshop</title><directory>activities/workshop_12</directory></activity>
+<activity><moduleid>13</moduleid><sectionid>1</sectionid><modulename>choice</modulename><title>Choice</title><directory>activities/choice_13</directory></activity>
+<activity><moduleid>14</moduleid><sectionid>1</sectionid><modulename>book</modulename><title>Book</title><directory>activities/book_14</directory></activity>
+<activity><moduleid>15</moduleid><sectionid>1</sectionid><modulename>glossary</modulename><title>Glossary</title><directory>activities/glossary_15</directory></activity>
+<activity><moduleid>16</moduleid><sectionid>1</sectionid><modulename>wiki</modulename><title>Wiki</title><directory>activities/wiki_16</directory></activity>
+<activity><moduleid>17</moduleid><sectionid>1</sectionid><modulename>assign</modulename><title>Assignment</title><directory>activities/assign_17</directory></activity>
+<activity><moduleid>18</moduleid><sectionid>1</sectionid><modulename>lesson</modulename><title>Lesson</title><directory>activities/lesson_18</directory></activity>
+<activity><moduleid>19</moduleid><sectionid>1</sectionid><modulename>videofile</modulename><title>Video Activity</title><directory>activities/videofile_19</directory></activity>
+<activity><moduleid>20</moduleid><sectionid>1</sectionid><modulename>mystery</modulename><title>Mystery Module</title><directory>activities/mystery_20</directory></activity>
+<activity><moduleid>21</moduleid><sectionid>1</sectionid><modulename>resource</modulename><title>Missing File</title><directory>activities/resource_21</directory></activity>
+<activity><moduleid>22</moduleid><sectionid>1</sectionid><modulename>scorm</modulename><title>Missing SCORM Package</title><directory>activities/scorm_22</directory></activity>
+<activity><moduleid>23</moduleid><sectionid>2</sectionid><modulename>page</modulename><title>Second Page</title><directory>activities/page_23</directory></activity>
+</activities>
+              <sections>
+                <section><sectionid>1</sectionid><title>Week One</title><directory>sections/section_1</directory></section>
+                <section><sectionid>2</sectionid><title>Week Two</title><directory>sections/section_2</directory></section>
+              </sections>
+              <course><courseid>1</courseid><title>Synthetic Moodle Core Course</title><directory>course</directory></course>
+            </contents>
+          </information>
+        </moodle_backup>

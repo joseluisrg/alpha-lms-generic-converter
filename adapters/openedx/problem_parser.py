@@ -10,12 +10,11 @@ textinput / numericalinput (legacy custom markup)
 formularesponse, coderesponse, customresponse (placeholders)
 """
 
-import uuid
-
 # XML generation and passthrough only; untrusted parsing goes through core.xml_utils.
 import xml.etree.ElementTree as ET  # nosec B405
 from typing import Any
 
+from core.identity import stable_id
 from core.xml_utils import parse_xml_text
 
 
@@ -33,7 +32,7 @@ def parse_problem(problem_xml: str, problem_url_name: str) -> dict[str, Any]:
             "assessment_title": str,
             "questions": [
                 {
-                    "question_id": str (UUID),
+                    "question_id": str (stable UUID),
                     "type": str (multichoice/truefalse/shortanswer/numerical/etc.),
                     "prompt": str,
                     "points": float,
@@ -67,6 +66,14 @@ def parse_problem(problem_xml: str, problem_url_name: str) -> dict[str, Any]:
     questions.extend(_parse_formula_responses(root))
     questions.extend(_parse_code_responses(root))
     questions.extend(_parse_custom_responses(root))
+
+    for index, question in enumerate(questions):
+        question["question_id"] = stable_id(
+            "source-question",
+            problem_url_name,
+            index,
+            question.get("type", "unknown"),
+        )
 
     return {
         "assessment_title": display_name,
@@ -106,7 +113,6 @@ def _parse_multiple_choice_responses(root: ET.Element) -> list[dict[str, Any]]:
 
         questions.append(
             {
-                "question_id": str(uuid.uuid4()),
                 "type": q_type,
                 "prompt": prompt,
                 "points": 1.0,
@@ -158,7 +164,6 @@ def _parse_choice_responses(root: ET.Element) -> list[dict[str, Any]]:
         if answer_options:
             questions.append(
                 {
-                    "question_id": str(uuid.uuid4()),
                     "type": q_type,
                     "prompt": prompt,
                     "points": 1.0,
@@ -199,7 +204,6 @@ def _parse_string_responses(root: ET.Element) -> list[dict[str, Any]]:
 
         questions.append(
             {
-                "question_id": str(uuid.uuid4()),
                 "type": "shortanswer",
                 "prompt": prompt,
                 "points": points,
@@ -225,7 +229,6 @@ def _parse_text_inputs(root: ET.Element) -> list[dict[str, Any]]:
 
         questions.append(
             {
-                "question_id": str(uuid.uuid4()),
                 "type": "shortanswer",
                 "prompt": prompt,
                 "points": 1.0,
@@ -253,7 +256,6 @@ def _parse_numerical_inputs(root: ET.Element) -> list[dict[str, Any]]:
 
         questions.append(
             {
-                "question_id": str(uuid.uuid4()),
                 "type": "numerical",
                 "prompt": prompt,
                 "points": 1.0,
@@ -271,7 +273,6 @@ def _parse_formula_responses(root: ET.Element) -> list[dict[str, Any]]:
     for _ in root.findall(".//formularesponse"):
         questions.append(
             {
-                "question_id": str(uuid.uuid4()),
                 "type": "formula",
                 "prompt": "Formula response (not fully converted)",
                 "points": 1.0,
@@ -287,7 +288,6 @@ def _parse_code_responses(root: ET.Element) -> list[dict[str, Any]]:
     for _ in root.findall(".//coderesponse"):
         questions.append(
             {
-                "question_id": str(uuid.uuid4()),
                 "type": "code",
                 "prompt": "Code response (not fully converted)",
                 "points": 1.0,
@@ -303,7 +303,6 @@ def _parse_custom_responses(root: ET.Element) -> list[dict[str, Any]]:
     for _ in root.findall(".//customresponse"):
         questions.append(
             {
-                "question_id": str(uuid.uuid4()),
                 "type": "custom",
                 "prompt": "Custom response (not fully converted)",
                 "points": 1.0,

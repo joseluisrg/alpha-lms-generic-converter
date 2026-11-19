@@ -1,0 +1,209 @@
+{
+  "case_id": "openedx/edge-cases",
+  "course": {
+    "answer_options": [],
+    "assessments": [],
+    "assets": [],
+    "content_nodes": [
+      {
+        "assessment_id": null,
+        "children": [
+          {
+            "assessment_id": null,
+            "children": [
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "video"
+                    },
+                    "node_id": "bf875cf7-09bf-522c-a54b-6ea6118be306",
+                    "node_type": "video",
+                    "parent_id": "4875485b-caff-5019-8f80-b4d608835189",
+                    "position": 0,
+                    "raw_fragment_ids": [
+                      "2b387774-5a43-5ba2-ba7a-05ee453d0fe4"
+                    ],
+                    "title": "No Source Video"
+                  },
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {},
+                    "node_id": "5f1995e3-e883-591d-9a27-472ef1434caa",
+                    "node_type": "problem",
+                    "parent_id": "4875485b-caff-5019-8f80-b4d608835189",
+                    "position": 1,
+                    "raw_fragment_ids": [],
+                    "title": "Missing Problem"
+                  },
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "Inline peer review prompt.",
+                      "inline_xml": "<openassessment url_name=\"ora-inline\" display_name=\"Inline ORA\">\n    <prompt>\n      <description>Inline peer review prompt.</description>\n    </prompt>\n  </openassessment>\n  "
+                    },
+                    "node_id": "74846934-3170-512a-b15c-425520b6f3bb",
+                    "node_type": "openassessment",
+                    "parent_id": "4875485b-caff-5019-8f80-b4d608835189",
+                    "position": 2,
+                    "raw_fragment_ids": [],
+                    "title": "Inline ORA"
+                  },
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {},
+                    "node_id": "57616595-00f5-538a-9293-f4f5058acfe6",
+                    "node_type": "html",
+                    "parent_id": "4875485b-caff-5019-8f80-b4d608835189",
+                    "position": 3,
+                    "raw_fragment_ids": [],
+                    "title": "Missing HTML"
+                  }
+                ],
+                "metadata": {
+                  "source_url_name": "vert1"
+                },
+                "node_id": "4875485b-caff-5019-8f80-b4d608835189",
+                "node_type": "vertical",
+                "parent_id": "8b7a9225-ee76-59a2-bd7b-7f6c1e0a0cc6",
+                "position": 0,
+                "raw_fragment_ids": [
+                  "7ebf67c0-b85f-5dfd-a802-f1f1ea628447"
+                ],
+                "title": "Edge Vertical"
+              }
+            ],
+            "metadata": {
+              "source_url_name": "seq1"
+            },
+            "node_id": "8b7a9225-ee76-59a2-bd7b-7f6c1e0a0cc6",
+            "node_type": "sequential",
+            "parent_id": "b41dceb0-406c-54bc-9a36-ef0811ef6432",
+            "position": 0,
+            "raw_fragment_ids": [
+              "dd5e323f-cbff-5c81-9a42-ca6eff7008cb"
+            ],
+            "title": "Edge Sequential"
+          }
+        ],
+        "metadata": {
+          "source_url_name": "ch1"
+        },
+        "node_id": "b41dceb0-406c-54bc-9a36-ef0811ef6432",
+        "node_type": "chapter",
+        "parent_id": null,
+        "position": 0,
+        "raw_fragment_ids": [
+          "30a8c8b0-ef47-5862-9abd-3e8ea20885e1"
+        ],
+        "title": "Edge Chapter"
+      }
+    ],
+    "course_id": "c968c759-1122-519d-b218-d8e71b0aac88",
+    "lti_links": [],
+    "mapping_notes": [
+      {
+        "code": "PROBLEM_NO_ASSESSMENT",
+        "fallback_used": true,
+        "message": "1 problem component(s) have no assessment linked. They will be converted as placeholders.",
+        "note_id": "2962b320-50c8-5705-b1f2-2705d9ed2004",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": null
+      },
+      {
+        "code": "VIDEO_NO_SOURCE",
+        "fallback_used": true,
+        "message": "1/1 video(s) have no source (YouTube ID or asset). They will be converted as placeholders.",
+        "note_id": "f5f88142-f052-5e7c-a324-8346469ee723",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": null
+      },
+      {
+        "code": "MIGRATION_SUMMARY",
+        "fallback_used": false,
+        "message": "Course: Synthetic Edge Case Course | Chapters: 1 | Assessments: 0 | Questions: 0 | Assets: 0 | Warnings: 2 | Errors: 0",
+        "note_id": "274a648a-6ebb-5577-8c12-a86451af838a",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": null
+      }
+    ],
+    "metadata": {
+      "course_code": "EDGE101",
+      "org": "ExampleOrg",
+      "schema_version": 2,
+      "source_key": "ExampleOrg:EDGE101:course1"
+    },
+    "questions": [],
+    "raw_fragments": [
+      {
+        "checksum": "9fbd47e49eb26de62e9854357b0a0ef03d4068dedd72d7ebd078d38148e580a2",
+        "fragment_id": "9d558297-0ecf-5325-b452-683f6932dfff",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "course/course1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "f4aca38746a459b4480cffbd39016fb76fcc54f40c9b31d690a3822bf580d458",
+        "fragment_id": "30a8c8b0-ef47-5862-9abd-3e8ea20885e1",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "chapter/ch1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "f07af317522db8354d2e4ff0fdff2d3eb6341d8586f2e8b6cf9ae3c07bd6d6fc",
+        "fragment_id": "dd5e323f-cbff-5c81-9a42-ca6eff7008cb",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "sequential/seq1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "66218eacd691a045d9fe997a1704559a25233a692a7862b6a30d44a3c0027261",
+        "fragment_id": "7ebf67c0-b85f-5dfd-a802-f1f1ea628447",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "vertical/vert1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "6527c9cf1464b0389e9124ccb6dd35cf3d199712e019caae4af153781c8d6ee7",
+        "fragment_id": "2b387774-5a43-5ba2-ba7a-05ee453d0fe4",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "video/vid-nosource.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      }
+    ],
+    "schema_version": 2,
+    "source_system": "openedx",
+    "title": "Synthetic Edge Case Course"
+  },
+  "snapshot_version": 1,
+  "source": "openedx"
+}

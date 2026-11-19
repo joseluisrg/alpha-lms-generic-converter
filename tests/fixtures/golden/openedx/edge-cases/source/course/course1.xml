@@ -1,0 +1,4 @@
+<course display_name="Synthetic Edge Case Course">
+  <chapter url_name="missing-chapter" />
+  <chapter url_name="ch1" />
+</course>

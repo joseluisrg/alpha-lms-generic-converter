@@ -10,10 +10,13 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 
 - Database schema versioning via `PRAGMA user_version`, one-time startup migrations for legacy databases, and repository reads that no longer execute DDL.
 - Configurable retention cleanup for expired job rows, extracted paths, outputs, and upload sessions, with dry-run support and a `cleanup` CLI command.
+- Golden migration corpus with synthetic Open edX and Moodle source trees, canonical IR/report/export snapshots, frozen binary contracts, malformed and malicious inputs, feature-coverage enforcement, fixture hygiene checks, and `scripts/update_golden.py`.
+- Stable source question identifiers for Open edX and Moodle questions, removing random UUIDs from parser output.
 
 ### Changed
 
 - Updated the optional UI stack to Streamlit 1.67 and patched transitive dependencies; `pip-audit` is clean.
+- Open edX exports use a stable identifier for synthetic open-assessment prompt HTML, removing a source of nondeterminism.
 
 ## [0.1.0a1] - 2026-11-18
 

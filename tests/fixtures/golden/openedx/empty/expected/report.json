@@ -1,0 +1,45 @@
+{
+  "case_id": "openedx/empty",
+  "report": {
+    "answer_options": 0,
+    "assessments": 0,
+    "assets": [],
+    "components": {
+      "chapters": 0,
+      "html": 0,
+      "problems": 0,
+      "sequentials": 0,
+      "verticals": 0,
+      "videos": 0
+    },
+    "content_nodes": 0,
+    "course_id": "4180483f-1785-57b6-bb00-446a1d1383c2",
+    "course_title": "Empty Synthetic Course",
+    "created_at": "1970-01-01T00:00:00Z",
+    "error": null,
+    "integrity_errors": [],
+    "job_id": "golden",
+    "output_path": null,
+    "questions": 0,
+    "schema_version": 2,
+    "source_type": "openedx",
+    "status": "validated",
+    "target_type": null,
+    "total_nodes": 0,
+    "unsupported_features": [],
+    "updated_at": "1970-01-01T00:00:00Z",
+    "validation": [
+      {
+        "code": "EMPTY_COURSE",
+        "fallback_used": true,
+        "message": "Course has no content nodes (chapters/sequentials/verticals). Migration will produce an empty export.",
+        "note_id": "9d579416-d152-5efc-913a-8f2c581b79a4",
+        "severity": "error",
+        "source_fragment_id": null,
+        "target_ref": null
+      }
+    ]
+  },
+  "snapshot_version": 1,
+  "target": null
+}

@@ -1,0 +1,5 @@
+<vertical display_name="Legacy and Assets">
+  <html url_name="html2" display_name="Nested Image" />
+  <problem url_name="prob2" display_name="Legacy Check" />
+  <unknown url_name="mystery" display_name="Mystery Block" />
+</vertical>

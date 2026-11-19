@@ -20,6 +20,7 @@ from typing import Any
 
 from core.archive_utils import resolve_under
 from core.config import get_settings
+from core.identity import stable_id
 from domain.entities import (
     AnswerOption,
     Assessment,
@@ -448,7 +449,7 @@ class OpenEdxTargetAdapter:
                 # First, add an HTML component to display the prompt text
                 if comp.metadata.get("content_html"):
                     html_prompt = ContentNode(
-                        node_id=str(uuid.uuid4()),
+                        node_id=stable_id("node", comp.node_id, "openassessment-prompt"),
                         node_type=NodeType.HTML,
                         title="Workshop Description",
                         parent_id=node.node_id,

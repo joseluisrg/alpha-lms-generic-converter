@@ -1,0 +1,923 @@
+{
+  "case_id": "openedx/core",
+  "course": {
+    "answer_options": [
+      {
+        "is_correct": true,
+        "option_id": "7e456fd1-c51a-5020-a674-de28d439ce9b",
+        "question_id": "840fae2d-db13-51b2-b606-9947339625aa",
+        "text": "Alpha"
+      },
+      {
+        "is_correct": false,
+        "option_id": "0ad03b01-b297-5453-91b4-9d344795ef6e",
+        "question_id": "840fae2d-db13-51b2-b606-9947339625aa",
+        "text": "Beta"
+      },
+      {
+        "is_correct": false,
+        "option_id": "4a45102b-c3a0-5096-8a2e-493ad5655ed2",
+        "question_id": "51243747-e934-537b-b5d3-f45e460d85d5",
+        "text": "True"
+      },
+      {
+        "is_correct": true,
+        "option_id": "38ceab20-93e8-5a4a-906d-39221663e1c9",
+        "question_id": "51243747-e934-537b-b5d3-f45e460d85d5",
+        "text": "False"
+      },
+      {
+        "is_correct": true,
+        "option_id": "a658c984-677e-50a5-9130-34e28b07a2b3",
+        "question_id": "862bd667-9ff2-54e1-aef5-5ebd70eb1963",
+        "text": "One"
+      },
+      {
+        "is_correct": false,
+        "option_id": "f33cf049-ae7d-5d42-9235-d06f00476dfe",
+        "question_id": "862bd667-9ff2-54e1-aef5-5ebd70eb1963",
+        "text": "Two"
+      },
+      {
+        "is_correct": true,
+        "option_id": "20d72565-bd81-56ad-aacd-d076592aa8b8",
+        "question_id": "78acaa3c-9b8f-509e-a80a-686212d3b37e",
+        "text": "Red"
+      },
+      {
+        "is_correct": true,
+        "option_id": "712d2db4-881b-506c-a247-d26a26793002",
+        "question_id": "78acaa3c-9b8f-509e-a80a-686212d3b37e",
+        "text": "Blue"
+      },
+      {
+        "is_correct": false,
+        "option_id": "14f7aad6-2085-5503-83a7-a6b799747225",
+        "question_id": "78acaa3c-9b8f-509e-a80a-686212d3b37e",
+        "text": "Green"
+      }
+    ],
+    "assessments": [
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "assessment_type": "quiz",
+        "course_id": "70560d27-f742-5044-bf24-4577f8c52043",
+        "max_score": 12.0,
+        "metadata": {
+          "original_type": "problem",
+          "problem_url_name": "prob1"
+        },
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ],
+        "title": "Knowledge Check"
+      },
+      {
+        "assessment_id": "1c0e7920-0bda-55d3-a8cd-082231e14589",
+        "assessment_type": "quiz",
+        "course_id": "70560d27-f742-5044-bf24-4577f8c52043",
+        "max_score": 1.0,
+        "metadata": {
+          "original_type": "problem",
+          "problem_url_name": "prob2"
+        },
+        "raw_fragment_ids": [
+          "fba64226-30a9-559f-b245-4b5b31bb1164"
+        ],
+        "title": "Legacy Check"
+      }
+    ],
+    "assets": [
+      {
+        "asset_id": "93f6fb2d-6249-548f-8ecc-1ee4837d5a41",
+        "checksum": "6b88c1c2a48de8f6868943aa598955caaf60e448dd998508ca105ae3e36b1981",
+        "course_id": "70560d27-f742-5044-bf24-4577f8c52043",
+        "metadata": {
+          "is_scorm": false,
+          "is_video": false,
+          "original_filename": "handout.pdf"
+        },
+        "mime_type": "application/pdf",
+        "path": "static/handout.pdf",
+        "raw_fragment_id": null
+      },
+      {
+        "asset_id": "57d3d54e-6cb5-5094-b82f-e1209633a97b",
+        "checksum": "9d714b0153c5204b5503770a41d5800ed8ba4e24da1a9429b6654397075031b6",
+        "course_id": "70560d27-f742-5044-bf24-4577f8c52043",
+        "metadata": {
+          "is_scorm": false,
+          "is_video": false,
+          "original_filename": "diagram.png"
+        },
+        "mime_type": "image/png",
+        "path": "static/images/diagram.png",
+        "raw_fragment_id": null
+      },
+      {
+        "asset_id": "9610f828-b950-57fb-87d1-9f833df50e6a",
+        "checksum": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
+        "course_id": "70560d27-f742-5044-bf24-4577f8c52043",
+        "metadata": {
+          "is_scorm": true,
+          "is_video": false,
+          "original_filename": "package.zip"
+        },
+        "mime_type": "application/zip",
+        "path": "static/scorm/package.zip",
+        "raw_fragment_id": null
+      },
+      {
+        "asset_id": "69f7a14a-7dd9-53dd-98e5-4f05ff187802",
+        "checksum": "222bab81f4fc738e584d6003e6cc31f150b932c967ac66d19916d54723626405",
+        "course_id": "70560d27-f742-5044-bf24-4577f8c52043",
+        "metadata": {
+          "is_scorm": false,
+          "is_video": true,
+          "original_filename": "clip.mp4"
+        },
+        "mime_type": "video/mp4",
+        "path": "static/videos/clip.mp4",
+        "raw_fragment_id": null
+      }
+    ],
+    "content_nodes": [
+      {
+        "assessment_id": null,
+        "children": [
+          {
+            "assessment_id": null,
+            "children": [
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Hello from the synthetic Open edX course.</p>\n"
+                    },
+                    "node_id": "f836c768-e55f-5d62-a517-126c3af6514f",
+                    "node_type": "html",
+                    "parent_id": "ffd6af72-4fbc-5d29-a5f9-af7110f0f4c7",
+                    "position": 0,
+                    "raw_fragment_ids": [
+                      "4eda77c0-ba1d-5680-be9f-9789a45d6185"
+                    ],
+                    "title": "Welcome"
+                  },
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "youtube",
+                      "externalurl": "https://www.youtube.com/watch?v=abc12345678",
+                      "youtube_id": "abc12345678"
+                    },
+                    "node_id": "1fcfb7cb-8dab-51f3-9852-a4afb0fca251",
+                    "node_type": "video",
+                    "parent_id": "ffd6af72-4fbc-5d29-a5f9-af7110f0f4c7",
+                    "position": 1,
+                    "raw_fragment_ids": [
+                      "6f918c5b-8466-5a6a-aac4-24c0d97a3a5f"
+                    ],
+                    "title": "Lecture"
+                  },
+                  {
+                    "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+                    "children": [],
+                    "metadata": {},
+                    "node_id": "edb42974-ee0d-5499-99b6-75b1347e5f44",
+                    "node_type": "problem",
+                    "parent_id": "ffd6af72-4fbc-5d29-a5f9-af7110f0f4c7",
+                    "position": 2,
+                    "raw_fragment_ids": [
+                      "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+                    ],
+                    "title": "Knowledge Check"
+                  },
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "Discuss the synthetic lecture."
+                    },
+                    "node_id": "cc312bb8-351c-5711-9386-e731c09714e2",
+                    "node_type": "forum",
+                    "parent_id": "ffd6af72-4fbc-5d29-a5f9-af7110f0f4c7",
+                    "position": 3,
+                    "raw_fragment_ids": [
+                      "f58ea8dd-5f85-5d07-9a6e-3a49bfa160a0"
+                    ],
+                    "title": "Forum"
+                  }
+                ],
+                "metadata": {
+                  "source_url_name": "vert1"
+                },
+                "node_id": "ffd6af72-4fbc-5d29-a5f9-af7110f0f4c7",
+                "node_type": "vertical",
+                "parent_id": "a311117d-03e3-52da-a39d-9c0194960db7",
+                "position": 0,
+                "raw_fragment_ids": [
+                  "7ebf67c0-b85f-5dfd-a802-f1f1ea628447"
+                ],
+                "title": "Content and Quiz"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "Write a synthetic essay.",
+                      "inline_xml": "<openassessment url_name=\"ora1\" display_name=\"Peer Review\" />\n  "
+                    },
+                    "node_id": "55bbacfd-7b58-5173-9622-3e4669f47d71",
+                    "node_type": "openassessment",
+                    "parent_id": "04f4d660-a844-595f-ace2-c7cbf672a85f",
+                    "position": 0,
+                    "raw_fragment_ids": [
+                      "d144a84f-ba13-54a3-b041-3d474f620276"
+                    ],
+                    "title": "Peer Review"
+                  },
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {},
+                    "node_id": "bd46f30c-dbe9-5760-b4bb-303d5356ccb2",
+                    "node_type": "lti",
+                    "parent_id": "04f4d660-a844-595f-ace2-c7cbf672a85f",
+                    "position": 1,
+                    "raw_fragment_ids": [
+                      "0e7ad34a-a08b-56b2-9c33-0ec263724649"
+                    ],
+                    "title": "External Tool"
+                  },
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "asset_id": "9610f828-b950-57fb-87d1-9f833df50e6a",
+                      "asset_path": "static/scorm/package.zip",
+                      "scorm_settings": {
+                        "maxgrade": "10",
+                        "version": "SCORM_1.2"
+                      }
+                    },
+                    "node_id": "0744fd57-7889-5974-bc11-369c863acd55",
+                    "node_type": "scorm",
+                    "parent_id": "04f4d660-a844-595f-ace2-c7cbf672a85f",
+                    "position": 2,
+                    "raw_fragment_ids": [
+                      "07729778-23a0-5b36-898a-66b85d1ae65f"
+                    ],
+                    "title": "SCORM Package"
+                  }
+                ],
+                "metadata": {
+                  "source_url_name": "vert2"
+                },
+                "node_id": "04f4d660-a844-595f-ace2-c7cbf672a85f",
+                "node_type": "vertical",
+                "parent_id": "a311117d-03e3-52da-a39d-9c0194960db7",
+                "position": 1,
+                "raw_fragment_ids": [
+                  "0eee06f8-af89-5f8e-aac5-43a8fac30752"
+                ],
+                "title": "Advanced Content"
+              }
+            ],
+            "metadata": {
+              "source_url_name": "seq1"
+            },
+            "node_id": "a311117d-03e3-52da-a39d-9c0194960db7",
+            "node_type": "sequential",
+            "parent_id": "78dcf7d8-72b9-5be2-b2d8-923345226b5e",
+            "position": 0,
+            "raw_fragment_ids": [
+              "dd5e323f-cbff-5c81-9a42-ca6eff7008cb"
+            ],
+            "title": "Content and Quiz"
+          },
+          {
+            "assessment_id": null,
+            "children": [
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Image: <img src=\"/static/images/diagram.png\" alt=\"diagram\" /></p>\n"
+                    },
+                    "node_id": "af31194f-3af0-5511-96e6-5c667215fa57",
+                    "node_type": "html",
+                    "parent_id": "5b7d7566-1ea4-5d75-a732-6a6a91f73893",
+                    "position": 0,
+                    "raw_fragment_ids": [
+                      "2c870d23-f463-55f2-9c2a-cf633b6fb00b"
+                    ],
+                    "title": "Nested Image"
+                  },
+                  {
+                    "assessment_id": "1c0e7920-0bda-55d3-a8cd-082231e14589",
+                    "children": [],
+                    "metadata": {},
+                    "node_id": "f2330702-bca6-5c9e-aade-d9e18cf23026",
+                    "node_type": "problem",
+                    "parent_id": "5b7d7566-1ea4-5d75-a732-6a6a91f73893",
+                    "position": 1,
+                    "raw_fragment_ids": [
+                      "fba64226-30a9-559f-b245-4b5b31bb1164"
+                    ],
+                    "title": "Legacy Check"
+                  },
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {},
+                    "node_id": "36e9a505-29df-5ce1-aa6f-380fbfde25f9",
+                    "node_type": "unknown",
+                    "parent_id": "5b7d7566-1ea4-5d75-a732-6a6a91f73893",
+                    "position": 2,
+                    "raw_fragment_ids": [],
+                    "title": "Mystery Block"
+                  }
+                ],
+                "metadata": {
+                  "source_url_name": "vert3"
+                },
+                "node_id": "5b7d7566-1ea4-5d75-a732-6a6a91f73893",
+                "node_type": "vertical",
+                "parent_id": "71245c27-e4db-50cb-ae06-26dd40cfb7b7",
+                "position": 0,
+                "raw_fragment_ids": [
+                  "50fdfde5-76e7-5cb6-a649-1700408ca669"
+                ],
+                "title": "Legacy and Assets"
+              }
+            ],
+            "metadata": {
+              "source_url_name": "seq2"
+            },
+            "node_id": "71245c27-e4db-50cb-ae06-26dd40cfb7b7",
+            "node_type": "sequential",
+            "parent_id": "78dcf7d8-72b9-5be2-b2d8-923345226b5e",
+            "position": 1,
+            "raw_fragment_ids": [
+              "2b225bdb-4932-50b1-a678-99738246e739"
+            ],
+            "title": "Legacy and Assets"
+          }
+        ],
+        "metadata": {
+          "source_url_name": "ch1"
+        },
+        "node_id": "78dcf7d8-72b9-5be2-b2d8-923345226b5e",
+        "node_type": "chapter",
+        "parent_id": null,
+        "position": 0,
+        "raw_fragment_ids": [
+          "30a8c8b0-ef47-5862-9abd-3e8ea20885e1"
+        ],
+        "title": "Week 1"
+      },
+      {
+        "assessment_id": null,
+        "children": [
+          {
+            "assessment_id": null,
+            "children": [
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "video",
+                      "asset_id": "69f7a14a-7dd9-53dd-98e5-4f05ff187802",
+                      "asset_path": "static/videos/clip.mp4",
+                      "video_url": "/static/videos/clip.mp4"
+                    },
+                    "node_id": "a7f2a0e9-d67a-53a3-9a74-5c33f6d5faf8",
+                    "node_type": "video",
+                    "parent_id": "f1bd578f-a493-59b0-9385-323eceeaaffa",
+                    "position": 0,
+                    "raw_fragment_ids": [
+                      "90796c28-3b9a-5661-886a-60a8f923d6ec"
+                    ],
+                    "title": "Local Video"
+                  }
+                ],
+                "metadata": {
+                  "source_url_name": "vert4"
+                },
+                "node_id": "f1bd578f-a493-59b0-9385-323eceeaaffa",
+                "node_type": "vertical",
+                "parent_id": "21c94df2-cce9-5b9d-bdf6-d15f0865ced1",
+                "position": 0,
+                "raw_fragment_ids": [
+                  "b4f80b30-2504-5412-8eee-a2d281022c27"
+                ],
+                "title": "Video Asset"
+              }
+            ],
+            "metadata": {
+              "source_url_name": "seq3"
+            },
+            "node_id": "21c94df2-cce9-5b9d-bdf6-d15f0865ced1",
+            "node_type": "sequential",
+            "parent_id": "4bc14741-dce3-5019-9dfd-ac59f6a1092a",
+            "position": 0,
+            "raw_fragment_ids": [
+              "7e8171c9-ddb8-520f-9283-e40c2f599d46"
+            ],
+            "title": "Video Asset"
+          }
+        ],
+        "metadata": {
+          "source_url_name": "ch2"
+        },
+        "node_id": "4bc14741-dce3-5019-9dfd-ac59f6a1092a",
+        "node_type": "chapter",
+        "parent_id": null,
+        "position": 1,
+        "raw_fragment_ids": [
+          "2751d677-dce6-56f6-9426-bb2db2df0876"
+        ],
+        "title": "Week 2"
+      }
+    ],
+    "course_id": "70560d27-f742-5044-bf24-4577f8c52043",
+    "lti_links": [],
+    "mapping_notes": [
+      {
+        "code": "UNSUPPORTED_NODES",
+        "fallback_used": true,
+        "message": "Found 1 nodes with type 'unknown'. These will be converted as placeholders.",
+        "note_id": "c0d6e290-d397-5739-b98e-e970e231b65a",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": "moodle"
+      },
+      {
+        "code": "TARGET_UNSUPPORTED_NODES",
+        "fallback_used": true,
+        "message": "1 node(s) are not natively supported by moodle and will be mapped to a fallback.",
+        "note_id": "4e14b082-39b2-56e2-a6af-9e8af6b0db18",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": "moodle"
+      },
+      {
+        "code": "VIDEO_ASSETS_FOUND",
+        "fallback_used": false,
+        "message": "Found 1 video file(s) in source. These will be copied to the target course.",
+        "note_id": "2c2a66b1-0222-568c-a383-008e2d0849c1",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "moodle"
+      },
+      {
+        "code": "UNSUPPORTED_QUESTION_TYPE",
+        "fallback_used": true,
+        "message": "Found 3 question(s) with unsupported types: ['code', 'custom', 'formula']. They will be converted as placeholders.",
+        "note_id": "4284f5e1-ed83-509a-bbff-6d251e3933fe",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": "moodle"
+      },
+      {
+        "code": "MIGRATION_SUMMARY",
+        "fallback_used": false,
+        "message": "Course: Synthetic Open edX Course | Chapters: 2 | Assessments: 2 | Questions: 12 | Assets: 4 | Warnings: 3 | Errors: 0 | Target: moodle",
+        "note_id": "d8780436-c3f0-5d29-8e0e-b7e7b8cb6147",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "moodle"
+      }
+    ],
+    "metadata": {
+      "course_code": "EX101",
+      "org": "ExampleOrg",
+      "schema_version": 2,
+      "source_key": "ExampleOrg:EX101:course1"
+    },
+    "questions": [
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "correct_answers": [
+            "Alpha"
+          ],
+          "source_question_id": "333cc626-6a43-58eb-b1c0-99d8bbe91ddb"
+        },
+        "points": 1.0,
+        "prompt_text": "Pick one",
+        "question_id": "840fae2d-db13-51b2-b606-9947339625aa",
+        "question_type": "multichoice",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "correct_answers": [
+            "False"
+          ],
+          "source_question_id": "5a6f06d7-d2c7-5126-89c1-78853374ed3b"
+        },
+        "points": 1.0,
+        "prompt_text": "True or false",
+        "question_id": "51243747-e934-537b-b5d3-f45e460d85d5",
+        "question_type": "truefalse",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "correct_answers": [
+            "One"
+          ],
+          "source_question_id": "b2a45372-859b-5e24-9858-8decaa24e943"
+        },
+        "points": 1.0,
+        "prompt_text": "Pick one radio",
+        "question_id": "862bd667-9ff2-54e1-aef5-5ebd70eb1963",
+        "question_type": "multichoice",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "correct_answers": [
+            "Red",
+            "Blue"
+          ],
+          "source_question_id": "ee09f6df-1ce0-5a61-a6ca-1253c4a943f5"
+        },
+        "points": 1.0,
+        "prompt_text": "Pick many",
+        "question_id": "78acaa3c-9b8f-509e-a80a-686212d3b37e",
+        "question_type": "multiselect",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "correct_answers": [
+            "42",
+            "forty-two",
+            "42.0"
+          ],
+          "source_question_id": "d5e4cd79-6c27-598b-8467-1ab50873cf0b"
+        },
+        "points": 2.0,
+        "prompt_text": "Short answer",
+        "question_id": "8de39dbe-290a-5878-8477-f506842066bc",
+        "question_type": "shortanswer",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "correct_answers": [
+            "legacy"
+          ],
+          "source_question_id": "3d9b335c-8732-5087-90d2-7067b4cdad44"
+        },
+        "points": 1.0,
+        "prompt_text": "Legacy text input",
+        "question_id": "3f32c416-b36e-55d3-9afe-c9da7d05ec33",
+        "question_type": "shortanswer",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "correct_answer": "3.14",
+          "source_question_id": "a43d90d5-15e4-5781-8859-da013758fb37"
+        },
+        "points": 1.0,
+        "prompt_text": "Numerical",
+        "question_id": "05d837f6-bedd-5ad6-859e-2eff82cf6683",
+        "question_type": "numerical",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "correct_answer": "2.718",
+          "source_question_id": "9241b7a2-bd10-5838-97e4-3420edc64b70"
+        },
+        "points": 1.0,
+        "prompt_text": "Legacy numerical input",
+        "question_id": "5f073864-59dc-5be6-bee5-ed1760622ca0",
+        "question_type": "numerical",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "source_question_id": "5a59c969-7fea-5c0e-9fa6-1d97a8ce3b14"
+        },
+        "points": 1.0,
+        "prompt_text": "Formula response (not fully converted)",
+        "question_id": "be01f309-7377-565c-a934-27bd33a21c55",
+        "question_type": "formula",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "source_question_id": "27bb777a-0338-582e-a528-6f74e65ca807"
+        },
+        "points": 1.0,
+        "prompt_text": "Code response (not fully converted)",
+        "question_id": "60af66ba-3761-55e9-86de-0e54237593b8",
+        "question_type": "code",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "2675bbcf-5189-5e3b-b72c-a288c21e0fa2",
+        "metadata": {
+          "source_question_id": "34df5ef9-1f11-5fad-acf8-7b74fb6232c5"
+        },
+        "points": 1.0,
+        "prompt_text": "Custom response (not fully converted)",
+        "question_id": "27915719-5269-56bd-8d03-839aad8df8c3",
+        "question_type": "custom",
+        "raw_fragment_ids": [
+          "6981635d-1d9d-5bf9-91e0-18471aac1b1d"
+        ]
+      },
+      {
+        "assessment_id": "1c0e7920-0bda-55d3-a8cd-082231e14589",
+        "metadata": {
+          "correct_answers": [
+            "yes"
+          ],
+          "source_question_id": "e0aa516a-de41-58f6-8f6d-a68a45659a52"
+        },
+        "points": 1.0,
+        "prompt_text": "Say yes",
+        "question_id": "45263d7d-8bba-5f23-917a-8b7179a4b11d",
+        "question_type": "shortanswer",
+        "raw_fragment_ids": [
+          "fba64226-30a9-559f-b245-4b5b31bb1164"
+        ]
+      }
+    ],
+    "raw_fragments": [
+      {
+        "checksum": "b4098d9b777d64ec8561bea4bb86f2430a0d61cb27860d45d55a9a410e812f86",
+        "fragment_id": "9d558297-0ecf-5325-b452-683f6932dfff",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "course/course1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "ee4ab6dc65c0d1fb0477c339113801ee6cba9ad60d06ad6c19baa350b647371f",
+        "fragment_id": "30a8c8b0-ef47-5862-9abd-3e8ea20885e1",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "chapter/ch1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "f9fd40b6c30d3bff22ebe37635453d4fba5fe8b32b5ea7e4181c6428b5bf7315",
+        "fragment_id": "dd5e323f-cbff-5c81-9a42-ca6eff7008cb",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "sequential/seq1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "482f4f8f3209f08bfa446c19be812545a13e33e5a2d429c4bac58eab500b579b",
+        "fragment_id": "7ebf67c0-b85f-5dfd-a802-f1f1ea628447",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "vertical/vert1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "c548dc48f69619d4f7c87c6f24cbff3ba77fa6da4d6c2e459d6cb869314a5e89",
+        "fragment_id": "4eda77c0-ba1d-5680-be9f-9789a45d6185",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "html/html1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "2ad67f41ea1c124bc388f7b515b6b9ffaad06a4f826f66259108c861340214c1",
+        "fragment_id": "6f918c5b-8466-5a6a-aac4-24c0d97a3a5f",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "video/vid1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "a57b983e9964bef5af5c891c924d924bb6bb95cae84c6dcdbad1999070c3c0a6",
+        "fragment_id": "6981635d-1d9d-5bf9-91e0-18471aac1b1d",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "problem/prob1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "65ede6de8102516d88f3ff1f249c30ddeb8c7d046004fddfb51e668f50efcd44",
+        "fragment_id": "f58ea8dd-5f85-5d07-9a6e-3a49bfa160a0",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "discussion/disc1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "f760a7819c2dd2d8c25b17aa50488240c40be69938dec42ccd249e8ca60e09f1",
+        "fragment_id": "0eee06f8-af89-5f8e-aac5-43a8fac30752",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "vertical/vert2.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "8e699e960d91c761b3c13aecf5de52f0981176de2f77ea29d9499eec9d76f7b6",
+        "fragment_id": "d144a84f-ba13-54a3-b041-3d474f620276",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "openassessment/ora1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "9b5fe1ca2ffd2b4b7ee68d7e6a87632e947b8f84c1e81482221bdd80f951e597",
+        "fragment_id": "0e7ad34a-a08b-56b2-9c33-0ec263724649",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "lti/lti1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "45b78814ce54756f1d791bc535a9455a374c16d55e897d855a7bf38ae3082d79",
+        "fragment_id": "07729778-23a0-5b36-898a-66b85d1ae65f",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "scormxblock/scorm1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "558c70bd362dbd551349d1d22399ff3c64f845a6835e7daf0096f78948873818",
+        "fragment_id": "2b225bdb-4932-50b1-a678-99738246e739",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "sequential/seq2.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "a7db7274de0d527b3430be0732b3384aff4f0e02ee96acb6de204112b72c8760",
+        "fragment_id": "50fdfde5-76e7-5cb6-a649-1700408ca669",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "vertical/vert3.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "466069a95db2507d68941f81c24bff52d59a09116d8c12ac39d580a342de59d6",
+        "fragment_id": "2c870d23-f463-55f2-9c2a-cf633b6fb00b",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "html/html2.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "dbfd60d5e273c6c148972425cc1d256ee32b5bfe15c2e2a9acd01c538e8c935a",
+        "fragment_id": "fba64226-30a9-559f-b245-4b5b31bb1164",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "problem/prob2.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "99ead31b12a409048ee74daefcfb20d9f682cc861b77721884b60ba75e1660ed",
+        "fragment_id": "2751d677-dce6-56f6-9426-bb2db2df0876",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "chapter/ch2.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "087e52d433e60f2d9d510246b69afb991b8bda3167e4cef1122660b08fab02c1",
+        "fragment_id": "7e8171c9-ddb8-520f-9283-e40c2f599d46",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "sequential/seq3.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "5776e311087171c41cc751e52b97b0d96abde17c5e705d09855dc7e7bd34eb70",
+        "fragment_id": "b4f80b30-2504-5412-8eee-a2d281022c27",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "vertical/vert4.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "faa266b2dd3b769253697a719ddf63d46961dba4c03533921fec84596143fe5b",
+        "fragment_id": "90796c28-3b9a-5661-886a-60a8f923d6ec",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "video/vid2.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      }
+    ],
+    "schema_version": 2,
+    "source_system": "openedx",
+    "title": "Synthetic Open edX Course"
+  },
+  "snapshot_version": 1,
+  "source": "openedx"
+}

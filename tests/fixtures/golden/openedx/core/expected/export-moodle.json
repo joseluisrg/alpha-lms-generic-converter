@@ -1,0 +1,5365 @@
+{
+  "case_id": "openedx/core",
+  "contents": {
+    ".ARCHIVE_INDEX": "Moodle archive file index. Count: 66\nactivities/\td\t0\t<mtime>\nactivities/forum_38/\td\t0\t<mtime>\nactivities/forum_38/forum.xml\tf\t289\t<mtime>\nactivities/forum_38/module.xml\tf\t622\t<mtime>\nactivities/label_21/\td\t0\t<mtime>\nactivities/label_21/label.xml\tf\t302\t<mtime>\nactivities/label_21/module.xml\tf\t622\t<mtime>\nactivities/label_46/\td\t0\t<mtime>\nactivities/label_46/label.xml\tf\t333\t<mtime>\nactivities/label_46/module.xml\tf\t622\t<mtime>\nactivities/label_51/\td\t0\t<mtime>\nactivities/label_51/label.xml\tf\t241\t<mtime>\nactivities/label_51/module.xml\tf\t622\t<mtime>\nactivities/quiz_25/\td\t0\t<mtime>\nactivities/quiz_25/module.xml\tf\t621\t<mtime>\nactivities/quiz_25/quiz.xml\tf\t3854\t<mtime>\nactivities/quiz_48/\td\t0\t<mtime>\nactivities/quiz_48/module.xml\tf\t621\t<mtime>\nactivities/quiz_48/quiz.xml\tf\t1052\t<mtime>\nactivities/resource_54/\td\t0\t<mtime>\nactivities/resource_54/inforef.xml\tf\t100\t<mtime>\nactivities/resource_54/module.xml\tf\t625\t<mtime>\nactivities/resource_54/resource.xml\tf\t480\t<mtime>\nactivities/scorm_44/\td\t0\t<mtime>\nactivities/scorm_44/inforef.xml\tf\t100\t<mtime>\nactivities/scorm_44/module.xml\tf\t622\t<mtime>\nactivities/scorm_44/scorm.xml\tf\t407\t<mtime>\nactivities/url_23/\td\t0\t<mtime>\nactivities/url_23/module.xml\tf\t620\t<mtime>\nactivities/url_23/url.xml\tf\t407\t<mtime>\nactivities/url_42/\td\t0\t<mtime>\nactivities/url_42/module.xml\tf\t620\t<mtime>\nactivities/url_42/url.xml\tf\t358\t<mtime>\nactivities/workshop_40/\td\t0\t<mtime>\nactivities/workshop_40/module.xml\tf\t625\t<mtime>\nactivities/workshop_40/workshop.xml\tf\t278\t<mtime>\nbadges.xml\tf\t49\t<mtime>\ncompletion.xml\tf\t60\t<mtime>\ncourse/\td\t0\t<mtime>\ncourse/course.xml\tf\t890\t<mtime>\nfiles/\td\t0\t<mtime>\nfiles/b0/\td\t0\t<mtime>\nfiles/b0/b04f3ee8f5e43fa3b162981b50bb72fe1acabb33\tf\t22\t<mtime>\nfiles/b7/\td\t0\t<mtime>\nfiles/b7/b7283a1dc0a79582a87a3c91deec02d0772c5343\tf\t21\t<mtime>\nfiles/ce/\td\t0\t<mtime>\nfiles/ce/ceb09c940b8c028d87f377f95a98dde4de774937\tf\t21\t<mtime>\nfiles/da/\td\t0\t<mtime>\nfiles/da/da39a3ee5e6b4b0d3255bfef95601890afd80709\tf\t0\t<mtime>\nfiles/ee/\td\t0\t<mtime>\nfiles/ee/eecb6cc2eed6b79b9ba2971106686d38ebcbbf99\tf\t26\t<mtime>\nfiles.xml\tf\t4133\t<mtime>\ngrade_history.xml\tf\t86\t<mtime>\ngradebook.xml\tf\t146\t<mtime>\ngroups.xml\tf\t69\t<mtime>\nmoodle_backup.log\tf\t0\t<mtime>\nmoodle_backup.xml\tf\t3986\t<mtime>\noutcomes.xml\tf\t62\t<mtime>\nquestions.xml\tf\t15357\t<mtime>\nroles.xml\tf\t59\t<mtime>\nscales.xml\tf\t60\t<mtime>\nsections/\td\t0\t<mtime>\nsections/section_20/\td\t0\t<mtime>\nsections/section_20/section.xml\tf\t291\t<mtime>\nsections/section_53/\td\t0\t<mtime>\nsections/section_53/section.xml\tf\t264\t<mtime>",
+    "activities/forum_38/forum.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "39",
+        "moduleid": "38",
+        "modulename": "forum"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "39"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Forum"
+            },
+            {
+              "tag": "intro",
+              "text": "Discuss the synthetic lecture."
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            },
+            {
+              "tag": "type",
+              "text": "general"
+            }
+          ],
+          "tag": "forum"
+        }
+      ],
+      "tag": "activity"
+    },
+    "activities/forum_38/module.xml": {
+      "attributes": {
+        "id": "38",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "forum"
+        },
+        {
+          "tag": "sectionid",
+          "text": "20"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "0"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/label_21/label.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "22",
+        "moduleid": "21",
+        "modulename": "label"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "22"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Welcome"
+            },
+            {
+              "tag": "intro",
+              "text": "<p>Hello from the synthetic Open edX course.</p>"
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            }
+          ],
+          "tag": "label"
+        }
+      ],
+      "tag": "activity"
+    },
+    "activities/label_21/module.xml": {
+      "attributes": {
+        "id": "21",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "label"
+        },
+        {
+          "tag": "sectionid",
+          "text": "20"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "0"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/label_46/label.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "47",
+        "moduleid": "46",
+        "modulename": "label"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "47"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Nested Image"
+            },
+            {
+              "tag": "intro",
+              "text": "<p>Image: <img src=\"/static/images/diagram.png\" alt=\"diagram\" /></p>"
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            }
+          ],
+          "tag": "label"
+        }
+      ],
+      "tag": "activity"
+    },
+    "activities/label_46/module.xml": {
+      "attributes": {
+        "id": "46",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "label"
+        },
+        {
+          "tag": "sectionid",
+          "text": "20"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "0"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/label_51/label.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "52",
+        "moduleid": "51",
+        "modulename": "label"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "52"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Mystery Block"
+            },
+            {
+              "tag": "intro"
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            }
+          ],
+          "tag": "label"
+        }
+      ],
+      "tag": "activity"
+    },
+    "activities/label_51/module.xml": {
+      "attributes": {
+        "id": "51",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "label"
+        },
+        {
+          "tag": "sectionid",
+          "text": "20"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "0"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/quiz_25/module.xml": {
+      "attributes": {
+        "id": "25",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "quiz"
+        },
+        {
+          "tag": "sectionid",
+          "text": "20"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "0"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/quiz_25/quiz.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "26",
+        "moduleid": "25",
+        "modulename": "quiz"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "26"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Knowledge Check"
+            },
+            {
+              "tag": "intro"
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            },
+            {
+              "tag": "timeopen",
+              "text": "0"
+            },
+            {
+              "tag": "timeclose",
+              "text": "0"
+            },
+            {
+              "tag": "timelimit",
+              "text": "0"
+            },
+            {
+              "tag": "overduehandling",
+              "text": "autoabandon"
+            },
+            {
+              "tag": "graceperiod",
+              "text": "0"
+            },
+            {
+              "tag": "preferredbehaviour",
+              "text": "deferredfeedback"
+            },
+            {
+              "tag": "attempts_number",
+              "text": "0"
+            },
+            {
+              "tag": "grademethod",
+              "text": "1"
+            },
+            {
+              "tag": "decimalpoints",
+              "text": "2"
+            },
+            {
+              "tag": "questiondecimalpoints",
+              "text": "-1"
+            },
+            {
+              "tag": "questionsperpage",
+              "text": "0"
+            },
+            {
+              "tag": "navmethod",
+              "text": "free"
+            },
+            {
+              "tag": "shuffleanswers",
+              "text": "1"
+            },
+            {
+              "tag": "sumgrades",
+              "text": "12.0"
+            },
+            {
+              "tag": "grade",
+              "text": "10.00000"
+            },
+            {
+              "children": [
+                {
+                  "attributes": {
+                    "id": "27"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "6"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                },
+                {
+                  "attributes": {
+                    "id": "28"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "2"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "7"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                },
+                {
+                  "attributes": {
+                    "id": "29"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "3"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "8"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                },
+                {
+                  "attributes": {
+                    "id": "30"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "4"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "9"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                },
+                {
+                  "attributes": {
+                    "id": "31"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "5"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "10"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "2.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                },
+                {
+                  "attributes": {
+                    "id": "32"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "6"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "11"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                },
+                {
+                  "attributes": {
+                    "id": "33"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "7"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "12"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                },
+                {
+                  "attributes": {
+                    "id": "34"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "8"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "13"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                },
+                {
+                  "attributes": {
+                    "id": "35"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "9"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "14"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                },
+                {
+                  "attributes": {
+                    "id": "36"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "10"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "15"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                },
+                {
+                  "attributes": {
+                    "id": "37"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "11"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "16"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                }
+              ],
+              "tag": "question_instances"
+            }
+          ],
+          "tag": "quiz"
+        }
+      ],
+      "tag": "activity"
+    },
+    "activities/quiz_48/module.xml": {
+      "attributes": {
+        "id": "48",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "quiz"
+        },
+        {
+          "tag": "sectionid",
+          "text": "20"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "0"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/quiz_48/quiz.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "49",
+        "moduleid": "48",
+        "modulename": "quiz"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "49"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Legacy Check"
+            },
+            {
+              "tag": "intro"
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            },
+            {
+              "tag": "timeopen",
+              "text": "0"
+            },
+            {
+              "tag": "timeclose",
+              "text": "0"
+            },
+            {
+              "tag": "timelimit",
+              "text": "0"
+            },
+            {
+              "tag": "overduehandling",
+              "text": "autoabandon"
+            },
+            {
+              "tag": "graceperiod",
+              "text": "0"
+            },
+            {
+              "tag": "preferredbehaviour",
+              "text": "deferredfeedback"
+            },
+            {
+              "tag": "attempts_number",
+              "text": "0"
+            },
+            {
+              "tag": "grademethod",
+              "text": "1"
+            },
+            {
+              "tag": "decimalpoints",
+              "text": "2"
+            },
+            {
+              "tag": "questiondecimalpoints",
+              "text": "-1"
+            },
+            {
+              "tag": "questionsperpage",
+              "text": "0"
+            },
+            {
+              "tag": "navmethod",
+              "text": "free"
+            },
+            {
+              "tag": "shuffleanswers",
+              "text": "1"
+            },
+            {
+              "tag": "sumgrades",
+              "text": "1.0"
+            },
+            {
+              "tag": "grade",
+              "text": "10.00000"
+            },
+            {
+              "children": [
+                {
+                  "attributes": {
+                    "id": "50"
+                  },
+                  "children": [
+                    {
+                      "tag": "slot",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "page",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "requireprevious",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "questionid",
+                      "text": "18"
+                    },
+                    {
+                      "tag": "questioncategoryid",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "includingsubcategories",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "tag": "maxmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question_instance"
+                }
+              ],
+              "tag": "question_instances"
+            }
+          ],
+          "tag": "quiz"
+        }
+      ],
+      "tag": "activity"
+    },
+    "activities/resource_54/inforef.xml": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "tag": "id",
+                  "text": "4"
+                }
+              ],
+              "tag": "file"
+            }
+          ],
+          "tag": "fileref"
+        }
+      ],
+      "tag": "inforef"
+    },
+    "activities/resource_54/module.xml": {
+      "attributes": {
+        "id": "54",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "resource"
+        },
+        {
+          "tag": "sectionid",
+          "text": "53"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "1"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/resource_54/resource.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "55",
+        "moduleid": "54",
+        "modulename": "resource"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "55"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Local Video"
+            },
+            {
+              "tag": "intro"
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            },
+            {
+              "tag": "tobemigrated",
+              "text": "0"
+            },
+            {
+              "tag": "legacyfiles",
+              "text": "0"
+            },
+            {
+              "tag": "legacyfileslast",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "display",
+              "text": "0"
+            },
+            {
+              "tag": "displayoptions",
+              "text": "a:1:{s:10:\"printintro\";i:1;}"
+            },
+            {
+              "tag": "filterfiles",
+              "text": "0"
+            },
+            {
+              "tag": "revision",
+              "text": "1"
+            }
+          ],
+          "tag": "resource"
+        }
+      ],
+      "tag": "activity"
+    },
+    "activities/scorm_44/inforef.xml": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "tag": "id",
+                  "text": "3"
+                }
+              ],
+              "tag": "file"
+            }
+          ],
+          "tag": "fileref"
+        }
+      ],
+      "tag": "inforef"
+    },
+    "activities/scorm_44/module.xml": {
+      "attributes": {
+        "id": "44",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "scorm"
+        },
+        {
+          "tag": "sectionid",
+          "text": "20"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "0"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/scorm_44/scorm.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "45",
+        "moduleid": "44",
+        "modulename": "scorm"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "45"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "SCORM Package"
+            },
+            {
+              "tag": "intro"
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            },
+            {
+              "tag": "scormtype",
+              "text": "local"
+            },
+            {
+              "tag": "reference"
+            },
+            {
+              "tag": "launch"
+            },
+            {
+              "tag": "skipview",
+              "text": "0"
+            },
+            {
+              "tag": "auto",
+              "text": "0"
+            },
+            {
+              "tag": "grademethod",
+              "text": "1"
+            },
+            {
+              "tag": "maxgrade",
+              "text": "10"
+            }
+          ],
+          "tag": "scorm"
+        }
+      ],
+      "tag": "activity"
+    },
+    "activities/url_23/module.xml": {
+      "attributes": {
+        "id": "23",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "url"
+        },
+        {
+          "tag": "sectionid",
+          "text": "20"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "0"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/url_23/url.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "24",
+        "moduleid": "23",
+        "modulename": "url"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "24"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Lecture"
+            },
+            {
+              "tag": "externalurl",
+              "text": "https://www.youtube.com/watch?v=abc12345678"
+            },
+            {
+              "tag": "intro"
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            },
+            {
+              "tag": "display",
+              "text": "0"
+            },
+            {
+              "tag": "displayoptions",
+              "text": "a:2:{s:10:\"printintro\";i:1;s:17:\"printintrofield\";i:1;}"
+            }
+          ],
+          "tag": "url"
+        }
+      ],
+      "tag": "activity"
+    },
+    "activities/url_42/module.xml": {
+      "attributes": {
+        "id": "42",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "url"
+        },
+        {
+          "tag": "sectionid",
+          "text": "20"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "0"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/url_42/url.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "43",
+        "moduleid": "42",
+        "modulename": "url"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "43"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "External Tool"
+            },
+            {
+              "tag": "externalurl"
+            },
+            {
+              "tag": "intro"
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            },
+            {
+              "tag": "display",
+              "text": "0"
+            },
+            {
+              "tag": "displayoptions",
+              "text": "a:2:{s:10:\"printintro\";i:1;s:17:\"printintrofield\";i:1;}"
+            }
+          ],
+          "tag": "url"
+        }
+      ],
+      "tag": "activity"
+    },
+    "activities/workshop_40/module.xml": {
+      "attributes": {
+        "id": "40",
+        "version": "2024100700"
+      },
+      "children": [
+        {
+          "tag": "modulename",
+          "text": "workshop"
+        },
+        {
+          "tag": "sectionid",
+          "text": "20"
+        },
+        {
+          "tag": "sectionnumber",
+          "text": "0"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "score",
+          "text": "0"
+        },
+        {
+          "tag": "indent",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "visibleoncoursepage",
+          "text": "1"
+        },
+        {
+          "tag": "visibleold",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupingid",
+          "text": "0"
+        },
+        {
+          "tag": "completion",
+          "text": "2"
+        },
+        {
+          "tag": "completiongradeitemnumber",
+          "text": "0"
+        },
+        {
+          "tag": "completionview",
+          "text": "0"
+        },
+        {
+          "tag": "completionexpected",
+          "text": "0"
+        },
+        {
+          "tag": "availability",
+          "text": "$@NULL@$"
+        },
+        {
+          "tag": "showdescription",
+          "text": "1"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "module"
+    },
+    "activities/workshop_40/workshop.xml": {
+      "attributes": {
+        "contextid": "19",
+        "id": "41",
+        "moduleid": "40",
+        "modulename": "workshop"
+      },
+      "children": [
+        {
+          "attributes": {
+            "id": "41"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Peer Review"
+            },
+            {
+              "tag": "intro",
+              "text": "Write a synthetic essay."
+            },
+            {
+              "tag": "introformat",
+              "text": "1"
+            }
+          ],
+          "tag": "workshop"
+        }
+      ],
+      "tag": "activity"
+    },
+    "badges.xml": {
+      "tag": "badges"
+    },
+    "completion.xml": {
+      "tag": "course_completion"
+    },
+    "course/course.xml": {
+      "attributes": {
+        "id": "19"
+      },
+      "children": [
+        {
+          "tag": "shortname",
+          "text": "Synthetic Open edX Course"
+        },
+        {
+          "tag": "fullname",
+          "text": "Synthetic Open edX Course"
+        },
+        {
+          "tag": "idnumber"
+        },
+        {
+          "tag": "summary"
+        },
+        {
+          "tag": "summaryformat",
+          "text": "1"
+        },
+        {
+          "tag": "format",
+          "text": "topics"
+        },
+        {
+          "tag": "showgrades",
+          "text": "1"
+        },
+        {
+          "tag": "newsitems",
+          "text": "0"
+        },
+        {
+          "tag": "enddate",
+          "text": "0"
+        },
+        {
+          "tag": "marker",
+          "text": "0"
+        },
+        {
+          "tag": "maxbytes",
+          "text": "0"
+        },
+        {
+          "tag": "legacyfiles",
+          "text": "0"
+        },
+        {
+          "tag": "showreports",
+          "text": "0"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "groupmode",
+          "text": "0"
+        },
+        {
+          "tag": "groupmodeforce",
+          "text": "0"
+        },
+        {
+          "tag": "defaultgroupingid",
+          "text": "0"
+        },
+        {
+          "tag": "lang",
+          "text": "en"
+        },
+        {
+          "tag": "theme"
+        },
+        {
+          "tag": "requested",
+          "text": "0"
+        },
+        {
+          "tag": "enablecompletion",
+          "text": "1"
+        },
+        {
+          "tag": "completionnotify",
+          "text": "0"
+        },
+        {
+          "tag": "hiddensections",
+          "text": "0"
+        },
+        {
+          "tag": "coursedisplay",
+          "text": "0"
+        },
+        {
+          "attributes": {
+            "id": "1"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Default"
+            },
+            {
+              "tag": "description"
+            }
+          ],
+          "tag": "category"
+        },
+        {
+          "tag": "tags"
+        }
+      ],
+      "tag": "course"
+    },
+    "files.xml": {
+      "children": [
+        {
+          "attributes": {
+            "id": "1"
+          },
+          "children": [
+            {
+              "tag": "contenthash",
+              "text": "eecb6cc2eed6b79b9ba2971106686d38ebcbbf99"
+            },
+            {
+              "tag": "contextid",
+              "text": "19"
+            },
+            {
+              "tag": "component",
+              "text": "course"
+            },
+            {
+              "tag": "filearea",
+              "text": "content"
+            },
+            {
+              "tag": "itemid",
+              "text": "0"
+            },
+            {
+              "tag": "filepath",
+              "text": "/"
+            },
+            {
+              "tag": "filename",
+              "text": "handout.pdf"
+            },
+            {
+              "tag": "userid",
+              "text": "0"
+            },
+            {
+              "tag": "filesize",
+              "text": "26"
+            },
+            {
+              "tag": "mimetype",
+              "text": "application/pdf"
+            },
+            {
+              "tag": "status",
+              "text": "0"
+            },
+            {
+              "tag": "source",
+              "text": "handout.pdf"
+            },
+            {
+              "tag": "author"
+            },
+            {
+              "tag": "license"
+            },
+            {
+              "tag": "sortorder",
+              "text": "0"
+            },
+            {
+              "tag": "repositorytype",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "repositoryid",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "reference",
+              "text": "$@NULL@$"
+            }
+          ],
+          "tag": "file"
+        },
+        {
+          "attributes": {
+            "id": "84"
+          },
+          "children": [
+            {
+              "tag": "contenthash",
+              "text": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+            },
+            {
+              "tag": "contextid",
+              "text": "19"
+            },
+            {
+              "tag": "component",
+              "text": "course"
+            },
+            {
+              "tag": "filearea",
+              "text": "content"
+            },
+            {
+              "tag": "itemid",
+              "text": "0"
+            },
+            {
+              "tag": "filepath",
+              "text": "/"
+            },
+            {
+              "tag": "filename",
+              "text": "."
+            },
+            {
+              "tag": "userid",
+              "text": "0"
+            },
+            {
+              "tag": "filesize",
+              "text": "0"
+            },
+            {
+              "tag": "mimetype",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "status",
+              "text": "0"
+            },
+            {
+              "tag": "source",
+              "text": "."
+            },
+            {
+              "tag": "author"
+            },
+            {
+              "tag": "license"
+            },
+            {
+              "tag": "sortorder",
+              "text": "0"
+            },
+            {
+              "tag": "repositorytype",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "repositoryid",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "reference",
+              "text": "$@NULL@$"
+            }
+          ],
+          "tag": "file"
+        },
+        {
+          "attributes": {
+            "id": "2"
+          },
+          "children": [
+            {
+              "tag": "contenthash",
+              "text": "b7283a1dc0a79582a87a3c91deec02d0772c5343"
+            },
+            {
+              "tag": "contextid",
+              "text": "19"
+            },
+            {
+              "tag": "component",
+              "text": "course"
+            },
+            {
+              "tag": "filearea",
+              "text": "content"
+            },
+            {
+              "tag": "itemid",
+              "text": "0"
+            },
+            {
+              "tag": "filepath",
+              "text": "/"
+            },
+            {
+              "tag": "filename",
+              "text": "diagram.png"
+            },
+            {
+              "tag": "userid",
+              "text": "0"
+            },
+            {
+              "tag": "filesize",
+              "text": "21"
+            },
+            {
+              "tag": "mimetype",
+              "text": "image/png"
+            },
+            {
+              "tag": "status",
+              "text": "0"
+            },
+            {
+              "tag": "source",
+              "text": "diagram.png"
+            },
+            {
+              "tag": "author"
+            },
+            {
+              "tag": "license"
+            },
+            {
+              "tag": "sortorder",
+              "text": "0"
+            },
+            {
+              "tag": "repositorytype",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "repositoryid",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "reference",
+              "text": "$@NULL@$"
+            }
+          ],
+          "tag": "file"
+        },
+        {
+          "attributes": {
+            "id": "3"
+          },
+          "children": [
+            {
+              "tag": "contenthash",
+              "text": "b04f3ee8f5e43fa3b162981b50bb72fe1acabb33"
+            },
+            {
+              "tag": "contextid",
+              "text": "19"
+            },
+            {
+              "tag": "component",
+              "text": "mod_scorm"
+            },
+            {
+              "tag": "filearea",
+              "text": "package"
+            },
+            {
+              "tag": "itemid",
+              "text": "0"
+            },
+            {
+              "tag": "filepath",
+              "text": "/"
+            },
+            {
+              "tag": "filename",
+              "text": "package.zip"
+            },
+            {
+              "tag": "userid",
+              "text": "0"
+            },
+            {
+              "tag": "filesize",
+              "text": "22"
+            },
+            {
+              "tag": "mimetype",
+              "text": "application/zip"
+            },
+            {
+              "tag": "status",
+              "text": "0"
+            },
+            {
+              "tag": "source",
+              "text": "package.zip"
+            },
+            {
+              "tag": "author"
+            },
+            {
+              "tag": "license"
+            },
+            {
+              "tag": "sortorder",
+              "text": "0"
+            },
+            {
+              "tag": "repositorytype",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "repositoryid",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "reference",
+              "text": "$@NULL@$"
+            }
+          ],
+          "tag": "file"
+        },
+        {
+          "attributes": {
+            "id": "85"
+          },
+          "children": [
+            {
+              "tag": "contenthash",
+              "text": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+            },
+            {
+              "tag": "contextid",
+              "text": "19"
+            },
+            {
+              "tag": "component",
+              "text": "mod_scorm"
+            },
+            {
+              "tag": "filearea",
+              "text": "package"
+            },
+            {
+              "tag": "itemid",
+              "text": "0"
+            },
+            {
+              "tag": "filepath",
+              "text": "/"
+            },
+            {
+              "tag": "filename",
+              "text": "."
+            },
+            {
+              "tag": "userid",
+              "text": "0"
+            },
+            {
+              "tag": "filesize",
+              "text": "0"
+            },
+            {
+              "tag": "mimetype",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "status",
+              "text": "0"
+            },
+            {
+              "tag": "source",
+              "text": "."
+            },
+            {
+              "tag": "author"
+            },
+            {
+              "tag": "license"
+            },
+            {
+              "tag": "sortorder",
+              "text": "0"
+            },
+            {
+              "tag": "repositorytype",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "repositoryid",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "reference",
+              "text": "$@NULL@$"
+            }
+          ],
+          "tag": "file"
+        },
+        {
+          "attributes": {
+            "id": "4"
+          },
+          "children": [
+            {
+              "tag": "contenthash",
+              "text": "ceb09c940b8c028d87f377f95a98dde4de774937"
+            },
+            {
+              "tag": "contextid",
+              "text": "19"
+            },
+            {
+              "tag": "component",
+              "text": "mod_resource"
+            },
+            {
+              "tag": "filearea",
+              "text": "content"
+            },
+            {
+              "tag": "itemid",
+              "text": "55"
+            },
+            {
+              "tag": "filepath",
+              "text": "/"
+            },
+            {
+              "tag": "filename",
+              "text": "clip.mp4"
+            },
+            {
+              "tag": "userid",
+              "text": "0"
+            },
+            {
+              "tag": "filesize",
+              "text": "21"
+            },
+            {
+              "tag": "mimetype",
+              "text": "video/mp4"
+            },
+            {
+              "tag": "status",
+              "text": "0"
+            },
+            {
+              "tag": "source",
+              "text": "clip.mp4"
+            },
+            {
+              "tag": "author"
+            },
+            {
+              "tag": "license"
+            },
+            {
+              "tag": "sortorder",
+              "text": "0"
+            },
+            {
+              "tag": "repositorytype",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "repositoryid",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "reference",
+              "text": "$@NULL@$"
+            }
+          ],
+          "tag": "file"
+        },
+        {
+          "attributes": {
+            "id": "86"
+          },
+          "children": [
+            {
+              "tag": "contenthash",
+              "text": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+            },
+            {
+              "tag": "contextid",
+              "text": "19"
+            },
+            {
+              "tag": "component",
+              "text": "mod_resource"
+            },
+            {
+              "tag": "filearea",
+              "text": "content"
+            },
+            {
+              "tag": "itemid",
+              "text": "55"
+            },
+            {
+              "tag": "filepath",
+              "text": "/"
+            },
+            {
+              "tag": "filename",
+              "text": "."
+            },
+            {
+              "tag": "userid",
+              "text": "0"
+            },
+            {
+              "tag": "filesize",
+              "text": "0"
+            },
+            {
+              "tag": "mimetype",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "status",
+              "text": "0"
+            },
+            {
+              "tag": "source",
+              "text": "."
+            },
+            {
+              "tag": "author"
+            },
+            {
+              "tag": "license"
+            },
+            {
+              "tag": "sortorder",
+              "text": "0"
+            },
+            {
+              "tag": "repositorytype",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "repositoryid",
+              "text": "$@NULL@$"
+            },
+            {
+              "tag": "reference",
+              "text": "$@NULL@$"
+            }
+          ],
+          "tag": "file"
+        }
+      ],
+      "tag": "files"
+    },
+    "grade_history.xml": {
+      "children": [
+        {
+          "tag": "grade_grades"
+        }
+      ],
+      "tag": "grade_history"
+    },
+    "gradebook.xml": {
+      "children": [
+        {
+          "tag": "attributes"
+        },
+        {
+          "tag": "grade_categories"
+        },
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "grade_settings"
+        }
+      ],
+      "tag": "gradebook"
+    },
+    "groups.xml": {
+      "children": [
+        {
+          "tag": "groupings"
+        }
+      ],
+      "tag": "groups"
+    },
+    "moodle_backup.log": "",
+    "moodle_backup.xml": {
+      "children": [
+        {
+          "children": [
+            {
+              "tag": "name",
+              "text": "backup-moodle2-course-19-<id:1>.mbz"
+            },
+            {
+              "tag": "moodle_version",
+              "text": "2024100700"
+            },
+            {
+              "tag": "moodle_release",
+              "text": "4.5"
+            },
+            {
+              "tag": "backup_version",
+              "text": "2024100700"
+            },
+            {
+              "tag": "backup_release",
+              "text": "4.5"
+            },
+            {
+              "tag": "mnet_remoteusers",
+              "text": "0"
+            },
+            {
+              "tag": "include_files",
+              "text": "1"
+            },
+            {
+              "tag": "include_file_references_to_external_content",
+              "text": "0"
+            },
+            {
+              "tag": "original_wwwroot"
+            },
+            {
+              "tag": "original_site_identifier_hash"
+            },
+            {
+              "tag": "original_course_id",
+              "text": "19"
+            },
+            {
+              "tag": "original_course_format",
+              "text": "topics"
+            },
+            {
+              "tag": "original_course_fullname",
+              "text": "Synthetic Open edX Course"
+            },
+            {
+              "tag": "original_course_shortname",
+              "text": "Synthetic Open edX Course"
+            },
+            {
+              "tag": "original_course_enddate",
+              "text": "0"
+            },
+            {
+              "tag": "original_course_contextid",
+              "text": "19"
+            },
+            {
+              "tag": "original_system_contextid",
+              "text": "1"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "tag": "type",
+                      "text": "course"
+                    },
+                    {
+                      "tag": "format",
+                      "text": "moodle2"
+                    },
+                    {
+                      "tag": "interactive",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "mode",
+                      "text": "10"
+                    },
+                    {
+                      "tag": "execution",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "executiontime",
+                      "text": "0"
+                    }
+                  ],
+                  "tag": "detail"
+                }
+              ],
+              "tag": "details"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "21"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "label"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Welcome"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/label_21"
+                        }
+                      ],
+                      "tag": "activity"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "23"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "url"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Lecture"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/url_23"
+                        }
+                      ],
+                      "tag": "activity"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "25"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "quiz"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Knowledge Check"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/quiz_25"
+                        }
+                      ],
+                      "tag": "activity"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "forum"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Forum"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/forum_38"
+                        }
+                      ],
+                      "tag": "activity"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "40"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "workshop"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Peer Review"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/workshop_40"
+                        }
+                      ],
+                      "tag": "activity"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "42"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "url"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "External Tool"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/url_42"
+                        }
+                      ],
+                      "tag": "activity"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "44"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "scorm"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "SCORM Package"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/scorm_44"
+                        }
+                      ],
+                      "tag": "activity"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "46"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "label"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Nested Image"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/label_46"
+                        }
+                      ],
+                      "tag": "activity"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "48"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "quiz"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Legacy Check"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/quiz_48"
+                        }
+                      ],
+                      "tag": "activity"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "51"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "label"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Mystery Block"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/label_51"
+                        }
+                      ],
+                      "tag": "activity"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "moduleid",
+                          "text": "54"
+                        },
+                        {
+                          "tag": "sectionid",
+                          "text": "53"
+                        },
+                        {
+                          "tag": "modulename",
+                          "text": "resource"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Local Video"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "activities/resource_54"
+                        }
+                      ],
+                      "tag": "activity"
+                    }
+                  ],
+                  "tag": "activities"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "tag": "sectionid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Week 1"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "sections/section_20"
+                        }
+                      ],
+                      "tag": "section"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "sectionid",
+                          "text": "53"
+                        },
+                        {
+                          "tag": "title",
+                          "text": "Week 2"
+                        },
+                        {
+                          "tag": "directory",
+                          "text": "sections/section_53"
+                        }
+                      ],
+                      "tag": "section"
+                    }
+                  ],
+                  "tag": "sections"
+                },
+                {
+                  "children": [
+                    {
+                      "tag": "courseid",
+                      "text": "19"
+                    },
+                    {
+                      "tag": "title",
+                      "text": "Synthetic Open edX Course"
+                    },
+                    {
+                      "tag": "directory",
+                      "text": "course"
+                    }
+                  ],
+                  "tag": "course"
+                }
+              ],
+              "tag": "contents"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "tag": "level",
+                      "text": "root"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "filename"
+                    },
+                    {
+                      "tag": "value",
+                      "text": "backup-moodle2-course-19.mbz"
+                    }
+                  ],
+                  "tag": "setting"
+                },
+                {
+                  "children": [
+                    {
+                      "tag": "level",
+                      "text": "root"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "activities"
+                    },
+                    {
+                      "tag": "value",
+                      "text": "1"
+                    }
+                  ],
+                  "tag": "setting"
+                },
+                {
+                  "children": [
+                    {
+                      "tag": "level",
+                      "text": "root"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "sections"
+                    },
+                    {
+                      "tag": "value",
+                      "text": "1"
+                    }
+                  ],
+                  "tag": "setting"
+                },
+                {
+                  "children": [
+                    {
+                      "tag": "level",
+                      "text": "root"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "files"
+                    },
+                    {
+                      "tag": "value",
+                      "text": "1"
+                    }
+                  ],
+                  "tag": "setting"
+                },
+                {
+                  "children": [
+                    {
+                      "tag": "level",
+                      "text": "root"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "users"
+                    },
+                    {
+                      "tag": "value",
+                      "text": "0"
+                    }
+                  ],
+                  "tag": "setting"
+                },
+                {
+                  "children": [
+                    {
+                      "tag": "level",
+                      "text": "root"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "anonymize"
+                    },
+                    {
+                      "tag": "value",
+                      "text": "0"
+                    }
+                  ],
+                  "tag": "setting"
+                }
+              ],
+              "tag": "settings"
+            }
+          ],
+          "tag": "information"
+        }
+      ],
+      "tag": "moodle_backup"
+    },
+    "outcomes.xml": {
+      "tag": "outcomes_definition"
+    },
+    "questions.xml": {
+      "children": [
+        {
+          "attributes": {
+            "id": "5"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Knowledge Check"
+            },
+            {
+              "tag": "contextid",
+              "text": "5"
+            },
+            {
+              "tag": "contextlevel",
+              "text": "50"
+            },
+            {
+              "tag": "contextinstanceid",
+              "text": "19"
+            },
+            {
+              "tag": "info",
+              "text": "Questions for Knowledge Check"
+            },
+            {
+              "tag": "infoformat",
+              "text": "0"
+            },
+            {
+              "tag": "parent",
+              "text": "0"
+            },
+            {
+              "tag": "sortorder",
+              "text": "999"
+            },
+            {
+              "tag": "idnumber",
+              "text": "$@NULL@$"
+            },
+            {
+              "children": [
+                {
+                  "attributes": {
+                    "id": "6"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Pick one"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Pick one"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "multichoice"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "attributes": {
+                                "id": "56"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "Alpha"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            },
+                            {
+                              "attributes": {
+                                "id": "57"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "Beta"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "0.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            }
+                          ],
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "58"
+                          },
+                          "children": [
+                            {
+                              "tag": "layout",
+                              "text": "0"
+                            },
+                            {
+                              "tag": "single",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "shuffleanswers",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "correctfeedback"
+                            },
+                            {
+                              "tag": "correctfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedback"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "incorrectfeedback"
+                            },
+                            {
+                              "tag": "incorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "answernumbering",
+                              "text": "abc"
+                            },
+                            {
+                              "tag": "shownumcorrect",
+                              "text": "1"
+                            }
+                          ],
+                          "tag": "multichoice"
+                        }
+                      ],
+                      "tag": "plugin_qtype_multichoice_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                },
+                {
+                  "attributes": {
+                    "id": "7"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "True or false"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "True or false"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "truefalse"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "attributes": {
+                                "id": "59"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "True"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "0.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            },
+                            {
+                              "attributes": {
+                                "id": "60"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "False"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            }
+                          ],
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "61"
+                          },
+                          "children": [
+                            {
+                              "tag": "trueanswer",
+                              "text": "59"
+                            },
+                            {
+                              "tag": "falseanswer",
+                              "text": "60"
+                            }
+                          ],
+                          "tag": "truefalse"
+                        }
+                      ],
+                      "tag": "plugin_qtype_truefalse_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                },
+                {
+                  "attributes": {
+                    "id": "8"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Pick one radio"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Pick one radio"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "multichoice"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "attributes": {
+                                "id": "62"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "One"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            },
+                            {
+                              "attributes": {
+                                "id": "63"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "Two"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "0.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            }
+                          ],
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "64"
+                          },
+                          "children": [
+                            {
+                              "tag": "layout",
+                              "text": "0"
+                            },
+                            {
+                              "tag": "single",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "shuffleanswers",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "correctfeedback"
+                            },
+                            {
+                              "tag": "correctfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedback"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "incorrectfeedback"
+                            },
+                            {
+                              "tag": "incorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "answernumbering",
+                              "text": "abc"
+                            },
+                            {
+                              "tag": "shownumcorrect",
+                              "text": "1"
+                            }
+                          ],
+                          "tag": "multichoice"
+                        }
+                      ],
+                      "tag": "plugin_qtype_multichoice_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                },
+                {
+                  "attributes": {
+                    "id": "9"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Pick many"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Pick many"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "multichoice"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "attributes": {
+                                "id": "65"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "Red"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            },
+                            {
+                              "attributes": {
+                                "id": "66"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "Blue"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            },
+                            {
+                              "attributes": {
+                                "id": "67"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "Green"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "0.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            }
+                          ],
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "68"
+                          },
+                          "children": [
+                            {
+                              "tag": "layout",
+                              "text": "0"
+                            },
+                            {
+                              "tag": "single",
+                              "text": "0"
+                            },
+                            {
+                              "tag": "shuffleanswers",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "correctfeedback"
+                            },
+                            {
+                              "tag": "correctfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedback"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "incorrectfeedback"
+                            },
+                            {
+                              "tag": "incorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "answernumbering",
+                              "text": "abc"
+                            },
+                            {
+                              "tag": "shownumcorrect",
+                              "text": "1"
+                            }
+                          ],
+                          "tag": "multichoice"
+                        }
+                      ],
+                      "tag": "plugin_qtype_multichoice_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                },
+                {
+                  "attributes": {
+                    "id": "10"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Short answer"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Short answer"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "2.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "shortanswer"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "attributes": {
+                                "id": "69"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "42"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            },
+                            {
+                              "attributes": {
+                                "id": "70"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "forty-two"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            },
+                            {
+                              "attributes": {
+                                "id": "71"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "42.0"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            }
+                          ],
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "72"
+                          },
+                          "children": [
+                            {
+                              "tag": "usecase",
+                              "text": "0"
+                            }
+                          ],
+                          "tag": "shortanswer"
+                        }
+                      ],
+                      "tag": "plugin_qtype_shortanswer_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                },
+                {
+                  "attributes": {
+                    "id": "11"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Legacy text input"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Legacy text input"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "shortanswer"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "attributes": {
+                                "id": "73"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "legacy"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            }
+                          ],
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "74"
+                          },
+                          "children": [
+                            {
+                              "tag": "usecase",
+                              "text": "0"
+                            }
+                          ],
+                          "tag": "shortanswer"
+                        }
+                      ],
+                      "tag": "plugin_qtype_shortanswer_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                },
+                {
+                  "attributes": {
+                    "id": "12"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Numerical"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Numerical"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "numerical"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "attributes": {
+                                "id": "75"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "3.14"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "tolerance",
+                                  "text": "0"
+                                }
+                              ],
+                              "tag": "answer"
+                            }
+                          ],
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "76"
+                          },
+                          "children": [
+                            {
+                              "tag": "tolerance",
+                              "text": "0"
+                            }
+                          ],
+                          "tag": "numerical"
+                        }
+                      ],
+                      "tag": "plugin_qtype_numerical_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                },
+                {
+                  "attributes": {
+                    "id": "13"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Legacy numerical input"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Legacy numerical input"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "numerical"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "attributes": {
+                                "id": "77"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "2.718"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "tolerance",
+                                  "text": "0"
+                                }
+                              ],
+                              "tag": "answer"
+                            }
+                          ],
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "78"
+                          },
+                          "children": [
+                            {
+                              "tag": "tolerance",
+                              "text": "0"
+                            }
+                          ],
+                          "tag": "numerical"
+                        }
+                      ],
+                      "tag": "plugin_qtype_numerical_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                },
+                {
+                  "attributes": {
+                    "id": "14"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Formula response (not fully converted)"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Formula response (not fully converted)"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "multichoice"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "79"
+                          },
+                          "children": [
+                            {
+                              "tag": "layout",
+                              "text": "0"
+                            },
+                            {
+                              "tag": "single",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "shuffleanswers",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "correctfeedback"
+                            },
+                            {
+                              "tag": "correctfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedback"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "incorrectfeedback"
+                            },
+                            {
+                              "tag": "incorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "answernumbering",
+                              "text": "abc"
+                            },
+                            {
+                              "tag": "shownumcorrect",
+                              "text": "1"
+                            }
+                          ],
+                          "tag": "multichoice"
+                        }
+                      ],
+                      "tag": "plugin_qtype_multichoice_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                },
+                {
+                  "attributes": {
+                    "id": "15"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Code response (not fully converted)"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Code response (not fully converted)"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "multichoice"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "80"
+                          },
+                          "children": [
+                            {
+                              "tag": "layout",
+                              "text": "0"
+                            },
+                            {
+                              "tag": "single",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "shuffleanswers",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "correctfeedback"
+                            },
+                            {
+                              "tag": "correctfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedback"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "incorrectfeedback"
+                            },
+                            {
+                              "tag": "incorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "answernumbering",
+                              "text": "abc"
+                            },
+                            {
+                              "tag": "shownumcorrect",
+                              "text": "1"
+                            }
+                          ],
+                          "tag": "multichoice"
+                        }
+                      ],
+                      "tag": "plugin_qtype_multichoice_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                },
+                {
+                  "attributes": {
+                    "id": "16"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Custom response (not fully converted)"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Custom response (not fully converted)"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "multichoice"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "81"
+                          },
+                          "children": [
+                            {
+                              "tag": "layout",
+                              "text": "0"
+                            },
+                            {
+                              "tag": "single",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "shuffleanswers",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "correctfeedback"
+                            },
+                            {
+                              "tag": "correctfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedback"
+                            },
+                            {
+                              "tag": "partiallycorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "incorrectfeedback"
+                            },
+                            {
+                              "tag": "incorrectfeedbackformat",
+                              "text": "1"
+                            },
+                            {
+                              "tag": "answernumbering",
+                              "text": "abc"
+                            },
+                            {
+                              "tag": "shownumcorrect",
+                              "text": "1"
+                            }
+                          ],
+                          "tag": "multichoice"
+                        }
+                      ],
+                      "tag": "plugin_qtype_multichoice_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                }
+              ],
+              "tag": "questions"
+            }
+          ],
+          "tag": "question_category"
+        },
+        {
+          "attributes": {
+            "id": "17"
+          },
+          "children": [
+            {
+              "tag": "name",
+              "text": "Legacy Check"
+            },
+            {
+              "tag": "contextid",
+              "text": "17"
+            },
+            {
+              "tag": "contextlevel",
+              "text": "50"
+            },
+            {
+              "tag": "contextinstanceid",
+              "text": "19"
+            },
+            {
+              "tag": "info",
+              "text": "Questions for Legacy Check"
+            },
+            {
+              "tag": "infoformat",
+              "text": "0"
+            },
+            {
+              "tag": "parent",
+              "text": "0"
+            },
+            {
+              "tag": "sortorder",
+              "text": "999"
+            },
+            {
+              "tag": "idnumber",
+              "text": "$@NULL@$"
+            },
+            {
+              "children": [
+                {
+                  "attributes": {
+                    "id": "18"
+                  },
+                  "children": [
+                    {
+                      "tag": "parent",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "name",
+                      "text": "Say yes"
+                    },
+                    {
+                      "tag": "questiontext",
+                      "text": "Say yes"
+                    },
+                    {
+                      "tag": "questiontextformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "generalfeedback"
+                    },
+                    {
+                      "tag": "generalfeedbackformat",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "defaultmark",
+                      "text": "1.0000000"
+                    },
+                    {
+                      "tag": "penalty",
+                      "text": "0.3333333"
+                    },
+                    {
+                      "tag": "qtype",
+                      "text": "shortanswer"
+                    },
+                    {
+                      "tag": "length",
+                      "text": "1"
+                    },
+                    {
+                      "tag": "hidden",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "createdby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "modifiedby",
+                      "text": "0"
+                    },
+                    {
+                      "tag": "idnumber",
+                      "text": "$@NULL@$"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "attributes": {
+                                "id": "82"
+                              },
+                              "children": [
+                                {
+                                  "tag": "answertext",
+                                  "text": "yes"
+                                },
+                                {
+                                  "tag": "answerformat",
+                                  "text": "1"
+                                },
+                                {
+                                  "tag": "fraction",
+                                  "text": "1.0000000"
+                                },
+                                {
+                                  "tag": "feedback"
+                                },
+                                {
+                                  "tag": "feedbackformat",
+                                  "text": "1"
+                                }
+                              ],
+                              "tag": "answer"
+                            }
+                          ],
+                          "tag": "answers"
+                        },
+                        {
+                          "attributes": {
+                            "id": "83"
+                          },
+                          "children": [
+                            {
+                              "tag": "usecase",
+                              "text": "0"
+                            }
+                          ],
+                          "tag": "shortanswer"
+                        }
+                      ],
+                      "tag": "plugin_qtype_shortanswer_question"
+                    },
+                    {
+                      "tag": "question_hints"
+                    },
+                    {
+                      "tag": "tags"
+                    }
+                  ],
+                  "tag": "question"
+                }
+              ],
+              "tag": "questions"
+            }
+          ],
+          "tag": "question_category"
+        }
+      ],
+      "tag": "question_categories"
+    },
+    "roles.xml": {
+      "tag": "roles_definition"
+    },
+    "scales.xml": {
+      "tag": "scales_definition"
+    },
+    "sections/section_20/section.xml": {
+      "attributes": {
+        "id": "20"
+      },
+      "children": [
+        {
+          "tag": "number",
+          "text": "0"
+        },
+        {
+          "tag": "name",
+          "text": "Week 1"
+        },
+        {
+          "tag": "summary"
+        },
+        {
+          "tag": "summaryformat",
+          "text": "1"
+        },
+        {
+          "tag": "sequence",
+          "text": "21,23,25,38,40,42,44,46,48,51"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "availabilityjson",
+          "text": "$@NULL@$"
+        }
+      ],
+      "tag": "section"
+    },
+    "sections/section_53/section.xml": {
+      "attributes": {
+        "id": "53"
+      },
+      "children": [
+        {
+          "tag": "number",
+          "text": "1"
+        },
+        {
+          "tag": "name",
+          "text": "Week 2"
+        },
+        {
+          "tag": "summary"
+        },
+        {
+          "tag": "summaryformat",
+          "text": "1"
+        },
+        {
+          "tag": "sequence",
+          "text": "54"
+        },
+        {
+          "tag": "visible",
+          "text": "1"
+        },
+        {
+          "tag": "availabilityjson",
+          "text": "$@NULL@$"
+        }
+      ],
+      "tag": "section"
+    }
+  },
+  "files": [
+    {
+      "kind": "archive_index",
+      "path": ".ARCHIVE_INDEX",
+      "size": 2501
+    },
+    {
+      "kind": "xml",
+      "path": "activities/forum_38/forum.xml",
+      "size": 289
+    },
+    {
+      "kind": "xml",
+      "path": "activities/forum_38/module.xml",
+      "size": 622
+    },
+    {
+      "kind": "xml",
+      "path": "activities/label_21/label.xml",
+      "size": 302
+    },
+    {
+      "kind": "xml",
+      "path": "activities/label_21/module.xml",
+      "size": 622
+    },
+    {
+      "kind": "xml",
+      "path": "activities/label_46/label.xml",
+      "size": 333
+    },
+    {
+      "kind": "xml",
+      "path": "activities/label_46/module.xml",
+      "size": 622
+    },
+    {
+      "kind": "xml",
+      "path": "activities/label_51/label.xml",
+      "size": 241
+    },
+    {
+      "kind": "xml",
+      "path": "activities/label_51/module.xml",
+      "size": 622
+    },
+    {
+      "kind": "xml",
+      "path": "activities/quiz_25/module.xml",
+      "size": 621
+    },
+    {
+      "kind": "xml",
+      "path": "activities/quiz_25/quiz.xml",
+      "size": 3854
+    },
+    {
+      "kind": "xml",
+      "path": "activities/quiz_48/module.xml",
+      "size": 621
+    },
+    {
+      "kind": "xml",
+      "path": "activities/quiz_48/quiz.xml",
+      "size": 1052
+    },
+    {
+      "kind": "xml",
+      "path": "activities/resource_54/inforef.xml",
+      "size": 100
+    },
+    {
+      "kind": "xml",
+      "path": "activities/resource_54/module.xml",
+      "size": 625
+    },
+    {
+      "kind": "xml",
+      "path": "activities/resource_54/resource.xml",
+      "size": 480
+    },
+    {
+      "kind": "xml",
+      "path": "activities/scorm_44/inforef.xml",
+      "size": 100
+    },
+    {
+      "kind": "xml",
+      "path": "activities/scorm_44/module.xml",
+      "size": 622
+    },
+    {
+      "kind": "xml",
+      "path": "activities/scorm_44/scorm.xml",
+      "size": 407
+    },
+    {
+      "kind": "xml",
+      "path": "activities/url_23/module.xml",
+      "size": 620
+    },
+    {
+      "kind": "xml",
+      "path": "activities/url_23/url.xml",
+      "size": 407
+    },
+    {
+      "kind": "xml",
+      "path": "activities/url_42/module.xml",
+      "size": 620
+    },
+    {
+      "kind": "xml",
+      "path": "activities/url_42/url.xml",
+      "size": 358
+    },
+    {
+      "kind": "xml",
+      "path": "activities/workshop_40/module.xml",
+      "size": 625
+    },
+    {
+      "kind": "xml",
+      "path": "activities/workshop_40/workshop.xml",
+      "size": 278
+    },
+    {
+      "kind": "xml",
+      "path": "badges.xml",
+      "size": 49
+    },
+    {
+      "kind": "xml",
+      "path": "completion.xml",
+      "size": 60
+    },
+    {
+      "kind": "xml",
+      "path": "course/course.xml",
+      "size": 890
+    },
+    {
+      "kind": "binary",
+      "path": "files/b0/b04f3ee8f5e43fa3b162981b50bb72fe1acabb33",
+      "sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
+      "size": 22
+    },
+    {
+      "kind": "binary",
+      "path": "files/b7/b7283a1dc0a79582a87a3c91deec02d0772c5343",
+      "sha256": "9d714b0153c5204b5503770a41d5800ed8ba4e24da1a9429b6654397075031b6",
+      "size": 21
+    },
+    {
+      "kind": "binary",
+      "path": "files/ce/ceb09c940b8c028d87f377f95a98dde4de774937",
+      "sha256": "222bab81f4fc738e584d6003e6cc31f150b932c967ac66d19916d54723626405",
+      "size": 21
+    },
+    {
+      "kind": "binary",
+      "path": "files/da/da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "kind": "binary",
+      "path": "files/ee/eecb6cc2eed6b79b9ba2971106686d38ebcbbf99",
+      "sha256": "6b88c1c2a48de8f6868943aa598955caaf60e448dd998508ca105ae3e36b1981",
+      "size": 26
+    },
+    {
+      "kind": "xml",
+      "path": "files.xml",
+      "size": 4133
+    },
+    {
+      "kind": "xml",
+      "path": "grade_history.xml",
+      "size": 86
+    },
+    {
+      "kind": "xml",
+      "path": "gradebook.xml",
+      "size": 146
+    },
+    {
+      "kind": "xml",
+      "path": "groups.xml",
+      "size": 69
+    },
+    {
+      "kind": "text",
+      "path": "moodle_backup.log",
+      "size": 0
+    },
+    {
+      "kind": "xml",
+      "path": "moodle_backup.xml",
+      "size": 3986
+    },
+    {
+      "kind": "xml",
+      "path": "outcomes.xml",
+      "size": 62
+    },
+    {
+      "kind": "xml",
+      "path": "questions.xml",
+      "size": 15357
+    },
+    {
+      "kind": "xml",
+      "path": "roles.xml",
+      "size": 59
+    },
+    {
+      "kind": "xml",
+      "path": "scales.xml",
+      "size": 60
+    },
+    {
+      "kind": "xml",
+      "path": "sections/section_20/section.xml",
+      "size": 291
+    },
+    {
+      "kind": "xml",
+      "path": "sections/section_53/section.xml",
+      "size": 264
+    }
+  ],
+  "snapshot_version": 1,
+  "target": "moodle"
+}

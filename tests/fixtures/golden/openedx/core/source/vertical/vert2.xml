@@ -1,0 +1,5 @@
+<vertical display_name="Advanced Content">
+  <openassessment url_name="ora1" display_name="Peer Review" />
+  <lti url_name="lti1" display_name="External Tool" />
+  <scormxblock url_name="scorm1" display_name="SCORM Package" />
+</vertical>

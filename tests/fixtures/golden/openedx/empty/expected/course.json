@@ -1,0 +1,37 @@
+{
+  "case_id": "openedx/empty",
+  "course": {
+    "answer_options": [],
+    "assessments": [],
+    "assets": [],
+    "content_nodes": [],
+    "course_id": "4180483f-1785-57b6-bb00-446a1d1383c2",
+    "lti_links": [],
+    "mapping_notes": [],
+    "metadata": {
+      "course_code": "EMPTY101",
+      "org": "ExampleOrg",
+      "schema_version": 2,
+      "source_key": "ExampleOrg:EMPTY101:course1"
+    },
+    "questions": [],
+    "raw_fragments": [
+      {
+        "checksum": "ed44a8a1d4b1daef4ca559877db9e8878b1163820fcc151771c7ad61344318bd",
+        "fragment_id": "9d558297-0ecf-5325-b452-683f6932dfff",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "course/course1.xml",
+          "source_system": "openedx",
+          "xpath": null
+        }
+      }
+    ],
+    "schema_version": 2,
+    "source_system": "openedx",
+    "title": "Empty Synthetic Course"
+  },
+  "snapshot_version": 1,
+  "source": "openedx"
+}

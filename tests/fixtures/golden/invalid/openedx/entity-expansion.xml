@@ -1,0 +1,4 @@
+<!DOCTYPE lolz [
+  <!ENTITY lol "lol">
+]>
+<lolz>&lol;</lolz>

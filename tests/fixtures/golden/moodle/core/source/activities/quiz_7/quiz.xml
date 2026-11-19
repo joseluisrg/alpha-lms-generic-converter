@@ -1,0 +1,14 @@
+<quiz id="7">
+  <name>Core Quiz</name>
+  <intro>Quiz intro</intro>
+  <question_instances>
+    <question_instance><questionid>101</questionid></question_instance>
+    <question_instance><questionid>102</questionid></question_instance>
+    <question_instance><questionid>103</questionid></question_instance>
+    <question_instance><questionid>104</questionid></question_instance>
+    <question_instance><questionid>105</questionid></question_instance>
+    <question_instance><questionid>106</questionid></question_instance>
+    <question_instance><questionid>107</questionid></question_instance>
+    <question_instance><questionid>108</questionid></question_instance>
+  </question_instances>
+</quiz>

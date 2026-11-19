@@ -1,0 +1,7 @@
+<book id="14">
+  <name>Book</name>
+  <intro>&lt;p&gt;Book intro&lt;/p&gt;</intro>
+  <chapters>
+    <chapter><title>Chapter 1</title><content>&lt;p&gt;Chapter content&lt;/p&gt;</content></chapter>
+  </chapters>
+</book>

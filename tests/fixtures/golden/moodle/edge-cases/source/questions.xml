@@ -1,0 +1,12 @@
+<question_categories>
+  <question_category id="1">
+    <questions>
+      <question id="201">
+        <name>Unknown question</name>
+        <questiontext>Unknown question type</questiontext>
+        <defaultmark>1</defaultmark>
+        <qtype>mysteryq</qtype>
+      </question>
+    </questions>
+  </question_category>
+</question_categories>
