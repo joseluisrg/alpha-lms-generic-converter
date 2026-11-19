@@ -6,6 +6,9 @@ LMS Converter parses course packages, maps them to a canonical course model, val
 
 > Status: alpha. The conversion pipeline is usable, deployment operations are documented, and two consecutive manual live certification runs pass against Moodle 5.3.1 and Open edX Verawood.2: 39 of 57 checked features verified with 18 lost/expected gaps. The scheduled release gate remains pending two green nightly `all` runs. Pilot sign-off remains in progress. See [`docs/certification-scorecard.json`](docs/certification-scorecard.json) and [`docs/production-readiness-plan.md`](docs/production-readiness-plan.md).
 
+# Feature addition ledger-rollback
+This branch we start working on the ledger-rollback feature.
+
 ## Features
 
 - Moodle `.mbz` and Open edX `.tar.gz` inspection.
