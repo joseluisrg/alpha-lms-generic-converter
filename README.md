@@ -6,6 +6,9 @@ LMS Converter parses course packages, maps them to a canonical course model, val
 
 > Status: alpha. The conversion pipeline is usable, but real-LMS certification and production hardening are still in progress. See [`docs/production-readiness-plan.md`](docs/production-readiness-plan.md).
 
+# Feature addition ledger-rollback
+This branch we start working on the ledger-rollback feature.
+
 ## Features
 
 - Moodle `.mbz` and Open edX `.tar.gz` inspection.
