@@ -6,6 +6,8 @@ import pytest
 from typer.testing import CliRunner
 
 from cli.main import app
+from core.config import reset_settings
+from core.errors import SchemaVersionError
 
 runner = CliRunner()
 
@@ -148,3 +150,26 @@ def test_version_flag():
 
     assert result.exit_code == 0
     assert result.output.strip()
+
+
+def test_version_does_not_create_database(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    db_path = tmp_path / "unused" / "jobs.db"
+    monkeypatch.setenv("LMS_CONVERTER_DB_PATH", str(db_path))
+    reset_settings()
+
+    result = runner.invoke(app, ["--version"])
+
+    assert result.exit_code == 0
+    assert not db_path.exists()
+
+
+def test_cli_rejects_newer_database_schema(monkeypatch: pytest.MonkeyPatch):
+    def fail_schema_check() -> None:
+        raise SchemaVersionError("Database schema version 99 is newer than supported version 1")
+
+    monkeypatch.setattr("cli.main.init_db", fail_schema_check)
+
+    result = runner.invoke(app, ["report", "missing"])
+
+    assert result.exit_code == 1
+    assert "Database schema version 99" in result.output

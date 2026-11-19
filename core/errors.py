@@ -41,6 +41,10 @@ class JobAccessError(LmsConverterError):
     """A job belongs to a different identity than the caller."""
 
 
+class SchemaVersionError(LmsConverterError):
+    """The database schema is newer than this application supports."""
+
+
 class IntegrityError(LmsConverterError):
     """The canonical course graph violates referential integrity."""
 

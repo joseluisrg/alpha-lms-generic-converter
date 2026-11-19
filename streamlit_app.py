@@ -6,7 +6,12 @@ import streamlit as st
 
 from core.auth import require_identity
 from core.config import get_settings
-from core.errors import AuthenticationError, UnsafePathError, UploadSecurityError
+from core.errors import (
+    AuthenticationError,
+    SchemaVersionError,
+    UnsafePathError,
+    UploadSecurityError,
+)
 from core.ingest import IngestService
 from core.migrate import MigrationService
 from core.outputs import resolve_output_path
@@ -46,6 +51,13 @@ if st.session_state.get("user_id") != identity.user_id:
 
 st.session_state.user_id = identity.user_id
 cleanup_expired_uploads(settings)
+
+try:
+    init_db()
+except SchemaVersionError as exc:
+    logger.error("Database schema error: %s", exc)
+    st.error(f"Database schema error: {exc}")
+    st.stop()
 
 st.title("LMS Converter")
 st.markdown("Migrate courses between Open edX and Moodle")
@@ -283,7 +295,6 @@ with st.sidebar:
     report_format = st.selectbox("Report format", ["json", "html"], key="report_format_selector")
     if st.button("Generate Report", key="generate_report_btn"):
         if job_id_input:
-            init_db()
             job = get_job(job_id_input, owner=st.session_state.user_id)
             if job:
                 st.session_state.report_job = job

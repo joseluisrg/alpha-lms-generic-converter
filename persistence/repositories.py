@@ -1,24 +1,28 @@
 """SQLite persistence for inspection and migration jobs.
 
 The store is deliberately small but production-oriented: WAL mode, bounded
-connection timeouts, transactional writes, forward-compatible schema upgrades,
-and explicit lifecycle fields so operators can distinguish inspected,
-migrated, and failed jobs.
+connection timeouts, transactional writes, versioned schema migrations, and
+explicit lifecycle fields so operators can distinguish inspected, migrated,
+and failed jobs.
+
+Call ``init_db()`` once at process startup. Repository reads and writes do not
+create or alter tables.
 """
 
 from __future__ import annotations
 
 import json
 import sqlite3
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
 from core.config import get_settings
-from core.errors import JobAccessError
+from core.errors import JobAccessError, SchemaVersionError
 
 DEFAULT_OWNER = "local"
+SCHEMA_VERSION = 1
 
 _REQUIRED_COLUMNS = {
     "status": "TEXT NOT NULL DEFAULT 'inspected'",
@@ -27,6 +31,18 @@ _REQUIRED_COLUMNS = {
     "updated_at": "TIMESTAMP",
     "owner": "TEXT NOT NULL DEFAULT 'local'",
 }
+
+_BASE_COLUMNS = {
+    "job_id",
+    "source_type",
+    "target_type",
+    "course_json",
+    "report_json",
+    "extracted_path",
+    "created_at",
+}
+
+_EXPECTED_COLUMNS = _BASE_COLUMNS | set(_REQUIRED_COLUMNS)
 
 
 def _database_path() -> Path:
@@ -49,7 +65,12 @@ def _connect() -> Iterator[sqlite3.Connection]:
         conn.close()
 
 
-def _ensure_schema(conn: sqlite3.Connection) -> None:
+def _schema_version(conn: sqlite3.Connection) -> int:
+    row = conn.execute("PRAGMA user_version").fetchone()
+    return int(row[0]) if row is not None else 0
+
+
+def _migrate_to_v1(conn: sqlite3.Connection) -> None:
     conn.execute(
         """
         CREATE TABLE IF NOT EXISTS jobs (
@@ -72,13 +93,49 @@ def _ensure_schema(conn: sqlite3.Connection) -> None:
     for name, definition in _REQUIRED_COLUMNS.items():
         if name not in existing:
             conn.execute(f"ALTER TABLE jobs ADD COLUMN {name} {definition}")
-    conn.commit()
+
+
+def _validate_schema(conn: sqlite3.Connection) -> None:
+    existing = {row["name"] for row in conn.execute("PRAGMA table_info(jobs)").fetchall()}
+    missing = sorted(_EXPECTED_COLUMNS - existing)
+    if missing:
+        raise SchemaVersionError(
+            f"Database schema is missing required columns: {', '.join(missing)}"
+        )
+
+
+_MIGRATIONS: dict[int, Callable[[sqlite3.Connection], None]] = {1: _migrate_to_v1}
 
 
 def init_db() -> None:
-    """Create or upgrade the jobs table."""
+    """Create or upgrade the jobs table to the current schema version."""
     with _connect() as conn:
-        _ensure_schema(conn)
+        version = _schema_version(conn)
+        if version > SCHEMA_VERSION:
+            raise SchemaVersionError(
+                f"Database schema version {version} is newer than "
+                f"supported version {SCHEMA_VERSION}"
+            )
+        if version == SCHEMA_VERSION:
+            _validate_schema(conn)
+            return
+
+        conn.execute("BEGIN IMMEDIATE")
+        try:
+            version = _schema_version(conn)
+            if version > SCHEMA_VERSION:
+                raise SchemaVersionError(
+                    f"Database schema version {version} is newer than "
+                    f"supported version {SCHEMA_VERSION}"
+                )
+            for target in range(version + 1, SCHEMA_VERSION + 1):
+                _MIGRATIONS[target](conn)
+                conn.execute(f"PRAGMA user_version = {target}")
+            _validate_schema(conn)
+            conn.commit()
+        except Exception:
+            conn.rollback()
+            raise
 
 
 def _serialize_course(course: Any) -> str:
@@ -111,7 +168,6 @@ def save_job(
     owner: str = DEFAULT_OWNER,
 ) -> None:
     """Save a newly inspected job and its canonical course snapshot."""
-    init_db()
     with _connect() as conn:
         existing = conn.execute("SELECT owner FROM jobs WHERE job_id = ?", (job_id,)).fetchone()
         if existing and existing["owner"] != owner:
@@ -158,7 +214,6 @@ def save_migration_job(
     owner: str = DEFAULT_OWNER,
 ) -> None:
     """Mark an existing job as migrated, preserving its report when omitted."""
-    init_db()
     with _connect() as conn:
         existing = conn.execute(
             "SELECT report_json, extracted_path, owner FROM jobs WHERE job_id = ?",
@@ -209,7 +264,6 @@ def save_migration_job(
 
 def mark_job_failed(job_id: str, error: str, *, owner: str | None = None) -> None:
     """Record a terminal failure without discarding the stored course snapshot."""
-    init_db()
     with _connect() as conn:
         if owner is None:
             conn.execute(
@@ -234,7 +288,6 @@ def mark_job_failed(job_id: str, error: str, *, owner: str | None = None) -> Non
 
 def get_job(job_id: str, *, owner: str | None = None) -> dict[str, Any] | None:
     """Retrieve a job by ID, optionally constrained to its owner."""
-    init_db()
     with _connect() as conn:
         if owner is None:
             row = conn.execute(
@@ -261,7 +314,6 @@ def get_job(job_id: str, *, owner: str | None = None) -> dict[str, Any] | None:
 
 def list_jobs(limit: int = 100, *, owner: str | None = None) -> list[dict[str, Any]]:
     """Return recent jobs without loading the potentially large course JSON."""
-    init_db()
     with _connect() as conn:
         if owner is None:
             rows = conn.execute(
@@ -291,7 +343,6 @@ def list_jobs(limit: int = 100, *, owner: str | None = None) -> list[dict[str, A
 
 def delete_job(job_id: str, *, owner: str | None = None) -> bool:
     """Delete a job. Returns whether a row was removed."""
-    init_db()
     with _connect() as conn:
         if owner is None:
             cursor = conn.execute("DELETE FROM jobs WHERE job_id = ?", (job_id,))
