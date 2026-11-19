@@ -73,6 +73,7 @@ class Settings:
     max_xml_bytes: int = 64 * 1024 * 1024
     max_xml_depth: int = 256
     upload_ttl_seconds: int = 24 * 60 * 60
+    retention_days: int = 30
     environment: str = "development"
     auth_mode: str = "none"
     trusted_user_header: str = "X-Forwarded-User"
@@ -102,6 +103,7 @@ class Settings:
             max_xml_bytes=_env_int("LMS_CONVERTER_MAX_XML_BYTES", 64 * 1024 * 1024),
             max_xml_depth=_env_int("LMS_CONVERTER_MAX_XML_DEPTH", 256),
             upload_ttl_seconds=_env_int("LMS_CONVERTER_UPLOAD_TTL_SECONDS", 24 * 60 * 60),
+            retention_days=_env_int("LMS_CONVERTER_RETENTION_DAYS", 30),
             environment=os.environ.get("LMS_CONVERTER_ENV", "development").lower(),
             auth_mode=os.environ.get("LMS_CONVERTER_AUTH_MODE", "none").lower(),
             trusted_user_header=os.environ.get(

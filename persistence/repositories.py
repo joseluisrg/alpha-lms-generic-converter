@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
-from collections.abc import Callable, Iterator
+from collections.abc import Callable, Iterator, Sequence
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
@@ -352,3 +352,32 @@ def delete_job(job_id: str, *, owner: str | None = None) -> bool:
             )
         conn.commit()
         return cursor.rowcount > 0
+
+
+def list_expired_jobs(cutoff: str, limit: int | None = 500) -> list[dict[str, Any]]:
+    """Return jobs last updated before the UTC cutoff timestamp."""
+    query = """
+        SELECT job_id, extracted_path, output_path
+        FROM jobs
+        WHERE COALESCE(updated_at, created_at, '') < ?
+        ORDER BY COALESCE(updated_at, created_at, '') ASC
+    """
+    params: list[Any] = [cutoff]
+    if limit is not None:
+        query += " LIMIT ?"
+        params.append(max(0, int(limit)))
+    with _connect() as conn:
+        rows = conn.execute(query, tuple(params)).fetchall()
+    return [dict(row) for row in rows]
+
+
+def delete_jobs(job_ids: Sequence[str]) -> int:
+    """Delete multiple job rows in one transaction."""
+    if not job_ids:
+        return 0
+    deleted = 0
+    with _connect() as conn:
+        for job_id in job_ids:
+            deleted += conn.execute("DELETE FROM jobs WHERE job_id = ?", (job_id,)).rowcount
+        conn.commit()
+    return deleted

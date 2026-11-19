@@ -1,13 +1,17 @@
 import json
 import re
+import sqlite3
 from pathlib import Path
 
 import pytest
 from typer.testing import CliRunner
 
 from cli.main import app
-from core.config import reset_settings
+from core.config import get_settings, reset_settings
 from core.errors import SchemaVersionError
+from domain.entities import Course
+from domain.enums import SourceSystem
+from persistence import repositories
 
 runner = CliRunner()
 
@@ -173,3 +177,28 @@ def test_cli_rejects_newer_database_schema(monkeypatch: pytest.MonkeyPatch):
 
     assert result.exit_code == 1
     assert "Database schema version 99" in result.output
+
+
+def test_cleanup_command_dry_run_then_apply():
+    settings = get_settings()
+    settings.ensure_directories()
+    course = Course(course_id="cleanup", title="Cleanup", source_system=SourceSystem.OPENEDX)
+    repositories.save_job("cleanup-job", "openedx", "moodle", course, [])
+    with sqlite3.connect(settings.db_path) as conn:
+        conn.execute(
+            "UPDATE jobs SET created_at = ?, updated_at = ? WHERE job_id = ?",
+            ("2020-01-01 00:00:00", "2020-01-01 00:00:00", "cleanup-job"),
+        )
+        conn.commit()
+
+    dry_run = runner.invoke(app, ["cleanup"])
+
+    assert dry_run.exit_code == 0
+    assert "Would remove 1 jobs" in dry_run.output
+    assert repositories.get_job("cleanup-job") is not None
+
+    applied = runner.invoke(app, ["cleanup", "--apply"])
+
+    assert applied.exit_code == 0
+    assert "Removed 1 jobs" in applied.output
+    assert repositories.get_job("cleanup-job") is None

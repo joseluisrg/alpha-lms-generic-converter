@@ -14,6 +14,7 @@ LMS Converter parses course packages, maps them to a canonical course model, val
 - Archive, path, and XML input hardening.
 - HTML and JSON migration reports.
 - SQLite job history with lifecycle states.
+- Configurable retention cleanup for jobs and artifacts.
 - Optional Streamlit UI.
 
 ## Requirements
@@ -54,6 +55,9 @@ uv run lms-converter migrate course.mbz --target openedx --output course.tar.gz
 uv run lms-converter migrate course.tar.gz --target moodle --output course.mbz
 
 uv run lms-converter report <job-id> --format html --output report.html
+
+uv run lms-converter cleanup --dry-run
+uv run lms-converter cleanup --apply --retention-days 7
 ```
 
 ## Streamlit UI
@@ -82,10 +86,13 @@ All runtime paths and limits are controlled by environment variables. By default
 | `LMS_CONVERTER_MAX_XML_BYTES` | `67108864` | XML document limit |
 | `LMS_CONVERTER_MAX_XML_DEPTH` | `256` | XML nesting limit |
 | `LMS_CONVERTER_UPLOAD_TTL_SECONDS` | `86400` | Upload staging retention |
+| `LMS_CONVERTER_RETENTION_DAYS` | `30` | Job and artifact retention period |
 | `LMS_CONVERTER_ENV` | `development` | Runtime environment |
 | `LMS_CONVERTER_AUTH_MODE` | `none` | `none` or trusted `proxy` identity |
 | `LMS_CONVERTER_TRUSTED_USER_HEADER` | `X-Forwarded-User` | Proxy identity header |
 | `LMS_CONVERTER_LOG_LEVEL` | `INFO` | Default log level |
+
+`lms-converter cleanup` previews expired data by default. Pass `--apply` to remove job rows older than the retention period, extracted directories and outputs under the managed data roots, and stale upload sessions. Outputs written outside the managed roots are left in place.
 
 ## Security
 
@@ -94,6 +101,7 @@ All runtime paths and limits are controlled by environment variables. By default
 - Do not expose Streamlit directly to the internet.
 - UI jobs are scoped to the authenticated identity, so one user cannot open another user's job by ID.
 - Uploads and migration outputs are written only under the configured server-owned directories.
+- Retention cleanup removes expired jobs and server-owned artifacts; external CLI output paths are never deleted.
 
 For local development with repository-local data:
 

@@ -4,10 +4,13 @@ LMS Converter CLI - Migrate courses between Open edX and Moodle.
 Commands:
 - inspect: Inspect a course and show structure, warnings, and migration readiness
 - migrate: Migrate a course from source LMS to target LMS
+- report: Generate a report for a previous job
+- cleanup: Remove expired jobs and artifacts
 
 Usage:
     lms-converter inspect path/to/course.tar.gz --source openedx
     lms-converter migrate path/to/course.mbz --target openedx --output export.tar.gz
+    lms-converter cleanup --dry-run
 """
 
 from importlib.metadata import PackageNotFoundError
@@ -15,7 +18,7 @@ from importlib.metadata import version as package_version
 
 import typer
 
-from cli.commands import inspect_command, migrate_command, report_command
+from cli.commands import cleanup_command, inspect_command, migrate_command, report_command
 from core.errors import SchemaVersionError
 from persistence.repositories import init_db
 
@@ -61,6 +64,7 @@ def main(
 app.command("inspect")(inspect_command)
 app.command("migrate")(migrate_command)
 app.command("report")(report_command)
+app.command("cleanup")(cleanup_command)
 
 if __name__ == "__main__":
     app()

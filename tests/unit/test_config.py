@@ -21,6 +21,7 @@ def test_settings_resolve_environment_overrides(tmp_path: Path, monkeypatch):
     monkeypatch.setenv("LMS_CONVERTER_MAX_EXTRACT_BYTES", "456")
     monkeypatch.setenv("LMS_CONVERTER_MAX_EXTRACT_MEMBERS", "7")
     monkeypatch.setenv("LMS_CONVERTER_MAX_XML_BYTES", "89")
+    monkeypatch.setenv("LMS_CONVERTER_RETENTION_DAYS", "14")
     monkeypatch.setenv("LMS_CONVERTER_ENV", "production")
     monkeypatch.setenv("LMS_CONVERTER_AUTH_MODE", "proxy")
     reset_settings()
@@ -38,6 +39,7 @@ def test_settings_resolve_environment_overrides(tmp_path: Path, monkeypatch):
     assert settings.max_extract_bytes == 456
     assert settings.max_extract_members == 7
     assert settings.max_xml_bytes == 89
+    assert settings.retention_days == 14
     assert settings.environment == "production"
     assert settings.auth_mode == "proxy"
     assert all(
