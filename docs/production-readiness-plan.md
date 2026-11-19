@@ -4,15 +4,15 @@
 
 | Field | Value |
 | --- | --- |
-| Document version | 2.0 |
+| Document version | 2.1 |
 | Status | Draft for approval |
-| Date | 2026-11-11 |
+| Date | 2026-11-19 |
 | Owner | Team Delta |
 | Approver | TBD |
 | Repository | `olgakazarina-guds/Team-Delta` |
 | Branch | `phase2/lms-migration` |
 | Review cycle | Monthly and at milestone completion |
-| Related documents | `README.md`, `SECURITY.md`, `CHANGELOG.md`, `docs/CONTRIBUTING.md`, `docs/DEPLOYMENT.md`, `LICENSE` |
+| Related documents | `README.md`, `SECURITY.md`, `CHANGELOG.md`, `docs/CONTRIBUTING.md`, `docs/ARCHITECTURE.md`, `docs/DEPLOYMENT.md`, `docs/OPERATOR_RUNBOOK.md`, `LICENSE` |
 
 ## 1. Executive summary
 
@@ -33,11 +33,11 @@ Status as of 2026-11-19.
 | Repository hygiene | Complete | Generated course exports are untracked; dead modules removed; repository policies added in `400850c`, `64e4127`, and `bcb4da4` | Decide whether historical generated data requires a git history rewrite |
 | Packaging and configuration | Complete | `uv build` succeeds; clean-venv wheel install works; `lms-converter --version` works outside the repository; centralized `Settings` added in `5729227`; tag-driven release workflow with version/changelog checks, release artifacts, checksums, and CI artifact retention added in `.github/workflows/release.yml`, `scripts/check_release.py`, and `docs/RELEASING.md` | — |
 | Security and input controls | Complete | Committed in `235b2f5`; bounded uploads, archive and XML limits, output containment, production auth, owner-scoped jobs, and sanitized UI errors; PR-11 adds a digest-pinned non-root container, hash-locked runtime dependencies, SBOM generation, and CI container smoke checks | Add image vulnerability scanning |
-| Persistence | Partial | SQLite job records, lifecycle states, owner field, and `PRAGMA user_version` schema migrations exist; PR-05 removed DDL from repository reads; PR-06 adds configurable retention cleanup with dry-run mode | Add backup/restore tests |
+| Persistence | Complete | SQLite job records, lifecycle states, owner field, and `PRAGMA user_version` schema migrations exist; PR-05 removed DDL from repository reads; PR-06 adds configurable retention cleanup with dry-run mode; PR-10 adds a backup/restore integration drill | — |
 | Migration fidelity | Partial | Canonical model, Moodle/Open edX adapters, validation notes, and JSON/HTML reports exist; PR-07 adds a synthetic golden corpus with canonical IR, report, and target-export snapshots plus malformed and malicious fixtures | Build the real-LMS import harness and versioned fidelity scorecard |
-| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 123 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI; PR-11 adds container build, non-root, CLI smoke, web health, and SBOM generation/validation checks | Add nightly performance and fuzz layers |
-| Operations | Partial | PR-11 adds a hardened Dockerfile, Compose deployment, health checks, resource limits, log rotation, and a deployment guide | Add metrics, backup/restore drill, and the full operator runbook |
-| Documentation | Partial | README, security policy, contribution guide, changelog, license, architecture diagram, release checklist, and container deployment guide exist | Add architecture reference, full operator runbook, and format matrix |
+| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 124 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI; PR-11 adds container build, non-root, CLI smoke, web health, and SBOM generation/validation checks; PR-10 adds the backup/restore drill to the test suite | Add nightly performance and fuzz layers |
+| Operations | Partial | PR-11 adds a hardened Dockerfile, Compose deployment, health checks, resource limits, log rotation, and a deployment guide; PR-10 adds backup, restore, rollback, retention, and incident procedures plus an automated recovery drill | Add metrics and alerting; schedule and verify production backups |
+| Documentation | Partial | README, security policy, contribution guide, changelog, license, release checklist, container deployment guide, architecture reference, and operator runbook exist | Publish the versioned format and feature matrix |
 | Real-LMS certification | Not started | No live Moodle or Open edX environment available | Provision pinned test environments and run import certification |
 
 ## 3. Objectives and success criteria
@@ -94,7 +94,7 @@ Effort sizes are indicative: S is up to three working days, M is one to two week
 | PR-07 | Build the golden corpus | PR-01 | Fidelity/Adapter Engineer | L | Sanitized fixtures cover every supported feature; malformed and malicious fixtures exist; expected snapshots are stored |
 | PR-08 | Build the LMS import harness | PR-07, DEP-01, D-04 | QA/Automation | L | Pinned Moodle and Open edX environments import generated packages; harness runs nightly and at release |
 | PR-09 | Publish the fidelity scorecard | PR-07, PR-08 | Fidelity/Adapter Engineer | M | Versioned machine-readable report includes preserved, transformed, and lost counts plus import results |
-| PR-10 | Write deployment and operator documentation | PR-03 | Documentation/UX | M | README, architecture reference, deployment guide, backup/restore runbook, limitations, and troubleshooting are complete |
+| PR-10 | Write deployment and operator documentation | PR-03 | Documentation/UX | M | README, architecture reference, deployment guide, backup/restore runbook, recovery drill, limitations, and troubleshooting are complete |
 | PR-11 | Harden deployment artifacts | PR-03 | Security/DevOps | M | Non-root container, read-only source, resource limits, pinned images, dependency audit, and SBOM are in place |
 | PR-12 | Complete pilot readiness | PR-05, PR-06, PR-09, PR-10, PR-11 | Project Lead | S | Pilot checklist, support process, rollback procedure, and sign-off are complete |
 
@@ -162,6 +162,7 @@ R = responsible, A = accountable, C = consulted, I = informed.
 | Streamlit smoke | Upload, inspect, migrate, report, session isolation | Every pull request or nightly |
 | Security | Traversal, archive bombs, XML entities, XSS, auth, ownership | Every pull request |
 | Database migration | Previous schema to current schema | Every pull request |
+| Recovery | Data-root backup, restore, job/artifact verification, schema version, and SQLite integrity | Every pull request |
 | Property and fuzz | Round-trip invariants and parser robustness | Nightly |
 | Performance | Large course and asset fixtures | Weekly and release |
 | LMS certification | Pinned Moodle and Open edX import checks | Nightly and release |
@@ -261,5 +262,6 @@ These initiatives are outside the production-readiness release. They should be p
 
 | Version | Date | Author | Change |
 | --- | --- | --- | --- |
+| 2.1 | 2026-11-19 | Team Delta | Added the architecture reference, operator runbook, and backup/restore drill; marked persistence complete and updated testing, operations, and documentation status |
 | 2.0 | 2026-11-11 | Team Delta | Rewrote as a controlled project plan; separated baseline, scope, WBS, milestones, RACI, RAID, gates, and decisions; moved long-term work to an appendix |
 | 1.0 | 2026-11-11 | Team Delta | Initial roadmap and workstream list |

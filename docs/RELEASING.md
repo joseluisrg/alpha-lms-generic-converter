@@ -16,33 +16,35 @@ publish to PyPI. Every release is built from a tag that points to a commit on
 
 1. Confirm `main` is green and the working tree is clean.
 2. Set the release version in `pyproject.toml`.
-3. In `CHANGELOG.md`, rename `## Unreleased` to `## [X.Y.Z] - YYYY-MM-DD` and add
+3. Confirm the README, deployment guide, architecture reference, and operator
+   runbook still match the release.
+4. In `CHANGELOG.md`, rename `## Unreleased` to `## [X.Y.Z] - YYYY-MM-DD` and add
    a fresh `## Unreleased` section for the next cycle.
-4. Validate the metadata locally:
+5. Validate the metadata locally:
 
    ```bash
    uv run python scripts/check_release.py --tag vX.Y.Z
    ```
 
-5. Commit and merge through a pull request:
+6. Commit and merge through a pull request:
 
    ```bash
    git commit -am "chore(release): vX.Y.Z"
    ```
 
-6. Tag and push the tag:
+7. Tag and push the tag:
 
    ```bash
    git tag -a vX.Y.Z -m "lms-converter vX.Y.Z"
    git push origin vX.Y.Z
    ```
 
-7. Watch the `Release` workflow and verify:
+8. Watch the `Release` workflow and verify:
    - the wheel, source distribution, CycloneDX SBOM, and `SHA256SUMS` are attached;
    - release notes match the changelog section;
    - pre-release flags are correct;
    - the wheel installs and the CLI smoke test passes.
-8. Install the published wheel once and run `lms-converter --version`.
+9. Install the published wheel once and run `lms-converter --version`.
 
 ## Dry run
 

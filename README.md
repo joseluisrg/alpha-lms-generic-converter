@@ -4,7 +4,7 @@ Vendor-neutral course migration between Moodle and Open edX.
 
 LMS Converter parses course packages, maps them to a canonical course model, validates migration readiness, and generates restore-shaped Moodle backups or Open edX exports. Every migration produces a report describing what was preserved, what changed, and what needs human review.
 
-> Status: alpha. The conversion pipeline is usable, but real-LMS certification and operator runbooks are still in progress. See [`docs/production-readiness-plan.md`](docs/production-readiness-plan.md).
+> Status: alpha. The conversion pipeline is usable and deployment operations are documented, but real-LMS certification, the format matrix, and pilot sign-off are still in progress. See [`docs/production-readiness-plan.md`](docs/production-readiness-plan.md).
 
 ## Features
 
@@ -16,6 +16,12 @@ LMS Converter parses course packages, maps them to a canonical course model, val
 - SQLite job history with lifecycle states.
 - Configurable retention cleanup for jobs and artifacts.
 - Optional Streamlit UI.
+
+## Architecture and operations
+
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): runtime components, pipeline, module map, trust boundaries, and extension points.
+- [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md): hardened container deployment, proxy authentication, upgrades, and SBOM checks.
+- [`docs/OPERATOR_RUNBOOK.md`](docs/OPERATOR_RUNBOOK.md): health checks, backup, restore, rollback, retention, troubleshooting, and the recovery drill.
 
 ## Requirements
 
@@ -85,7 +91,9 @@ docker run --rm \
 Development mode has no authentication and must remain bound to localhost. For
 production, use `compose.yaml` behind an authenticating reverse proxy. See
 [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for production settings, CLI usage,
-resource limits, upgrades, and SBOM generation.
+resource limits, upgrades, and SBOM generation, and
+[`docs/OPERATOR_RUNBOOK.md`](docs/OPERATOR_RUNBOOK.md) for backup, restore, and
+rollback procedures.
 
 ## Configuration
 

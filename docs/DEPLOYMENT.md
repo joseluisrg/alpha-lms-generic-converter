@@ -4,6 +4,10 @@ This guide covers the hardened container deployment for the self-hosted alpha.
 The image contains the CLI and the optional Streamlit UI. It runs as an
 unprivileged user and writes runtime data only to `/app/data`.
 
+For component boundaries and data flows, see
+[`ARCHITECTURE.md`](ARCHITECTURE.md). For backup, restore, rollback, retention,
+and incident procedures, see [`OPERATOR_RUNBOOK.md`](OPERATOR_RUNBOOK.md).
+
 ## Requirements
 
 - Docker Engine with BuildKit.
@@ -113,6 +117,11 @@ and reports, lives in the `lms-data` volume. Back up the volume with a platform
 snapshot or a volume-aware backup tool before upgrades. Do not use
 `docker compose down -v` unless you intend to delete the data.
 
+The operator runbook defines the stopped-snapshot backup procedure, restore and
+verification steps, and the pre-restore safety copy. CLI outputs written outside
+the managed output directory are user-managed and are not covered by retention
+or application backups.
+
 Upgrade procedure:
 
 ```bash
@@ -127,7 +136,8 @@ curl --fail --silent --show-error http://127.0.0.1:8501/_stcore/health
 
 If a schema migration or release regression requires rollback, stop the
 service, restore the pre-upgrade volume snapshot, and start the previous image
-tag. The full backup, restore, and rollback runbook is tracked as PR-10.
+tag. Follow the full backup, restore, and rollback procedure in
+[`OPERATOR_RUNBOOK.md`](OPERATOR_RUNBOOK.md).
 
 ## Supply chain
 

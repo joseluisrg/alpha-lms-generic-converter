@@ -17,6 +17,9 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 - CycloneDX SBOM generation and validation through `scripts/generate_sbom.py` and `scripts/validate_sbom.py`, published as a CI artifact and attached to releases.
 - Container build, non-root, CLI smoke, and web health checks in CI.
 - Deployment guide covering Compose, reverse-proxy authentication, CLI usage, hardening controls, upgrades, and supply-chain checks.
+- Architecture reference covering runtime components, the processing pipeline, module boundaries, data ownership, and trust boundaries.
+- Operator runbook covering health checks, upgrade and rollback, stopped-snapshot backup, restore verification, retention cleanup, incident triage, support handoff, and a recovery drill.
+- Backup and restore integration drill that snapshots the managed data root, restores it, and verifies jobs, artifacts, schema version, and SQLite integrity.
 
 ### Changed
 
