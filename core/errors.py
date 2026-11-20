@@ -55,3 +55,7 @@ class UnsupportedSourceError(LmsConverterError, ValueError):
 
 class UnsupportedTargetError(LmsConverterError, ValueError):
     """The requested target LMS is not supported."""
+
+
+class LedgerRollbackError(LmsConverterError):
+    """No suitable ledger snapshot exists to restore from."""
