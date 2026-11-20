@@ -22,7 +22,7 @@ from typing import Any
 
 from core.config import get_settings
 from core.errors import JobAccessError, SchemaVersionError, LedgerRollbackError
-from core.identity import sha256_text, tool_version
+from core.identity import sha256_bytes, sha256_text, tool_version
 from domain.entities import Course
 
 DEFAULT_OWNER = "local"
@@ -388,7 +388,7 @@ def get_job(job_id: str, *, owner: str | None = None) -> dict[str, Any] | None:
                 """
                 SELECT job_id, source_type, target_type, status, owner,
                        course_json, report_json, extracted_path, output_path,
-                       error, created_at, updated_at
+                       error, created_at, updated_at, manifest_path
                 FROM jobs WHERE job_id = ?
                 """,
                 (job_id,),
@@ -398,7 +398,7 @@ def get_job(job_id: str, *, owner: str | None = None) -> dict[str, Any] | None:
                 """
                 SELECT job_id, source_type, target_type, status, owner,
                        course_json, report_json, extracted_path, output_path,
-                       error, created_at, updated_at
+                       error, created_at, updated_at, manifest_path
                 FROM jobs WHERE job_id = ? AND owner = ?
                 """,
                 (job_id, owner),
@@ -683,7 +683,7 @@ def write_artifact_manifest(
         )
 
     artifact_file = Path(artifact_path)
-    artifact_hash = sha256_text(artifact_file.read_bytes()) if artifact_file.exists() else ""
+    artifact_hash = sha256_bytes(artifact_file.read_bytes()) if artifact_file.exists() else ""
 
     manifest = {
         "schema_version": 1,
