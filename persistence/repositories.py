@@ -192,7 +192,11 @@ def save_job(
 ) -> None:
     """Save a newly inspected job and its canonical course snapshot."""
     with _connect() as conn:
-        existing = conn.execute("SELECT owner FROM jobs WHERE job_id = ?", (job_id,)).fetchone()
+        # Fetch the previous canonical Course snapshot (if any) so we can
+        # record it as course_before in the ledger event.
+        existing = conn.execute(
+            "SELECT owner, course_json FROM jobs WHERE job_id = ?", (job_id,)
+        ).fetchone()
         if existing and existing["owner"] != owner:
             raise JobAccessError(f"Job {job_id} belongs to another owner")
         conn.execute(
@@ -224,6 +228,25 @@ def save_job(
         )
         conn.commit()
 
+    # Append ledger event after the jobs row is committed.
+    # course_before = whatever Course was stored before this call (None on
+    # first insert).  course_after = the new Course being saved now.
+    course_before: Any = None
+    if existing and existing["course_json"]:
+        try:
+            course_before = Course.model_validate_json(existing["course_json"])
+        except Exception:
+            pass  # graceful fallback; input_hash will be hash of empty string
+    append_job_event(
+        job_id=job_id,
+        event=status,
+        step="parse|transform|validate",
+        course_before=course_before,
+        course_after=course,
+        owner=owner,
+        actor=owner,
+    )
+
 
 def save_migration_job(
     job_id: str,
@@ -238,8 +261,9 @@ def save_migration_job(
 ) -> None:
     """Mark an existing job as migrated, preserving its report when omitted."""
     with _connect() as conn:
+        # Also fetch course_json so we can compute course_before for the ledger.
         existing = conn.execute(
-            "SELECT report_json, extracted_path, owner FROM jobs WHERE job_id = ?",
+            "SELECT report_json, extracted_path, owner, course_json FROM jobs WHERE job_id = ?",
             (job_id,),
         ).fetchone()
 
@@ -284,6 +308,23 @@ def save_migration_job(
         )
         conn.commit()
 
+    # Append ledger event after committing the job row.
+    course_before: Any = None
+    if existing and existing["course_json"]:
+        try:
+            course_before = Course.model_validate_json(existing["course_json"])
+        except Exception:
+            pass
+    append_job_event(
+        job_id=job_id,
+        event="migrated",
+        step="export",
+        course_before=course_before,
+        course_after=course,
+        owner=effective_owner,
+        actor=effective_owner,
+    )
+
 
 def mark_job_failed(job_id: str, error: str, *, owner: str | None = None) -> None:
     """Record a terminal failure without discarding the stored course snapshot."""
@@ -307,6 +348,18 @@ def mark_job_failed(job_id: str, error: str, *, owner: str | None = None) -> Non
                 (error, job_id, owner),
             )
         conn.commit()
+
+    # Append failed event; no course snapshot available at failure time so
+    # both input_hash and output_hash will be empty strings.
+    append_job_event(
+        job_id=job_id,
+        event="failed",
+        step="",
+        course_before=None,
+        course_after=None,
+        owner=owner or DEFAULT_OWNER,
+        actor=owner or DEFAULT_OWNER,
+    )
 
 
 def get_job(job_id: str, *, owner: str | None = None) -> dict[str, Any] | None:
@@ -364,12 +417,34 @@ def list_jobs(limit: int = 100, *, owner: str | None = None) -> list[dict[str, A
     return [dict(row) for row in rows]
 
 
-def delete_job(job_id: str, *, owner: str | None = None) -> bool:
-    """Delete a job. Returns whether a row was removed."""
+def delete_job(job_id: str, *, owner: Optional[str] = None) -> bool:
+    """Delete a job and its ledger events. Returns whether a row was removed.
+
+    ``job_events`` rows reference ``jobs`` via a foreign key so they are removed
+    first within the same transaction.  When *owner* is supplied, ledger rows are
+    only deleted if the job belongs to that owner; a mismatched owner returns
+    False without touching anything.
+
+    See the plan (Part F) for the known limitation: this administrative path
+    removes ledger rows without leaving a trace.  A future ``admin_events``
+    table is proposed to record such destructive operations.
+    """
+    init_db()
     with _connect() as conn:
         if owner is None:
+            # Delete ledger rows first to satisfy the foreign-key constraint.
+            conn.execute("DELETE FROM job_events WHERE job_id = ?", (job_id,))
             cursor = conn.execute("DELETE FROM jobs WHERE job_id = ?", (job_id,))
         else:
+            # Only cascade into ledger rows when the job actually belongs to
+            # this owner; otherwise the jobs DELETE will simply find zero rows.
+            existing = conn.execute(
+                "SELECT owner FROM jobs WHERE job_id = ?", (job_id,)
+            ).fetchone()
+            if existing and existing["owner"] == owner:
+                conn.execute(
+                    "DELETE FROM job_events WHERE job_id = ?", (job_id,)
+                )
             cursor = conn.execute(
                 "DELETE FROM jobs WHERE job_id = ? AND owner = ?", (job_id, owner)
             )
