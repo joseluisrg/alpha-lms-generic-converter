@@ -8,6 +8,7 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 
 ### Added
 
+- Append-only `job_events` ledger table recording each pipeline step with before/after course hashes, tool version, actor, and a linked-list chain via `prev_event_id`; exposed through `append_job_event`, `get_job_events`, and a maintenance-only `purge_ledger_entries_before` helper.
 - Database schema versioning via `PRAGMA user_version`, one-time startup migrations for legacy databases, and repository reads that no longer execute DDL.
 - Configurable retention cleanup for expired job rows, extracted paths, outputs, and upload sessions, with dry-run support and a `cleanup` CLI command.
 - Golden migration corpus with synthetic Open edX and Moodle source trees, canonical IR/report/export snapshots, frozen binary contracts, malformed and malicious inputs, feature-coverage enforcement, fixture hygiene checks, and `scripts/update_golden.py`.

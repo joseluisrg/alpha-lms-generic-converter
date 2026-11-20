@@ -67,7 +67,19 @@ uv run lms-converter inspect course.tar.gz --source openedx --validate-for moodl
 uv run lms-converter migrate course.mbz --target openedx --output course.tar.gz
 uv run lms-converter migrate course.tar.gz --target moodle --output course.mbz
 
+# Generate a migration report (HTML or JSON), including the full event ledger
 uv run lms-converter report <job-id> --format html --output report.html
+uv run lms-converter report <job-id> --format json
+
+# Show the immutable provenance ledger for a job
+uv run lms-converter ledger <job-id>
+uv run lms-converter ledger <job-id> --owner alice
+
+# Roll back a job to its most recent artifact version
+uv run lms-converter rollback <job-id>
+
+# Roll back to a specific earlier version
+uv run lms-converter rollback <job-id> --version 1
 
 uv run lms-converter cleanup --dry-run
 uv run lms-converter cleanup --apply --retention-days 7

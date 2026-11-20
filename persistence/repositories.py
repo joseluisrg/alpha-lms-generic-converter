@@ -13,13 +13,16 @@ from __future__ import annotations
 
 import json
 import sqlite3
+import uuid
 from collections.abc import Callable, Iterator, Sequence
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
 from core.config import get_settings
-from core.errors import JobAccessError, SchemaVersionError
+from core.errors import JobAccessError, SchemaVersionError, LedgerRollbackError
+from core.identity import sha256_text, tool_version
+from domain.entities import Course
 
 DEFAULT_OWNER = "local"
 SCHEMA_VERSION = 1
@@ -30,6 +33,8 @@ _REQUIRED_COLUMNS = {
     "error": "TEXT",
     "updated_at": "TIMESTAMP",
     "owner": "TEXT NOT NULL DEFAULT 'local'",
+    # ST-4: path to versioned manifest.json written after each migration
+    "manifest_path": "TEXT",
 }
 
 _BASE_COLUMNS = {
@@ -89,11 +94,30 @@ def _migrate_to_v1(conn: sqlite3.Connection) -> None:
         )
         """
     )
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS job_events (
+            event_id      TEXT PRIMARY KEY,
+            job_id        TEXT NOT NULL,
+            owner         TEXT NOT NULL DEFAULT 'local',
+            event         TEXT NOT NULL,
+            step          TEXT NOT NULL DEFAULT '',
+            input_hash    TEXT NOT NULL DEFAULT '',
+            output_hash   TEXT NOT NULL DEFAULT '',
+            tool_version  TEXT NOT NULL DEFAULT '',
+            actor         TEXT NOT NULL DEFAULT 'local',
+            prev_event_id TEXT,
+            recorded_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (job_id) REFERENCES jobs(job_id)
+        )
+        """
+    )
     existing = {row["name"] for row in conn.execute("PRAGMA table_info(jobs)").fetchall()}
     for name, definition in _REQUIRED_COLUMNS.items():
         if name not in existing:
             conn.execute(f"ALTER TABLE jobs ADD COLUMN {name} {definition}")
 
+    conn.commit()
 
 def _validate_schema(conn: sqlite3.Connection) -> None:
     existing = {row["name"] for row in conn.execute("PRAGMA table_info(jobs)").fetchall()}
@@ -105,7 +129,6 @@ def _validate_schema(conn: sqlite3.Connection) -> None:
 
 
 _MIGRATIONS: dict[int, Callable[[sqlite3.Connection], None]] = {1: _migrate_to_v1}
-
 
 def init_db() -> None:
     """Create or upgrade the jobs table to the current schema version."""
@@ -381,3 +404,142 @@ def delete_jobs(job_ids: Sequence[str]) -> int:
             deleted += conn.execute("DELETE FROM jobs WHERE job_id = ?", (job_id,)).rowcount
         conn.commit()
     return deleted
+# ---------------------------------------------------------------------------
+# Ledger helpers
+# ---------------------------------------------------------------------------
+
+
+def _serialize_course_no_fragments(course: Any) -> str:
+    """Serialize a Course with raw_fragments cleared (PII guard).
+
+    ``input_hash`` and ``output_hash`` in job_events are computed from this
+    representation so raw XML source text is never stored in hashes or manifests.
+
+    Known limitation: the hash is a byte-level digest of the Pydantic JSON
+    serialisation.  Semantically equivalent values that differ in format
+    (e.g. ``1.0`` vs ``1``, ``null`` vs omitted key) will produce different
+    hashes even though the course content is unchanged.  The hash is intended
+    as a quick change-detector, not a semantic equivalence checker.
+    """
+    if course is None:
+        return ""
+    if hasattr(course, "model_copy"):
+        # Pydantic v2: in-memory copy with raw_fragments stripped
+        stripped = course.model_copy(update={"raw_fragments": []})
+        return stripped.model_dump_json()
+    if hasattr(course, "dict"):
+        d = course.dict()
+        d["raw_fragments"] = []
+        return json.dumps(d)
+    return json.dumps({})
+
+
+def append_job_event(
+    job_id: str,
+    event: str,
+    step: str,
+    course_before: Any,
+    course_after: Any,
+    owner: str,
+    actor: str,
+) -> None:
+    """Append an immutable event row to job_events.
+
+    This is the only write path for job_events — rows are never updated or
+    deleted during normal operation (see purge_ledger_entries_before for the
+    maintenance-only delete path used by PR-06 retention).
+    """
+    init_db()
+    event_id = str(uuid.uuid4())
+    input_hash = sha256_text(_serialize_course_no_fragments(course_before))
+    output_hash = sha256_text(_serialize_course_no_fragments(course_after))
+    ver = tool_version()
+
+    with _connect() as conn:
+        prev_row = conn.execute(
+            """
+            SELECT event_id FROM job_events
+            WHERE job_id = ?
+            ORDER BY recorded_at DESC
+            LIMIT 1
+            """,
+            (job_id,),
+        ).fetchone()
+        prev_event_id = prev_row["event_id"] if prev_row else None
+
+        conn.execute(
+            """
+            INSERT INTO job_events
+                (event_id, job_id, owner, event, step,
+                 input_hash, output_hash, tool_version, actor, prev_event_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                event_id, job_id, owner, event, step,
+                input_hash, output_hash, ver, actor, prev_event_id,
+            ),
+        )
+        conn.commit()
+
+
+def get_job_events(
+    job_id: str, *, owner: str | None = None
+) -> list[dict[str, Any]]:
+    """Return all ledger events for a job, ordered oldest first.
+
+    When *owner* is provided only events whose ``owner`` column matches are
+    returned — identical scoping to :func:`get_job`.
+    """
+    init_db()
+    with _connect() as conn:
+        if owner is None:
+            rows = conn.execute(
+                """
+                SELECT event_id, job_id, owner, event, step,
+                       input_hash, output_hash, tool_version, actor,
+                       prev_event_id, recorded_at
+                FROM job_events
+                WHERE job_id = ?
+                ORDER BY recorded_at ASC
+                """,
+                (job_id,),
+            ).fetchall()
+        else:
+            rows = conn.execute(
+                """
+                SELECT event_id, job_id, owner, event, step,
+                       input_hash, output_hash, tool_version, actor,
+                       prev_event_id, recorded_at
+                FROM job_events
+                WHERE job_id = ? AND owner = ?
+                ORDER BY recorded_at ASC
+                """,
+                (job_id, owner),
+            ).fetchall()
+    return [dict(row) for row in rows]
+
+
+def purge_ledger_entries_before(
+    cutoff_ts: str, *, owner: str | None = None
+) -> int:
+    """Delete job_events rows recorded before *cutoff_ts*.
+
+    This is a maintenance-only operation intended to be called by the PR-06
+    retention scheduler.  It is never wired into any automatic write path.
+
+    Returns the number of rows deleted.
+    """
+    init_db()
+    with _connect() as conn:
+        if owner is None:
+            cursor = conn.execute(
+                "DELETE FROM job_events WHERE recorded_at < ?",
+                (cutoff_ts,),
+            )
+        else:
+            cursor = conn.execute(
+                "DELETE FROM job_events WHERE recorded_at < ? AND owner = ?",
+                (cutoff_ts, owner),
+            )
+        conn.commit()
+        return cursor.rowcount
