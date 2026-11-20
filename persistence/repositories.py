@@ -325,6 +325,23 @@ def save_migration_job(
         actor=effective_owner,
     )
 
+    # Write a versioned artifact manifest with the full hash chain.
+    # Only when output_path is provided (i.e. a real artifact was produced).
+    if output_path:
+        output_root = get_settings().output_dir / job_id
+        existing_manifests = sorted(output_root.glob("v*/manifest.json"))
+        version = len(existing_manifests) + 1
+        all_events = get_job_events(job_id, owner=effective_owner)
+        manifest_path_str = write_artifact_manifest(
+            job_id, version, output_path, all_events, effective_owner
+        )
+        with _connect() as conn:
+            conn.execute(
+                "UPDATE jobs SET manifest_path = ? WHERE job_id = ?",
+                (manifest_path_str, job_id),
+            )
+            conn.commit()
+
 
 def mark_job_failed(job_id: str, error: str, *, owner: str | None = None) -> None:
     """Record a terminal failure without discarding the stored course snapshot."""
@@ -618,3 +635,93 @@ def purge_ledger_entries_before(
             )
         conn.commit()
         return cursor.rowcount
+
+
+# ---------------------------------------------------------------------------
+# Artifact manifest (hash chain on disk)
+# ---------------------------------------------------------------------------
+
+
+def write_artifact_manifest(
+    job_id: str,
+    version: int,
+    artifact_path: str,
+    events: List[Dict[str, Any]],
+    owner: str,
+) -> str:
+    """Write a versioned JSON manifest to disk and return its path.
+
+    The manifest captures the full ``job_events`` chain up to this point plus
+    a SHA-256 hash of the artifact file bytes.  Each chain entry's ``prev_hash``
+    is the SHA-256 of the previous entry serialised as canonical JSON
+    (``json.dumps(..., sort_keys=True)``), forming a tamper-evident chain.
+
+    Manifest location: ``{output_dir}/{job_id}/v{version}/manifest.json``
+    """
+    sorted_events = sorted(events, key=lambda e: e["recorded_at"])
+
+    chain: List[Dict[str, Any]] = []
+    for i, event in enumerate(sorted_events):
+        prev_hash: Optional[str] = None
+        if i > 0:
+            prev_hash = sha256_text(
+                json.dumps(chain[i - 1], sort_keys=True, ensure_ascii=False)
+            )
+        chain.append(
+            {
+                "event_id": event["event_id"],
+                "event": event["event"],
+                "step": event["step"],
+                "input_hash": event["input_hash"],
+                "output_hash": event["output_hash"],
+                "tool_version": event["tool_version"],
+                "actor": event["actor"],
+                "recorded_at": event["recorded_at"],
+                "prev_hash": prev_hash,
+            }
+        )
+
+    artifact_file = Path(artifact_path)
+    artifact_hash = sha256_text(artifact_file.read_bytes()) if artifact_file.exists() else ""
+
+    manifest = {
+        "schema_version": 1,
+        "job_id": job_id,
+        "version": version,
+        "artifact_path": str(artifact_path),
+        "artifact_hash": artifact_hash,
+        "chain": chain,
+    }
+
+    out_dir = get_settings().output_dir / job_id / f"v{version}"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    manifest_path = out_dir / "manifest.json"
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    return str(manifest_path)
+
+
+def get_manifest(
+    job_id: str, version: int, *, owner: str = DEFAULT_OWNER
+) -> Dict[str, Any]:
+    """Read and return the versioned manifest for a job.
+
+    Raises :class:`~core.errors.LedgerRollbackError` if the manifest file does
+    not exist.  Performs a basic tamper-guard check on the ``job_id`` field.
+    """
+    manifest_path = (
+        get_settings().output_dir / job_id / f"v{version}" / "manifest.json"
+    )
+    if not manifest_path.exists():
+        raise LedgerRollbackError(
+            f"No manifest found for job {job_id!r} version {version} "
+            f"(expected {manifest_path})"
+        )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("job_id") != job_id:
+        raise LedgerRollbackError(
+            f"Manifest job_id mismatch: expected {job_id!r}, "
+            f"found {manifest.get('job_id')!r}"
+        )
+    return manifest
