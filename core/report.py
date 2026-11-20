@@ -54,9 +54,26 @@ def build_report_data(
     job: Dict[str, Any],
     course: Course,
     report_items: Iterable[Any],
+    ledger_entries: Optional[List[Dict[str, Any]]] = None,
 ) -> Dict[str, Any]:
-    """Return a stable, JSON-serializable report document."""
+    """Return a stable, JSON-serializable report document.
+
+    *ledger_entries* is optional.  When supplied each entry is projected to the
+    five display fields and ``output_hash`` is truncated to 16 chars.
+    Existing callers that omit *ledger_entries* receive an empty ``"ledger"``
+    list and are not affected.
+    """
     items = _report_items(report_items)
+    ledger_display: List[Dict[str, Any]] = [
+        {
+            "event_id": entry["event_id"],
+            "event": entry["event"],
+            "step": entry["step"],
+            "recorded_at": entry["recorded_at"],
+            "output_hash": entry.get("output_hash", "")[:16],
+        }
+        for entry in (ledger_entries or [])
+    ]
     return {
         "schema_version": 2,
         "job_id": job_id,
@@ -87,6 +104,7 @@ def build_report_data(
         "unsupported_features": _unsupported_features(items),
         "validation": items,
         "integrity_errors": course.integrity_errors(),
+        "ledger": ledger_display,
     }
 
 
@@ -95,10 +113,11 @@ def render_json_report(
     job: Dict[str, Any],
     course: Course,
     report_items: Iterable[Any],
+    ledger_entries: Optional[List[Dict[str, Any]]] = None,
 ) -> str:
     """Render the report as deterministic, human-readable JSON."""
     return json.dumps(
-        build_report_data(job_id, job, course, report_items),
+        build_report_data(job_id, job, course, report_items, ledger_entries),
         indent=2,
         ensure_ascii=False,
         default=str,
@@ -110,9 +129,10 @@ def render_html_report(
     job: Dict[str, Any],
     course: Course,
     report_items: Iterable[Any],
+    ledger_entries: Optional[List[Dict[str, Any]]] = None,
 ) -> str:
     """Render a self-contained HTML report with all untrusted text escaped."""
-    data = build_report_data(job_id, job, course, report_items)
+    data = build_report_data(job_id, job, course, report_items, ledger_entries)
     e = lambda value: html.escape(str(value if value is not None else ""), quote=True)
     components = data["components"]
 
@@ -175,6 +195,18 @@ def render_html_report(
         f"<li>{e(message)}</li>" for message in data["integrity_errors"]
     ) or "<li>No integrity errors.</li>"
 
+    # Build the Ledger History table rows — each value is HTML-escaped
+    ledger_rows = "\n".join(
+        f"<tr>"
+        f"<td><code>{e(entry['event_id'])}</code></td>"
+        f"<td>{e(entry['event'])}</td>"
+        f"<td>{e(entry['step'])}</td>"
+        f"<td>{e(entry['recorded_at'])}</td>"
+        f"<td><code>{e(entry['output_hash'])}</code></td>"
+        f"</tr>"
+        for entry in data["ledger"]
+    ) or '<tr><td colspan="5">No ledger entries.</td></tr>'
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,6 +251,17 @@ def render_html_report(
     <ul>
 {integrity_rows}
     </ul>
+    <h2>Ledger History</h2>
+    <table>
+        <tr>
+            <th>Event ID</th>
+            <th>Event</th>
+            <th>Step</th>
+            <th>Recorded</th>
+            <th>Output Hash (16)</th>
+        </tr>
+{ledger_rows}
+    </table>
 </body>
 </html>"""
 

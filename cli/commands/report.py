@@ -6,7 +6,7 @@ import typer
 
 from core.report import render_html_report, render_json_report
 from domain.entities import Course
-from persistence.repositories import get_job
+from persistence.repositories import get_job, get_job_events
 
 app = typer.Typer()
 
@@ -33,11 +33,13 @@ def report_command(
         typer.echo(f"Error: Could not load report data for {job_id}: {exc}", err=True)
         raise typer.Exit(1)
 
+    ledger_entries = get_job_events(job_id)
+
     report_format = format.strip().lower()
     if report_format == "json":
-        content = render_json_report(job_id, job, course, report_items)
+        content = render_json_report(job_id, job, course, report_items, ledger_entries)
     elif report_format == "html":
-        content = render_html_report(job_id, job, course, report_items)
+        content = render_html_report(job_id, job, course, report_items, ledger_entries)
     else:
         typer.echo(f"Error: Unsupported report format {format!r}", err=True)
         raise typer.Exit(1)
