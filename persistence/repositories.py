@@ -9,6 +9,7 @@ migrated, and failed jobs.
 from __future__ import annotations
 
 import json
+import shutil
 import sqlite3
 import uuid
 from contextlib import contextmanager
@@ -654,3 +655,119 @@ def get_manifest(
             f"found {manifest.get('job_id')!r}"
         )
     return manifest
+
+
+# ---------------------------------------------------------------------------
+# Rollback
+# ---------------------------------------------------------------------------
+
+
+def rollback_job(
+    job_id: str,
+    *,
+    version: Optional[int] = None,
+    owner: str = DEFAULT_OWNER,
+) -> Dict[str, Any]:
+    """Restore a job to an earlier artifact version.
+
+    Copies the artifact referenced by *version* (or the highest available
+    version when *version* is ``None``) into a new ``v{N+1}`` directory,
+    resets the ``jobs`` row to ``status='inspected'``, appends a
+    ``rolled_back`` event, and writes a new manifest for the rollback.
+
+    Returns the updated job dict.
+
+    Raises
+    ------
+    JobAccessError
+        If *job_id* does not exist or is not owned by *owner*.
+    LedgerRollbackError
+        If no manifests exist for the job, or the target artifact file is
+        missing on disk.
+    """
+    # Step 1: verify job exists and owner matches
+    job = get_job(job_id, owner=owner)
+    if job is None:
+        raise JobAccessError(
+            f"Job {job_id!r} not found or not owned by {owner!r}"
+        )
+
+    # Step 2: discover all versioned manifests on disk
+    output_root = get_settings().output_dir / job_id
+    manifest_paths = sorted(
+        output_root.glob("v*/manifest.json"),
+        key=lambda p: int(p.parent.name[1:]),
+    )
+    if not manifest_paths:
+        raise LedgerRollbackError(
+            f"No manifests found for job {job_id!r}. "
+            "Run a migration first to create a manifest."
+        )
+
+    # Step 3: resolve target version
+    if version is None:
+        target_version = max(int(p.parent.name[1:]) for p in manifest_paths)
+    else:
+        target_version = version
+
+    # Step 4: load manifest (raises LedgerRollbackError if missing)
+    manifest = get_manifest(job_id, target_version, owner=owner)
+
+    # Step 5: verify artifact file exists on disk
+    artifact_path = Path(manifest["artifact_path"])
+    if not artifact_path.exists():
+        raise LedgerRollbackError(
+            f"Artifact file not found: {artifact_path}. "
+            "Cannot roll back without the original artifact."
+        )
+
+    # Step 6: determine new version number and copy artifact
+    new_version = len(manifest_paths) + 1
+    dest_dir = output_root / f"v{new_version}"
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    new_artifact = dest_dir / artifact_path.name
+    shutil.copy2(artifact_path, new_artifact)
+
+    # Step 7: reset the jobs row to 'inspected' (no migration outputs)
+    with _connect() as conn:
+        conn.execute(
+            """
+            UPDATE jobs
+               SET status = 'inspected',
+                   output_path = NULL,
+                   manifest_path = NULL,
+                   error = NULL,
+                   updated_at = CURRENT_TIMESTAMP
+             WHERE job_id = ?
+            """,
+            (job_id,),
+        )
+        conn.commit()
+
+    # Step 8: append the rolled_back ledger event
+    append_job_event(
+        job_id,
+        "rolled_back",
+        "rollback",
+        None,
+        None,
+        owner,
+        owner,
+    )
+
+    # Step 9: write a new manifest capturing the full post-rollback chain
+    all_events = get_job_events(job_id, owner=owner)
+    new_manifest_path = write_artifact_manifest(
+        job_id, new_version, str(new_artifact), all_events, owner
+    )
+
+    # Step 10: persist the new manifest path in the jobs row
+    with _connect() as conn:
+        conn.execute(
+            "UPDATE jobs SET manifest_path = ? WHERE job_id = ?",
+            (new_manifest_path, job_id),
+        )
+        conn.commit()
+
+    # Step 11: return the refreshed job dict
+    return get_job(job_id, owner=owner)  # type: ignore[return-value]
