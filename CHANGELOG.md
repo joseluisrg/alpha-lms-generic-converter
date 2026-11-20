@@ -20,9 +20,11 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 - Architecture reference covering runtime components, the processing pipeline, module boundaries, data ownership, and trust boundaries.
 - Operator runbook covering health checks, upgrade and rollback, stopped-snapshot backup, restore verification, retention cleanup, incident triage, support handoff, and a recovery drill.
 - Backup and restore integration drill that snapshots the managed data root, restores it, and verifies jobs, artifacts, schema version, and SQLite integrity.
+- Versioned draft format and feature matrix covering every supported feature ID, with target status, import checks, fixture evidence, and certification gaps.
 
 ### Changed
 
+- Recorded Moodle 5.3 LTS and Open edX Verawood as the certification targets, with pinned patch expectations for the LMS import harness.
 - Updated the optional UI stack to Streamlit 1.67 and patched transitive dependencies; `pip-audit` is clean.
 - Open edX exports use a stable identifier for synthetic open-assessment prompt HTML, removing a source of nondeterminism.
 

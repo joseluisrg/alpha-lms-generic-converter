@@ -4,7 +4,7 @@ Vendor-neutral course migration between Moodle and Open edX.
 
 LMS Converter parses course packages, maps them to a canonical course model, validates migration readiness, and generates restore-shaped Moodle backups or Open edX exports. Every migration produces a report describing what was preserved, what changed, and what needs human review.
 
-> Status: alpha. The conversion pipeline is usable and deployment operations are documented, but real-LMS certification, the format matrix, and pilot sign-off are still in progress. See [`docs/production-readiness-plan.md`](docs/production-readiness-plan.md).
+> Status: alpha. The conversion pipeline is usable, deployment operations are documented, and a draft format matrix is published, but real-LMS certification and pilot sign-off are still in progress. See [`docs/production-readiness-plan.md`](docs/production-readiness-plan.md).
 
 ## Features
 
@@ -22,6 +22,7 @@ LMS Converter parses course packages, maps them to a canonical course model, val
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): runtime components, pipeline, module map, trust boundaries, and extension points.
 - [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md): hardened container deployment, proxy authentication, upgrades, and SBOM checks.
 - [`docs/OPERATOR_RUNBOOK.md`](docs/OPERATOR_RUNBOOK.md): health checks, backup, restore, rollback, retention, troubleshooting, and the recovery drill.
+- [`docs/FORMAT_MATRIX.md`](docs/FORMAT_MATRIX.md): draft feature status, import checks, evidence, and known certification gaps.
 
 ## Requirements
 

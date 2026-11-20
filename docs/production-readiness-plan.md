@@ -4,15 +4,15 @@
 
 | Field | Value |
 | --- | --- |
-| Document version | 2.1 |
+| Document version | 2.2 |
 | Status | Draft for approval |
-| Date | 2026-11-19 |
+| Date | 2026-11-20 |
 | Owner | Team Delta |
 | Approver | TBD |
 | Repository | `olgakazarina-guds/Team-Delta` |
 | Branch | `phase2/lms-migration` |
 | Review cycle | Monthly and at milestone completion |
-| Related documents | `README.md`, `SECURITY.md`, `CHANGELOG.md`, `docs/CONTRIBUTING.md`, `docs/ARCHITECTURE.md`, `docs/DEPLOYMENT.md`, `docs/OPERATOR_RUNBOOK.md`, `LICENSE` |
+| Related documents | `README.md`, `SECURITY.md`, `CHANGELOG.md`, `docs/CONTRIBUTING.md`, `docs/ARCHITECTURE.md`, `docs/DEPLOYMENT.md`, `docs/OPERATOR_RUNBOOK.md`, `docs/FORMAT_MATRIX.md`, `LICENSE` |
 
 ## 1. Executive summary
 
@@ -26,7 +26,7 @@ This plan covers the production-readiness release: a self-hosted CLI and web pil
 
 ## 2. Current baseline
 
-Status as of 2026-11-19.
+Status as of 2026-11-20.
 
 | Area | Status | Evidence | Remaining work |
 | --- | --- | --- | --- |
@@ -34,11 +34,11 @@ Status as of 2026-11-19.
 | Packaging and configuration | Complete | `uv build` succeeds; clean-venv wheel install works; `lms-converter --version` works outside the repository; centralized `Settings` added in `5729227`; tag-driven release workflow with version/changelog checks, release artifacts, checksums, and CI artifact retention added in `.github/workflows/release.yml`, `scripts/check_release.py`, and `docs/RELEASING.md` | — |
 | Security and input controls | Complete | Committed in `235b2f5`; bounded uploads, archive and XML limits, output containment, production auth, owner-scoped jobs, and sanitized UI errors; PR-11 adds a digest-pinned non-root container, hash-locked runtime dependencies, SBOM generation, and CI container smoke checks | Add image vulnerability scanning |
 | Persistence | Complete | SQLite job records, lifecycle states, owner field, and `PRAGMA user_version` schema migrations exist; PR-05 removed DDL from repository reads; PR-06 adds configurable retention cleanup with dry-run mode; PR-10 adds a backup/restore integration drill | — |
-| Migration fidelity | Partial | Canonical model, Moodle/Open edX adapters, validation notes, and JSON/HTML reports exist; PR-07 adds a synthetic golden corpus with canonical IR, report, and target-export snapshots plus malformed and malicious fixtures | Build the real-LMS import harness and versioned fidelity scorecard |
-| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 124 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI; PR-11 adds container build, non-root, CLI smoke, web health, and SBOM generation/validation checks; PR-10 adds the backup/restore drill to the test suite | Add nightly performance and fuzz layers |
+| Migration fidelity | Partial | Canonical model, Moodle/Open edX adapters, validation notes, and JSON/HTML reports exist; PR-07 adds a synthetic golden corpus with canonical IR, report, and target-export snapshots plus malformed and malicious fixtures; the draft format matrix publishes status and import-check expectations for every supported feature | Build the real-LMS import harness and versioned fidelity scorecard |
+| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 284 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI; PR-11 adds container build, non-root, CLI smoke, web health, and SBOM generation/validation checks; PR-10 adds the backup/restore drill and the format-matrix checks extend the golden suite | Add nightly performance and fuzz layers |
 | Operations | Partial | PR-11 adds a hardened Dockerfile, Compose deployment, health checks, resource limits, log rotation, and a deployment guide; PR-10 adds backup, restore, rollback, retention, and incident procedures plus an automated recovery drill | Add metrics and alerting; schedule and verify production backups |
-| Documentation | Partial | README, security policy, contribution guide, changelog, license, release checklist, container deployment guide, architecture reference, and operator runbook exist | Publish the versioned format and feature matrix |
-| Real-LMS certification | Not started | No live Moodle or Open edX environment available | Provision pinned test environments and run import certification |
+| Documentation | Partial | README, security policy, contribution guide, changelog, license, release checklist, container deployment guide, architecture reference, operator runbook, and draft format matrix exist | Publish certification results in the scorecard |
+| Real-LMS certification | Not started | Moodle 5.3 LTS and Open edX Verawood are selected; a Docker-capable GitHub Actions runner is available; the draft format matrix defines the certification scope | Provision pinned environments and run import certification |
 
 ## 3. Objectives and success criteria
 
@@ -92,7 +92,7 @@ Effort sizes are indicative: S is up to three working days, M is one to two week
 | PR-05 | Add database schema versioning | PR-01 | Tech Lead | M | `PRAGMA user_version` is recorded; existing database migrates without loss; reads do not run DDL; migration tests pass |
 | PR-06 | Add retention and cleanup | PR-05 | Tech Lead | M | Configurable retention removes job rows and artifacts; dry-run mode exists; cleanup tests pass |
 | PR-07 | Build the golden corpus | PR-01 | Fidelity/Adapter Engineer | L | Sanitized fixtures cover every supported feature; malformed and malicious fixtures exist; expected snapshots are stored |
-| PR-08 | Build the LMS import harness | PR-07, DEP-01, D-04 | QA/Automation | L | Pinned Moodle and Open edX environments import generated packages; harness runs nightly and at release |
+| PR-08 | Build the LMS import harness | PR-07, DEP-01 | QA/Automation | L | Pinned Moodle 5.3 LTS and Open edX Verawood environments import generated packages; harness runs nightly and at release |
 | PR-09 | Publish the fidelity scorecard | PR-07, PR-08 | Fidelity/Adapter Engineer | M | Versioned machine-readable report includes preserved, transformed, and lost counts plus import results |
 | PR-10 | Write deployment and operator documentation | PR-03 | Documentation/UX | M | README, architecture reference, deployment guide, backup/restore runbook, recovery drill, limitations, and troubleshooting are complete |
 | PR-11 | Harden deployment artifacts | PR-03 | Security/DevOps | M | Non-root container, read-only source, resource limits, pinned images, dependency audit, and SBOM are in place |
@@ -106,7 +106,7 @@ Durations are indicative and assume one to two engineers. They are not calendar 
 | --- | --- | --- | --- | --- |
 | M0 Baseline | PR-01, PR-02 | Security work committed; baseline test suite runs locally; test gaps recorded | None | 1-2 weeks |
 | M1 Secure foundation | PR-03 to PR-06, PR-11 | CI is green; schema versioning and retention work; deployment artifacts meet the hardening checklist | M0 | 3-5 weeks |
-| M2 Certification | PR-07 to PR-09 | Golden corpus, LMS import harness, and scorecard are complete for the agreed feature matrix | M1, DEP-01, D-04 | 4-6 weeks |
+| M2 Certification | PR-07 to PR-09 | Golden corpus, LMS import harness, and scorecard are complete for the agreed feature matrix | M1, DEP-01 | 4-6 weeks |
 | M3 Pilot | PR-10, PR-12 | Documentation and runbooks are complete; pilot checklist and rollback procedure are approved | M2 | 2-3 weeks |
 | M4 Production release | Release gates in Section 9 | All release gates pass; release is signed off | M3 | 1-2 weeks |
 
@@ -138,15 +138,15 @@ R = responsible, A = accountable, C = consulted, I = informed.
 
 | ID | Type | Description | Impact | Likelihood | Mitigation | Owner |
 | --- | --- | --- | --- | --- | --- | --- |
-| R-01 | Risk | No live Moodle or Open edX environment is available for import testing | High | High | Provision a Docker-based harness or hosted sandbox before M2; treat access as a milestone dependency | QA/Automation |
+| R-01 | Risk | The automated Moodle and Open edX environment is not yet provisioned | High | Medium | Use the confirmed Docker-capable GitHub Actions nightly runner; pin Moodle and Tutor images; retain a hosted-sandbox fallback | QA/Automation |
 | R-02 | Risk | Moodle GPL and Open edX AGPL licensing may constrain distribution or commercial use | High | Medium | Complete legal review before distributing a commercial or hosted offering; keep licensing decisions documented | Project Lead |
 | R-03 | Risk | Course packages may contain student data, personal information, or institution-confidential material | High | Medium | Use sanitized fixtures; document retention and deletion; restrict access to test data | Security/DevOps |
 | R-04 | Risk | SQLite may produce lock contention or scale limits under concurrent jobs | Medium | Medium | Keep a single-writer design for the pilot; test concurrency; define the Postgres migration path | Tech Lead |
 | R-05 | Risk | Streamlit may not meet long-term UI, accessibility, or multi-user requirements | Medium | High | Limit Streamlit to the pilot; decide on the UI strategy at M2 | Project Lead |
 | R-06 | Risk | Scope expansion delays the production-readiness release | High | High | Enforce the non-goals in Section 4; require change approval for scope changes | Project Lead |
 | A-01 | Assumption | Python 3.12 and newer remain the supported runtime | Low | Low | Run CI against supported Python versions; document the support policy | Tech Lead |
-| A-02 | Assumption | Target LMS versions can be pinned in test environments | Medium | Medium | Confirm versions through D-04 before building the harness | Tech Lead |
-| DEP-01 | Dependency | LMS test environment access is required for certification | High | High | Assign an owner and confirm access before M2 | Project Lead |
+| A-02 | Assumption | Target LMS versions can be pinned in test environments | Medium | Low | D-04 accepted; pin Moodle 5.3.1 and Open edX Verawood.2 via Tutor 22.0.4 | Tech Lead |
+| DEP-01 | Dependency | LMS test environment access is required for certification | High | Medium | Docker-capable GitHub Actions runner confirmed; assign the harness owner and finalize environment provisioning before M2 | Project Lead |
 | DEP-02 | Dependency | Legal review is required before release distribution | Medium | Medium | Start review during M1; record the outcome in the decision log | Project Lead |
 | ISS-01 | Issue | Security changes were uncommitted | Medium | High | Resolved in `235b2f5`; PR-01 closed | Tech Lead |
 
@@ -214,7 +214,7 @@ A release is approved only when:
 | D-01 | Deployment model | CLI only; self-hosted service; SaaS; all three | Self-hosted CLI and web pilot; defer SaaS | Project Lead | M1 | Open |
 | D-02 | Primary customer | Universities; government; corporate learning; LMS vendors | Higher-education and public-sector course teams | Project Lead | M1 | Open |
 | D-03 | Licensing | Apache-2.0; AGPL; open-core with commercial features | Apache-2.0 core; legal review before any commercial layer | Project Lead | M1 | Open |
-| D-04 | Certification targets | Moodle versions and Open edX releases | Moodle 4.5 LTS and the current supported Open edX release | Tech Lead | M1 | Open |
+| D-04 | Certification targets | Moodle versions and Open edX releases | Moodle 5.3 LTS (pin 5.3.1) and Open edX Verawood (Verawood.2 via Tutor 22.0.4) | Tech Lead | M1 | Accepted |
 | D-05 | UI strategy | Streamlit; React/TypeScript | Streamlit for the pilot; revisit after M2 | Project Lead | M2 | Open |
 | D-06 | Database strategy | SQLite only; SQLite local plus Postgres shared | SQLite for local and pilot; define Postgres before shared deployment | Tech Lead | M1 | Open |
 | D-07 | Git history rewrite | Rewrite; retain history | Retain until data sensitivity review; rewrite only if required | Project Lead | M1 | Open |
@@ -222,11 +222,16 @@ A release is approved only when:
 
 ## Appendix A: Format and feature matrix
 
-The matrix is a release artifact. Each row must be marked native, transformed, placeholder, or unsupported, with a fixture and evidence link.
+The matrix is a release artifact. The versioned companion is
+[`FORMAT_MATRIX.md`](FORMAT_MATRIX.md), backed by
+`tests/fixtures/golden/format-matrix.json`. Each migration row must be marked
+native, transformed, placeholder, or unsupported, with a fixture and evidence
+link. Validation, security, and roundtrip features use the separate `control`
+status because they are checks rather than target content classifications.
 
 | Category | Items to classify |
 | --- | --- |
-| LMS versions | Moodle 4.5 LTS; current supported Open edX release; additional versions per D-04 |
+| LMS versions | Moodle 5.3 LTS (pin 5.3.1); Open edX Verawood.2 via Tutor 22.0.4; additional versions require a new D-04 decision |
 | Activities | Page, label, URL, resource, forum, quiz, assignment, choice, book, glossary, wiki, workshop, lesson, SCORM, LTI |
 | Question types | Multichoice, multiselect, true/false, short answer, numerical, essay, description, matching, cloze, drag-and-drop |
 | Assets and content | Files, embedded HTML, video, H5P, SCORM 1.2/2004, LTI 1.3 |
