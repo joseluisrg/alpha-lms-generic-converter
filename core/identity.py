@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import uuid
+from importlib.metadata import PackageNotFoundError, version as _pkg_version
 from typing import Any
 
 # A fixed application namespace: changing this intentionally breaks ID
@@ -33,3 +34,15 @@ def sha256_bytes(data: bytes) -> str:
 def sha256_text(text: str) -> str:
     """Return a lowercase SHA-256 digest for UTF-8 text."""
     return sha256_bytes(text.encode("utf-8"))
+
+
+def tool_version() -> str:
+    """Return the installed lms-converter package version.
+
+    Falls back to ``"0.0.0"`` when the package metadata is unavailable
+    (e.g. running from a source checkout that has not been installed).
+    """
+    try:
+        return _pkg_version("lms-converter")
+    except PackageNotFoundError:
+        return "0.0.0"
