@@ -37,6 +37,7 @@ class MoodleTargetAdapter:
         self.asset_file_ids: dict[str, int] = {}
         self.question_ids: dict[str, int] = {}
         self.question_categories: dict[str, int] = {}
+        self.question_top_category_id: int | None = None
         self.quiz_module_ids: dict[str, int] = {}
         self._current_module_id = 0
         self._current_module_name = ""
@@ -76,6 +77,7 @@ class MoodleTargetAdapter:
         self._write_sections_and_activities()
         self._write_questions_xml()
         self._write_files_xml()
+        self._write_course_inforef()
         self._write_moodle_backup_xml()
         self._write_auxiliary_files()
         self._write_archive_index()
@@ -98,6 +100,7 @@ class MoodleTargetAdapter:
         self.asset_file_ids = {}
         self.question_ids = {}
         self.question_categories = {}
+        self.question_top_category_id = None
         self.quiz_module_ids = {}
         self._current_module_id = 0
         self._current_module_name = ""
@@ -109,7 +112,7 @@ class MoodleTargetAdapter:
 
     def _write_course_xml(self) -> None:
         self.course_id = self._new_id()
-        root = ET.Element("course", id=str(self.course_id))
+        root = ET.Element("course", id=str(self.course_id), contextid=str(self.course_id))
         ET.SubElement(root, "shortname").text = self._course.metadata.get(
             "shortname", self._course.title[:50]
         )
@@ -527,6 +530,14 @@ class MoodleTargetAdapter:
                 return
 
     def _prepare_question_ids(self) -> None:
+        has_questions = any(
+            q.assessment_id == assessment.assessment_id
+            for assessment in self._course.assessments
+            for q in self._course.questions
+        )
+        if not has_questions:
+            return
+        self.question_top_category_id = self._new_id()
         for assessment in self._course.assessments:
             questions = [
                 q for q in self._course.questions if q.assessment_id == assessment.assessment_id
@@ -540,6 +551,23 @@ class MoodleTargetAdapter:
 
     def _write_questions_xml(self) -> None:
         root = ET.Element("question_categories")
+        if self.question_top_category_id is None:
+            self._write_xml(self._work_dir / "questions.xml", root)
+            return
+
+        top = ET.SubElement(root, "question_category", id=str(self.question_top_category_id))
+        ET.SubElement(top, "name").text = "Top"
+        ET.SubElement(top, "contextid").text = str(self._course_id())
+        ET.SubElement(top, "contextlevel").text = "50"
+        ET.SubElement(top, "contextinstanceid").text = str(self._course_id())
+        ET.SubElement(top, "info").text = ""
+        ET.SubElement(top, "infoformat").text = "0"
+        ET.SubElement(top, "stamp").text = f"lms-converter+{uuid.uuid4().hex}"
+        ET.SubElement(top, "parent").text = "0"
+        ET.SubElement(top, "sortorder").text = "0"
+        ET.SubElement(top, "idnumber").text = "$@NULL@$"
+        ET.SubElement(top, "question_bank_entries")
+
         written_question_ids: set[str] = set()
         for assessment in self._course.assessments:
             category_id = self.question_categories.get(assessment.assessment_id)
@@ -550,24 +578,24 @@ class MoodleTargetAdapter:
             ]
             category = ET.SubElement(root, "question_category", id=str(category_id))
             ET.SubElement(category, "name").text = assessment.title or "Default"
-            ET.SubElement(category, "contextid").text = str(category_id)
+            ET.SubElement(category, "contextid").text = str(self._course_id())
             ET.SubElement(category, "contextlevel").text = "50"
             ET.SubElement(category, "contextinstanceid").text = str(self._course_id())
             ET.SubElement(
                 category, "info"
             ).text = f"Questions for {assessment.title or 'assessment'}"
-            ET.SubElement(category, "infoformat").text = "0"
+            ET.SubElement(category, "infoformat").text = "1"
             ET.SubElement(category, "stamp").text = f"lms-converter+{uuid.uuid4().hex}"
-            ET.SubElement(category, "parent").text = "0"
+            ET.SubElement(category, "parent").text = str(self.question_top_category_id)
             ET.SubElement(category, "sortorder").text = "999"
             ET.SubElement(category, "idnumber").text = "$@NULL@$"
-            questions_elem = ET.SubElement(category, "questions")
+            entries = ET.SubElement(category, "question_bank_entries")
             for question in questions:
                 numeric_id = self.question_ids.get(question.question_id)
                 if numeric_id is None or question.question_id in written_question_ids:
                     continue
                 written_question_ids.add(question.question_id)
-                self._write_single_question(questions_elem, question, numeric_id)
+                self._write_single_question(entries, category_id, question, numeric_id)
 
         self._write_xml(self._work_dir / "questions.xml", root)
 
@@ -575,7 +603,11 @@ class MoodleTargetAdapter:
         return self.course_id
 
     def _write_single_question(
-        self, parent: ET.Element, question: Question, numeric_id: int
+        self,
+        parent: ET.Element,
+        category_id: int,
+        question: Question,
+        numeric_id: int,
     ) -> None:
         qtype = question.question_type
         moodle_type = (
@@ -589,7 +621,16 @@ class MoodleTargetAdapter:
             if qtype in ("essay", "description")
             else "multichoice"
         )
-        q_elem = ET.SubElement(parent, "question", id=str(numeric_id))
+        entry = ET.SubElement(parent, "question_bank_entry", id=str(self._new_id()))
+        ET.SubElement(entry, "questioncategoryid").text = str(category_id)
+        ET.SubElement(entry, "idnumber").text = "$@NULL@$"
+        ET.SubElement(entry, "ownerid").text = "0"
+        q_version = ET.SubElement(entry, "question_version")
+        versions = ET.SubElement(q_version, "question_versions", id=str(self._new_id()))
+        ET.SubElement(versions, "version").text = "1"
+        ET.SubElement(versions, "status").text = "ready"
+        questions = ET.SubElement(versions, "questions")
+        q_elem = ET.SubElement(questions, "question", id=str(numeric_id))
         ET.SubElement(q_elem, "parent").text = "0"
         ET.SubElement(q_elem, "name").text = (question.prompt_text or "Question")[:50]
         ET.SubElement(q_elem, "questiontext").text = question.prompt_text or ""
@@ -601,13 +642,10 @@ class MoodleTargetAdapter:
         ET.SubElement(q_elem, "qtype").text = moodle_type
         ET.SubElement(q_elem, "length").text = "1"
         ET.SubElement(q_elem, "stamp").text = f"lms-converter+{uuid.uuid4().hex}"
-        ET.SubElement(q_elem, "version").text = f"lms-converter+{uuid.uuid4().hex}"
-        ET.SubElement(q_elem, "hidden").text = "0"
         ET.SubElement(q_elem, "timecreated").text = str(int(time.time()))
         ET.SubElement(q_elem, "timemodified").text = str(int(time.time()))
         ET.SubElement(q_elem, "createdby").text = "0"
         ET.SubElement(q_elem, "modifiedby").text = "0"
-        ET.SubElement(q_elem, "idnumber").text = "$@NULL@$"
 
         options = [
             opt for opt in self._course.answer_options if opt.question_id == question.question_id
@@ -765,7 +803,7 @@ class MoodleTargetAdapter:
                 "filesize": len(content),
                 "mimetype": asset.mime_type or "application/octet-stream",
                 "component": "course",
-                "filearea": "content",
+                "filearea": "summary",
                 "itemid": 0,
             }
             self.file_records.append(record)
@@ -802,6 +840,31 @@ class MoodleTargetAdapter:
             empty_dir.mkdir(parents=True, exist_ok=True)
             (empty_dir / empty_hash).write_bytes(b"")
         self._write_xml(self._work_dir / "files.xml", root)
+
+    def _write_course_inforef(self) -> None:
+        file_ids = [
+            record["id"]
+            for record in self.file_records
+            if record["component"] == "course" and record["filearea"] == "summary"
+        ]
+        category_ids = []
+        if self.question_top_category_id is not None:
+            category_ids.append(self.question_top_category_id)
+            category_ids.extend(self.question_categories.values())
+        if not file_ids and not category_ids:
+            return
+        root = ET.Element("inforef")
+        if file_ids:
+            file_ref = ET.SubElement(root, "fileref")
+            for file_id in file_ids:
+                file_elem = ET.SubElement(file_ref, "file")
+                ET.SubElement(file_elem, "id").text = str(file_id)
+        if category_ids:
+            category_ref = ET.SubElement(root, "question_categoryref")
+            for category_id in category_ids:
+                category_elem = ET.SubElement(category_ref, "question_category")
+                ET.SubElement(category_elem, "id").text = str(category_id)
+        self._write_xml(self._work_dir / "course" / "inforef.xml", root)
 
     def _write_file_record(self, root: ET.Element, record: dict[str, Any]) -> None:
         file_elem = ET.SubElement(root, "file", id=str(record["id"]))
