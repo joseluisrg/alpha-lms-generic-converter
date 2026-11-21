@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Document version | 2.2 |
+| Document version | 2.3 |
 | Status | Draft for approval |
-| Date | 2026-11-20 |
+| Date | 2026-11-21 |
 | Owner | Team Delta |
 | Approver | TBD |
 | Repository | `olgakazarina-guds/Team-Delta` |
@@ -26,7 +26,7 @@ This plan covers the production-readiness release: a self-hosted CLI and web pil
 
 ## 2. Current baseline
 
-Status as of 2026-11-20.
+Status as of 2026-11-21.
 
 | Area | Status | Evidence | Remaining work |
 | --- | --- | --- | --- |
@@ -35,10 +35,10 @@ Status as of 2026-11-20.
 | Security and input controls | Complete | Committed in `235b2f5`; bounded uploads, archive and XML limits, output containment, production auth, owner-scoped jobs, and sanitized UI errors; PR-11 adds a digest-pinned non-root container, hash-locked runtime dependencies, SBOM generation, and CI container smoke checks | Add image vulnerability scanning |
 | Persistence | Complete | SQLite job records, lifecycle states, owner field, and `PRAGMA user_version` schema migrations exist; PR-05 removed DDL from repository reads; PR-06 adds configurable retention cleanup with dry-run mode; PR-10 adds a backup/restore integration drill | — |
 | Migration fidelity | Partial | Canonical model, Moodle/Open edX adapters, validation notes, and JSON/HTML reports exist; PR-07 adds a synthetic golden corpus with canonical IR, report, and target-export snapshots plus malformed and malicious fixtures; the draft format matrix publishes status and import-check expectations for every supported feature | Build the real-LMS import harness and versioned fidelity scorecard |
-| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 305 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI; PR-11 adds container build, non-root, CLI smoke, web health, and SBOM generation/validation checks; PR-10 adds the backup/restore drill and the format-matrix checks extend the golden suite | Add nightly performance and fuzz layers |
+| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 318 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI; PR-11 adds container build, non-root, CLI smoke, web health, and SBOM generation/validation checks; PR-10 adds the backup/restore drill and the format-matrix checks extend the golden suite | Add nightly performance and fuzz layers |
 | Operations | Partial | PR-11 adds a hardened Dockerfile, Compose deployment, health checks, resource limits, log rotation, and a deployment guide; PR-10 adds backup, restore, rollback, retention, and incident procedures plus an automated recovery drill | Add metrics and alerting; schedule and verify production backups |
 | Documentation | Partial | README, security policy, contribution guide, changelog, license, release checklist, container deployment guide, architecture reference, operator runbook, and draft format matrix exist | Publish certification results in the scorecard |
-| Real-LMS certification | Partial | Moodle 5.3 LTS and Open edX Verawood are selected; a Docker-capable GitHub Actions runner is available; the draft format matrix defines the certification scope; the harness scaffold plans 57 import features and emits a versioned result contract | Provision pinned environments and run import certification |
+| Real-LMS certification | Partial | Moodle 5.3.1 and Open edX Verawood.2 environments are implemented with restore/import and re-export verification; the harness plans 57 import features and emits a schema-v2 result contract; nightly and manual workflows are configured | Complete a green live run and publish the certification report |
 
 ## 3. Objectives and success criteria
 
@@ -169,7 +169,7 @@ R = responsible, A = accountable, C = consulted, I = informed.
 
 ### CI gates
 
-Implemented in `.github/workflows/ci.yml` for gates 1-11; gate 12 follows PR-08.
+Implemented in `.github/workflows/ci.yml` for gates 1-11; gate 12 runs in `.github/workflows/lms-certification.yml`.
 
 1. `uv sync --frozen --group dev`
 2. `ruff check` and `ruff format --check`

@@ -9,6 +9,7 @@ from tests.certification.models import (
     CertificationReport,
     FeatureOutcome,
     ImportStatus,
+    ReimportInfo,
     ReportStatus,
 )
 from tests.certification.plan import build_plan
@@ -125,6 +126,66 @@ def test_runner_redacts_credentials_from_report(tmp_path: Path):
     assert "secret" not in payload
     assert "abc123" not in payload
     assert "<redacted>" in payload
+
+
+def test_runner_records_sanitized_reimport_evidence(tmp_path: Path):
+    report, _ = _run(
+        build_plan(),
+        tmp_path,
+        reimport=ReimportInfo(
+            status=ImportStatus.PASSED,
+            command=["cms", "export", "--token=abc123"],
+            exit_code=0,
+            file_name="reimport.tar.gz",
+            sha256="a" * 64,
+            size_bytes=42,
+            log_file="export.log",
+            message="password=hunter2",
+        ),
+    )
+
+    payload = report_json(report)
+    assert "abc123" not in payload
+    assert "hunter2" not in payload
+    assert all(case.import_result.reimport is not None for case in report.cases)
+    assert all(case.import_result.reimport.file_name == "reimport.tar.gz" for case in report.cases)
+
+
+def test_runner_fails_when_reimport_status_fails(tmp_path: Path):
+    report, _ = _run(
+        build_plan(),
+        tmp_path,
+        reimport=ReimportInfo(
+            status=ImportStatus.FAILED,
+            command=["fake-export"],
+            exit_code=0,
+            file_name="reimport.tar.gz",
+            sha256="a" * 64,
+            size_bytes=42,
+        ),
+    )
+
+    assert report.status == ReportStatus.FAILED
+    assert all(case.status.value == "failed" for case in report.cases)
+    assert any("Re-export" in error for case in report.cases for error in case.errors)
+
+
+def test_runner_fails_when_reimport_exit_code_is_nonzero(tmp_path: Path):
+    report, _ = _run(
+        build_plan(),
+        tmp_path,
+        reimport=ReimportInfo(
+            status=ImportStatus.PASSED,
+            command=["fake-export"],
+            exit_code=2,
+            file_name="reimport.tar.gz",
+            sha256="a" * 64,
+            size_bytes=42,
+        ),
+    )
+
+    assert report.status == ReportStatus.FAILED
+    assert any("Re-export exit code: 2" in error for case in report.cases for error in case.errors)
 
 
 def test_runner_report_roundtrips_as_json(tmp_path: Path):

@@ -17,9 +17,9 @@ from core.config import get_settings
 from domain.entities import AnswerOption, ContentNode, Course, Question
 from domain.enums import NodeType
 
-MOODLE_VERSION = "2024100700"
-BACKUP_VERSION = "2024100700"
-BACKUP_RELEASE = "4.5"
+MOODLE_VERSION = "2026100501"
+BACKUP_VERSION = "2026100501"
+BACKUP_RELEASE = "5.3.1"
 
 
 class MoodleTargetAdapter:
@@ -409,6 +409,7 @@ class MoodleTargetAdapter:
     def _write_scorm_xml(self, act_dir: Path, comp: ContentNode) -> None:
         settings = comp.metadata.get("scorm_settings", {})
         instance_id = self._new_id()
+        sco_id = self._new_id()
         root = ET.Element("scorm", id=str(instance_id))
         ET.SubElement(root, "name").text = comp.title or "SCORM Package"
         ET.SubElement(root, "intro").text = comp.metadata.get("content_html", "")
@@ -417,12 +418,22 @@ class MoodleTargetAdapter:
         ET.SubElement(root, "reference").text = ""
         version = settings.get("version", "")
         ET.SubElement(root, "version").text = "SCORM_2004" if "2004" in version else "SCORM_1.2"
-        ET.SubElement(root, "launch").text = settings.get("launch", "")
+        ET.SubElement(root, "launch").text = str(sco_id)
         ET.SubElement(root, "skipview").text = settings.get("skipview", "0")
         ET.SubElement(root, "auto").text = settings.get("auto", "0")
         ET.SubElement(root, "grademethod").text = settings.get("grademethod", "1")
         ET.SubElement(root, "maxgrade").text = settings.get("maxgrade", "100")
         ET.SubElement(root, "timemodified").text = str(int(time.time()))
+        scoes = ET.SubElement(root, "scoes")
+        sco = ET.SubElement(scoes, "sco", id=str(sco_id))
+        ET.SubElement(sco, "manifest").text = "imsmanifest.xml"
+        ET.SubElement(sco, "organization").text = ""
+        ET.SubElement(sco, "parent").text = "/"
+        ET.SubElement(sco, "identifier").text = "sco1"
+        ET.SubElement(sco, "launch").text = settings.get("sco_launch") or "index.html"
+        ET.SubElement(sco, "scormtype").text = "sco"
+        ET.SubElement(sco, "title").text = comp.title or "SCORM Package"
+        ET.SubElement(sco, "sortorder").text = "1"
         self._write_activity_xml(act_dir, "scorm.xml", root)
         asset_id = comp.metadata.get("asset_id")
         self._write_inforef(act_dir, asset_id)

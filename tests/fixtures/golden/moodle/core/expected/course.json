@@ -415,8 +415,9 @@
                       "scorm_settings": {
                         "auto": "0",
                         "grademethod": "1",
-                        "launch": "index.html",
+                        "launch": "1",
                         "maxgrade": "10",
+                        "sco_launch": "index.html",
                         "skipview": "2",
                         "version": "SCORM_1.2"
                       }
@@ -1182,7 +1183,7 @@
         }
       },
       {
-        "checksum": "33eec59b7d5968d1bcd60375040d217bc91821095862a23600e038502ecacaf3",
+        "checksum": "2b722cae19216af417f03b12dcbb4fe57248bbee3cbac461189a31195d59f59e",
         "fragment_id": "e9283fb5-6e5e-533b-be4c-98709c0afccb",
         "kind": "xml",
         "source_location": {

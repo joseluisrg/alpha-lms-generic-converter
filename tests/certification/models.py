@@ -8,7 +8,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-CERTIFICATION_SCHEMA_VERSION = 1
+CERTIFICATION_SCHEMA_VERSION = 2
 
 
 class ReportStatus(StrEnum):
@@ -53,6 +53,18 @@ class ArtifactInfo(BaseModel):
     size_bytes: int
 
 
+class ReimportInfo(BaseModel):
+    status: ImportStatus
+    command: list[str] = Field(default_factory=list)
+    exit_code: int | None = None
+    duration_seconds: float = 0.0
+    file_name: str
+    sha256: str
+    size_bytes: int
+    log_file: str | None = None
+    message: str | None = None
+
+
 class ImportResult(BaseModel):
     status: ImportStatus
     command: list[str] = Field(default_factory=list)
@@ -60,6 +72,7 @@ class ImportResult(BaseModel):
     duration_seconds: float = 0.0
     log_file: str | None = None
     message: str | None = None
+    reimport: ReimportInfo | None = None
 
 
 class FeatureResult(BaseModel):
@@ -96,7 +109,7 @@ class ReportSummary(BaseModel):
 
 
 class CertificationReport(BaseModel):
-    schema_version: Literal[1] = 1
+    schema_version: Literal[2] = 2
     matrix_version: int
     run_id: str
     generated_at: datetime

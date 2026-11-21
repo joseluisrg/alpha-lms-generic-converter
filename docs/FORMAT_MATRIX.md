@@ -5,8 +5,8 @@
 | Field | Value |
 | --- | --- |
 | Matrix version | 1 |
-| Status | Draft; harness scaffold ready, live imports pending |
-| Date | 2026-11-20 |
+| Status | Draft; real targets implemented, live imports pending |
+| Date | 2026-11-21 |
 | Machine-readable source | `tests/fixtures/golden/format-matrix.json` |
 | Certification plan | `docs/production-readiness-plan.md` |
 
@@ -79,7 +79,7 @@ exporter, not proof that a live LMS import succeeds.
 | `moodle.question.essay` | Moodle essay question rendered as a placeholder problem. | placeholder | openedx:import | `moodle/core` | Reported as ESSAY_QUESTION and requires manual review. |
 | `moodle.question.multichoice_multi` | Moodle multi-select question mapped to an Open edX checkbox response. | transformed | openedx:import | `moodle/core` | - |
 | `moodle.question.multichoice_single` | Moodle single-select question mapped to an Open edX multiple-choice response. | transformed | openedx:import | `moodle/core` | - |
-| `moodle.question.numerical_tolerance` | Moodle numerical question mapped to an Open edX numerical response. | transformed | openedx:import | `moodle/core` | Tolerance is not yet emitted in the generated Open edX response. |
+| `moodle.question.numerical_tolerance` | Moodle numerical question mapped to an Open edX numerical response. | transformed | openedx:import | `moodle/core` | Tolerance is emitted as an OLX responseparam and checked during certification. |
 | `moodle.question.shortanswer` | Moodle short-answer question mapped to an Open edX string response. | transformed | openedx:import | `moodle/core` | - |
 | `moodle.question.truefalse` | Moodle true/false question mapped to an Open edX multiple-choice response. | transformed | openedx:import | `moodle/core` | - |
 | `moodle.question.unknown` | Unknown Moodle question type rendered as a manual-review placeholder. | placeholder | openedx:import | `moodle/core` | Reported as UNSUPPORTED_QUESTION_TYPE. |
@@ -103,7 +103,7 @@ exporter, not proof that a live LMS import succeeds.
 | Feature | Description | Status | Import check | Evidence | Notes |
 | --- | --- | --- | --- | --- | --- |
 | `target.moodle.assets` | Moodle backup emits file records and content-addressed asset files. | native | moodle:restore | `openedx/core` | - |
-| `target.moodle.modules` | Moodle backup emits sections, module records, and activity XML. | native | moodle:restore | `openedx/core` | The exporter still declares Moodle 4.5 backup metadata; align with Moodle 5.3 before certification. |
+| `target.moodle.modules` | Moodle backup emits sections, module records, and activity XML. | native | moodle:restore | `openedx/core` | Aligned with Moodle 5.3.1 backup metadata. |
 | `target.moodle.questions` | Moodle backup emits question categories, questions, and answer records. | native | moodle:restore | `openedx/core` | - |
 | `target.openedx.assets` | Open edX export emits static assets and asset policy entries. | native | openedx:import | `moodle/core` | - |
 | `target.openedx.components` | Open edX export emits chapter, sequential, vertical, and component XML. | native | openedx:import | `moodle/core` | - |
@@ -134,13 +134,9 @@ exporter, not proof that a live LMS import succeeds.
 
 ## Known gaps before certification
 
-- No live LMS imports have been executed yet. The rows describe current
-  exporter behavior, not certification results.
-- The Moodle target adapter still declares Moodle 4.5 backup metadata. Align it
-  with Moodle 5.3 LTS before running import certification.
+- No live LMS imports have completed a green certification run yet. The rows
+  describe current exporter behavior until the nightly harness reports success.
 - Full Open edX Verawood and Tutor import certification is pending.
-- Moodle numerical tolerance is not represented in generated Open edX
-  numerical responses.
 - LTI launch data and raw fragments are not emitted to target exports.
 - HTML fallbacks for Moodle choice, book, glossary, wiki, assignment, and
   lesson activities do not yet have dedicated report codes.

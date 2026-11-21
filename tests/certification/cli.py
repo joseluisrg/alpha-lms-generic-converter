@@ -10,10 +10,11 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import TextIO
 
+from tests.certification.factory import build_target
 from tests.certification.models import ReportStatus
 from tests.certification.plan import CertificationPlan, PlanError, build_plan
 from tests.certification.runner import run_certification, write_report
-from tests.certification.targets import CertificationUnavailable, unavailable_target
+from tests.certification.targets import CertificationUnavailable, TargetFactory
 
 DEFAULT_OUTPUT = Path("data/reports/certification-results.json")
 DEFAULT_WORKSPACE = Path("data/certification")
@@ -87,7 +88,11 @@ def _print_plan(plan: CertificationPlan, stream: TextIO) -> None:
         )
 
 
-def main(argv: Sequence[str] | None = None) -> int:
+def main(
+    argv: Sequence[str] | None = None,
+    *,
+    target_factory: TargetFactory | None = None,
+) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
 
@@ -112,10 +117,11 @@ def main(argv: Sequence[str] | None = None) -> int:
             workspace = Path(temporary.name)
 
     try:
+        factory = target_factory or (lambda name: build_target(name, run_id=run_id))
         report = run_certification(
             plan,
             workspace,
-            unavailable_target,
+            factory,
             run_id=run_id,
         )
     except CertificationUnavailable as exc:

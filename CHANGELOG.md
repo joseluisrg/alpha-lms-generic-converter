@@ -22,12 +22,21 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 - Backup and restore integration drill that snapshots the managed data root, restores it, and verifies jobs, artifacts, schema version, and SQLite integrity.
 - Versioned draft format and feature matrix covering every supported feature ID, with target status, import checks, fixture evidence, and certification gaps.
 - Certification harness scaffold with a versioned result contract, matrix-driven import planning, golden artifact generation, credential redaction, fake-target runner tests, and a dry-run CLI.
+- Real Moodle 5.3.1 and Open edX Verawood.2/Tutor 22.0.4 certification targets with pinned Docker environments, import and re-export commands, manifest/static evidence collection, and feature verifiers.
+- Nightly and manually dispatched LMS certification workflow with disk guards, checksum-verified Moodle download, separate target jobs, and uploaded reports/logs.
+- Certification schema version 2 with re-export artifact hashes, sizes, commands, exit codes, durations, and log references.
+- Certification guide covering local runs, workflow dispatch, pass criteria, evidence, troubleshooting, and known limitations.
 
 ### Changed
 
 - Recorded Moodle 5.3 LTS and Open edX Verawood as the certification targets, with pinned patch expectations for the LMS import harness.
 - Updated the optional UI stack to Streamlit 1.67 and patched transitive dependencies; `pip-audit` is clean.
 - Open edX exports use a stable identifier for synthetic open-assessment prompt HTML, removing a source of nondeterminism.
+- Open edX numerical problems emit Moodle tolerances as OLX response parameters.
+- Moodle backups declare Moodle 5.3.1 metadata and link SCORM packages with the activity instance identifier.
+- Moodle SCORM parsing resolves packages through `inforef.xml` file records as well as legacy package files.
+- Open edX exports now emit the Tutor-default `scorm` XBlock with `package_meta` and `scorm/<url_name>/package.zip`, and the Open edX parser reads that format while retaining legacy `scormxblock` support.
+- Golden SCORM fixtures now contain valid deterministic SCORM 1.2 manifests and launch pages.
 
 ## [0.1.0a1] - 2026-11-18
 

@@ -9,6 +9,7 @@ Asset file copying from Moodle backups
 XML generation for all Open edX components (html, problem, video, etc.)
 """
 
+import hashlib
 import json
 import tarfile
 import uuid
@@ -33,6 +34,13 @@ from domain.enums import NodeType
 
 # Open edX grading policy defaults.
 DEFAULT_GRADE_CUTOFF = 0.5
+SCORM_PACKAGE_LAST_UPDATED = "2026-01-01T00:00:00"
+
+
+def _walk_nodes(nodes: list[ContentNode]):
+    for node in nodes:
+        yield node
+        yield from _walk_nodes(node.children)
 
 
 class OpenEdxTargetAdapter:
@@ -56,6 +64,7 @@ class OpenEdxTargetAdapter:
         self.course: Course | None = None
         self.node_id_map: dict[str, str] = {}
         self.asset_paths: dict[str, str] = {}
+        self.source_extracted_path: Path | None = None
 
     @property
     def _course(self) -> Course:
@@ -97,6 +106,9 @@ class OpenEdxTargetAdapter:
         self.course = course
         self.node_id_map = {}
         self.asset_paths = self._build_asset_paths()
+        self.source_extracted_path = (
+            Path(source_extracted_path) if source_extracted_path is not None else None
+        )
         self.work_dir = self.work_root / "openedx" / uuid.uuid4().hex
         self._work_dir.mkdir(parents=True, exist_ok=True)
 
@@ -110,7 +122,7 @@ class OpenEdxTargetAdapter:
             "video",
             "openassessment",
             "discussion",
-            "scormxblock",
+            "scorm",
             "course",
             "static",
             "policies",
@@ -259,6 +271,11 @@ class OpenEdxTargetAdapter:
             if node.node_type == NodeType.CHAPTER:
                 ch = ET.SubElement(root, "chapter")
                 ch.set("url_name", self._get_url_name(node.node_id))
+
+        if any(
+            node.node_type == NodeType.SCORM for node in _walk_nodes(self._course.content_nodes)
+        ):
+            root.set("advanced_modules", json.dumps(["scorm"]))
 
         self._write_xml(course_dir / f"{url_name}.xml", root)
 
@@ -441,7 +458,7 @@ class OpenEdxTargetAdapter:
                 self._write_video(comp)
 
             elif comp.node_type == NodeType.SCORM:
-                elem = ET.SubElement(root, "scormxblock")
+                elem = ET.SubElement(root, "scorm")
                 elem.set("url_name", self._get_url_name(comp.node_id))
                 self._write_scorm(comp)
 
@@ -556,10 +573,12 @@ class OpenEdxTargetAdapter:
                 self._write_string_response(root, q.prompt_text or "Question", correct_answers)
             elif qtype == "numerical":
                 correct_answer = q.metadata.get("correct_answer")
+                tolerance = q.metadata.get("tolerance")
                 self._write_numerical_response(
                     root,
                     q.prompt_text or "Question",
                     "" if correct_answer is None else str(correct_answer),
+                    None if tolerance is None else str(tolerance),
                 )
             else:
                 # Unsupported type (essay, description, etc.) - create placeholder
@@ -615,11 +634,21 @@ class OpenEdxTargetAdapter:
             ET.SubElement(response, "additional_answer").set("answer", answer)
         ET.SubElement(response, "textline", size="20")
 
-    def _write_numerical_response(self, root: ET.Element, prompt: str, correct_answer: str) -> None:
+    def _write_numerical_response(
+        self,
+        root: ET.Element,
+        prompt: str,
+        correct_answer: str,
+        tolerance: str | None = None,
+    ) -> None:
         """Write a standard OLX numerical input response."""
         response = ET.SubElement(root, "numericalresponse")
         response.set("answer", correct_answer)
         ET.SubElement(response, "label").text = prompt
+        if tolerance:
+            responseparam = ET.SubElement(response, "responseparam")
+            responseparam.set("type", "tolerance")
+            responseparam.set("default", tolerance)
         ET.SubElement(response, "formulaequationinput")
 
     def _write_problem_from_data(self, comp: ContentNode, problem_data: dict):
@@ -653,10 +682,12 @@ class OpenEdxTargetAdapter:
                     q.get("correct_answers", []),
                 )
             elif qtype == "numerical":
+                tolerance = q.get("tolerance")
                 self._write_numerical_response(
                     root,
                     q.get("prompt", "Question"),
                     str(q.get("correct_answer", "")),
+                    None if tolerance is None else str(tolerance),
                 )
             else:
                 multiplechoiceresponse = ET.SubElement(root, "multiplechoiceresponse")
@@ -781,30 +812,54 @@ class OpenEdxTargetAdapter:
         asset_id = metadata.get("asset_id")
 
         scorm_asset = next((a for a in self._course.assets if a.asset_id == asset_id), None)
-        if not scorm_asset:
+        source = self._scorm_source(scorm_asset)
+        if scorm_asset is None or source is None:
             self._write_placeholder_scorm(comp)
             return
 
+        package_bytes = source.read_bytes()
+        package_path = PurePosixPath("scorm") / url_name / "package.zip"
+        package_dest = resolve_under(self._work_dir, package_path.as_posix())
+        package_dest.parent.mkdir(parents=True, exist_ok=True)
+        package_dest.write_bytes(package_bytes)
+
         version = scorm_settings.get("version", "")
         version = "SCORM_2004" if "2004" in version else "SCORM_12"
+        package_meta = {
+            "sha1": hashlib.sha1(package_bytes, usedforsecurity=False).hexdigest(),
+            "name": "package.zip",
+            "last_updated": SCORM_PACKAGE_LAST_UPDATED,
+            "size": len(package_bytes),
+        }
 
-        # Create the SCORM XBlock XML structure
-        root = ET.Element("scormxblock")
+        root = ET.Element("scorm")
         root.set("display_name", comp.title or "SCORM Package")
-        root.set("scorm_file", f"/static/{self._asset_static_path(scorm_asset)}")
-        root.set("version_scorm", version)
+        root.set("package_meta", json.dumps(package_meta, sort_keys=True, separators=(",", ":")))
+        root.set("scorm_package_path", package_path.as_posix())
+        root.set("index_page_path", scorm_settings.get("sco_launch") or "index.html")
+        root.set("scorm_version", version)
         root.set("has_score", "true")  # Assuming it's graded
         root.set("weight", scorm_settings.get("maxgrade") or "1")
 
-        self._write_xml(self._work_dir / "scormxblock" / f"{url_name}.xml", root)
+        self._write_xml(self._work_dir / "scorm" / f"{url_name}.xml", root)
+
+    def _scorm_source(self, asset: Asset | None) -> Path | None:
+        if asset is None or self.source_extracted_path is None:
+            return None
+        try:
+            source = resolve_under(self.source_extracted_path, asset.path)
+        except ValueError:
+            return None
+        return source if source.is_file() else None
 
     def _write_placeholder_scorm(self, comp: ContentNode):
         # Fallback for when the asset is missing
         url_name = self._get_url_name(comp.node_id)
-        root = ET.Element("scormxblock")
+        root = ET.Element("scorm")
         root.set("display_name", comp.title or "Missing SCORM Package")
-        root.set("scorm_file", "")
-        self._write_xml(self._work_dir / "scormxblock" / f"{url_name}.xml", root)
+        root.set("package_meta", "{}")
+        root.set("has_score", "false")
+        self._write_xml(self._work_dir / "scorm" / f"{url_name}.xml", root)
 
     def _copy_assets(self, source_extracted: Path):
         """

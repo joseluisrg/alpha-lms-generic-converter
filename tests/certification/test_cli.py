@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from tests.certification.cli import main
+from tests.certification.targets import unavailable_target
 
 
 def test_dry_run_prints_the_full_plan(capsys):
@@ -32,7 +33,13 @@ def test_dry_run_rejects_unknown_case(capsys):
 def test_non_dry_run_reports_unavailable_target(tmp_path: Path, capsys):
     output = tmp_path / "report.json"
 
-    assert main(["--workspace", str(tmp_path / "work"), "--output", str(output)]) == 2
+    assert (
+        main(
+            ["--workspace", str(tmp_path / "work"), "--output", str(output)],
+            target_factory=unavailable_target,
+        )
+        == 2
+    )
 
     assert "not available" in capsys.readouterr().err
     assert not output.exists()

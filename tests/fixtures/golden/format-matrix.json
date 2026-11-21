@@ -2,7 +2,7 @@
   "schema_version": 1,
   "matrix_version": 1,
   "status": "draft",
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "certification_targets": {
     "moodle": {
       "release": "5.3 LTS",
@@ -45,10 +45,8 @@
     }
   },
   "known_gaps": [
-    "No live LMS imports have been executed yet; rows describe current exporter behavior, not certification results.",
-    "The Moodle target adapter still declares Moodle 4.5 backup metadata; align it with Moodle 5.3 LTS before certification.",
+    "Live LMS certification is configured but has not completed a green run yet; rows describe current exporter behavior until then.",
     "Full Open edX Verawood and Tutor import certification is pending.",
-    "Moodle numerical tolerance is not represented in generated Open edX numerical responses.",
     "LTI launch data and raw fragments are not emitted to target exports.",
     "HTML fallbacks for Moodle choice, book, glossary, wiki, assignment, and lesson activities do not yet have dedicated report codes."
   ],
@@ -216,7 +214,7 @@
       "status": "transformed",
       "evidence": "moodle/core",
       "import_check": "openedx:import",
-      "notes": "Tolerance is not yet emitted in the generated Open edX response."
+      "notes": "Tolerance is emitted as an OLX responseparam and checked during certification."
     },
     {
       "id": "moodle.question.shortanswer",
@@ -854,7 +852,7 @@
       "status": "native",
       "evidence": "openedx/core",
       "import_check": "moodle:restore",
-      "notes": "The exporter still declares Moodle 4.5 backup metadata; align with Moodle 5.3 before certification."
+      "notes": "Aligned with Moodle 5.3.1 backup metadata."
     },
     {
       "id": "target.moodle.questions",

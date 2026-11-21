@@ -8,7 +8,7 @@
       "kind": "valid",
       "source": "openedx",
       "source_dir": "openedx/core/source",
-      "source_sha256": "752d9b1317c25ff8cab0ab5a26cf575f9382419f6434a961cc01d51181bd5783",
+      "source_sha256": "d4beac4e0b4757c5fd7ab017add20d3f8637ddf14be84094699f5c92c6e37b0a",
       "targets": [
         "moodle"
       ],
@@ -86,7 +86,7 @@
       "kind": "valid",
       "source": "moodle",
       "source_dir": "moodle/core/source",
-      "source_sha256": "0a412b01bcd6554711dc704545b90aa0b04bf6a6b927cb6b0df206977a4124ce",
+      "source_sha256": "6914d745f4010b7d69bf2fbcef46cec30de7b4e825402d93b669eccb8efc9909",
       "targets": [
         "openedx"
       ],

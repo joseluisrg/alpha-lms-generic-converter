@@ -254,15 +254,21 @@ def _parse_numerical_inputs(root: ET.Element) -> list[dict[str, Any]]:
             if response is not None:
                 correct_answer = response.attrib.get("correct_answer", "")
 
-        questions.append(
-            {
-                "type": "numerical",
-                "prompt": prompt,
-                "points": 1.0,
-                "correct_answer": correct_answer,
-                "answer_options": [],
-            }
-        )
+        question = {
+            "type": "numerical",
+            "prompt": prompt,
+            "points": 1.0,
+            "correct_answer": correct_answer,
+            "answer_options": [],
+        }
+        for responseparam in element.findall("responseparam"):
+            if responseparam.attrib.get("type") == "tolerance":
+                tolerance = responseparam.attrib.get("default")
+                if tolerance:
+                    question["tolerance"] = tolerance
+                break
+
+        questions.append(question)
 
     return questions
 

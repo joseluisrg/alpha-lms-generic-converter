@@ -14,6 +14,7 @@ from tests.certification.models import (
     FeatureOutcome,
     ImportResult,
     ImportStatus,
+    ReimportInfo,
 )
 from tests.certification.targets import FeatureCheck
 
@@ -37,12 +38,24 @@ def fake_artifact(
     )
 
 
+def _passed_reimport() -> ReimportInfo:
+    return ReimportInfo(
+        status=ImportStatus.PASSED,
+        command=["fake-export"],
+        exit_code=0,
+        file_name="reimport.tar.gz",
+        sha256="b" * 64,
+        size_bytes=8,
+    )
+
+
 @dataclass
 class FakeTarget:
     environment_info: EnvironmentInfo
     import_status: ImportStatus = ImportStatus.PASSED
     import_message: str | None = None
     import_command: list[str] = field(default_factory=lambda: ["fake-import"])
+    reimport: ReimportInfo | None = field(default_factory=_passed_reimport)
     feature_outcomes: dict[str, FeatureCheck] = field(default_factory=dict)
     missing_verifiers: set[str] = field(default_factory=set)
     verified: list[str] = field(default_factory=list)
@@ -65,6 +78,7 @@ class FakeTarget:
             duration_seconds=0.01,
             log_file="import.log",
             message=self.import_message,
+            reimport=self.reimport,
         )
 
     def verify_feature(

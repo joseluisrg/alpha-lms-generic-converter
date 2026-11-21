@@ -88,15 +88,17 @@ class OpenEdxCourseParser:
         }
 
     def _parse_assets(self, extracted_root: Path) -> list[dict[str, Any]]:
-        """Discover files in the export's static/ directory."""
+        """Discover static assets and SCORM packages in the export."""
+        asset_paths: list[Path] = []
         static_root = extracted_root / "static"
-        if not static_root.is_dir():
-            return []
+        if static_root.is_dir():
+            asset_paths.extend(path for path in static_root.rglob("*") if path.is_file())
+        scorm_root = extracted_root / "scorm"
+        if scorm_root.is_dir():
+            asset_paths.extend(path for path in scorm_root.rglob("package.zip") if path.is_file())
 
         assets = []
-        for file_path in sorted(static_root.rglob("*")):
-            if not file_path.is_file():
-                continue
+        for file_path in sorted(asset_paths):
             relative_path = file_path.relative_to(extracted_root).as_posix()
             mime_type, _ = mimetypes.guess_type(file_path.name)
             is_video = bool(mime_type and mime_type.startswith("video/"))
@@ -256,10 +258,21 @@ class OpenEdxCourseParser:
                 elif comp_tag in ("scorm", "scormxblock"):
                     if wrapper_root is not None:
                         scorm_file = wrapper_root.attrib.get("scorm_file", "")
+                        package_path = wrapper_root.attrib.get("scorm_package_path", "").strip()
+                        asset_path = (
+                            package_path.lstrip("/")
+                            if package_path
+                            else self._static_asset_path(scorm_file)
+                        )
                         metadata = {
-                            "asset_path": self._static_asset_path(scorm_file),
+                            "asset_path": asset_path,
                             "scorm_settings": {
-                                "version": wrapper_root.attrib.get("version_scorm", ""),
+                                "version": wrapper_root.attrib.get(
+                                    "scorm_version",
+                                    wrapper_root.attrib.get("version_scorm", ""),
+                                ),
+                                "launch": wrapper_root.attrib.get("index_page_path", ""),
+                                "sco_launch": wrapper_root.attrib.get("index_page_path", ""),
                                 "maxgrade": wrapper_root.attrib.get("weight", ""),
                             },
                         }

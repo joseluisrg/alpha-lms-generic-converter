@@ -607,16 +607,30 @@ class MoodleCourseParser:
         if inner is None:
             inner = root
         title = inner.findtext("name", activity_info.get("title", ""))
+        legacy_launch = inner.findtext("launch", "")
+        launch = legacy_launch if legacy_launch.isdigit() else "0"
+        sco_launch = ""
+        scoes = inner.find("scoes")
+        if scoes is not None:
+            for sco in scoes.findall("sco"):
+                candidate = sco.findtext("launch", "")
+                if candidate:
+                    sco_launch = candidate
+                    break
+        if not sco_launch and not legacy_launch.isdigit():
+            sco_launch = legacy_launch
         scorm_settings = {
             "version": inner.findtext("version", ""),
-            "launch": inner.findtext("launch", ""),
+            "launch": launch,
+            "sco_launch": sco_launch or "index.html",
             "skipview": inner.findtext("skipview", ""),
             "auto": inner.findtext("auto", ""),
             "grademethod": inner.findtext("grademethod", ""),
             "maxgrade": inner.findtext("maxgrade", ""),
         }
 
-        # Find the SCORM zip file in the backup structure
+        # Moodle stores the package in files/ and links it through inforef.xml.
+        # Some older fixtures also contain the package next to the activity.
         activity_dir = activity_info["directory"]
         zip_path = resolve_under(extracted, f"{activity_dir}/package.zip")
         if not zip_path.is_file():
@@ -636,7 +650,36 @@ class MoodleCourseParser:
                     "is_scorm": True,
                 }
             )
+        else:
+            asset_id = None
+            for fid in self.reader.read_inforef(extracted, activity_dir):
+                record = manifest["file_records"].get(fid)
+                if not record:
+                    continue
+                contenthash = record.get("contenthash", "")
+                filename = record.get("filename", "")
+                if not contenthash or not filename or filename == ".":
+                    continue
+                if not filename.lower().endswith((".zip", ".ims", ".xml")):
+                    continue
 
+                asset_path = f"files/{contenthash[:2]}/{contenthash}"
+                asset_id = self._asset_id(asset_path)
+                assets.append(
+                    {
+                        "asset_id": asset_id,
+                        "path": asset_path,
+                        "mime_type": record.get("mimetype", "application/zip"),
+                        "checksum": contenthash,
+                        "original_filename": filename,
+                        "original_zip_path": asset_path,
+                        "version": scorm_settings.get("version", ""),
+                        "is_scorm": True,
+                    }
+                )
+                break
+
+        if asset_id is not None:
             return {
                 "title": title,
                 "node_type": NodeType.SCORM.value,
@@ -645,12 +688,11 @@ class MoodleCourseParser:
                     "asset_id": asset_id,
                 },
             }
-        else:
-            return {
-                "title": title,
-                "node_type": NodeType.HTML.value,
-                "metadata": {"content_html": f"<p>Missing SCORM package for activity: {title}</p>"},
-            }
+        return {
+            "title": title,
+            "node_type": NodeType.HTML.value,
+            "metadata": {"content_html": f"<p>Missing SCORM package for activity: {title}</p>"},
+        }
 
     def _parse_choice(self, root, activity_info, extracted, manifest, assessments, assets):
         inner = root.find("choice")

@@ -17,6 +17,7 @@ PROBLEM_XML = """\
   </stringresponse>
   <numericalresponse answer="3.14">
     <label>Numerical answer</label>
+    <responseparam type="tolerance" default="0.01" />
     <formulaequationinput />
   </numericalresponse>
 </problem>
@@ -46,3 +47,10 @@ def test_source_question_ids_include_problem_identity_and_position():
         "shortanswer",
         "numerical",
     ]
+
+
+def test_parse_numerical_tolerance():
+    questions = parse_problem(PROBLEM_XML, "problem-tolerance")["questions"]
+    numerical = next(question for question in questions if question["type"] == "numerical")
+
+    assert numerical["tolerance"] == "0.01"

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import re
 import shutil
 import time
 from datetime import UTC, datetime
@@ -24,10 +23,12 @@ from tests.certification.models import (
     FeatureResult,
     ImportResult,
     ImportStatus,
+    ReimportInfo,
     ReportStatus,
     ReportSummary,
 )
 from tests.certification.plan import CertificationPlan, PlannedImport
+from tests.certification.redaction import redact
 from tests.certification.targets import (
     CertificationTarget,
     CertificationUnavailable,
@@ -35,23 +36,21 @@ from tests.certification.targets import (
     TargetFactory,
 )
 
-_SECRET_PATTERN = re.compile(
-    r"(?i)\b(password|passwd|pwd|token|secret|api[_-]?key)\b(\s*[=:]\s*)([^\s,;]+)"
-)
-_URL_CREDENTIALS = re.compile(r"(?P<scheme>[A-Za-z][A-Za-z0-9+.-]*://)[^/\s:@]+:[^/\s@]+@")
-
-
-def redact(value: str) -> str:
-    """Remove common credential forms from report text."""
-    redacted = _SECRET_PATTERN.sub(r"\1\2<redacted>", value)
-    return _URL_CREDENTIALS.sub(r"\g<scheme><redacted>@", redacted)
-
 
 def _sanitize_import_result(result: ImportResult) -> ImportResult:
+    reimport = result.reimport
+    if reimport is not None:
+        reimport = reimport.model_copy(
+            update={
+                "command": [redact(argument) for argument in reimport.command],
+                "message": redact(reimport.message) if reimport.message else None,
+            }
+        )
     return result.model_copy(
         update={
             "command": [redact(argument) for argument in result.command],
             "message": redact(result.message) if result.message else None,
+            "reimport": reimport,
         }
     )
 
@@ -131,10 +130,27 @@ def _verified_feature_result(
     return _feature_result(feature, check.outcome, check.details)
 
 
+def _reimport_error(reimport: ReimportInfo | None) -> str | None:
+    if reimport is None:
+        return "Re-export evidence is missing."
+    if reimport.status == ImportStatus.ERROR:
+        return reimport.message or "Re-export errored."
+    if reimport.status != ImportStatus.PASSED:
+        return reimport.message or f"Re-export status: {reimport.status.value}"
+    if reimport.exit_code != 0:
+        return f"Re-export exit code: {reimport.exit_code}"
+    return None
+
+
 def _case_status(import_result: ImportResult, features: list[FeatureResult]) -> CaseStatus:
     if import_result.status == ImportStatus.ERROR:
         return CaseStatus.ERROR
     if import_result.status != ImportStatus.PASSED:
+        return CaseStatus.FAILED
+    reimport = import_result.reimport
+    if reimport is not None and reimport.status == ImportStatus.ERROR:
+        return CaseStatus.ERROR
+    if _reimport_error(reimport) is not None:
         return CaseStatus.FAILED
     if any(
         feature.outcome in {FeatureOutcome.FAILED, FeatureOutcome.NOT_VERIFIED}
@@ -151,6 +167,10 @@ def _case_errors(
     errors: list[str] = []
     if import_result.status != ImportStatus.PASSED:
         errors.append(import_result.message or f"Import status: {import_result.status.value}")
+    if import_result.status == ImportStatus.PASSED:
+        reimport_error = _reimport_error(import_result.reimport)
+        if reimport_error is not None:
+            errors.append(f"Re-export: {reimport_error}")
     errors.extend(
         f"{feature.feature_id}: {feature.outcome.value}"
         + (f" ({feature.details})" if feature.details else "")

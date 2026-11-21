@@ -244,6 +244,8 @@ class TransformService:
                 q_metadata["correct_answers"] = q_data["correct_answers"]
             if q_data.get("correct_answer") is not None:
                 q_metadata["correct_answer"] = q_data["correct_answer"]
+            if q_data.get("tolerance") is not None:
+                q_metadata["tolerance"] = q_data["tolerance"]
 
             question = Question(
                 question_id=question_id,

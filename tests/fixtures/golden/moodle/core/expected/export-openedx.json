@@ -39,6 +39,7 @@
     },
     "course/SyntheticMoodleCoreCourse.xml": {
       "attributes": {
+        "advanced_modules": "[\"scorm\"]",
         "display_name": "Synthetic Moodle Core Course"
       },
       "children": [
@@ -490,6 +491,13 @@
               "text": "Numerical answer"
             },
             {
+              "attributes": {
+                "default": "0.01",
+                "type": "tolerance"
+              },
+              "tag": "responseparam"
+            },
+            {
               "tag": "formulaequationinput"
             }
           ],
@@ -573,15 +581,17 @@
       ],
       "tag": "problem"
     },
-    "scormxblock/<id:47>-fc91-5ded-aa45-<id:48>.xml": {
+    "scorm/<id:47>-fc91-5ded-aa45-<id:48>.xml": {
       "attributes": {
         "display_name": "SCORM Package",
         "has_score": "true",
-        "scorm_file": "/static/package.zip",
-        "version_scorm": "SCORM_12",
+        "index_page_path": "index.html",
+        "package_meta": "{\"last_updated\":\"2026-01-01T00:00:00\",\"name\":\"package.zip\",\"sha1\":\"1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\",\"size\":779}",
+        "scorm_package_path": "scorm/<id:47>-fc91-5ded-aa45-<id:48>/package.zip",
+        "scorm_version": "SCORM_12",
         "weight": "10"
       },
-      "tag": "scormxblock"
+      "tag": "scorm"
     },
     "sequential/<id:3>-edb2-5228-8562-<id:4>.xml": {
       "attributes": {
@@ -866,7 +876,7 @@
           "attributes": {
             "url_name": "<id:47>-fc91-5ded-aa45-<id:48>"
           },
-          "tag": "scormxblock"
+          "tag": "scorm"
         }
       ],
       "tag": "vertical"
@@ -1101,7 +1111,7 @@
     {
       "kind": "xml",
       "path": "course/SyntheticMoodleCoreCourse.xml",
-      "size": 210
+      "size": 249
     },
     {
       "kind": "xml",
@@ -1296,12 +1306,18 @@
     {
       "kind": "xml",
       "path": "problem/<id:45>-5828-51a6-8bc2-<id:46>.xml",
-      "size": 1616
+      "size": 1665
+    },
+    {
+      "kind": "binary",
+      "path": "scorm/<id:47>-fc91-5ded-aa45-<id:48>/package.zip",
+      "sha256": "bed2efa5a484bae70238ca07e8a55db426cca624cd1c26f80291c660a8ece475",
+      "size": 779
     },
     {
       "kind": "xml",
-      "path": "scormxblock/<id:47>-fc91-5ded-aa45-<id:48>.xml",
-      "size": 170
+      "path": "scorm/<id:47>-fc91-5ded-aa45-<id:48>.xml",
+      "size": 438
     },
     {
       "kind": "xml",
@@ -1334,8 +1350,8 @@
     {
       "kind": "binary",
       "path": "static/package.zip",
-      "sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
-      "size": 22
+      "sha256": "bed2efa5a484bae70238ca07e8a55db426cca624cd1c26f80291c660a8ece475",
+      "size": 779
     },
     {
       "kind": "xml",
@@ -1380,7 +1396,7 @@
     {
       "kind": "xml",
       "path": "vertical/<id:67>-9623-5253-801c-<id:68>.xml",
-      "size": 148
+      "size": 142
     },
     {
       "kind": "xml",

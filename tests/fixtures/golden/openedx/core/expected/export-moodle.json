@@ -1,7 +1,7 @@
 {
   "case_id": "openedx/core",
   "contents": {
-    ".ARCHIVE_INDEX": "Moodle archive file index. Count: 66\nactivities/\td\t0\t<mtime>\nactivities/forum_38/\td\t0\t<mtime>\nactivities/forum_38/forum.xml\tf\t289\t<mtime>\nactivities/forum_38/module.xml\tf\t622\t<mtime>\nactivities/label_21/\td\t0\t<mtime>\nactivities/label_21/label.xml\tf\t302\t<mtime>\nactivities/label_21/module.xml\tf\t622\t<mtime>\nactivities/label_46/\td\t0\t<mtime>\nactivities/label_46/label.xml\tf\t333\t<mtime>\nactivities/label_46/module.xml\tf\t622\t<mtime>\nactivities/label_51/\td\t0\t<mtime>\nactivities/label_51/label.xml\tf\t241\t<mtime>\nactivities/label_51/module.xml\tf\t622\t<mtime>\nactivities/quiz_25/\td\t0\t<mtime>\nactivities/quiz_25/module.xml\tf\t621\t<mtime>\nactivities/quiz_25/quiz.xml\tf\t3854\t<mtime>\nactivities/quiz_48/\td\t0\t<mtime>\nactivities/quiz_48/module.xml\tf\t621\t<mtime>\nactivities/quiz_48/quiz.xml\tf\t1052\t<mtime>\nactivities/resource_54/\td\t0\t<mtime>\nactivities/resource_54/inforef.xml\tf\t100\t<mtime>\nactivities/resource_54/module.xml\tf\t625\t<mtime>\nactivities/resource_54/resource.xml\tf\t480\t<mtime>\nactivities/scorm_44/\td\t0\t<mtime>\nactivities/scorm_44/inforef.xml\tf\t100\t<mtime>\nactivities/scorm_44/module.xml\tf\t622\t<mtime>\nactivities/scorm_44/scorm.xml\tf\t407\t<mtime>\nactivities/url_23/\td\t0\t<mtime>\nactivities/url_23/module.xml\tf\t620\t<mtime>\nactivities/url_23/url.xml\tf\t407\t<mtime>\nactivities/url_42/\td\t0\t<mtime>\nactivities/url_42/module.xml\tf\t620\t<mtime>\nactivities/url_42/url.xml\tf\t358\t<mtime>\nactivities/workshop_40/\td\t0\t<mtime>\nactivities/workshop_40/module.xml\tf\t625\t<mtime>\nactivities/workshop_40/workshop.xml\tf\t278\t<mtime>\nbadges.xml\tf\t49\t<mtime>\ncompletion.xml\tf\t60\t<mtime>\ncourse/\td\t0\t<mtime>\ncourse/course.xml\tf\t890\t<mtime>\nfiles/\td\t0\t<mtime>\nfiles/b0/\td\t0\t<mtime>\nfiles/b0/b04f3ee8f5e43fa3b162981b50bb72fe1acabb33\tf\t22\t<mtime>\nfiles/b7/\td\t0\t<mtime>\nfiles/b7/b7283a1dc0a79582a87a3c91deec02d0772c5343\tf\t21\t<mtime>\nfiles/ce/\td\t0\t<mtime>\nfiles/ce/ceb09c940b8c028d87f377f95a98dde4de774937\tf\t21\t<mtime>\nfiles/da/\td\t0\t<mtime>\nfiles/da/da39a3ee5e6b4b0d3255bfef95601890afd80709\tf\t0\t<mtime>\nfiles/ee/\td\t0\t<mtime>\nfiles/ee/eecb6cc2eed6b79b9ba2971106686d38ebcbbf99\tf\t26\t<mtime>\nfiles.xml\tf\t4133\t<mtime>\ngrade_history.xml\tf\t86\t<mtime>\ngradebook.xml\tf\t146\t<mtime>\ngroups.xml\tf\t69\t<mtime>\nmoodle_backup.log\tf\t0\t<mtime>\nmoodle_backup.xml\tf\t3986\t<mtime>\noutcomes.xml\tf\t62\t<mtime>\nquestions.xml\tf\t15357\t<mtime>\nroles.xml\tf\t59\t<mtime>\nscales.xml\tf\t60\t<mtime>\nsections/\td\t0\t<mtime>\nsections/section_20/\td\t0\t<mtime>\nsections/section_20/section.xml\tf\t291\t<mtime>\nsections/section_53/\td\t0\t<mtime>\nsections/section_53/section.xml\tf\t264\t<mtime>",
+    ".ARCHIVE_INDEX": "Moodle archive file index. Count: 66\nactivities/\td\t0\t<mtime>\nactivities/forum_38/\td\t0\t<mtime>\nactivities/forum_38/forum.xml\tf\t289\t<mtime>\nactivities/forum_38/module.xml\tf\t622\t<mtime>\nactivities/label_21/\td\t0\t<mtime>\nactivities/label_21/label.xml\tf\t302\t<mtime>\nactivities/label_21/module.xml\tf\t622\t<mtime>\nactivities/label_47/\td\t0\t<mtime>\nactivities/label_47/label.xml\tf\t333\t<mtime>\nactivities/label_47/module.xml\tf\t622\t<mtime>\nactivities/label_52/\td\t0\t<mtime>\nactivities/label_52/label.xml\tf\t241\t<mtime>\nactivities/label_52/module.xml\tf\t622\t<mtime>\nactivities/quiz_25/\td\t0\t<mtime>\nactivities/quiz_25/module.xml\tf\t621\t<mtime>\nactivities/quiz_25/quiz.xml\tf\t3854\t<mtime>\nactivities/quiz_49/\td\t0\t<mtime>\nactivities/quiz_49/module.xml\tf\t621\t<mtime>\nactivities/quiz_49/quiz.xml\tf\t1052\t<mtime>\nactivities/resource_55/\td\t0\t<mtime>\nactivities/resource_55/inforef.xml\tf\t100\t<mtime>\nactivities/resource_55/module.xml\tf\t625\t<mtime>\nactivities/resource_55/resource.xml\tf\t480\t<mtime>\nactivities/scorm_44/\td\t0\t<mtime>\nactivities/scorm_44/inforef.xml\tf\t100\t<mtime>\nactivities/scorm_44/module.xml\tf\t622\t<mtime>\nactivities/scorm_44/scorm.xml\tf\t654\t<mtime>\nactivities/url_23/\td\t0\t<mtime>\nactivities/url_23/module.xml\tf\t620\t<mtime>\nactivities/url_23/url.xml\tf\t407\t<mtime>\nactivities/url_42/\td\t0\t<mtime>\nactivities/url_42/module.xml\tf\t620\t<mtime>\nactivities/url_42/url.xml\tf\t358\t<mtime>\nactivities/workshop_40/\td\t0\t<mtime>\nactivities/workshop_40/module.xml\tf\t625\t<mtime>\nactivities/workshop_40/workshop.xml\tf\t278\t<mtime>\nbadges.xml\tf\t49\t<mtime>\ncompletion.xml\tf\t60\t<mtime>\ncourse/\td\t0\t<mtime>\ncourse/course.xml\tf\t890\t<mtime>\nfiles/\td\t0\t<mtime>\nfiles/1a/\td\t0\t<mtime>\nfiles/1a/1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\tf\t779\t<mtime>\nfiles/b7/\td\t0\t<mtime>\nfiles/b7/b7283a1dc0a79582a87a3c91deec02d0772c5343\tf\t21\t<mtime>\nfiles/ce/\td\t0\t<mtime>\nfiles/ce/ceb09c940b8c028d87f377f95a98dde4de774937\tf\t21\t<mtime>\nfiles/da/\td\t0\t<mtime>\nfiles/da/da39a3ee5e6b4b0d3255bfef95601890afd80709\tf\t0\t<mtime>\nfiles/ee/\td\t0\t<mtime>\nfiles/ee/eecb6cc2eed6b79b9ba2971106686d38ebcbbf99\tf\t26\t<mtime>\nfiles.xml\tf\t4134\t<mtime>\ngrade_history.xml\tf\t86\t<mtime>\ngradebook.xml\tf\t146\t<mtime>\ngroups.xml\tf\t69\t<mtime>\nmoodle_backup.log\tf\t0\t<mtime>\nmoodle_backup.xml\tf\t3990\t<mtime>\noutcomes.xml\tf\t62\t<mtime>\nquestions.xml\tf\t15357\t<mtime>\nroles.xml\tf\t59\t<mtime>\nscales.xml\tf\t60\t<mtime>\nsections/\td\t0\t<mtime>\nsections/section_20/\td\t0\t<mtime>\nsections/section_20/section.xml\tf\t291\t<mtime>\nsections/section_54/\td\t0\t<mtime>\nsections/section_54/section.xml\tf\t264\t<mtime>",
     "activities/forum_38/forum.xml": {
       "attributes": {
         "contextid": "19",
@@ -40,7 +40,7 @@
     "activities/forum_38/module.xml": {
       "attributes": {
         "id": "38",
-        "version": "2024100700"
+        "version": "2026100501"
       },
       "children": [
         {
@@ -150,7 +150,7 @@
     "activities/label_21/module.xml": {
       "attributes": {
         "id": "21",
-        "version": "2024100700"
+        "version": "2026100501"
       },
       "children": [
         {
@@ -226,17 +226,17 @@
       ],
       "tag": "module"
     },
-    "activities/label_46/label.xml": {
+    "activities/label_47/label.xml": {
       "attributes": {
         "contextid": "19",
-        "id": "47",
-        "moduleid": "46",
+        "id": "48",
+        "moduleid": "47",
         "modulename": "label"
       },
       "children": [
         {
           "attributes": {
-            "id": "47"
+            "id": "48"
           },
           "children": [
             {
@@ -257,10 +257,10 @@
       ],
       "tag": "activity"
     },
-    "activities/label_46/module.xml": {
+    "activities/label_47/module.xml": {
       "attributes": {
-        "id": "46",
-        "version": "2024100700"
+        "id": "47",
+        "version": "2026100501"
       },
       "children": [
         {
@@ -336,17 +336,17 @@
       ],
       "tag": "module"
     },
-    "activities/label_51/label.xml": {
+    "activities/label_52/label.xml": {
       "attributes": {
         "contextid": "19",
-        "id": "52",
-        "moduleid": "51",
+        "id": "53",
+        "moduleid": "52",
         "modulename": "label"
       },
       "children": [
         {
           "attributes": {
-            "id": "52"
+            "id": "53"
           },
           "children": [
             {
@@ -366,10 +366,10 @@
       ],
       "tag": "activity"
     },
-    "activities/label_51/module.xml": {
+    "activities/label_52/module.xml": {
       "attributes": {
-        "id": "51",
-        "version": "2024100700"
+        "id": "52",
+        "version": "2026100501"
       },
       "children": [
         {
@@ -448,7 +448,7 @@
     "activities/quiz_25/module.xml": {
       "attributes": {
         "id": "25",
-        "version": "2024100700"
+        "version": "2026100501"
       },
       "children": [
         {
@@ -1048,10 +1048,10 @@
       ],
       "tag": "activity"
     },
-    "activities/quiz_48/module.xml": {
+    "activities/quiz_49/module.xml": {
       "attributes": {
-        "id": "48",
-        "version": "2024100700"
+        "id": "49",
+        "version": "2026100501"
       },
       "children": [
         {
@@ -1127,17 +1127,17 @@
       ],
       "tag": "module"
     },
-    "activities/quiz_48/quiz.xml": {
+    "activities/quiz_49/quiz.xml": {
       "attributes": {
         "contextid": "19",
-        "id": "49",
-        "moduleid": "48",
+        "id": "50",
+        "moduleid": "49",
         "modulename": "quiz"
       },
       "children": [
         {
           "attributes": {
-            "id": "49"
+            "id": "50"
           },
           "children": [
             {
@@ -1215,7 +1215,7 @@
               "children": [
                 {
                   "attributes": {
-                    "id": "50"
+                    "id": "51"
                   },
                   "children": [
                     {
@@ -1261,7 +1261,7 @@
       ],
       "tag": "activity"
     },
-    "activities/resource_54/inforef.xml": {
+    "activities/resource_55/inforef.xml": {
       "children": [
         {
           "children": [
@@ -1280,10 +1280,10 @@
       ],
       "tag": "inforef"
     },
-    "activities/resource_54/module.xml": {
+    "activities/resource_55/module.xml": {
       "attributes": {
-        "id": "54",
-        "version": "2024100700"
+        "id": "55",
+        "version": "2026100501"
       },
       "children": [
         {
@@ -1292,7 +1292,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "53"
+          "text": "54"
         },
         {
           "tag": "sectionnumber",
@@ -1359,17 +1359,17 @@
       ],
       "tag": "module"
     },
-    "activities/resource_54/resource.xml": {
+    "activities/resource_55/resource.xml": {
       "attributes": {
         "contextid": "19",
-        "id": "55",
-        "moduleid": "54",
+        "id": "56",
+        "moduleid": "55",
         "modulename": "resource"
       },
       "children": [
         {
           "attributes": {
-            "id": "55"
+            "id": "56"
           },
           "children": [
             {
@@ -1439,7 +1439,7 @@
     "activities/scorm_44/module.xml": {
       "attributes": {
         "id": "44",
-        "version": "2024100700"
+        "version": "2026100501"
       },
       "children": [
         {
@@ -1547,7 +1547,8 @@
               "tag": "reference"
             },
             {
-              "tag": "launch"
+              "tag": "launch",
+              "text": "46"
             },
             {
               "tag": "skipview",
@@ -1564,6 +1565,50 @@
             {
               "tag": "maxgrade",
               "text": "10"
+            },
+            {
+              "children": [
+                {
+                  "attributes": {
+                    "id": "46"
+                  },
+                  "children": [
+                    {
+                      "tag": "manifest",
+                      "text": "imsmanifest.xml"
+                    },
+                    {
+                      "tag": "organization"
+                    },
+                    {
+                      "tag": "parent",
+                      "text": "/"
+                    },
+                    {
+                      "tag": "identifier",
+                      "text": "sco1"
+                    },
+                    {
+                      "tag": "launch",
+                      "text": "index.html"
+                    },
+                    {
+                      "tag": "scormtype",
+                      "text": "sco"
+                    },
+                    {
+                      "tag": "title",
+                      "text": "SCORM Package"
+                    },
+                    {
+                      "tag": "sortorder",
+                      "text": "1"
+                    }
+                  ],
+                  "tag": "sco"
+                }
+              ],
+              "tag": "scoes"
             }
           ],
           "tag": "scorm"
@@ -1574,7 +1619,7 @@
     "activities/url_23/module.xml": {
       "attributes": {
         "id": "23",
-        "version": "2024100700"
+        "version": "2026100501"
       },
       "children": [
         {
@@ -1695,7 +1740,7 @@
     "activities/url_42/module.xml": {
       "attributes": {
         "id": "42",
-        "version": "2024100700"
+        "version": "2026100501"
       },
       "children": [
         {
@@ -1815,7 +1860,7 @@
     "activities/workshop_40/module.xml": {
       "attributes": {
         "id": "40",
-        "version": "2024100700"
+        "version": "2026100501"
       },
       "children": [
         {
@@ -2129,7 +2174,7 @@
         },
         {
           "attributes": {
-            "id": "84"
+            "id": "85"
           },
           "children": [
             {
@@ -2290,7 +2335,7 @@
           "children": [
             {
               "tag": "contenthash",
-              "text": "b04f3ee8f5e43fa3b162981b50bb72fe1acabb33"
+              "text": "1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483"
             },
             {
               "tag": "contextid",
@@ -2322,7 +2367,7 @@
             },
             {
               "tag": "filesize",
-              "text": "22"
+              "text": "779"
             },
             {
               "tag": "mimetype",
@@ -2363,7 +2408,7 @@
         },
         {
           "attributes": {
-            "id": "85"
+            "id": "86"
           },
           "children": [
             {
@@ -2462,7 +2507,7 @@
             },
             {
               "tag": "itemid",
-              "text": "55"
+              "text": "56"
             },
             {
               "tag": "filepath",
@@ -2519,7 +2564,7 @@
         },
         {
           "attributes": {
-            "id": "86"
+            "id": "87"
           },
           "children": [
             {
@@ -2540,7 +2585,7 @@
             },
             {
               "tag": "itemid",
-              "text": "55"
+              "text": "56"
             },
             {
               "tag": "filepath",
@@ -2645,19 +2690,19 @@
             },
             {
               "tag": "moodle_version",
-              "text": "2024100700"
+              "text": "2026100501"
             },
             {
               "tag": "moodle_release",
-              "text": "4.5"
+              "text": "5.3.1"
             },
             {
               "tag": "backup_version",
-              "text": "2024100700"
+              "text": "2026100501"
             },
             {
               "tag": "backup_release",
-              "text": "4.5"
+              "text": "5.3.1"
             },
             {
               "tag": "mnet_remoteusers",
@@ -2922,7 +2967,7 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "46"
+                          "text": "47"
                         },
                         {
                           "tag": "sectionid",
@@ -2938,7 +2983,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/label_46"
+                          "text": "activities/label_47"
                         }
                       ],
                       "tag": "activity"
@@ -2947,7 +2992,7 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "48"
+                          "text": "49"
                         },
                         {
                           "tag": "sectionid",
@@ -2963,7 +3008,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/quiz_48"
+                          "text": "activities/quiz_49"
                         }
                       ],
                       "tag": "activity"
@@ -2972,7 +3017,7 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "51"
+                          "text": "52"
                         },
                         {
                           "tag": "sectionid",
@@ -2988,7 +3033,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/label_51"
+                          "text": "activities/label_52"
                         }
                       ],
                       "tag": "activity"
@@ -2997,11 +3042,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "54"
+                          "text": "55"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "53"
+                          "text": "54"
                         },
                         {
                           "tag": "modulename",
@@ -3013,7 +3058,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/resource_54"
+                          "text": "activities/resource_55"
                         }
                       ],
                       "tag": "activity"
@@ -3044,7 +3089,7 @@
                       "children": [
                         {
                           "tag": "sectionid",
-                          "text": "53"
+                          "text": "54"
                         },
                         {
                           "tag": "title",
@@ -3052,7 +3097,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "sections/section_53"
+                          "text": "sections/section_54"
                         }
                       ],
                       "tag": "section"
@@ -3307,7 +3352,7 @@
                           "children": [
                             {
                               "attributes": {
-                                "id": "56"
+                                "id": "57"
                               },
                               "children": [
                                 {
@@ -3334,7 +3379,7 @@
                             },
                             {
                               "attributes": {
-                                "id": "57"
+                                "id": "58"
                               },
                               "children": [
                                 {
@@ -3364,7 +3409,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "58"
+                            "id": "59"
                           },
                           "children": [
                             {
@@ -3489,7 +3534,7 @@
                           "children": [
                             {
                               "attributes": {
-                                "id": "59"
+                                "id": "60"
                               },
                               "children": [
                                 {
@@ -3516,7 +3561,7 @@
                             },
                             {
                               "attributes": {
-                                "id": "60"
+                                "id": "61"
                               },
                               "children": [
                                 {
@@ -3546,16 +3591,16 @@
                         },
                         {
                           "attributes": {
-                            "id": "61"
+                            "id": "62"
                           },
                           "children": [
                             {
                               "tag": "trueanswer",
-                              "text": "59"
+                              "text": "60"
                             },
                             {
                               "tag": "falseanswer",
-                              "text": "60"
+                              "text": "61"
                             }
                           ],
                           "tag": "truefalse"
@@ -3638,7 +3683,7 @@
                           "children": [
                             {
                               "attributes": {
-                                "id": "62"
+                                "id": "63"
                               },
                               "children": [
                                 {
@@ -3665,7 +3710,7 @@
                             },
                             {
                               "attributes": {
-                                "id": "63"
+                                "id": "64"
                               },
                               "children": [
                                 {
@@ -3695,7 +3740,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "64"
+                            "id": "65"
                           },
                           "children": [
                             {
@@ -3820,7 +3865,7 @@
                           "children": [
                             {
                               "attributes": {
-                                "id": "65"
+                                "id": "66"
                               },
                               "children": [
                                 {
@@ -3847,7 +3892,7 @@
                             },
                             {
                               "attributes": {
-                                "id": "66"
+                                "id": "67"
                               },
                               "children": [
                                 {
@@ -3874,7 +3919,7 @@
                             },
                             {
                               "attributes": {
-                                "id": "67"
+                                "id": "68"
                               },
                               "children": [
                                 {
@@ -3904,7 +3949,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "68"
+                            "id": "69"
                           },
                           "children": [
                             {
@@ -4029,7 +4074,7 @@
                           "children": [
                             {
                               "attributes": {
-                                "id": "69"
+                                "id": "70"
                               },
                               "children": [
                                 {
@@ -4056,7 +4101,7 @@
                             },
                             {
                               "attributes": {
-                                "id": "70"
+                                "id": "71"
                               },
                               "children": [
                                 {
@@ -4083,7 +4128,7 @@
                             },
                             {
                               "attributes": {
-                                "id": "71"
+                                "id": "72"
                               },
                               "children": [
                                 {
@@ -4113,7 +4158,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "72"
+                            "id": "73"
                           },
                           "children": [
                             {
@@ -4201,7 +4246,7 @@
                           "children": [
                             {
                               "attributes": {
-                                "id": "73"
+                                "id": "74"
                               },
                               "children": [
                                 {
@@ -4231,7 +4276,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "74"
+                            "id": "75"
                           },
                           "children": [
                             {
@@ -4319,7 +4364,7 @@
                           "children": [
                             {
                               "attributes": {
-                                "id": "75"
+                                "id": "76"
                               },
                               "children": [
                                 {
@@ -4353,7 +4398,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "76"
+                            "id": "77"
                           },
                           "children": [
                             {
@@ -4441,7 +4486,7 @@
                           "children": [
                             {
                               "attributes": {
-                                "id": "77"
+                                "id": "78"
                               },
                               "children": [
                                 {
@@ -4475,7 +4520,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "78"
+                            "id": "79"
                           },
                           "children": [
                             {
@@ -4564,7 +4609,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "79"
+                            "id": "80"
                           },
                           "children": [
                             {
@@ -4690,7 +4735,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "80"
+                            "id": "81"
                           },
                           "children": [
                             {
@@ -4816,7 +4861,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "81"
+                            "id": "82"
                           },
                           "children": [
                             {
@@ -4990,7 +5035,7 @@
                           "children": [
                             {
                               "attributes": {
-                                "id": "82"
+                                "id": "83"
                               },
                               "children": [
                                 {
@@ -5020,7 +5065,7 @@
                         },
                         {
                           "attributes": {
-                            "id": "83"
+                            "id": "84"
                           },
                           "children": [
                             {
@@ -5079,7 +5124,7 @@
         },
         {
           "tag": "sequence",
-          "text": "21,23,25,38,40,42,44,46,48,51"
+          "text": "21,23,25,38,40,42,44,47,49,52"
         },
         {
           "tag": "visible",
@@ -5092,9 +5137,9 @@
       ],
       "tag": "section"
     },
-    "sections/section_53/section.xml": {
+    "sections/section_54/section.xml": {
       "attributes": {
-        "id": "53"
+        "id": "54"
       },
       "children": [
         {
@@ -5114,7 +5159,7 @@
         },
         {
           "tag": "sequence",
-          "text": "54"
+          "text": "55"
         },
         {
           "tag": "visible",
@@ -5132,7 +5177,7 @@
     {
       "kind": "archive_index",
       "path": ".ARCHIVE_INDEX",
-      "size": 2501
+      "size": 2502
     },
     {
       "kind": "xml",
@@ -5156,22 +5201,22 @@
     },
     {
       "kind": "xml",
-      "path": "activities/label_46/label.xml",
+      "path": "activities/label_47/label.xml",
       "size": 333
     },
     {
       "kind": "xml",
-      "path": "activities/label_46/module.xml",
+      "path": "activities/label_47/module.xml",
       "size": 622
     },
     {
       "kind": "xml",
-      "path": "activities/label_51/label.xml",
+      "path": "activities/label_52/label.xml",
       "size": 241
     },
     {
       "kind": "xml",
-      "path": "activities/label_51/module.xml",
+      "path": "activities/label_52/module.xml",
       "size": 622
     },
     {
@@ -5186,27 +5231,27 @@
     },
     {
       "kind": "xml",
-      "path": "activities/quiz_48/module.xml",
+      "path": "activities/quiz_49/module.xml",
       "size": 621
     },
     {
       "kind": "xml",
-      "path": "activities/quiz_48/quiz.xml",
+      "path": "activities/quiz_49/quiz.xml",
       "size": 1052
     },
     {
       "kind": "xml",
-      "path": "activities/resource_54/inforef.xml",
+      "path": "activities/resource_55/inforef.xml",
       "size": 100
     },
     {
       "kind": "xml",
-      "path": "activities/resource_54/module.xml",
+      "path": "activities/resource_55/module.xml",
       "size": 625
     },
     {
       "kind": "xml",
-      "path": "activities/resource_54/resource.xml",
+      "path": "activities/resource_55/resource.xml",
       "size": 480
     },
     {
@@ -5222,7 +5267,7 @@
     {
       "kind": "xml",
       "path": "activities/scorm_44/scorm.xml",
-      "size": 407
+      "size": 654
     },
     {
       "kind": "xml",
@@ -5271,9 +5316,9 @@
     },
     {
       "kind": "binary",
-      "path": "files/b0/b04f3ee8f5e43fa3b162981b50bb72fe1acabb33",
-      "sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
-      "size": 22
+      "path": "files/1a/1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483",
+      "sha256": "bed2efa5a484bae70238ca07e8a55db426cca624cd1c26f80291c660a8ece475",
+      "size": 779
     },
     {
       "kind": "binary",
@@ -5302,7 +5347,7 @@
     {
       "kind": "xml",
       "path": "files.xml",
-      "size": 4133
+      "size": 4134
     },
     {
       "kind": "xml",
@@ -5327,7 +5372,7 @@
     {
       "kind": "xml",
       "path": "moodle_backup.xml",
-      "size": 3986
+      "size": 3990
     },
     {
       "kind": "xml",
@@ -5356,7 +5401,7 @@
     },
     {
       "kind": "xml",
-      "path": "sections/section_53/section.xml",
+      "path": "sections/section_54/section.xml",
       "size": 264
     }
   ],
