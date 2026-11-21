@@ -144,6 +144,7 @@ class MoodleTargetAdapter:
         ET.SubElement(category, "description").text = ""
         ET.SubElement(root, "tags")
         self._write_xml(self._work_dir / "course" / "course.xml", root)
+        self._write_context_roles(self._work_dir / "course")
 
     def _write_sections_and_activities(self) -> None:
         section_number = 0
@@ -229,6 +230,9 @@ class MoodleTargetAdapter:
             self._write_scorm_xml(act_dir, comp)
         else:
             self._write_label_xml(act_dir, comp, warn=True)
+
+        self._write_context_roles(act_dir)
+        self._write_activity_grades(act_dir)
 
         self.activity_records.append(
             {
@@ -899,6 +903,19 @@ class MoodleTargetAdapter:
                 ET.SubElement(root, child_name)
             self._write_xml(self._work_dir / filename, root)
         (self._work_dir / "moodle_backup.log").write_text("", encoding="utf-8")
+
+    def _write_context_roles(self, directory: Path) -> None:
+        root = ET.Element("roles")
+        ET.SubElement(root, "role_assignments")
+        ET.SubElement(root, "role_overrides")
+        self._write_xml(directory / "roles.xml", root)
+
+    def _write_activity_grades(self, act_dir: Path) -> None:
+        root = ET.Element("activity_gradebook")
+        ET.SubElement(root, "grade_items")
+        ET.SubElement(root, "grade_letters")
+        ET.SubElement(root, "outcomes_modules")
+        self._write_xml(act_dir / "grades.xml", root)
 
     def _write_activity_xml(self, act_dir: Path, filename: str, inner: ET.Element) -> None:
         activity_id = inner.get("id") or str(self._new_id())

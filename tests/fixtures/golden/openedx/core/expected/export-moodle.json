@@ -1,7 +1,7 @@
 {
   "case_id": "openedx/core",
   "contents": {
-    ".ARCHIVE_INDEX": "Moodle archive file index. Count: 66\nactivities/\td\t0\t<mtime>\nactivities/forum_38/\td\t0\t<mtime>\nactivities/forum_38/forum.xml\tf\t289\t<mtime>\nactivities/forum_38/module.xml\tf\t622\t<mtime>\nactivities/label_21/\td\t0\t<mtime>\nactivities/label_21/label.xml\tf\t302\t<mtime>\nactivities/label_21/module.xml\tf\t622\t<mtime>\nactivities/label_47/\td\t0\t<mtime>\nactivities/label_47/label.xml\tf\t333\t<mtime>\nactivities/label_47/module.xml\tf\t622\t<mtime>\nactivities/label_52/\td\t0\t<mtime>\nactivities/label_52/label.xml\tf\t241\t<mtime>\nactivities/label_52/module.xml\tf\t622\t<mtime>\nactivities/quiz_25/\td\t0\t<mtime>\nactivities/quiz_25/module.xml\tf\t621\t<mtime>\nactivities/quiz_25/quiz.xml\tf\t3854\t<mtime>\nactivities/quiz_49/\td\t0\t<mtime>\nactivities/quiz_49/module.xml\tf\t621\t<mtime>\nactivities/quiz_49/quiz.xml\tf\t1052\t<mtime>\nactivities/resource_55/\td\t0\t<mtime>\nactivities/resource_55/inforef.xml\tf\t100\t<mtime>\nactivities/resource_55/module.xml\tf\t625\t<mtime>\nactivities/resource_55/resource.xml\tf\t480\t<mtime>\nactivities/scorm_44/\td\t0\t<mtime>\nactivities/scorm_44/inforef.xml\tf\t100\t<mtime>\nactivities/scorm_44/module.xml\tf\t622\t<mtime>\nactivities/scorm_44/scorm.xml\tf\t654\t<mtime>\nactivities/url_23/\td\t0\t<mtime>\nactivities/url_23/module.xml\tf\t620\t<mtime>\nactivities/url_23/url.xml\tf\t407\t<mtime>\nactivities/url_42/\td\t0\t<mtime>\nactivities/url_42/module.xml\tf\t620\t<mtime>\nactivities/url_42/url.xml\tf\t358\t<mtime>\nactivities/workshop_40/\td\t0\t<mtime>\nactivities/workshop_40/module.xml\tf\t625\t<mtime>\nactivities/workshop_40/workshop.xml\tf\t278\t<mtime>\nbadges.xml\tf\t49\t<mtime>\ncompletion.xml\tf\t60\t<mtime>\ncourse/\td\t0\t<mtime>\ncourse/course.xml\tf\t890\t<mtime>\nfiles/\td\t0\t<mtime>\nfiles/1a/\td\t0\t<mtime>\nfiles/1a/1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\tf\t779\t<mtime>\nfiles/b7/\td\t0\t<mtime>\nfiles/b7/b7283a1dc0a79582a87a3c91deec02d0772c5343\tf\t21\t<mtime>\nfiles/ce/\td\t0\t<mtime>\nfiles/ce/ceb09c940b8c028d87f377f95a98dde4de774937\tf\t21\t<mtime>\nfiles/da/\td\t0\t<mtime>\nfiles/da/da39a3ee5e6b4b0d3255bfef95601890afd80709\tf\t0\t<mtime>\nfiles/ee/\td\t0\t<mtime>\nfiles/ee/eecb6cc2eed6b79b9ba2971106686d38ebcbbf99\tf\t26\t<mtime>\nfiles.xml\tf\t4134\t<mtime>\ngrade_history.xml\tf\t86\t<mtime>\ngradebook.xml\tf\t146\t<mtime>\ngroups.xml\tf\t69\t<mtime>\nmoodle_backup.log\tf\t0\t<mtime>\nmoodle_backup.xml\tf\t3990\t<mtime>\noutcomes.xml\tf\t62\t<mtime>\nquestions.xml\tf\t15357\t<mtime>\nroles.xml\tf\t59\t<mtime>\nscales.xml\tf\t60\t<mtime>\nsections/\td\t0\t<mtime>\nsections/section_20/\td\t0\t<mtime>\nsections/section_20/section.xml\tf\t291\t<mtime>\nsections/section_54/\td\t0\t<mtime>\nsections/section_54/section.xml\tf\t264\t<mtime>",
+    ".ARCHIVE_INDEX": "Moodle archive file index. Count: 89\nactivities/\td\t0\t<mtime>\nactivities/forum_38/\td\t0\t<mtime>\nactivities/forum_38/forum.xml\tf\t289\t<mtime>\nactivities/forum_38/grades.xml\tf\t132\t<mtime>\nactivities/forum_38/module.xml\tf\t622\t<mtime>\nactivities/forum_38/roles.xml\tf\t92\t<mtime>\nactivities/label_21/\td\t0\t<mtime>\nactivities/label_21/grades.xml\tf\t132\t<mtime>\nactivities/label_21/label.xml\tf\t302\t<mtime>\nactivities/label_21/module.xml\tf\t622\t<mtime>\nactivities/label_21/roles.xml\tf\t92\t<mtime>\nactivities/label_47/\td\t0\t<mtime>\nactivities/label_47/grades.xml\tf\t132\t<mtime>\nactivities/label_47/label.xml\tf\t333\t<mtime>\nactivities/label_47/module.xml\tf\t622\t<mtime>\nactivities/label_47/roles.xml\tf\t92\t<mtime>\nactivities/label_52/\td\t0\t<mtime>\nactivities/label_52/grades.xml\tf\t132\t<mtime>\nactivities/label_52/label.xml\tf\t241\t<mtime>\nactivities/label_52/module.xml\tf\t622\t<mtime>\nactivities/label_52/roles.xml\tf\t92\t<mtime>\nactivities/quiz_25/\td\t0\t<mtime>\nactivities/quiz_25/grades.xml\tf\t132\t<mtime>\nactivities/quiz_25/module.xml\tf\t621\t<mtime>\nactivities/quiz_25/quiz.xml\tf\t3854\t<mtime>\nactivities/quiz_25/roles.xml\tf\t92\t<mtime>\nactivities/quiz_49/\td\t0\t<mtime>\nactivities/quiz_49/grades.xml\tf\t132\t<mtime>\nactivities/quiz_49/module.xml\tf\t621\t<mtime>\nactivities/quiz_49/quiz.xml\tf\t1052\t<mtime>\nactivities/quiz_49/roles.xml\tf\t92\t<mtime>\nactivities/resource_55/\td\t0\t<mtime>\nactivities/resource_55/grades.xml\tf\t132\t<mtime>\nactivities/resource_55/inforef.xml\tf\t100\t<mtime>\nactivities/resource_55/module.xml\tf\t625\t<mtime>\nactivities/resource_55/resource.xml\tf\t480\t<mtime>\nactivities/resource_55/roles.xml\tf\t92\t<mtime>\nactivities/scorm_44/\td\t0\t<mtime>\nactivities/scorm_44/grades.xml\tf\t132\t<mtime>\nactivities/scorm_44/inforef.xml\tf\t100\t<mtime>\nactivities/scorm_44/module.xml\tf\t622\t<mtime>\nactivities/scorm_44/roles.xml\tf\t92\t<mtime>\nactivities/scorm_44/scorm.xml\tf\t654\t<mtime>\nactivities/url_23/\td\t0\t<mtime>\nactivities/url_23/grades.xml\tf\t132\t<mtime>\nactivities/url_23/module.xml\tf\t620\t<mtime>\nactivities/url_23/roles.xml\tf\t92\t<mtime>\nactivities/url_23/url.xml\tf\t407\t<mtime>\nactivities/url_42/\td\t0\t<mtime>\nactivities/url_42/grades.xml\tf\t132\t<mtime>\nactivities/url_42/module.xml\tf\t620\t<mtime>\nactivities/url_42/roles.xml\tf\t92\t<mtime>\nactivities/url_42/url.xml\tf\t358\t<mtime>\nactivities/workshop_40/\td\t0\t<mtime>\nactivities/workshop_40/grades.xml\tf\t132\t<mtime>\nactivities/workshop_40/module.xml\tf\t625\t<mtime>\nactivities/workshop_40/roles.xml\tf\t92\t<mtime>\nactivities/workshop_40/workshop.xml\tf\t278\t<mtime>\nbadges.xml\tf\t49\t<mtime>\ncompletion.xml\tf\t60\t<mtime>\ncourse/\td\t0\t<mtime>\ncourse/course.xml\tf\t890\t<mtime>\ncourse/roles.xml\tf\t92\t<mtime>\nfiles/\td\t0\t<mtime>\nfiles/1a/\td\t0\t<mtime>\nfiles/1a/1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\tf\t779\t<mtime>\nfiles/b7/\td\t0\t<mtime>\nfiles/b7/b7283a1dc0a79582a87a3c91deec02d0772c5343\tf\t21\t<mtime>\nfiles/ce/\td\t0\t<mtime>\nfiles/ce/ceb09c940b8c028d87f377f95a98dde4de774937\tf\t21\t<mtime>\nfiles/da/\td\t0\t<mtime>\nfiles/da/da39a3ee5e6b4b0d3255bfef95601890afd80709\tf\t0\t<mtime>\nfiles/ee/\td\t0\t<mtime>\nfiles/ee/eecb6cc2eed6b79b9ba2971106686d38ebcbbf99\tf\t26\t<mtime>\nfiles.xml\tf\t4134\t<mtime>\ngrade_history.xml\tf\t86\t<mtime>\ngradebook.xml\tf\t146\t<mtime>\ngroups.xml\tf\t69\t<mtime>\nmoodle_backup.log\tf\t0\t<mtime>\nmoodle_backup.xml\tf\t3990\t<mtime>\noutcomes.xml\tf\t62\t<mtime>\nquestions.xml\tf\t15357\t<mtime>\nroles.xml\tf\t59\t<mtime>\nscales.xml\tf\t60\t<mtime>\nsections/\td\t0\t<mtime>\nsections/section_20/\td\t0\t<mtime>\nsections/section_20/section.xml\tf\t291\t<mtime>\nsections/section_54/\td\t0\t<mtime>\nsections/section_54/section.xml\tf\t264\t<mtime>",
     "activities/forum_38/forum.xml": {
       "attributes": {
         "contextid": "19",
@@ -36,6 +36,20 @@
         }
       ],
       "tag": "activity"
+    },
+    "activities/forum_38/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
     },
     "activities/forum_38/module.xml": {
       "attributes": {
@@ -115,6 +129,31 @@
         }
       ],
       "tag": "module"
+    },
+    "activities/forum_38/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
+    },
+    "activities/label_21/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
     },
     "activities/label_21/label.xml": {
       "attributes": {
@@ -226,6 +265,31 @@
       ],
       "tag": "module"
     },
+    "activities/label_21/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
+    },
+    "activities/label_47/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
+    },
     "activities/label_47/label.xml": {
       "attributes": {
         "contextid": "19",
@@ -336,6 +400,31 @@
       ],
       "tag": "module"
     },
+    "activities/label_47/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
+    },
+    "activities/label_52/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
+    },
     "activities/label_52/label.xml": {
       "attributes": {
         "contextid": "19",
@@ -444,6 +533,31 @@
         }
       ],
       "tag": "module"
+    },
+    "activities/label_52/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
+    },
+    "activities/quiz_25/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
     },
     "activities/quiz_25/module.xml": {
       "attributes": {
@@ -1048,6 +1162,31 @@
       ],
       "tag": "activity"
     },
+    "activities/quiz_25/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
+    },
+    "activities/quiz_49/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
+    },
     "activities/quiz_49/module.xml": {
       "attributes": {
         "id": "49",
@@ -1261,6 +1400,31 @@
       ],
       "tag": "activity"
     },
+    "activities/quiz_49/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
+    },
+    "activities/resource_55/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
+    },
     "activities/resource_55/inforef.xml": {
       "children": [
         {
@@ -1417,6 +1581,31 @@
       ],
       "tag": "activity"
     },
+    "activities/resource_55/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
+    },
+    "activities/scorm_44/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
+    },
     "activities/scorm_44/inforef.xml": {
       "children": [
         {
@@ -1514,6 +1703,17 @@
         }
       ],
       "tag": "module"
+    },
+    "activities/scorm_44/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
     },
     "activities/scorm_44/scorm.xml": {
       "attributes": {
@@ -1616,6 +1816,20 @@
       ],
       "tag": "activity"
     },
+    "activities/url_23/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
+    },
     "activities/url_23/module.xml": {
       "attributes": {
         "id": "23",
@@ -1695,6 +1909,17 @@
       ],
       "tag": "module"
     },
+    "activities/url_23/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
+    },
     "activities/url_23/url.xml": {
       "attributes": {
         "contextid": "19",
@@ -1736,6 +1961,20 @@
         }
       ],
       "tag": "activity"
+    },
+    "activities/url_42/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
     },
     "activities/url_42/module.xml": {
       "attributes": {
@@ -1816,6 +2055,17 @@
       ],
       "tag": "module"
     },
+    "activities/url_42/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
+    },
     "activities/url_42/url.xml": {
       "attributes": {
         "contextid": "19",
@@ -1856,6 +2106,20 @@
         }
       ],
       "tag": "activity"
+    },
+    "activities/workshop_40/grades.xml": {
+      "children": [
+        {
+          "tag": "grade_items"
+        },
+        {
+          "tag": "grade_letters"
+        },
+        {
+          "tag": "outcomes_modules"
+        }
+      ],
+      "tag": "activity_gradebook"
     },
     "activities/workshop_40/module.xml": {
       "attributes": {
@@ -1935,6 +2199,17 @@
         }
       ],
       "tag": "module"
+    },
+    "activities/workshop_40/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
     },
     "activities/workshop_40/workshop.xml": {
       "attributes": {
@@ -2091,6 +2366,17 @@
         }
       ],
       "tag": "course"
+    },
+    "course/roles.xml": {
+      "children": [
+        {
+          "tag": "role_assignments"
+        },
+        {
+          "tag": "role_overrides"
+        }
+      ],
+      "tag": "roles"
     },
     "files.xml": {
       "children": [
@@ -5177,7 +5463,7 @@
     {
       "kind": "archive_index",
       "path": ".ARCHIVE_INDEX",
-      "size": 2502
+      "size": 3569
     },
     {
       "kind": "xml",
@@ -5186,8 +5472,23 @@
     },
     {
       "kind": "xml",
+      "path": "activities/forum_38/grades.xml",
+      "size": 132
+    },
+    {
+      "kind": "xml",
       "path": "activities/forum_38/module.xml",
       "size": 622
+    },
+    {
+      "kind": "xml",
+      "path": "activities/forum_38/roles.xml",
+      "size": 92
+    },
+    {
+      "kind": "xml",
+      "path": "activities/label_21/grades.xml",
+      "size": 132
     },
     {
       "kind": "xml",
@@ -5201,6 +5502,16 @@
     },
     {
       "kind": "xml",
+      "path": "activities/label_21/roles.xml",
+      "size": 92
+    },
+    {
+      "kind": "xml",
+      "path": "activities/label_47/grades.xml",
+      "size": 132
+    },
+    {
+      "kind": "xml",
       "path": "activities/label_47/label.xml",
       "size": 333
     },
@@ -5208,6 +5519,16 @@
       "kind": "xml",
       "path": "activities/label_47/module.xml",
       "size": 622
+    },
+    {
+      "kind": "xml",
+      "path": "activities/label_47/roles.xml",
+      "size": 92
+    },
+    {
+      "kind": "xml",
+      "path": "activities/label_52/grades.xml",
+      "size": 132
     },
     {
       "kind": "xml",
@@ -5221,6 +5542,16 @@
     },
     {
       "kind": "xml",
+      "path": "activities/label_52/roles.xml",
+      "size": 92
+    },
+    {
+      "kind": "xml",
+      "path": "activities/quiz_25/grades.xml",
+      "size": 132
+    },
+    {
+      "kind": "xml",
       "path": "activities/quiz_25/module.xml",
       "size": 621
     },
@@ -5231,6 +5562,16 @@
     },
     {
       "kind": "xml",
+      "path": "activities/quiz_25/roles.xml",
+      "size": 92
+    },
+    {
+      "kind": "xml",
+      "path": "activities/quiz_49/grades.xml",
+      "size": 132
+    },
+    {
+      "kind": "xml",
       "path": "activities/quiz_49/module.xml",
       "size": 621
     },
@@ -5238,6 +5579,16 @@
       "kind": "xml",
       "path": "activities/quiz_49/quiz.xml",
       "size": 1052
+    },
+    {
+      "kind": "xml",
+      "path": "activities/quiz_49/roles.xml",
+      "size": 92
+    },
+    {
+      "kind": "xml",
+      "path": "activities/resource_55/grades.xml",
+      "size": 132
     },
     {
       "kind": "xml",
@@ -5256,6 +5607,16 @@
     },
     {
       "kind": "xml",
+      "path": "activities/resource_55/roles.xml",
+      "size": 92
+    },
+    {
+      "kind": "xml",
+      "path": "activities/scorm_44/grades.xml",
+      "size": 132
+    },
+    {
+      "kind": "xml",
       "path": "activities/scorm_44/inforef.xml",
       "size": 100
     },
@@ -5266,8 +5627,18 @@
     },
     {
       "kind": "xml",
+      "path": "activities/scorm_44/roles.xml",
+      "size": 92
+    },
+    {
+      "kind": "xml",
       "path": "activities/scorm_44/scorm.xml",
       "size": 654
+    },
+    {
+      "kind": "xml",
+      "path": "activities/url_23/grades.xml",
+      "size": 132
     },
     {
       "kind": "xml",
@@ -5276,8 +5647,18 @@
     },
     {
       "kind": "xml",
+      "path": "activities/url_23/roles.xml",
+      "size": 92
+    },
+    {
+      "kind": "xml",
       "path": "activities/url_23/url.xml",
       "size": 407
+    },
+    {
+      "kind": "xml",
+      "path": "activities/url_42/grades.xml",
+      "size": 132
     },
     {
       "kind": "xml",
@@ -5286,13 +5667,28 @@
     },
     {
       "kind": "xml",
+      "path": "activities/url_42/roles.xml",
+      "size": 92
+    },
+    {
+      "kind": "xml",
       "path": "activities/url_42/url.xml",
       "size": 358
     },
     {
       "kind": "xml",
+      "path": "activities/workshop_40/grades.xml",
+      "size": 132
+    },
+    {
+      "kind": "xml",
       "path": "activities/workshop_40/module.xml",
       "size": 625
+    },
+    {
+      "kind": "xml",
+      "path": "activities/workshop_40/roles.xml",
+      "size": 92
     },
     {
       "kind": "xml",
@@ -5313,6 +5709,11 @@
       "kind": "xml",
       "path": "course/course.xml",
       "size": 890
+    },
+    {
+      "kind": "xml",
+      "path": "course/roles.xml",
+      "size": 92
     },
     {
       "kind": "binary",

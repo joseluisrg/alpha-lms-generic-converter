@@ -81,6 +81,10 @@ def test_openedx_to_moodle_target(openedx_archive: Path, tmp_path: Path):
     assert manifest_path.read_text(encoding="utf-8").startswith(
         '<?xml version="1.0" encoding="UTF-8"?>'
     )
+    assert (extract_dir / "course" / "roles.xml").is_file()
+    for activity_dir in (extract_dir / "activities").iterdir():
+        assert (activity_dir / "roles.xml").is_file()
+        assert (activity_dir / "grades.xml").is_file()
     manifest = ET.parse(manifest_path).getroot()
     activities = manifest.findall(".//contents/activities/activity")
     assert activities
@@ -199,7 +203,7 @@ def test_moodle_to_moodle_target(moodle_archive: Path, tmp_path: Path):
     activity_files = [
         path
         for path in (extract_dir / "activities").glob("*/*.xml")
-        if path.name not in ("module.xml", "inforef.xml")
+        if path.name not in ("module.xml", "inforef.xml", "roles.xml", "grades.xml")
     ]
     assert activity_files
     for path in activity_files:
