@@ -8,6 +8,37 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 
 ### Added
 
+- **Provenance ledger** (`job_events` table): every job transition (`inspected`,
+  `migrated`, `failed`, `rolled_back`) is recorded as an immutable, append-only
+  row with SHA-256 input/output hashes, tool version, actor, and a
+  `prev_event_id` chain link for tamper detection.
+- **Artifact manifest** (`v{N}/manifest.json`): written to disk after every
+  migration, capturing the artifact's SHA-256 byte hash and the full event chain
+  up to that point, forming a tamper-evident provenance record.
+- **`rollback_job`** in `persistence/repositories.py`: copies the artifact from
+  a chosen manifest version into a new `v{N+1}` slot, resets the job row to
+  `status='inspected'`, appends a `rolled_back` ledger event, writes a new
+  manifest, and returns the restored job dict. No history is deleted.
+- **`ledger` CLI command**: prints the full event table for a job
+  (`event_id`, `event`, `step`, `actor`, `recorded_at`, `output_hash[:16]`).
+  Accepts `--owner` and `--log-level`. Exits with code 1 on access errors.
+- **`rollback` CLI command**: invokes `rollback_job` and prints the restored
+  job's status and manifest path. Accepts `--version`, `--owner`, `--log-level`.
+- **Ledger section in HTML/JSON reports**: `build_report_data`,
+  `render_json_report`, and `render_html_report` now accept an optional
+  `ledger_entries` parameter. The HTML report gains a "Ledger History" table
+  after "Integrity Checks"; all values are HTML-escaped. Existing callers
+  are unaffected (default `None` → empty list).
+- **`get_job_events`** / **`purge_ledger_entries_before`** in
+  `persistence/repositories.py`: retrieve ledger rows (owner-scoped) and
+  bulk-delete rows older than a cutoff timestamp for data-retention maintenance.
+- `LedgerRollbackError` in `core/errors.py` for manifest-not-found and
+  missing-artifact conditions.
+- `tool_version()` helper in `core/identity.py` to stamp ledger events with
+  the installed package version.
+- 17 unit tests in `tests/unit/test_ledger.py` covering AC-1 through AC-14,
+  including HTML rendering, XSS-escape verification, PII exclusion, tamper
+  detection, and rollback owner scoping.
 - Append-only `job_events` ledger table recording each pipeline step with before/after course hashes, tool version, actor, and a linked-list chain via `prev_event_id`; exposed through `append_job_event`, `get_job_events`, and a maintenance-only `purge_ledger_entries_before` helper.
 - Database schema versioning via `PRAGMA user_version`, one-time startup migrations for legacy databases, and repository reads that no longer execute DDL.
 - Configurable retention cleanup for expired job rows, extracted paths, outputs, and upload sessions, with dry-run support and a `cleanup` CLI command.
