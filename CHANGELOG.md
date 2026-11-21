@@ -21,6 +21,7 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 - Operator runbook covering health checks, upgrade and rollback, stopped-snapshot backup, restore verification, retention cleanup, incident triage, support handoff, and a recovery drill.
 - Backup and restore integration drill that snapshots the managed data root, restores it, and verifies jobs, artifacts, schema version, and SQLite integrity.
 - Versioned draft format and feature matrix covering every supported feature ID, with target status, import checks, fixture evidence, and certification gaps.
+- Certification harness scaffold with a versioned result contract, matrix-driven import planning, golden artifact generation, credential redaction, fake-target runner tests, and a dry-run CLI.
 
 ### Changed
 

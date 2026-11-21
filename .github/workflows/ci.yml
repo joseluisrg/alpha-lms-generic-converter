@@ -26,6 +26,8 @@ jobs:
       - run: uv run ruff format --check
       - run: uv run mypy
       - run: uv run python scripts/update_golden.py --check
+      - name: Validate the certification plan
+        run: uv run python scripts/run_lms_certification.py --dry-run
       - run: uv run bandit -c pyproject.toml -r adapters cli core domain persistence
       - run: uv run pip-audit
       - name: Generate SBOM

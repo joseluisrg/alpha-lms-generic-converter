@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | Matrix version | 1 |
-| Status | Draft; certification pending |
+| Status | Draft; harness scaffold ready, live imports pending |
 | Date | 2026-11-20 |
 | Machine-readable source | `tests/fixtures/golden/format-matrix.json` |
 | Certification plan | `docs/production-readiness-plan.md` |
