@@ -853,7 +853,11 @@ class MoodleTargetAdapter:
             ET.SubElement(setting, "name").text = name
             ET.SubElement(setting, "value").text = value
 
-        self._write_xml(self._work_dir / "moodle_backup.xml", root)
+        self._write_xml(
+            self._work_dir / "moodle_backup.xml",
+            root,
+            declaration='<?xml version="1.0" encoding="UTF-8"?>',
+        )
 
     def _write_archive_index(self) -> None:
         entries: list[str] = []
@@ -908,6 +912,10 @@ class MoodleTargetAdapter:
         activity.append(inner)
         self._write_xml(act_dir / filename, activity)
 
-    def _write_xml(self, path: Path, root: ET.Element) -> None:
+    def _write_xml(self, path: Path, root: ET.Element, *, declaration: str | None = None) -> None:
+        if declaration is not None:
+            body = ET.tostring(root, encoding="unicode")
+            path.write_text(f"{declaration}\n{body}", encoding="utf-8")
+            return
         tree = ET.ElementTree(root)
         tree.write(path, encoding="utf-8", xml_declaration=True)

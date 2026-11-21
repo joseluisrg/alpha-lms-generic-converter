@@ -77,7 +77,11 @@ def test_openedx_to_moodle_target(openedx_archive: Path, tmp_path: Path):
     with tarfile.open(output, "r:gz") as archive:
         archive.extractall(extract_dir, filter="data")
 
-    manifest = ET.parse(extract_dir / "moodle_backup.xml").getroot()
+    manifest_path = extract_dir / "moodle_backup.xml"
+    assert manifest_path.read_text(encoding="utf-8").startswith(
+        '<?xml version="1.0" encoding="UTF-8"?>'
+    )
+    manifest = ET.parse(manifest_path).getroot()
     activities = manifest.findall(".//contents/activities/activity")
     assert activities
     section_files = list((extract_dir / "sections").glob("section_*/section.xml"))
