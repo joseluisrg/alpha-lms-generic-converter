@@ -34,6 +34,7 @@ def test_builds_artifacts_with_a_relative_workspace(
 
     artifact = build_golden_artifact(case, target, Path("workspace"))
 
+    assert artifact.path.is_absolute()
     assert artifact.path.is_file()
 
 
