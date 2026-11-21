@@ -86,3 +86,30 @@ def test_tar_traversal_is_still_rejected(tmp_path: Path):
 
     with pytest.raises(ValueError):
         safe_extract_tar(archive_path, tmp_path / "out")
+
+
+def test_openedx_html_wrapper_without_extension_uses_html_payload(tmp_path: Path):
+    source = tmp_path / "source"
+    files = {
+        "course.xml": '<course url_name="course1" org="TestOrg" course="TEST101" />',
+        "course/course1.xml": '<course display_name="Test"><chapter url_name="ch1" /></course>',
+        "chapter/ch1.xml": '<chapter><sequential url_name="seq1" /></chapter>',
+        "sequential/seq1.xml": '<sequential><vertical url_name="vert1" /></sequential>',
+        "vertical/vert1.xml": '<vertical><html url_name="html1" /></vertical>',
+        "html/html1.xml": '<html filename="payload" />',
+        "html/payload.html": "<p>Extensionless wrapper payload.</p>",
+    }
+    for relative, content in files.items():
+        path = source / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding="utf-8")
+    archive_path = tmp_path / "openedx.tar.gz"
+    with tarfile.open(archive_path, "w:gz") as archive:
+        for path in sorted(source.rglob("*")):
+            if path.is_file():
+                archive.add(path, arcname=str(path.relative_to(source)))
+
+    parsed = OpenEdxCourseParser().parse(str(archive_path), str(tmp_path / "work"))
+
+    html_component = parsed["chapters"][0]["sequentials"][0]["verticals"][0]["components"][0]
+    assert html_component["content_html"] == "<p>Extensionless wrapper payload.</p>"
