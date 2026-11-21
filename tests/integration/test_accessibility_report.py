@@ -12,6 +12,6 @@ def test_alt_text_findings_appear_in_validation_report(a11y_openedx_archive: Pat
     notes = ValidationService().validate(course, target="moodle")
 
     codes = [note.code for note in notes]
-    assert codes.count("A11Y_MISSING_ALT") == 2
+    assert codes.count("ALT_ATTRIBUTE_MISSING") == 2
     summary = next(note for note in notes if note.code == "MIGRATION_SUMMARY")
     assert "Warnings: 2" in summary.message

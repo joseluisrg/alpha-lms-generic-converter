@@ -50,9 +50,9 @@ def check_images(course: Course) -> List[MappingNote]:
             if problem:
                 src = image.get("src", "unknown")
                 notes.append(MappingNote(
-                    note_id=stable_id("note", course.course_id, "A11Y_MISSING_ALT", node.node_id, src),
+                    note_id=stable_id("note", course.course_id, "ALT_ATTRIBUTE_MISSING", node.node_id, src),
                     severity=Severity.WARNING,
-                    code="A11Y_MISSING_ALT",
+                    code="ALT_ATTRIBUTE_MISSING",
                     message=f'Image "{src}" {problem} (page: {node.title})',
                 ))
     return notes

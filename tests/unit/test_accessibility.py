@@ -12,7 +12,7 @@ def test_images_without_good_alt_text_are_reported(a11y_openedx_archive: Path, t
     notes = check_images(course)
 
     assert len(notes) == 2
-    assert all(note.code == "A11Y_MISSING_ALT" for note in notes)
+    assert all(note.code == "ALT_ATTRIBUTE_MISSING" for note in notes)
     messages = " ".join(note.message for note in notes)
     assert "cpu.png" in messages
     assert "chart.png" in messages
@@ -26,7 +26,7 @@ def test_images_without_good_alt_text_are_reported_in_moodle(a11y_moodle_archive
     notes = check_images(course)
 
     assert len(notes) == 2
-    assert all(note.code == "A11Y_MISSING_ALT" for note in notes)
+    assert all(note.code == "ALT_ATTRIBUTE_MISSING" for note in notes)
     messages = " ".join(note.message for note in notes)
     assert "cpu.png" in messages
     assert "chart.png" in messages
