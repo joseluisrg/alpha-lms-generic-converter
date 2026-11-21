@@ -325,3 +325,54 @@ def moodle_archive(tmp_path: Path) -> Path:
     }
     _write_tree(root, files)
     return _tar_tree(root, tmp_path / "moodle.mbz")
+
+
+@pytest.fixture
+def a11y_moodle_archive(tmp_path: Path) -> Path:
+    root = tmp_path / "moodle-a11y-src"
+    files = {
+        "moodle_backup.xml": """\
+            <moodle_backup>
+              <information>
+                <name>backup.mbz</name>
+                <contents>
+                  <activities>
+                    <activity><moduleid>2</moduleid><sectionid>1</sectionid><modulename>page</modulename><title>Images Page</title><directory>activities/page_2</directory></activity>
+                  </activities>
+                  <sections>
+                    <section><sectionid>1</sectionid><title>Week One</title><directory>sections/section_1</directory></section>
+                  </sections>
+                  <course><courseid>1</courseid><title>A11y Moodle Course</title><directory>course</directory></course>
+                </contents>
+              </information>
+            </moodle_backup>
+        """,
+        "course/course.xml": """\
+            <course id="1">
+              <shortname>A11yMoodle</shortname>
+              <fullname>A11y Moodle Course</fullname>
+              <lang>en</lang>
+            </course>
+        """,
+        "sections/section_1/section.xml": """\
+            <section id="1">
+              <number>0</number>
+              <name>Week One</name>
+              <summary>Welcome</summary>
+              <sequence>2</sequence>
+            </section>
+        """,
+        "activities/page_2/page.xml": """\
+            <page id="2">
+              <name>Images Page</name>
+              <intro>Intro</intro>
+              <content>&lt;h2&gt;Images&lt;/h2&gt;
+                &lt;img src="@@PLUGINFILE@@/cpu.png"&gt;
+                &lt;img src="@@PLUGINFILE@@/chart.png" alt="chart.png"&gt;
+                &lt;img src="@@PLUGINFILE@@/diagram.png" alt="Diagram of a computer with CPU and memory"&gt;
+              </content>
+            </page>
+        """,
+    }
+    _write_tree(root, files)
+    return _tar_tree(root, tmp_path / "moodle-a11y.mbz")

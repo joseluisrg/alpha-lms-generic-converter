@@ -17,3 +17,17 @@ def test_images_without_good_alt_text_are_reported(a11y_openedx_archive: Path, t
     assert "cpu.png" in messages
     assert "chart.png" in messages
     assert "diagram.png" not in messages
+
+
+def test_images_without_good_alt_text_are_reported_in_moodle(a11y_moodle_archive: Path, tmp_path: Path):
+    parsed = ParseService().parse(str(a11y_moodle_archive), "moodle", str(tmp_path / "extract"))
+    course = TransformService().transform(parsed, "moodle", "job-a11y-moodle")
+
+    notes = check_images(course)
+
+    assert len(notes) == 2
+    assert all(note.code == "A11Y_MISSING_ALT" for note in notes)
+    messages = " ".join(note.message for note in notes)
+    assert "cpu.png" in messages
+    assert "chart.png" in messages
+    assert "diagram.png" not in messages
