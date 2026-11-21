@@ -14,6 +14,7 @@ LMS Converter parses course packages, maps them to a canonical course model, val
 - Archive, path, and XML input hardening.
 - HTML and JSON migration reports.
 - SQLite job history with lifecycle states.
+- **Accessibility check** — flags images without a meaningful alt text (missing, or only a file name) in Open edX and Moodle courses, as warnings with the code `ALT_ATTRIBUTE_MISSING`.
 - Optional Streamlit UI.
 
 ## Requirements
