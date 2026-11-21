@@ -218,11 +218,14 @@ def test_moodle_to_openedx_target(moodle_archive: Path, tmp_path: Path):
         archive.extractall(extract_dir, filter="data")
 
     assert (extract_dir / "course.xml").exists()
-    assert (extract_dir / "scorm").is_dir()
-    scorm_files = list((extract_dir / "scorm").glob("*.xml"))
-    assert scorm_files
-    scorm_root = ET.parse(scorm_files[0]).getroot()
+    scorm_root = next(
+        scorm
+        for path in (extract_dir / "vertical").glob("*.xml")
+        if (scorm := ET.parse(path).getroot().find("scorm")) is not None
+    )
     assert scorm_root.tag == "scorm"
+    assert scorm_root.get("url_name")
+    assert not list((extract_dir / "scorm").glob("*.xml"))
     package_path = extract_dir / str(scorm_root.get("scorm_package_path"))
     assert package_path.is_file()
     package_meta = json.loads(str(scorm_root.get("package_meta")))

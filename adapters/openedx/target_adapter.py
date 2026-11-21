@@ -460,7 +460,7 @@ class OpenEdxTargetAdapter:
             elif comp.node_type == NodeType.SCORM:
                 elem = ET.SubElement(root, "scorm")
                 elem.set("url_name", self._get_url_name(comp.node_id))
-                self._write_scorm(comp)
+                self._write_scorm(comp, elem)
 
             elif comp.node_type == NodeType.OPENASSESSMENT:
                 # First, add an HTML component to display the prompt text
@@ -805,7 +805,7 @@ class OpenEdxTargetAdapter:
 
         self._write_xml(self._work_dir / "video" / f"{url_name}.xml", root)
 
-    def _write_scorm(self, comp: ContentNode):
+    def _write_scorm(self, comp: ContentNode, elem: ET.Element):
         url_name = self._get_url_name(comp.node_id)
         metadata = comp.metadata
         scorm_settings = metadata.get("scorm_settings", {})
@@ -814,7 +814,7 @@ class OpenEdxTargetAdapter:
         scorm_asset = next((a for a in self._course.assets if a.asset_id == asset_id), None)
         source = self._scorm_source(scorm_asset)
         if scorm_asset is None or source is None:
-            self._write_placeholder_scorm(comp)
+            self._write_placeholder_scorm(comp, elem)
             return
 
         package_bytes = source.read_bytes()
@@ -832,16 +832,13 @@ class OpenEdxTargetAdapter:
             "size": len(package_bytes),
         }
 
-        root = ET.Element("scorm")
-        root.set("display_name", comp.title or "SCORM Package")
-        root.set("package_meta", json.dumps(package_meta, sort_keys=True, separators=(",", ":")))
-        root.set("scorm_package_path", package_path.as_posix())
-        root.set("index_page_path", scorm_settings.get("sco_launch") or "index.html")
-        root.set("scorm_version", version)
-        root.set("has_score", "true")  # Assuming it's graded
-        root.set("weight", scorm_settings.get("maxgrade") or "1")
-
-        self._write_xml(self._work_dir / "scorm" / f"{url_name}.xml", root)
+        elem.set("display_name", comp.title or "SCORM Package")
+        elem.set("package_meta", json.dumps(package_meta, sort_keys=True, separators=(",", ":")))
+        elem.set("scorm_package_path", package_path.as_posix())
+        elem.set("index_page_path", scorm_settings.get("sco_launch") or "index.html")
+        elem.set("scorm_version", version)
+        elem.set("has_score", "true")  # Assuming it's graded
+        elem.set("weight", scorm_settings.get("maxgrade") or "1")
 
     def _scorm_source(self, asset: Asset | None) -> Path | None:
         if asset is None or self.source_extracted_path is None:
@@ -852,14 +849,11 @@ class OpenEdxTargetAdapter:
             return None
         return source if source.is_file() else None
 
-    def _write_placeholder_scorm(self, comp: ContentNode):
+    def _write_placeholder_scorm(self, comp: ContentNode, elem: ET.Element):
         # Fallback for when the asset is missing
-        url_name = self._get_url_name(comp.node_id)
-        root = ET.Element("scorm")
-        root.set("display_name", comp.title or "Missing SCORM Package")
-        root.set("package_meta", "{}")
-        root.set("has_score", "false")
-        self._write_xml(self._work_dir / "scorm" / f"{url_name}.xml", root)
+        elem.set("display_name", comp.title or "Missing SCORM Package")
+        elem.set("package_meta", "{}")
+        elem.set("has_score", "false")
 
     def _copy_assets(self, source_extracted: Path):
         """
