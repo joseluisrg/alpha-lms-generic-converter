@@ -1,18 +1,18 @@
 {
   "case_id": "openedx/core",
   "contents": {
-    ".ARCHIVE_INDEX": "Moodle archive file index. Count: 90\nactivities/\td\t0\t<mtime>\nactivities/forum_39/\td\t0\t<mtime>\nactivities/forum_39/forum.xml\tf\t927\t<mtime>\nactivities/forum_39/grades.xml\tf\t132\t<mtime>\nactivities/forum_39/module.xml\tf\t622\t<mtime>\nactivities/forum_39/roles.xml\tf\t92\t<mtime>\nactivities/label_22/\td\t0\t<mtime>\nactivities/label_22/grades.xml\tf\t132\t<mtime>\nactivities/label_22/label.xml\tf\t302\t<mtime>\nactivities/label_22/module.xml\tf\t622\t<mtime>\nactivities/label_22/roles.xml\tf\t92\t<mtime>\nactivities/label_48/\td\t0\t<mtime>\nactivities/label_48/grades.xml\tf\t132\t<mtime>\nactivities/label_48/label.xml\tf\t333\t<mtime>\nactivities/label_48/module.xml\tf\t622\t<mtime>\nactivities/label_48/roles.xml\tf\t92\t<mtime>\nactivities/label_53/\td\t0\t<mtime>\nactivities/label_53/grades.xml\tf\t132\t<mtime>\nactivities/label_53/label.xml\tf\t241\t<mtime>\nactivities/label_53/module.xml\tf\t622\t<mtime>\nactivities/label_53/roles.xml\tf\t92\t<mtime>\nactivities/quiz_26/\td\t0\t<mtime>\nactivities/quiz_26/grades.xml\tf\t132\t<mtime>\nactivities/quiz_26/module.xml\tf\t621\t<mtime>\nactivities/quiz_26/quiz.xml\tf\t3913\t<mtime>\nactivities/quiz_26/roles.xml\tf\t92\t<mtime>\nactivities/quiz_50/\td\t0\t<mtime>\nactivities/quiz_50/grades.xml\tf\t132\t<mtime>\nactivities/quiz_50/module.xml\tf\t621\t<mtime>\nactivities/quiz_50/quiz.xml\tf\t1110\t<mtime>\nactivities/quiz_50/roles.xml\tf\t92\t<mtime>\nactivities/resource_56/\td\t0\t<mtime>\nactivities/resource_56/grades.xml\tf\t132\t<mtime>\nactivities/resource_56/inforef.xml\tf\t100\t<mtime>\nactivities/resource_56/module.xml\tf\t625\t<mtime>\nactivities/resource_56/resource.xml\tf\t480\t<mtime>\nactivities/resource_56/roles.xml\tf\t92\t<mtime>\nactivities/scorm_45/\td\t0\t<mtime>\nactivities/scorm_45/grades.xml\tf\t132\t<mtime>\nactivities/scorm_45/inforef.xml\tf\t100\t<mtime>\nactivities/scorm_45/module.xml\tf\t622\t<mtime>\nactivities/scorm_45/roles.xml\tf\t92\t<mtime>\nactivities/scorm_45/scorm.xml\tf\t762\t<mtime>\nactivities/url_24/\td\t0\t<mtime>\nactivities/url_24/grades.xml\tf\t132\t<mtime>\nactivities/url_24/module.xml\tf\t620\t<mtime>\nactivities/url_24/roles.xml\tf\t92\t<mtime>\nactivities/url_24/url.xml\tf\t407\t<mtime>\nactivities/url_43/\td\t0\t<mtime>\nactivities/url_43/grades.xml\tf\t132\t<mtime>\nactivities/url_43/module.xml\tf\t620\t<mtime>\nactivities/url_43/roles.xml\tf\t92\t<mtime>\nactivities/url_43/url.xml\tf\t358\t<mtime>\nactivities/workshop_41/\td\t0\t<mtime>\nactivities/workshop_41/grades.xml\tf\t132\t<mtime>\nactivities/workshop_41/module.xml\tf\t625\t<mtime>\nactivities/workshop_41/roles.xml\tf\t92\t<mtime>\nactivities/workshop_41/workshop.xml\tf\t730\t<mtime>\nbadges.xml\tf\t49\t<mtime>\ncompletion.xml\tf\t60\t<mtime>\ncourse/\td\t0\t<mtime>\ncourse/course.xml\tf\t905\t<mtime>\ncourse/inforef.xml\tf\t316\t<mtime>\ncourse/roles.xml\tf\t92\t<mtime>\nfiles/\td\t0\t<mtime>\nfiles/1a/\td\t0\t<mtime>\nfiles/1a/1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\tf\t779\t<mtime>\nfiles/b7/\td\t0\t<mtime>\nfiles/b7/b7283a1dc0a79582a87a3c91deec02d0772c5343\tf\t21\t<mtime>\nfiles/ce/\td\t0\t<mtime>\nfiles/ce/ceb09c940b8c028d87f377f95a98dde4de774937\tf\t21\t<mtime>\nfiles/da/\td\t0\t<mtime>\nfiles/da/da39a3ee5e6b4b0d3255bfef95601890afd80709\tf\t0\t<mtime>\nfiles/ee/\td\t0\t<mtime>\nfiles/ee/eecb6cc2eed6b79b9ba2971106686d38ebcbbf99\tf\t26\t<mtime>\nfiles.xml\tf\t4137\t<mtime>\ngrade_history.xml\tf\t86\t<mtime>\ngradebook.xml\tf\t146\t<mtime>\ngroups.xml\tf\t69\t<mtime>\nmoodle_backup.log\tf\t0\t<mtime>\nmoodle_backup.xml\tf\t3990\t<mtime>\noutcomes.xml\tf\t62\t<mtime>\nquestions.xml\tf\t17916\t<mtime>\nroles.xml\tf\t59\t<mtime>\nscales.xml\tf\t60\t<mtime>\nsections/\td\t0\t<mtime>\nsections/section_21/\td\t0\t<mtime>\nsections/section_21/section.xml\tf\t291\t<mtime>\nsections/section_55/\td\t0\t<mtime>\nsections/section_55/section.xml\tf\t264\t<mtime>",
-    "activities/forum_39/forum.xml": {
+    ".ARCHIVE_INDEX": "Moodle archive file index. Count: 90\nactivities/\td\t0\t<mtime>\nactivities/forum_62/\td\t0\t<mtime>\nactivities/forum_62/forum.xml\tf\t927\t<mtime>\nactivities/forum_62/grades.xml\tf\t132\t<mtime>\nactivities/forum_62/module.xml\tf\t622\t<mtime>\nactivities/forum_62/roles.xml\tf\t92\t<mtime>\nactivities/label_34/\td\t0\t<mtime>\nactivities/label_34/grades.xml\tf\t132\t<mtime>\nactivities/label_34/label.xml\tf\t302\t<mtime>\nactivities/label_34/module.xml\tf\t622\t<mtime>\nactivities/label_34/roles.xml\tf\t92\t<mtime>\nactivities/label_71/\td\t0\t<mtime>\nactivities/label_71/grades.xml\tf\t132\t<mtime>\nactivities/label_71/label.xml\tf\t333\t<mtime>\nactivities/label_71/module.xml\tf\t622\t<mtime>\nactivities/label_71/roles.xml\tf\t92\t<mtime>\nactivities/label_77/\td\t0\t<mtime>\nactivities/label_77/grades.xml\tf\t132\t<mtime>\nactivities/label_77/label.xml\tf\t241\t<mtime>\nactivities/label_77/module.xml\tf\t622\t<mtime>\nactivities/label_77/roles.xml\tf\t92\t<mtime>\nactivities/quiz_38/\td\t0\t<mtime>\nactivities/quiz_38/grades.xml\tf\t132\t<mtime>\nactivities/quiz_38/module.xml\tf\t621\t<mtime>\nactivities/quiz_38/quiz.xml\tf\t4707\t<mtime>\nactivities/quiz_38/roles.xml\tf\t92\t<mtime>\nactivities/quiz_73/\td\t0\t<mtime>\nactivities/quiz_73/grades.xml\tf\t132\t<mtime>\nactivities/quiz_73/module.xml\tf\t621\t<mtime>\nactivities/quiz_73/quiz.xml\tf\t1182\t<mtime>\nactivities/quiz_73/roles.xml\tf\t92\t<mtime>\nactivities/resource_80/\td\t0\t<mtime>\nactivities/resource_80/grades.xml\tf\t132\t<mtime>\nactivities/resource_80/inforef.xml\tf\t100\t<mtime>\nactivities/resource_80/module.xml\tf\t625\t<mtime>\nactivities/resource_80/resource.xml\tf\t480\t<mtime>\nactivities/resource_80/roles.xml\tf\t92\t<mtime>\nactivities/scorm_68/\td\t0\t<mtime>\nactivities/scorm_68/grades.xml\tf\t132\t<mtime>\nactivities/scorm_68/inforef.xml\tf\t100\t<mtime>\nactivities/scorm_68/module.xml\tf\t622\t<mtime>\nactivities/scorm_68/roles.xml\tf\t92\t<mtime>\nactivities/scorm_68/scorm.xml\tf\t762\t<mtime>\nactivities/url_36/\td\t0\t<mtime>\nactivities/url_36/grades.xml\tf\t132\t<mtime>\nactivities/url_36/module.xml\tf\t620\t<mtime>\nactivities/url_36/roles.xml\tf\t92\t<mtime>\nactivities/url_36/url.xml\tf\t407\t<mtime>\nactivities/url_66/\td\t0\t<mtime>\nactivities/url_66/grades.xml\tf\t132\t<mtime>\nactivities/url_66/module.xml\tf\t620\t<mtime>\nactivities/url_66/roles.xml\tf\t92\t<mtime>\nactivities/url_66/url.xml\tf\t358\t<mtime>\nactivities/workshop_64/\td\t0\t<mtime>\nactivities/workshop_64/grades.xml\tf\t132\t<mtime>\nactivities/workshop_64/module.xml\tf\t625\t<mtime>\nactivities/workshop_64/roles.xml\tf\t92\t<mtime>\nactivities/workshop_64/workshop.xml\tf\t730\t<mtime>\nbadges.xml\tf\t49\t<mtime>\ncompletion.xml\tf\t60\t<mtime>\ncourse/\td\t0\t<mtime>\ncourse/course.xml\tf\t905\t<mtime>\ncourse/inforef.xml\tf\t316\t<mtime>\ncourse/roles.xml\tf\t92\t<mtime>\nfiles/\td\t0\t<mtime>\nfiles/1a/\td\t0\t<mtime>\nfiles/1a/1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\tf\t779\t<mtime>\nfiles/b7/\td\t0\t<mtime>\nfiles/b7/b7283a1dc0a79582a87a3c91deec02d0772c5343\tf\t21\t<mtime>\nfiles/ce/\td\t0\t<mtime>\nfiles/ce/ceb09c940b8c028d87f377f95a98dde4de774937\tf\t21\t<mtime>\nfiles/da/\td\t0\t<mtime>\nfiles/da/da39a3ee5e6b4b0d3255bfef95601890afd80709\tf\t0\t<mtime>\nfiles/ee/\td\t0\t<mtime>\nfiles/ee/eecb6cc2eed6b79b9ba2971106686d38ebcbbf99\tf\t26\t<mtime>\nfiles.xml\tf\t4137\t<mtime>\ngrade_history.xml\tf\t86\t<mtime>\ngradebook.xml\tf\t146\t<mtime>\ngroups.xml\tf\t69\t<mtime>\nmoodle_backup.log\tf\t0\t<mtime>\nmoodle_backup.xml\tf\t3990\t<mtime>\noutcomes.xml\tf\t62\t<mtime>\nquestions.xml\tf\t17928\t<mtime>\nroles.xml\tf\t59\t<mtime>\nscales.xml\tf\t60\t<mtime>\nsections/\td\t0\t<mtime>\nsections/section_33/\td\t0\t<mtime>\nsections/section_33/section.xml\tf\t291\t<mtime>\nsections/section_79/\td\t0\t<mtime>\nsections/section_79/section.xml\tf\t264\t<mtime>",
+    "activities/forum_62/forum.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "40",
-        "moduleid": "39",
+        "contextid": "62",
+        "id": "63",
+        "moduleid": "62",
         "modulename": "forum"
       },
       "children": [
         {
           "attributes": {
-            "id": "40"
+            "id": "63"
           },
           "children": [
             {
@@ -128,7 +128,7 @@
       ],
       "tag": "activity"
     },
-    "activities/forum_39/grades.xml": {
+    "activities/forum_62/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -142,9 +142,9 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/forum_39/module.xml": {
+    "activities/forum_62/module.xml": {
       "attributes": {
-        "id": "39",
+        "id": "62",
         "version": "2026100501"
       },
       "children": [
@@ -154,7 +154,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "21"
+          "text": "33"
         },
         {
           "tag": "sectionnumber",
@@ -221,7 +221,7 @@
       ],
       "tag": "module"
     },
-    "activities/forum_39/roles.xml": {
+    "activities/forum_62/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -232,7 +232,7 @@
       ],
       "tag": "roles"
     },
-    "activities/label_22/grades.xml": {
+    "activities/label_34/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -246,17 +246,17 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/label_22/label.xml": {
+    "activities/label_34/label.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "23",
-        "moduleid": "22",
+        "contextid": "34",
+        "id": "35",
+        "moduleid": "34",
         "modulename": "label"
       },
       "children": [
         {
           "attributes": {
-            "id": "23"
+            "id": "35"
           },
           "children": [
             {
@@ -277,9 +277,9 @@
       ],
       "tag": "activity"
     },
-    "activities/label_22/module.xml": {
+    "activities/label_34/module.xml": {
       "attributes": {
-        "id": "22",
+        "id": "34",
         "version": "2026100501"
       },
       "children": [
@@ -289,7 +289,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "21"
+          "text": "33"
         },
         {
           "tag": "sectionnumber",
@@ -356,7 +356,7 @@
       ],
       "tag": "module"
     },
-    "activities/label_22/roles.xml": {
+    "activities/label_34/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -367,7 +367,7 @@
       ],
       "tag": "roles"
     },
-    "activities/label_48/grades.xml": {
+    "activities/label_71/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -381,17 +381,17 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/label_48/label.xml": {
+    "activities/label_71/label.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "49",
-        "moduleid": "48",
+        "contextid": "71",
+        "id": "72",
+        "moduleid": "71",
         "modulename": "label"
       },
       "children": [
         {
           "attributes": {
-            "id": "49"
+            "id": "72"
           },
           "children": [
             {
@@ -412,9 +412,9 @@
       ],
       "tag": "activity"
     },
-    "activities/label_48/module.xml": {
+    "activities/label_71/module.xml": {
       "attributes": {
-        "id": "48",
+        "id": "71",
         "version": "2026100501"
       },
       "children": [
@@ -424,7 +424,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "21"
+          "text": "33"
         },
         {
           "tag": "sectionnumber",
@@ -491,7 +491,7 @@
       ],
       "tag": "module"
     },
-    "activities/label_48/roles.xml": {
+    "activities/label_71/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -502,7 +502,7 @@
       ],
       "tag": "roles"
     },
-    "activities/label_53/grades.xml": {
+    "activities/label_77/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -516,17 +516,17 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/label_53/label.xml": {
+    "activities/label_77/label.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "54",
-        "moduleid": "53",
+        "contextid": "77",
+        "id": "78",
+        "moduleid": "77",
         "modulename": "label"
       },
       "children": [
         {
           "attributes": {
-            "id": "54"
+            "id": "78"
           },
           "children": [
             {
@@ -546,9 +546,9 @@
       ],
       "tag": "activity"
     },
-    "activities/label_53/module.xml": {
+    "activities/label_77/module.xml": {
       "attributes": {
-        "id": "53",
+        "id": "77",
         "version": "2026100501"
       },
       "children": [
@@ -558,7 +558,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "21"
+          "text": "33"
         },
         {
           "tag": "sectionnumber",
@@ -625,7 +625,7 @@
       ],
       "tag": "module"
     },
-    "activities/label_53/roles.xml": {
+    "activities/label_77/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -636,7 +636,7 @@
       ],
       "tag": "roles"
     },
-    "activities/quiz_26/grades.xml": {
+    "activities/quiz_38/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -650,9 +650,9 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/quiz_26/module.xml": {
+    "activities/quiz_38/module.xml": {
       "attributes": {
-        "id": "26",
+        "id": "38",
         "version": "2026100501"
       },
       "children": [
@@ -662,7 +662,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "21"
+          "text": "33"
         },
         {
           "tag": "sectionnumber",
@@ -729,17 +729,17 @@
       ],
       "tag": "module"
     },
-    "activities/quiz_26/quiz.xml": {
+    "activities/quiz_38/quiz.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "27",
-        "moduleid": "26",
+        "contextid": "38",
+        "id": "39",
+        "moduleid": "38",
         "modulename": "quiz"
       },
       "children": [
         {
           "attributes": {
-            "id": "27"
+            "id": "39"
           },
           "children": [
             {
@@ -827,7 +827,7 @@
               "children": [
                 {
                   "attributes": {
-                    "id": "28"
+                    "id": "40"
                   },
                   "children": [
                     {
@@ -843,30 +843,43 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "7"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "41"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "8"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
                 },
                 {
                   "attributes": {
-                    "id": "29"
+                    "id": "42"
                   },
                   "children": [
                     {
@@ -882,30 +895,43 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "8"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "43"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "10"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
                 },
                 {
                   "attributes": {
-                    "id": "30"
+                    "id": "44"
                   },
                   "children": [
                     {
@@ -921,30 +947,43 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "9"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "45"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "12"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
                 },
                 {
                   "attributes": {
-                    "id": "31"
+                    "id": "46"
                   },
                   "children": [
                     {
@@ -960,30 +999,43 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "10"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "47"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "14"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
                 },
                 {
                   "attributes": {
-                    "id": "32"
+                    "id": "48"
                   },
                   "children": [
                     {
@@ -999,30 +1051,43 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "11"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "2.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "49"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "16"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
                 },
                 {
                   "attributes": {
-                    "id": "33"
+                    "id": "50"
                   },
                   "children": [
                     {
@@ -1038,30 +1103,43 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "12"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "51"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "18"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
                 },
                 {
                   "attributes": {
-                    "id": "34"
+                    "id": "52"
                   },
                   "children": [
                     {
@@ -1077,30 +1155,43 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "13"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "53"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "20"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
                 },
                 {
                   "attributes": {
-                    "id": "35"
+                    "id": "54"
                   },
                   "children": [
                     {
@@ -1116,30 +1207,43 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "14"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "55"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "22"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
                 },
                 {
                   "attributes": {
-                    "id": "36"
+                    "id": "56"
                   },
                   "children": [
                     {
@@ -1155,30 +1259,43 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "15"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "57"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "24"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
                 },
                 {
                   "attributes": {
-                    "id": "37"
+                    "id": "58"
                   },
                   "children": [
                     {
@@ -1194,30 +1311,43 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "16"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "59"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "26"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
                 },
                 {
                   "attributes": {
-                    "id": "38"
+                    "id": "60"
                   },
                   "children": [
                     {
@@ -1233,23 +1363,36 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "17"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "61"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "38"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "28"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
@@ -1263,7 +1406,7 @@
       ],
       "tag": "activity"
     },
-    "activities/quiz_26/roles.xml": {
+    "activities/quiz_38/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -1274,7 +1417,7 @@
       ],
       "tag": "roles"
     },
-    "activities/quiz_50/grades.xml": {
+    "activities/quiz_73/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -1288,9 +1431,9 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/quiz_50/module.xml": {
+    "activities/quiz_73/module.xml": {
       "attributes": {
-        "id": "50",
+        "id": "73",
         "version": "2026100501"
       },
       "children": [
@@ -1300,7 +1443,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "21"
+          "text": "33"
         },
         {
           "tag": "sectionnumber",
@@ -1367,17 +1510,17 @@
       ],
       "tag": "module"
     },
-    "activities/quiz_50/quiz.xml": {
+    "activities/quiz_73/quiz.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "51",
-        "moduleid": "50",
+        "contextid": "73",
+        "id": "74",
+        "moduleid": "73",
         "modulename": "quiz"
       },
       "children": [
         {
           "attributes": {
-            "id": "51"
+            "id": "74"
           },
           "children": [
             {
@@ -1465,7 +1608,7 @@
               "children": [
                 {
                   "attributes": {
-                    "id": "52"
+                    "id": "75"
                   },
                   "children": [
                     {
@@ -1481,23 +1624,36 @@
                       "text": "0"
                     },
                     {
-                      "tag": "questionid",
-                      "text": "19"
-                    },
-                    {
-                      "tag": "questioncategoryid",
-                      "text": "$@NULL@$"
-                    },
-                    {
-                      "tag": "includingsubcategories",
-                      "text": "$@NULL@$"
-                    },
-                    {
                       "tag": "maxmark",
                       "text": "1.0000000"
                     },
                     {
-                      "tag": "tags"
+                      "attributes": {
+                        "id": "76"
+                      },
+                      "children": [
+                        {
+                          "tag": "usingcontextid",
+                          "text": "73"
+                        },
+                        {
+                          "tag": "component",
+                          "text": "mod_quiz"
+                        },
+                        {
+                          "tag": "questionarea",
+                          "text": "slot"
+                        },
+                        {
+                          "tag": "questionbankentryid",
+                          "text": "31"
+                        },
+                        {
+                          "tag": "version",
+                          "text": "1"
+                        }
+                      ],
+                      "tag": "question_reference"
                     }
                   ],
                   "tag": "question_instance"
@@ -1511,7 +1667,7 @@
       ],
       "tag": "activity"
     },
-    "activities/quiz_50/roles.xml": {
+    "activities/quiz_73/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -1522,7 +1678,7 @@
       ],
       "tag": "roles"
     },
-    "activities/resource_56/grades.xml": {
+    "activities/resource_80/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -1536,7 +1692,7 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/resource_56/inforef.xml": {
+    "activities/resource_80/inforef.xml": {
       "children": [
         {
           "children": [
@@ -1555,9 +1711,9 @@
       ],
       "tag": "inforef"
     },
-    "activities/resource_56/module.xml": {
+    "activities/resource_80/module.xml": {
       "attributes": {
-        "id": "56",
+        "id": "80",
         "version": "2026100501"
       },
       "children": [
@@ -1567,7 +1723,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "55"
+          "text": "79"
         },
         {
           "tag": "sectionnumber",
@@ -1634,17 +1790,17 @@
       ],
       "tag": "module"
     },
-    "activities/resource_56/resource.xml": {
+    "activities/resource_80/resource.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "57",
-        "moduleid": "56",
+        "contextid": "80",
+        "id": "81",
+        "moduleid": "80",
         "modulename": "resource"
       },
       "children": [
         {
           "attributes": {
-            "id": "57"
+            "id": "81"
           },
           "children": [
             {
@@ -1692,7 +1848,7 @@
       ],
       "tag": "activity"
     },
-    "activities/resource_56/roles.xml": {
+    "activities/resource_80/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -1703,7 +1859,7 @@
       ],
       "tag": "roles"
     },
-    "activities/scorm_45/grades.xml": {
+    "activities/scorm_68/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -1717,7 +1873,7 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/scorm_45/inforef.xml": {
+    "activities/scorm_68/inforef.xml": {
       "children": [
         {
           "children": [
@@ -1736,9 +1892,9 @@
       ],
       "tag": "inforef"
     },
-    "activities/scorm_45/module.xml": {
+    "activities/scorm_68/module.xml": {
       "attributes": {
-        "id": "45",
+        "id": "68",
         "version": "2026100501"
       },
       "children": [
@@ -1748,7 +1904,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "21"
+          "text": "33"
         },
         {
           "tag": "sectionnumber",
@@ -1815,7 +1971,7 @@
       ],
       "tag": "module"
     },
-    "activities/scorm_45/roles.xml": {
+    "activities/scorm_68/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -1826,17 +1982,17 @@
       ],
       "tag": "roles"
     },
-    "activities/scorm_45/scorm.xml": {
+    "activities/scorm_68/scorm.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "46",
-        "moduleid": "45",
+        "contextid": "68",
+        "id": "69",
+        "moduleid": "68",
         "modulename": "scorm"
       },
       "children": [
         {
           "attributes": {
-            "id": "46"
+            "id": "69"
           },
           "children": [
             {
@@ -1866,7 +2022,7 @@
             },
             {
               "tag": "launch",
-              "text": "47"
+              "text": "70"
             },
             {
               "tag": "skipview",
@@ -1896,7 +2052,7 @@
               "children": [
                 {
                   "attributes": {
-                    "id": "47"
+                    "id": "70"
                   },
                   "children": [
                     {
@@ -1942,7 +2098,7 @@
       ],
       "tag": "activity"
     },
-    "activities/url_24/grades.xml": {
+    "activities/url_36/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -1956,9 +2112,9 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/url_24/module.xml": {
+    "activities/url_36/module.xml": {
       "attributes": {
-        "id": "24",
+        "id": "36",
         "version": "2026100501"
       },
       "children": [
@@ -1968,7 +2124,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "21"
+          "text": "33"
         },
         {
           "tag": "sectionnumber",
@@ -2035,7 +2191,7 @@
       ],
       "tag": "module"
     },
-    "activities/url_24/roles.xml": {
+    "activities/url_36/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -2046,17 +2202,17 @@
       ],
       "tag": "roles"
     },
-    "activities/url_24/url.xml": {
+    "activities/url_36/url.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "25",
-        "moduleid": "24",
+        "contextid": "36",
+        "id": "37",
+        "moduleid": "36",
         "modulename": "url"
       },
       "children": [
         {
           "attributes": {
-            "id": "25"
+            "id": "37"
           },
           "children": [
             {
@@ -2088,7 +2244,7 @@
       ],
       "tag": "activity"
     },
-    "activities/url_43/grades.xml": {
+    "activities/url_66/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -2102,9 +2258,9 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/url_43/module.xml": {
+    "activities/url_66/module.xml": {
       "attributes": {
-        "id": "43",
+        "id": "66",
         "version": "2026100501"
       },
       "children": [
@@ -2114,7 +2270,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "21"
+          "text": "33"
         },
         {
           "tag": "sectionnumber",
@@ -2181,7 +2337,7 @@
       ],
       "tag": "module"
     },
-    "activities/url_43/roles.xml": {
+    "activities/url_66/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -2192,17 +2348,17 @@
       ],
       "tag": "roles"
     },
-    "activities/url_43/url.xml": {
+    "activities/url_66/url.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "44",
-        "moduleid": "43",
+        "contextid": "66",
+        "id": "67",
+        "moduleid": "66",
         "modulename": "url"
       },
       "children": [
         {
           "attributes": {
-            "id": "44"
+            "id": "67"
           },
           "children": [
             {
@@ -2233,7 +2389,7 @@
       ],
       "tag": "activity"
     },
-    "activities/workshop_41/grades.xml": {
+    "activities/workshop_64/grades.xml": {
       "children": [
         {
           "tag": "grade_items"
@@ -2247,9 +2403,9 @@
       ],
       "tag": "activity_gradebook"
     },
-    "activities/workshop_41/module.xml": {
+    "activities/workshop_64/module.xml": {
       "attributes": {
-        "id": "41",
+        "id": "64",
         "version": "2026100501"
       },
       "children": [
@@ -2259,7 +2415,7 @@
         },
         {
           "tag": "sectionid",
-          "text": "21"
+          "text": "33"
         },
         {
           "tag": "sectionnumber",
@@ -2326,7 +2482,7 @@
       ],
       "tag": "module"
     },
-    "activities/workshop_41/roles.xml": {
+    "activities/workshop_64/roles.xml": {
       "children": [
         {
           "tag": "role_assignments"
@@ -2337,17 +2493,17 @@
       ],
       "tag": "roles"
     },
-    "activities/workshop_41/workshop.xml": {
+    "activities/workshop_64/workshop.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "42",
-        "moduleid": "41",
+        "contextid": "64",
+        "id": "65",
+        "moduleid": "64",
         "modulename": "workshop"
       },
       "children": [
         {
           "attributes": {
-            "id": "42"
+            "id": "65"
           },
           "children": [
             {
@@ -2426,8 +2582,8 @@
     },
     "course/course.xml": {
       "attributes": {
-        "contextid": "20",
-        "id": "20"
+        "contextid": "32",
+        "id": "32"
       },
       "children": [
         {
@@ -2593,7 +2749,7 @@
               "children": [
                 {
                   "tag": "id",
-                  "text": "18"
+                  "text": "29"
                 }
               ],
               "tag": "question_category"
@@ -2628,7 +2784,7 @@
             },
             {
               "tag": "contextid",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "component",
@@ -2697,7 +2853,7 @@
         },
         {
           "attributes": {
-            "id": "110"
+            "id": "122"
           },
           "children": [
             {
@@ -2706,7 +2862,7 @@
             },
             {
               "tag": "contextid",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "component",
@@ -2784,7 +2940,7 @@
             },
             {
               "tag": "contextid",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "component",
@@ -2862,7 +3018,7 @@
             },
             {
               "tag": "contextid",
-              "text": "20"
+              "text": "68"
             },
             {
               "tag": "component",
@@ -2931,7 +3087,7 @@
         },
         {
           "attributes": {
-            "id": "111"
+            "id": "123"
           },
           "children": [
             {
@@ -2940,7 +3096,7 @@
             },
             {
               "tag": "contextid",
-              "text": "20"
+              "text": "68"
             },
             {
               "tag": "component",
@@ -3018,7 +3174,7 @@
             },
             {
               "tag": "contextid",
-              "text": "20"
+              "text": "80"
             },
             {
               "tag": "component",
@@ -3030,7 +3186,7 @@
             },
             {
               "tag": "itemid",
-              "text": "57"
+              "text": "81"
             },
             {
               "tag": "filepath",
@@ -3087,7 +3243,7 @@
         },
         {
           "attributes": {
-            "id": "112"
+            "id": "124"
           },
           "children": [
             {
@@ -3096,7 +3252,7 @@
             },
             {
               "tag": "contextid",
-              "text": "20"
+              "text": "80"
             },
             {
               "tag": "component",
@@ -3108,7 +3264,7 @@
             },
             {
               "tag": "itemid",
-              "text": "57"
+              "text": "81"
             },
             {
               "tag": "filepath",
@@ -3209,7 +3365,7 @@
           "children": [
             {
               "tag": "name",
-              "text": "backup-moodle2-course-20-<id:2>.mbz"
+              "text": "backup-moodle2-course-32-<id:2>.mbz"
             },
             {
               "tag": "moodle_version",
@@ -3247,7 +3403,7 @@
             },
             {
               "tag": "original_course_id",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "original_course_format",
@@ -3267,7 +3423,7 @@
             },
             {
               "tag": "original_course_contextid",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "original_system_contextid",
@@ -3315,11 +3471,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "22"
+                          "text": "34"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "modulename",
@@ -3331,7 +3487,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/label_22"
+                          "text": "activities/label_34"
                         }
                       ],
                       "tag": "activity"
@@ -3340,11 +3496,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "24"
+                          "text": "36"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "modulename",
@@ -3356,7 +3512,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/url_24"
+                          "text": "activities/url_36"
                         }
                       ],
                       "tag": "activity"
@@ -3365,11 +3521,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "26"
+                          "text": "38"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "modulename",
@@ -3381,7 +3537,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/quiz_26"
+                          "text": "activities/quiz_38"
                         }
                       ],
                       "tag": "activity"
@@ -3390,11 +3546,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "39"
+                          "text": "62"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "modulename",
@@ -3406,7 +3562,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/forum_39"
+                          "text": "activities/forum_62"
                         }
                       ],
                       "tag": "activity"
@@ -3415,11 +3571,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "41"
+                          "text": "64"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "modulename",
@@ -3431,7 +3587,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/workshop_41"
+                          "text": "activities/workshop_64"
                         }
                       ],
                       "tag": "activity"
@@ -3440,11 +3596,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "43"
+                          "text": "66"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "modulename",
@@ -3456,7 +3612,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/url_43"
+                          "text": "activities/url_66"
                         }
                       ],
                       "tag": "activity"
@@ -3465,11 +3621,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "45"
+                          "text": "68"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "modulename",
@@ -3481,7 +3637,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/scorm_45"
+                          "text": "activities/scorm_68"
                         }
                       ],
                       "tag": "activity"
@@ -3490,11 +3646,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "48"
+                          "text": "71"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "modulename",
@@ -3506,7 +3662,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/label_48"
+                          "text": "activities/label_71"
                         }
                       ],
                       "tag": "activity"
@@ -3515,11 +3671,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "50"
+                          "text": "73"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "modulename",
@@ -3531,7 +3687,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/quiz_50"
+                          "text": "activities/quiz_73"
                         }
                       ],
                       "tag": "activity"
@@ -3540,11 +3696,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "53"
+                          "text": "77"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "modulename",
@@ -3556,7 +3712,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/label_53"
+                          "text": "activities/label_77"
                         }
                       ],
                       "tag": "activity"
@@ -3565,11 +3721,11 @@
                       "children": [
                         {
                           "tag": "moduleid",
-                          "text": "56"
+                          "text": "80"
                         },
                         {
                           "tag": "sectionid",
-                          "text": "55"
+                          "text": "79"
                         },
                         {
                           "tag": "modulename",
@@ -3581,7 +3737,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "activities/resource_56"
+                          "text": "activities/resource_80"
                         }
                       ],
                       "tag": "activity"
@@ -3595,7 +3751,7 @@
                       "children": [
                         {
                           "tag": "sectionid",
-                          "text": "21"
+                          "text": "33"
                         },
                         {
                           "tag": "title",
@@ -3603,7 +3759,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "sections/section_21"
+                          "text": "sections/section_33"
                         }
                       ],
                       "tag": "section"
@@ -3612,7 +3768,7 @@
                       "children": [
                         {
                           "tag": "sectionid",
-                          "text": "55"
+                          "text": "79"
                         },
                         {
                           "tag": "title",
@@ -3620,7 +3776,7 @@
                         },
                         {
                           "tag": "directory",
-                          "text": "sections/section_55"
+                          "text": "sections/section_79"
                         }
                       ],
                       "tag": "section"
@@ -3632,7 +3788,7 @@
                   "children": [
                     {
                       "tag": "courseid",
-                      "text": "20"
+                      "text": "32"
                     },
                     {
                       "tag": "title",
@@ -3662,7 +3818,7 @@
                     },
                     {
                       "tag": "value",
-                      "text": "backup-moodle2-course-20.mbz"
+                      "text": "backup-moodle2-course-32.mbz"
                     }
                   ],
                   "tag": "setting"
@@ -3777,7 +3933,7 @@
             },
             {
               "tag": "contextid",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "contextlevel",
@@ -3785,7 +3941,7 @@
             },
             {
               "tag": "contextinstanceid",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "info"
@@ -3823,7 +3979,7 @@
             },
             {
               "tag": "contextid",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "contextlevel",
@@ -3831,7 +3987,7 @@
             },
             {
               "tag": "contextinstanceid",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "info",
@@ -3857,7 +4013,7 @@
               "children": [
                 {
                   "attributes": {
-                    "id": "58"
+                    "id": "8"
                   },
                   "children": [
                     {
@@ -3876,7 +4032,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "59"
+                            "id": "82"
                           },
                           "children": [
                             {
@@ -3947,7 +4103,7 @@
                                           "children": [
                                             {
                                               "attributes": {
-                                                "id": "60"
+                                                "id": "83"
                                               },
                                               "children": [
                                                 {
@@ -3974,7 +4130,7 @@
                                             },
                                             {
                                               "attributes": {
-                                                "id": "61"
+                                                "id": "84"
                                               },
                                               "children": [
                                                 {
@@ -4004,7 +4160,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "62"
+                                            "id": "85"
                                           },
                                           "children": [
                                             {
@@ -4077,7 +4233,7 @@
                 },
                 {
                   "attributes": {
-                    "id": "63"
+                    "id": "10"
                   },
                   "children": [
                     {
@@ -4096,7 +4252,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "64"
+                            "id": "86"
                           },
                           "children": [
                             {
@@ -4111,7 +4267,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "8"
+                                    "id": "9"
                                   },
                                   "children": [
                                     {
@@ -4167,7 +4323,7 @@
                                           "children": [
                                             {
                                               "attributes": {
-                                                "id": "65"
+                                                "id": "87"
                                               },
                                               "children": [
                                                 {
@@ -4194,7 +4350,7 @@
                                             },
                                             {
                                               "attributes": {
-                                                "id": "66"
+                                                "id": "88"
                                               },
                                               "children": [
                                                 {
@@ -4224,16 +4380,16 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "67"
+                                            "id": "89"
                                           },
                                           "children": [
                                             {
                                               "tag": "trueanswer",
-                                              "text": "65"
+                                              "text": "87"
                                             },
                                             {
                                               "tag": "falseanswer",
-                                              "text": "66"
+                                              "text": "88"
                                             }
                                           ],
                                           "tag": "truefalse"
@@ -4264,7 +4420,7 @@
                 },
                 {
                   "attributes": {
-                    "id": "68"
+                    "id": "12"
                   },
                   "children": [
                     {
@@ -4283,7 +4439,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "69"
+                            "id": "90"
                           },
                           "children": [
                             {
@@ -4298,7 +4454,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "9"
+                                    "id": "11"
                                   },
                                   "children": [
                                     {
@@ -4354,7 +4510,7 @@
                                           "children": [
                                             {
                                               "attributes": {
-                                                "id": "70"
+                                                "id": "91"
                                               },
                                               "children": [
                                                 {
@@ -4381,7 +4537,7 @@
                                             },
                                             {
                                               "attributes": {
-                                                "id": "71"
+                                                "id": "92"
                                               },
                                               "children": [
                                                 {
@@ -4411,7 +4567,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "72"
+                                            "id": "93"
                                           },
                                           "children": [
                                             {
@@ -4484,7 +4640,7 @@
                 },
                 {
                   "attributes": {
-                    "id": "73"
+                    "id": "14"
                   },
                   "children": [
                     {
@@ -4503,7 +4659,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "74"
+                            "id": "94"
                           },
                           "children": [
                             {
@@ -4518,7 +4674,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "10"
+                                    "id": "13"
                                   },
                                   "children": [
                                     {
@@ -4574,7 +4730,7 @@
                                           "children": [
                                             {
                                               "attributes": {
-                                                "id": "75"
+                                                "id": "95"
                                               },
                                               "children": [
                                                 {
@@ -4601,7 +4757,7 @@
                                             },
                                             {
                                               "attributes": {
-                                                "id": "76"
+                                                "id": "96"
                                               },
                                               "children": [
                                                 {
@@ -4628,7 +4784,7 @@
                                             },
                                             {
                                               "attributes": {
-                                                "id": "77"
+                                                "id": "97"
                                               },
                                               "children": [
                                                 {
@@ -4658,7 +4814,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "78"
+                                            "id": "98"
                                           },
                                           "children": [
                                             {
@@ -4731,7 +4887,7 @@
                 },
                 {
                   "attributes": {
-                    "id": "79"
+                    "id": "16"
                   },
                   "children": [
                     {
@@ -4750,7 +4906,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "80"
+                            "id": "99"
                           },
                           "children": [
                             {
@@ -4765,7 +4921,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "11"
+                                    "id": "15"
                                   },
                                   "children": [
                                     {
@@ -4821,7 +4977,7 @@
                                           "children": [
                                             {
                                               "attributes": {
-                                                "id": "81"
+                                                "id": "100"
                                               },
                                               "children": [
                                                 {
@@ -4848,7 +5004,7 @@
                                             },
                                             {
                                               "attributes": {
-                                                "id": "82"
+                                                "id": "101"
                                               },
                                               "children": [
                                                 {
@@ -4875,7 +5031,7 @@
                                             },
                                             {
                                               "attributes": {
-                                                "id": "83"
+                                                "id": "102"
                                               },
                                               "children": [
                                                 {
@@ -4905,7 +5061,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "84"
+                                            "id": "103"
                                           },
                                           "children": [
                                             {
@@ -4941,7 +5097,7 @@
                 },
                 {
                   "attributes": {
-                    "id": "85"
+                    "id": "18"
                   },
                   "children": [
                     {
@@ -4960,7 +5116,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "86"
+                            "id": "104"
                           },
                           "children": [
                             {
@@ -4975,7 +5131,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "12"
+                                    "id": "17"
                                   },
                                   "children": [
                                     {
@@ -5031,7 +5187,7 @@
                                           "children": [
                                             {
                                               "attributes": {
-                                                "id": "87"
+                                                "id": "105"
                                               },
                                               "children": [
                                                 {
@@ -5061,7 +5217,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "88"
+                                            "id": "106"
                                           },
                                           "children": [
                                             {
@@ -5097,7 +5253,7 @@
                 },
                 {
                   "attributes": {
-                    "id": "89"
+                    "id": "20"
                   },
                   "children": [
                     {
@@ -5116,7 +5272,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "90"
+                            "id": "107"
                           },
                           "children": [
                             {
@@ -5131,7 +5287,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "13"
+                                    "id": "19"
                                   },
                                   "children": [
                                     {
@@ -5187,7 +5343,7 @@
                                           "children": [
                                             {
                                               "attributes": {
-                                                "id": "91"
+                                                "id": "108"
                                               },
                                               "children": [
                                                 {
@@ -5221,7 +5377,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "92"
+                                            "id": "109"
                                           },
                                           "children": [
                                             {
@@ -5257,7 +5413,7 @@
                 },
                 {
                   "attributes": {
-                    "id": "93"
+                    "id": "22"
                   },
                   "children": [
                     {
@@ -5276,7 +5432,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "94"
+                            "id": "110"
                           },
                           "children": [
                             {
@@ -5291,7 +5447,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "14"
+                                    "id": "21"
                                   },
                                   "children": [
                                     {
@@ -5347,7 +5503,7 @@
                                           "children": [
                                             {
                                               "attributes": {
-                                                "id": "95"
+                                                "id": "111"
                                               },
                                               "children": [
                                                 {
@@ -5381,7 +5537,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "96"
+                                            "id": "112"
                                           },
                                           "children": [
                                             {
@@ -5417,7 +5573,7 @@
                 },
                 {
                   "attributes": {
-                    "id": "97"
+                    "id": "24"
                   },
                   "children": [
                     {
@@ -5436,7 +5592,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "98"
+                            "id": "113"
                           },
                           "children": [
                             {
@@ -5451,7 +5607,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "15"
+                                    "id": "23"
                                   },
                                   "children": [
                                     {
@@ -5508,7 +5664,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "99"
+                                            "id": "114"
                                           },
                                           "children": [
                                             {
@@ -5581,7 +5737,7 @@
                 },
                 {
                   "attributes": {
-                    "id": "100"
+                    "id": "26"
                   },
                   "children": [
                     {
@@ -5600,7 +5756,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "101"
+                            "id": "115"
                           },
                           "children": [
                             {
@@ -5615,7 +5771,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "16"
+                                    "id": "25"
                                   },
                                   "children": [
                                     {
@@ -5672,7 +5828,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "102"
+                                            "id": "116"
                                           },
                                           "children": [
                                             {
@@ -5745,7 +5901,7 @@
                 },
                 {
                   "attributes": {
-                    "id": "103"
+                    "id": "28"
                   },
                   "children": [
                     {
@@ -5764,7 +5920,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "104"
+                            "id": "117"
                           },
                           "children": [
                             {
@@ -5779,7 +5935,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "17"
+                                    "id": "27"
                                   },
                                   "children": [
                                     {
@@ -5836,7 +5992,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "105"
+                                            "id": "118"
                                           },
                                           "children": [
                                             {
@@ -5915,7 +6071,7 @@
         },
         {
           "attributes": {
-            "id": "18"
+            "id": "29"
           },
           "children": [
             {
@@ -5924,7 +6080,7 @@
             },
             {
               "tag": "contextid",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "contextlevel",
@@ -5932,7 +6088,7 @@
             },
             {
               "tag": "contextinstanceid",
-              "text": "20"
+              "text": "32"
             },
             {
               "tag": "info",
@@ -5958,12 +6114,12 @@
               "children": [
                 {
                   "attributes": {
-                    "id": "106"
+                    "id": "31"
                   },
                   "children": [
                     {
                       "tag": "questioncategoryid",
-                      "text": "18"
+                      "text": "29"
                     },
                     {
                       "tag": "idnumber",
@@ -5977,7 +6133,7 @@
                       "children": [
                         {
                           "attributes": {
-                            "id": "107"
+                            "id": "119"
                           },
                           "children": [
                             {
@@ -5992,7 +6148,7 @@
                               "children": [
                                 {
                                   "attributes": {
-                                    "id": "19"
+                                    "id": "30"
                                   },
                                   "children": [
                                     {
@@ -6048,7 +6204,7 @@
                                           "children": [
                                             {
                                               "attributes": {
-                                                "id": "108"
+                                                "id": "120"
                                               },
                                               "children": [
                                                 {
@@ -6078,7 +6234,7 @@
                                         },
                                         {
                                           "attributes": {
-                                            "id": "109"
+                                            "id": "121"
                                           },
                                           "children": [
                                             {
@@ -6127,9 +6283,9 @@
     "scales.xml": {
       "tag": "scales_definition"
     },
-    "sections/section_21/section.xml": {
+    "sections/section_33/section.xml": {
       "attributes": {
-        "id": "21"
+        "id": "33"
       },
       "children": [
         {
@@ -6149,7 +6305,7 @@
         },
         {
           "tag": "sequence",
-          "text": "22,24,26,39,41,43,45,48,50,53"
+          "text": "34,36,38,62,64,66,68,71,73,77"
         },
         {
           "tag": "visible",
@@ -6162,9 +6318,9 @@
       ],
       "tag": "section"
     },
-    "sections/section_55/section.xml": {
+    "sections/section_79/section.xml": {
       "attributes": {
-        "id": "55"
+        "id": "79"
       },
       "children": [
         {
@@ -6184,7 +6340,7 @@
         },
         {
           "tag": "sequence",
-          "text": "56"
+          "text": "80"
         },
         {
           "tag": "visible",
@@ -6206,232 +6362,232 @@
     },
     {
       "kind": "xml",
-      "path": "activities/forum_39/forum.xml",
+      "path": "activities/forum_62/forum.xml",
       "size": 927
     },
     {
       "kind": "xml",
-      "path": "activities/forum_39/grades.xml",
+      "path": "activities/forum_62/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/forum_39/module.xml",
+      "path": "activities/forum_62/module.xml",
       "size": 622
     },
     {
       "kind": "xml",
-      "path": "activities/forum_39/roles.xml",
+      "path": "activities/forum_62/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/label_22/grades.xml",
+      "path": "activities/label_34/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/label_22/label.xml",
+      "path": "activities/label_34/label.xml",
       "size": 302
     },
     {
       "kind": "xml",
-      "path": "activities/label_22/module.xml",
+      "path": "activities/label_34/module.xml",
       "size": 622
     },
     {
       "kind": "xml",
-      "path": "activities/label_22/roles.xml",
+      "path": "activities/label_34/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/label_48/grades.xml",
+      "path": "activities/label_71/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/label_48/label.xml",
+      "path": "activities/label_71/label.xml",
       "size": 333
     },
     {
       "kind": "xml",
-      "path": "activities/label_48/module.xml",
+      "path": "activities/label_71/module.xml",
       "size": 622
     },
     {
       "kind": "xml",
-      "path": "activities/label_48/roles.xml",
+      "path": "activities/label_71/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/label_53/grades.xml",
+      "path": "activities/label_77/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/label_53/label.xml",
+      "path": "activities/label_77/label.xml",
       "size": 241
     },
     {
       "kind": "xml",
-      "path": "activities/label_53/module.xml",
+      "path": "activities/label_77/module.xml",
       "size": 622
     },
     {
       "kind": "xml",
-      "path": "activities/label_53/roles.xml",
+      "path": "activities/label_77/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/quiz_26/grades.xml",
+      "path": "activities/quiz_38/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/quiz_26/module.xml",
+      "path": "activities/quiz_38/module.xml",
       "size": 621
     },
     {
       "kind": "xml",
-      "path": "activities/quiz_26/quiz.xml",
-      "size": 3913
+      "path": "activities/quiz_38/quiz.xml",
+      "size": 4707
     },
     {
       "kind": "xml",
-      "path": "activities/quiz_26/roles.xml",
+      "path": "activities/quiz_38/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/quiz_50/grades.xml",
+      "path": "activities/quiz_73/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/quiz_50/module.xml",
+      "path": "activities/quiz_73/module.xml",
       "size": 621
     },
     {
       "kind": "xml",
-      "path": "activities/quiz_50/quiz.xml",
-      "size": 1110
+      "path": "activities/quiz_73/quiz.xml",
+      "size": 1182
     },
     {
       "kind": "xml",
-      "path": "activities/quiz_50/roles.xml",
+      "path": "activities/quiz_73/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/resource_56/grades.xml",
+      "path": "activities/resource_80/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/resource_56/inforef.xml",
+      "path": "activities/resource_80/inforef.xml",
       "size": 100
     },
     {
       "kind": "xml",
-      "path": "activities/resource_56/module.xml",
+      "path": "activities/resource_80/module.xml",
       "size": 625
     },
     {
       "kind": "xml",
-      "path": "activities/resource_56/resource.xml",
+      "path": "activities/resource_80/resource.xml",
       "size": 480
     },
     {
       "kind": "xml",
-      "path": "activities/resource_56/roles.xml",
+      "path": "activities/resource_80/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/scorm_45/grades.xml",
+      "path": "activities/scorm_68/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/scorm_45/inforef.xml",
+      "path": "activities/scorm_68/inforef.xml",
       "size": 100
     },
     {
       "kind": "xml",
-      "path": "activities/scorm_45/module.xml",
+      "path": "activities/scorm_68/module.xml",
       "size": 622
     },
     {
       "kind": "xml",
-      "path": "activities/scorm_45/roles.xml",
+      "path": "activities/scorm_68/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/scorm_45/scorm.xml",
+      "path": "activities/scorm_68/scorm.xml",
       "size": 762
     },
     {
       "kind": "xml",
-      "path": "activities/url_24/grades.xml",
+      "path": "activities/url_36/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/url_24/module.xml",
+      "path": "activities/url_36/module.xml",
       "size": 620
     },
     {
       "kind": "xml",
-      "path": "activities/url_24/roles.xml",
+      "path": "activities/url_36/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/url_24/url.xml",
+      "path": "activities/url_36/url.xml",
       "size": 407
     },
     {
       "kind": "xml",
-      "path": "activities/url_43/grades.xml",
+      "path": "activities/url_66/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/url_43/module.xml",
+      "path": "activities/url_66/module.xml",
       "size": 620
     },
     {
       "kind": "xml",
-      "path": "activities/url_43/roles.xml",
+      "path": "activities/url_66/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/url_43/url.xml",
+      "path": "activities/url_66/url.xml",
       "size": 358
     },
     {
       "kind": "xml",
-      "path": "activities/workshop_41/grades.xml",
+      "path": "activities/workshop_64/grades.xml",
       "size": 132
     },
     {
       "kind": "xml",
-      "path": "activities/workshop_41/module.xml",
+      "path": "activities/workshop_64/module.xml",
       "size": 625
     },
     {
       "kind": "xml",
-      "path": "activities/workshop_41/roles.xml",
+      "path": "activities/workshop_64/roles.xml",
       "size": 92
     },
     {
       "kind": "xml",
-      "path": "activities/workshop_41/workshop.xml",
+      "path": "activities/workshop_64/workshop.xml",
       "size": 730
     },
     {
@@ -6527,7 +6683,7 @@
     {
       "kind": "xml",
       "path": "questions.xml",
-      "size": 17916
+      "size": 17928
     },
     {
       "kind": "xml",
@@ -6541,12 +6697,12 @@
     },
     {
       "kind": "xml",
-      "path": "sections/section_21/section.xml",
+      "path": "sections/section_33/section.xml",
       "size": 291
     },
     {
       "kind": "xml",
-      "path": "sections/section_55/section.xml",
+      "path": "sections/section_79/section.xml",
       "size": 264
     }
   ],

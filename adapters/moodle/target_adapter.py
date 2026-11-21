@@ -36,10 +36,12 @@ class MoodleTargetAdapter:
         self.file_records: list[dict[str, Any]] = []
         self.asset_file_ids: dict[str, int] = {}
         self.question_ids: dict[str, int] = {}
+        self.question_bank_entry_ids: dict[str, int] = {}
         self.question_categories: dict[str, int] = {}
         self.question_top_category_id: int | None = None
         self.quiz_module_ids: dict[str, int] = {}
         self._current_module_id = 0
+        self._current_context_id = 0
         self._current_module_name = ""
 
     @property
@@ -99,10 +101,12 @@ class MoodleTargetAdapter:
         self.file_records = []
         self.asset_file_ids = {}
         self.question_ids = {}
+        self.question_bank_entry_ids = {}
         self.question_categories = {}
         self.question_top_category_id = None
         self.quiz_module_ids = {}
         self._current_module_id = 0
+        self._current_context_id = 0
         self._current_module_name = ""
 
     def _new_id(self) -> int:
@@ -210,6 +214,7 @@ class MoodleTargetAdapter:
         module_name = self._map_module_name(comp)
         module_id = self._new_id()
         self._current_module_id = module_id
+        self._current_context_id = module_id
         self._current_module_name = module_name
         act_dir = self._work_dir / "activities" / f"{module_name}_{module_id}"
         act_dir.mkdir(parents=True, exist_ok=True)
@@ -380,18 +385,20 @@ class MoodleTargetAdapter:
 
         instances = ET.SubElement(root, "question_instances")
         for slot, question in enumerate(questions, start=1):
-            numeric_id = self.question_ids.get(question.question_id)
-            if numeric_id is None:
+            entry_id = self.question_bank_entry_ids.get(question.question_id)
+            if entry_id is None:
                 continue
             instance = ET.SubElement(instances, "question_instance", id=str(self._new_id()))
             ET.SubElement(instance, "slot").text = str(slot)
             ET.SubElement(instance, "page").text = "1"
             ET.SubElement(instance, "requireprevious").text = "0"
-            ET.SubElement(instance, "questionid").text = str(numeric_id)
-            ET.SubElement(instance, "questioncategoryid").text = "$@NULL@$"
-            ET.SubElement(instance, "includingsubcategories").text = "$@NULL@$"
             ET.SubElement(instance, "maxmark").text = f"{question.points:.7f}"
-            ET.SubElement(instance, "tags")
+            reference = ET.SubElement(instance, "question_reference", id=str(self._new_id()))
+            ET.SubElement(reference, "usingcontextid").text = str(module_id)
+            ET.SubElement(reference, "component").text = "mod_quiz"
+            ET.SubElement(reference, "questionarea").text = "slot"
+            ET.SubElement(reference, "questionbankentryid").text = str(entry_id)
+            ET.SubElement(reference, "version").text = "1"
 
         if assessment:
             self.quiz_module_ids[assessment.assessment_id] = module_id
@@ -527,6 +534,7 @@ class MoodleTargetAdapter:
                 record["component"] = component
                 record["filearea"] = filearea
                 record["itemid"] = itemid
+                record["contextid"] = self._current_context_id
                 return
 
     def _prepare_question_ids(self) -> None:
@@ -548,6 +556,7 @@ class MoodleTargetAdapter:
             for question in questions:
                 if question.question_id not in self.question_ids:
                     self.question_ids[question.question_id] = self._new_id()
+                    self.question_bank_entry_ids[question.question_id] = self._new_id()
 
     def _write_questions_xml(self) -> None:
         root = ET.Element("question_categories")
@@ -621,7 +630,8 @@ class MoodleTargetAdapter:
             if qtype in ("essay", "description")
             else "multichoice"
         )
-        entry = ET.SubElement(parent, "question_bank_entry", id=str(self._new_id()))
+        entry_id = self.question_bank_entry_ids[question.question_id]
+        entry = ET.SubElement(parent, "question_bank_entry", id=str(entry_id))
         ET.SubElement(entry, "questioncategoryid").text = str(category_id)
         ET.SubElement(entry, "idnumber").text = "$@NULL@$"
         ET.SubElement(entry, "ownerid").text = "0"
@@ -818,7 +828,8 @@ class MoodleTargetAdapter:
         directory_keys = set()
         for record in self.file_records:
             self._write_file_record(root, record)
-            key = (record["component"], record["filearea"], record["itemid"])
+            contextid = record.get("contextid", self._course_id())
+            key = (record["component"], record["filearea"], record["itemid"], contextid)
             if key in directory_keys:
                 continue
             directory_keys.add(key)
@@ -832,6 +843,7 @@ class MoodleTargetAdapter:
                 "component": record["component"],
                 "filearea": record["filearea"],
                 "itemid": record["itemid"],
+                "contextid": contextid,
             }
             self._write_file_record(root, directory_record)
         if directory_keys:
@@ -869,7 +881,7 @@ class MoodleTargetAdapter:
     def _write_file_record(self, root: ET.Element, record: dict[str, Any]) -> None:
         file_elem = ET.SubElement(root, "file", id=str(record["id"]))
         ET.SubElement(file_elem, "contenthash").text = record["contenthash"]
-        ET.SubElement(file_elem, "contextid").text = str(self._course_id())
+        ET.SubElement(file_elem, "contextid").text = str(record.get("contextid", self._course_id()))
         ET.SubElement(file_elem, "component").text = record["component"]
         ET.SubElement(file_elem, "filearea").text = record["filearea"]
         ET.SubElement(file_elem, "itemid").text = str(record["itemid"])
@@ -1028,7 +1040,7 @@ class MoodleTargetAdapter:
             id=activity_id,
             moduleid=str(self._current_module_id),
             modulename=self._current_module_name,
-            contextid=str(self.course_id),
+            contextid=str(self._current_context_id or self.course_id),
         )
         activity.append(inner)
         self._write_xml(act_dir / filename, activity)

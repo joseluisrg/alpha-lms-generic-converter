@@ -141,7 +141,18 @@ def test_openedx_to_moodle_target(openedx_archive: Path, tmp_path: Path):
     )
     assert handout.findtext("component") == "course"
     assert handout.findtext("filearea") == "summary"
+    assert handout.findtext("contextid") == course_root.get("id")
     assert handout.get("id") in referenced_files
+
+    module_context_ids = {
+        ET.parse(activity).getroot().get("contextid")
+        for activity in (extract_dir / "activities").glob("*/module.xml")
+    }
+    module_files = [
+        record for record in file_records if (record.findtext("component") or "").startswith("mod_")
+    ]
+    for record in module_files:
+        assert record.findtext("contextid") in module_context_ids
 
     forum_settings = ET.parse(next(extract_dir.glob("activities/forum_*/forum.xml"))).getroot()
     assert forum_settings.findtext("forum/assesstimestart") == "0"
@@ -155,11 +166,41 @@ def test_openedx_to_moodle_target(openedx_archive: Path, tmp_path: Path):
     assert workshop_settings.findtext("workshop/assessmentend") == "0"
 
     for quiz_file in (extract_dir / "activities").glob("quiz_*/quiz.xml"):
-        quiz_settings = ET.parse(quiz_file).getroot().find("quiz")
+        activity = ET.parse(quiz_file).getroot()
+        quiz_settings = activity.find("quiz")
         assert quiz_settings is not None
         assert quiz_settings.findtext("password") == ""
         assert quiz_settings.findtext("subnet") == ""
         assert quiz_settings.findtext("browsersecurity") == "-"
+        instances = quiz_settings.findall("question_instances/question_instance")
+        assert instances
+        for instance in instances:
+            reference = instance.find("question_reference")
+            assert reference is not None
+            assert instance.find("questionid") is None
+            assert reference.findtext("component") == "mod_quiz"
+            assert reference.findtext("questionarea") == "slot"
+            assert reference.findtext("usingcontextid") == activity.get("contextid")
+            assert reference.findtext("questionbankentryid") in {
+                entry.get("id") for entry in entries
+            }
+
+
+def test_generated_moodle_quiz_references_survive_reparse(openedx_archive: Path, tmp_path: Path):
+    parsed = ParseService().parse(str(openedx_archive), "openedx", str(tmp_path / "extract"))
+    course = TransformService().transform(parsed, "openedx", "job-openedx")
+    output = Path(
+        MoodleTargetAdapter().generate_backup(
+            course, str(tmp_path / "out.mbz"), parsed["extracted_path"]
+        )
+    )
+
+    reparsed = ParseService().parse(str(output), "moodle", str(tmp_path / "reparse"))
+    roundtrip = TransformService().transform(reparsed, "moodle", "job-roundtrip")
+    assert len(roundtrip.questions) == len(course.questions)
+    assert {q.question_type for q in roundtrip.questions} == {
+        q.question_type for q in course.questions
+    }
 
 
 def test_moodle_to_openedx_target(moodle_archive: Path, tmp_path: Path):
