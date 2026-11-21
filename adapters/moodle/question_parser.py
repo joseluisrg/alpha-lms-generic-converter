@@ -9,12 +9,11 @@ Supports question types: multichoice, truefalse, shortanswer, numerical,
 essay, description.
 """
 
-import uuid
-
 # XML generation and passthrough only; untrusted parsing goes through core.xml_utils.
 import xml.etree.ElementTree as ET  # nosec B405
 from typing import Any
 
+from core.identity import stable_id
 from core.xml_utils import parse_xml_file
 
 
@@ -129,7 +128,7 @@ def parse_questions(questions_xml_path: str) -> list[dict[str, Any]]:
             metadata["requires_manual_review"] = True
 
         question = {
-            "question_id": str(uuid.uuid4()),
+            "question_id": stable_id("moodle-question", q_id),
             "original_moodle_id": q_id,
             "question_type": canonical_type,
             "prompt_text": questiontext,
@@ -139,7 +138,7 @@ def parse_questions(questions_xml_path: str) -> list[dict[str, Any]]:
             "metadata": metadata,
         }
 
-        assessment_id = str(uuid.uuid4())
+        assessment_id = stable_id("moodle-question-assessment", q_id)
         assessments.append(
             {
                 "assessment_id": assessment_id,

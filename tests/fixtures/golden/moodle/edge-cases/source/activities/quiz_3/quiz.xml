@@ -1,0 +1,8 @@
+<quiz id="3">
+  <name>Edge Quiz</name>
+  <intro>Edge quiz intro</intro>
+  <question_instances>
+    <question_instance><questionid>201</questionid></question_instance>
+    <question_instance><questionid>999</questionid></question_instance>
+  </question_instances>
+</quiz>

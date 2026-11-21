@@ -35,6 +35,18 @@ Useful commands:
 uv run python -m cli.main --help
 uv run streamlit run streamlit_app.py
 uv run python -m compileall -q adapters cli core domain persistence streamlit_app.py
+uv run ruff check
+uv run ruff format --check
+uv run mypy
+uv run bandit -c pyproject.toml -r adapters cli core domain persistence
+uv run pip-audit
+uv run pytest --cov --cov-report=term-missing
+uv run pytest tests/golden -q
+uv run python scripts/update_golden.py --check
+uv run python scripts/generate_sbom.py --output dist/sbom.json
+uv run python scripts/validate_sbom.py dist/sbom.json
+uv build
+docker build --pull -t lms-converter:local .
 ```
 
 ## Code contributions
@@ -58,7 +70,10 @@ uv run python -m compileall -q adapters cli core domain persistence streamlit_ap
 - Do not add new hardcoded `data/` paths; configuration work is tracked in the production-readiness plan.
 - Do not add comments that restate the code. Explain non-obvious decisions only.
 
-The project does not yet enforce a formatter or linter in CI. Until it does, match the surrounding code and keep diffs clean.
+CI enforces `ruff` lint and formatting, `mypy`, `bandit`, `pip-audit`, the test
+suite with an 80% coverage floor, a clean wheel build/install, and a hardened
+container build/smoke test. It also publishes a CycloneDX SBOM artifact. Run the
+same commands locally before opening a pull request.
 
 ## Test data and privacy
 
@@ -66,6 +81,12 @@ The project does not yet enforce a formatter or linter in CI. Until it does, mat
 - Do not commit generated exports, database files, logs, or real course archives.
 - Scrub names, emails, user IDs, grades, and institution identifiers from any sample package.
 - If a bug requires a real package, reduce it to the smallest sanitized reproduction.
+- Add migration-fidelity coverage to the golden corpus rather than one-off
+  fixtures. See `tests/fixtures/golden/README.md` for the manifest, snapshot,
+  determinism, binary, and security-case contract.
+- Run `uv run python scripts/update_golden.py --write` only for intentional
+  fidelity changes, then review and commit the snapshot diff with the code.
+  Never auto-update snapshots from tests or CI.
 
 ## Pull requests
 

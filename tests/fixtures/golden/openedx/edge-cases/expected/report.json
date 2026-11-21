@@ -1,0 +1,63 @@
+{
+  "case_id": "openedx/edge-cases",
+  "report": {
+    "answer_options": 0,
+    "assessments": 0,
+    "assets": [],
+    "components": {
+      "chapters": 1,
+      "html": 1,
+      "problems": 1,
+      "sequentials": 1,
+      "verticals": 1,
+      "videos": 1
+    },
+    "content_nodes": 1,
+    "course_id": "c968c759-1122-519d-b218-d8e71b0aac88",
+    "course_title": "Synthetic Edge Case Course",
+    "created_at": "1970-01-01T00:00:00Z",
+    "error": null,
+    "integrity_errors": [],
+    "job_id": "golden",
+    "output_path": null,
+    "questions": 0,
+    "schema_version": 2,
+    "source_type": "openedx",
+    "status": "validated",
+    "target_type": null,
+    "total_nodes": 7,
+    "unsupported_features": [],
+    "updated_at": "1970-01-01T00:00:00Z",
+    "validation": [
+      {
+        "code": "PROBLEM_NO_ASSESSMENT",
+        "fallback_used": true,
+        "message": "1 problem component(s) have no assessment linked. They will be converted as placeholders.",
+        "note_id": "2962b320-50c8-5705-b1f2-2705d9ed2004",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": null
+      },
+      {
+        "code": "VIDEO_NO_SOURCE",
+        "fallback_used": true,
+        "message": "1/1 video(s) have no source (YouTube ID or asset). They will be converted as placeholders.",
+        "note_id": "f5f88142-f052-5e7c-a324-8346469ee723",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": null
+      },
+      {
+        "code": "MIGRATION_SUMMARY",
+        "fallback_used": false,
+        "message": "Course: Synthetic Edge Case Course | Chapters: 1 | Assessments: 0 | Questions: 0 | Assets: 0 | Warnings: 2 | Errors: 0",
+        "note_id": "274a648a-6ebb-5577-8c12-a86451af838a",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": null
+      }
+    ]
+  },
+  "snapshot_version": 1,
+  "target": null
+}

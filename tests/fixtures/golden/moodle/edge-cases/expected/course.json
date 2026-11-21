@@ -1,0 +1,376 @@
+{
+  "case_id": "moodle/edge-cases",
+  "course": {
+    "answer_options": [],
+    "assessments": [
+      {
+        "assessment_id": "5761ad45-5e68-57ff-8210-aad33efffa4e",
+        "assessment_type": "quiz",
+        "course_id": "51a4b947-3bcc-5ecf-87c5-9caaf2fd3209",
+        "max_score": 1.0,
+        "metadata": {
+          "quiz_activity_id": "3"
+        },
+        "raw_fragment_ids": [],
+        "title": "Edge Quiz"
+      }
+    ],
+    "assets": [
+      {
+        "asset_id": "bf0eaafe-6eb0-56c4-b4bf-8517ddeadc5d",
+        "checksum": "ffffffffffffffffffffffffffffffffffffffff",
+        "course_id": "51a4b947-3bcc-5ecf-87c5-9caaf2fd3209",
+        "metadata": {
+          "is_video": false,
+          "original_filename": "missing.pdf"
+        },
+        "mime_type": "application/pdf",
+        "path": "files/ff/ffffffffffffffffffffffffffffffffffffffff",
+        "raw_fragment_id": null
+      }
+    ],
+    "content_nodes": [
+      {
+        "assessment_id": null,
+        "children": [
+          {
+            "assessment_id": null,
+            "children": [
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Edge content</p>",
+                      "intro_html": "Edge intro",
+                      "moodle_module": "page"
+                    },
+                    "node_id": "05b156b5-4e2b-53ed-8908-3fdbeacd3f8d",
+                    "node_type": "html",
+                    "parent_id": "e8ac2835-4a0e-5bc0-90ce-27df8e49e9bb",
+                    "position": 0,
+                    "raw_fragment_ids": [],
+                    "title": "Edge Page"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "2",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "e8ac2835-4a0e-5bc0-90ce-27df8e49e9bb",
+                "node_type": "vertical",
+                "parent_id": "a173c901-c87e-5433-885d-4d3bae44a0de",
+                "position": 0,
+                "raw_fragment_ids": [
+                  "2f7ce2d3-2c42-55fb-9135-a89ba611a210"
+                ],
+                "title": "Edge Page"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": "5761ad45-5e68-57ff-8210-aad33efffa4e",
+                    "children": [],
+                    "metadata": {
+                      "content_html": "Edge quiz intro",
+                      "question_ids": [
+                        "201",
+                        "999"
+                      ],
+                      "quiz_id": null
+                    },
+                    "node_id": "aaf09275-b534-5cb1-aafd-82554aff402f",
+                    "node_type": "problem",
+                    "parent_id": "7a5eed60-fdd1-5cd1-9336-42f3c8ea240d",
+                    "position": 1,
+                    "raw_fragment_ids": [],
+                    "title": "Edge Quiz"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "3",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "7a5eed60-fdd1-5cd1-9336-42f3c8ea240d",
+                "node_type": "vertical",
+                "parent_id": "a173c901-c87e-5433-885d-4d3bae44a0de",
+                "position": 1,
+                "raw_fragment_ids": [
+                  "31437b16-502a-5c3e-b12f-b770e2d5fe3e"
+                ],
+                "title": "Edge Quiz"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "resource",
+                      "asset_id": "bf0eaafe-6eb0-56c4-b4bf-8517ddeadc5d",
+                      "content_html": "<h3>Missing File</h3><p><a href=\"/static/files/ff/ffffffffffffffffffffffffffffffffffffffff\">Download missing.pdf</a></p>"
+                    },
+                    "node_id": "a086658d-325f-56fb-a0a6-62ce773eef2a",
+                    "node_type": "activity",
+                    "parent_id": "369b03fb-f3b7-5d7b-a700-a4473f7f5e97",
+                    "position": 2,
+                    "raw_fragment_ids": [],
+                    "title": "Missing File"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "4",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "369b03fb-f3b7-5d7b-a700-a4473f7f5e97",
+                "node_type": "vertical",
+                "parent_id": "a173c901-c87e-5433-885d-4d3bae44a0de",
+                "position": 2,
+                "raw_fragment_ids": [
+                  "6f4f366e-65ec-5ad8-be54-e714d2a34169"
+                ],
+                "title": "Missing File"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Missing SCORM package for activity: Missing SCORM</p>"
+                    },
+                    "node_id": "0beb21ea-7c32-55bf-bcf4-173e775ab6e2",
+                    "node_type": "html",
+                    "parent_id": "739725e1-17b0-5091-bf40-a5bf2f6ac353",
+                    "position": 3,
+                    "raw_fragment_ids": [],
+                    "title": "Missing SCORM"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "5",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "739725e1-17b0-5091-bf40-a5bf2f6ac353",
+                "node_type": "vertical",
+                "parent_id": "a173c901-c87e-5433-885d-4d3bae44a0de",
+                "position": 3,
+                "raw_fragment_ids": [
+                  "fa241735-77ec-5c51-84a7-e2619960d954"
+                ],
+                "title": "Missing SCORM"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Unsupported activity: mystery</p>"
+                    },
+                    "node_id": "1be2bc21-4041-564a-9589-5c8074c320fd",
+                    "node_type": "html",
+                    "parent_id": "3a551553-9dbd-596a-8145-ede9035ffaf5",
+                    "position": 4,
+                    "raw_fragment_ids": [],
+                    "title": "Unknown Module"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "6",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "3a551553-9dbd-596a-8145-ede9035ffaf5",
+                "node_type": "vertical",
+                "parent_id": "a173c901-c87e-5433-885d-4d3bae44a0de",
+                "position": 4,
+                "raw_fragment_ids": [
+                  "485e588a-02e3-525c-ad6d-d0aae44af272"
+                ],
+                "title": "Unknown Module"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "",
+                      "moodle_module": "page"
+                    },
+                    "node_id": "99b1162a-b776-58c8-baf6-99de09576e86",
+                    "node_type": "html",
+                    "parent_id": "41735dce-0484-590b-a2cb-3f58de007b1c",
+                    "position": 5,
+                    "raw_fragment_ids": [],
+                    "title": "Missing XML Page"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "7",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "41735dce-0484-590b-a2cb-3f58de007b1c",
+                "node_type": "vertical",
+                "parent_id": "a173c901-c87e-5433-885d-4d3bae44a0de",
+                "position": 5,
+                "raw_fragment_ids": [],
+                "title": "Missing XML Page"
+              }
+            ],
+            "metadata": {},
+            "node_id": "a173c901-c87e-5433-885d-4d3bae44a0de",
+            "node_type": "sequential",
+            "parent_id": "64111bc9-eee1-54be-9ad3-2f405198b16d",
+            "position": 0,
+            "raw_fragment_ids": [],
+            "title": "Content"
+          }
+        ],
+        "metadata": {
+          "moodle_section_id": "1"
+        },
+        "node_id": "64111bc9-eee1-54be-9ad3-2f405198b16d",
+        "node_type": "chapter",
+        "parent_id": null,
+        "position": 0,
+        "raw_fragment_ids": [
+          "ee3056a1-0c74-518b-8926-fc702084afe1"
+        ],
+        "title": "Section 1"
+      }
+    ],
+    "course_id": "51a4b947-3bcc-5ecf-87c5-9caaf2fd3209",
+    "lti_links": [],
+    "mapping_notes": [
+      {
+        "code": "UNSUPPORTED_QUESTION_TYPE",
+        "fallback_used": true,
+        "message": "Found 1 question(s) with unsupported types: ['mysteryq']. They will be converted as placeholders.",
+        "note_id": "9ae699ef-d90a-5e4e-865b-c772902ea053",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": null
+      },
+      {
+        "code": "MIGRATION_SUMMARY",
+        "fallback_used": false,
+        "message": "Course: Authoritative Moodle Course | Chapters: 1 | Assessments: 1 | Questions: 1 | Assets: 1 | Warnings: 1 | Errors: 0",
+        "note_id": "d9a1442d-5b39-5a89-b299-6a551115b3f0",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": null
+      }
+    ],
+    "metadata": {
+      "lang": "en",
+      "schema_version": 2,
+      "shortname": "MoodleEdge",
+      "source_key": "MoodleEdge"
+    },
+    "questions": [
+      {
+        "assessment_id": "5761ad45-5e68-57ff-8210-aad33efffa4e",
+        "metadata": {
+          "source_question_id": "201"
+        },
+        "points": 1.0,
+        "prompt_text": "Unknown question type",
+        "question_id": "a46c5620-3631-5d7b-bb92-22b7354b27fc",
+        "question_type": "mysteryq",
+        "raw_fragment_ids": []
+      }
+    ],
+    "raw_fragments": [
+      {
+        "checksum": "bd68e6cb9aae7b3983d40217c010b9f7be7c26a5e5a6ad04a241e0dfb37ca438",
+        "fragment_id": "d6762620-9387-515e-aa37-dc0ea3a4b590",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "course/course.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "65ad0aab1e4feca7a45ad4e11b053c03a85f30806a4080419a5c979660c97ce7",
+        "fragment_id": "ee3056a1-0c74-518b-8926-fc702084afe1",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "sections/section_1/section.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "42ba02a0db4fa5b758a98c0ed73d9ca097874f0141a403d5b4c6113c6eb5ae09",
+        "fragment_id": "2f7ce2d3-2c42-55fb-9135-a89ba611a210",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/page_2/page.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "218b8188c92fef91d6db978039499081bb042bf94007e14467e01a76dd1f9e94",
+        "fragment_id": "31437b16-502a-5c3e-b12f-b770e2d5fe3e",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/quiz_3/quiz.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "aff702f1020d918e754627de8b96c19b622c09bf8e1636cfac0a436755fd35ed",
+        "fragment_id": "6f4f366e-65ec-5ad8-be54-e714d2a34169",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/resource_4/resource.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "92a97b60758a285391a323afc7e0a5650eceb09d0d2beabaac913d4ceff9404c",
+        "fragment_id": "fa241735-77ec-5c51-84a7-e2619960d954",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/scorm_5/scorm.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "84b3f90faad1f199cee7bbe74896febfd770cae2c866d2fd7d55659a8bc57492",
+        "fragment_id": "485e588a-02e3-525c-ad6d-d0aae44af272",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/mystery_6/mystery.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      }
+    ],
+    "schema_version": 2,
+    "source_system": "moodle",
+    "title": "Authoritative Moodle Course"
+  },
+  "snapshot_version": 1,
+  "source": "moodle"
+}

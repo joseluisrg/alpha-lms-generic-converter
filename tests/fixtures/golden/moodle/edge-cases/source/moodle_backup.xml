@@ -1,0 +1,20 @@
+<moodle_backup>
+          <information>
+            <name>synthetic-edge.mbz</name>
+            <contents>
+              <activities>
+<activity><moduleid>2</moduleid><sectionid>1</sectionid><modulename>page</modulename><title>Edge Page</title><directory>activities/page_2</directory></activity>
+<activity><moduleid>3</moduleid><sectionid>1</sectionid><modulename>quiz</modulename><title>Edge Quiz</title><directory>activities/quiz_3</directory></activity>
+<activity><moduleid>4</moduleid><sectionid>1</sectionid><modulename>resource</modulename><title>Missing File</title><directory>activities/resource_4</directory></activity>
+<activity><moduleid>5</moduleid><sectionid>1</sectionid><modulename>scorm</modulename><title>Missing SCORM</title><directory>activities/scorm_5</directory></activity>
+<activity><moduleid>6</moduleid><sectionid>1</sectionid><modulename>mystery</modulename><title>Unknown Module</title><directory>activities/mystery_6</directory></activity>
+<activity><moduleid>7</moduleid><sectionid>1</sectionid><modulename>page</modulename><title>Missing XML Page</title><directory>activities/page_7</directory></activity>
+</activities>
+              <sections>
+                <section><sectionid>1</sectionid><title>Ignored Manifest Title</title><directory>sections/section_1</directory></section>
+                <section><sectionid>2</sectionid><title>Missing Section</title><directory>sections/section_missing</directory></section>
+              </sections>
+              <course><courseid>1</courseid><title>Stale Manifest Title</title><directory>course</directory></course>
+            </contents>
+          </information>
+        </moodle_backup>

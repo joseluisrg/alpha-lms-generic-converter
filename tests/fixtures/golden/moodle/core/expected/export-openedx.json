@@ -1,0 +1,1484 @@
+{
+  "case_id": "moodle/core",
+  "contents": {
+    "chapter/<id:1>-a9fc-5919-93c1-<id:2>.xml": {
+      "attributes": {
+        "display_name": "Week Two"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:3>-edb2-5228-8562-<id:4>"
+          },
+          "tag": "sequential"
+        }
+      ],
+      "tag": "chapter"
+    },
+    "chapter/<id:5>-4a90-54b1-a85d-<id:6>.xml": {
+      "attributes": {
+        "display_name": "Week One"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:7>-0182-5cf8-bdf8-<id:8>"
+          },
+          "tag": "sequential"
+        }
+      ],
+      "tag": "chapter"
+    },
+    "course.xml": {
+      "attributes": {
+        "course": "Course",
+        "org": "Org",
+        "url_name": "SyntheticMoodleCoreCourse"
+      },
+      "tag": "course"
+    },
+    "course/SyntheticMoodleCoreCourse.xml": {
+      "attributes": {
+        "advanced_modules": "[\"scorm\"]",
+        "display_name": "Synthetic Moodle Core Course"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:5>-4a90-54b1-a85d-<id:6>"
+          },
+          "tag": "chapter"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:1>-a9fc-5919-93c1-<id:2>"
+          },
+          "tag": "chapter"
+        }
+      ],
+      "tag": "course"
+    },
+    "discussion/<id:9>-3c35-5d90-9c6e-<id:10>.xml": {
+      "attributes": {
+        "discussion_id": "<id:9>-3c35-5d90-9c6e-<id:10>",
+        "display_name": "Forum"
+      },
+      "children": [
+        {
+          "tag": "description",
+          "text": "<p>Discuss the course.</p>"
+        }
+      ],
+      "tag": "discussion"
+    },
+    "html/<id:11>-c2fe-5695-9ce3-<id:12>.html": "<h3>Lesson: Lesson</h3><p>Lesson intro.</p>",
+    "html/<id:11>-c2fe-5695-9ce3-<id:12>.xml": {
+      "attributes": {
+        "display_name": "Lesson",
+        "filename": "<id:11>-c2fe-5695-9ce3-<id:12>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:13>-980b-5dbb-b950-<id:14>.html": "<h3>Glossary: Glossary</h3><p>Terms.</p>",
+    "html/<id:13>-980b-5dbb-b950-<id:14>.xml": {
+      "attributes": {
+        "display_name": "Glossary",
+        "filename": "<id:13>-980b-5dbb-b950-<id:14>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:15>-2d65-52d2-9c5c-<id:16>.html": "Watch https://www.youtube.com/watch?v=abc12345678",
+    "html/<id:15>-2d65-52d2-9c5c-<id:16>.xml": {
+      "attributes": {
+        "display_name": "Label Video",
+        "filename": "<id:15>-2d65-52d2-9c5c-<id:16>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:17>-2bce-5fde-ad15-<id:18>.html": "<p>Missing SCORM package for activity: Missing SCORM Package</p>",
+    "html/<id:17>-2bce-5fde-ad15-<id:18>.xml": {
+      "attributes": {
+        "display_name": "Missing SCORM Package",
+        "filename": "<id:17>-2bce-5fde-ad15-<id:18>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:19>-b815-5238-8fa8-<id:20>.html": "<h3>Choice activity: Choice</h3><p>Pick an option.</p>",
+    "html/<id:19>-b815-5238-8fa8-<id:20>.xml": {
+      "attributes": {
+        "display_name": "Choice",
+        "filename": "<id:19>-b815-5238-8fa8-<id:20>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:21>-dc01-51cc-9292-<id:22>.html": "<h3>Missing File</h3><p><a href=\"/static/files/dd/dddddddddddddddddddddddddddddddddddddddd\">Download missing.pdf</a></p>",
+    "html/<id:21>-dc01-51cc-9292-<id:22>.xml": {
+      "attributes": {
+        "display_name": "Missing File",
+        "filename": "<id:21>-dc01-51cc-9292-<id:22>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:23>-cf75-5a09-b30b-<id:24>.html": "<p>Second page content</p>",
+    "html/<id:23>-cf75-5a09-b30b-<id:24>.xml": {
+      "attributes": {
+        "display_name": "Second Page",
+        "filename": "<id:23>-cf75-5a09-b30b-<id:24>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:25>-150c-5792-83c1-<id:26>.html": "<p>Peer review.</p>",
+    "html/<id:25>-150c-5792-83c1-<id:26>.xml": {
+      "attributes": {
+        "display_name": "Workshop Description",
+        "filename": "<id:25>-150c-5792-83c1-<id:26>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:27>-1f34-59c1-98b9-<id:28>.html": "<p>Label content</p>",
+    "html/<id:27>-1f34-59c1-98b9-<id:28>.xml": {
+      "attributes": {
+        "display_name": "Label HTML",
+        "filename": "<id:27>-1f34-59c1-98b9-<id:28>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:29>-e60e-5c2a-9926-<id:30>.html": "<h3>Wiki: Wiki</h3><p>Wiki intro.</p>",
+    "html/<id:29>-e60e-5c2a-9926-<id:30>.xml": {
+      "attributes": {
+        "display_name": "Wiki",
+        "filename": "<id:29>-e60e-5c2a-9926-<id:30>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:31>-4d49-501c-b762-<id:32>.html": "<p>Unsupported activity: mystery</p>",
+    "html/<id:31>-4d49-501c-b762-<id:32>.xml": {
+      "attributes": {
+        "display_name": "Mystery Module",
+        "filename": "<id:31>-4d49-501c-b762-<id:32>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:33>-1609-519c-a1c1-<id:34>.html": "<h3>Handout</h3><p><a href=\"/static/files/aa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\">Download handout.pdf</a></p>",
+    "html/<id:33>-1609-519c-a1c1-<id:34>.xml": {
+      "attributes": {
+        "display_name": "Handout",
+        "filename": "<id:33>-1609-519c-a1c1-<id:34>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:35>-b67c-50d6-ae94-<id:36>.html": "<h3>Assignment: Assignment</h3><p>Submit work.</p>",
+    "html/<id:35>-b67c-50d6-ae94-<id:36>.xml": {
+      "attributes": {
+        "display_name": "Assignment",
+        "filename": "<id:35>-b67c-50d6-ae94-<id:36>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:37>-f622-55dd-b201-<id:38>.html": "<p><a href=\"https://example.org/resource\">https://example.org/resource</a></p>",
+    "html/<id:37>-f622-55dd-b201-<id:38>.xml": {
+      "attributes": {
+        "display_name": "External Link",
+        "filename": "<id:37>-f622-55dd-b201-<id:38>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:39>-f707-5922-842e-<id:40>.html": "<p>Page content</p>",
+    "html/<id:39>-f707-5922-842e-<id:40>.xml": {
+      "attributes": {
+        "display_name": "Page",
+        "filename": "<id:39>-f707-5922-842e-<id:40>.html"
+      },
+      "tag": "html"
+    },
+    "html/<id:41>-529e-5c58-a713-<id:42>.html": "<h3>Book</h3><p>Book intro</p><hr/><h4>Chapter 1</h4><p>Chapter content</p>",
+    "html/<id:41>-529e-5c58-a713-<id:42>.xml": {
+      "attributes": {
+        "display_name": "Book",
+        "filename": "<id:41>-529e-5c58-a713-<id:42>.html"
+      },
+      "tag": "html"
+    },
+    "openassessment/<id:43>-2563-5c82-a0e1-<id:44>.xml": {
+      "attributes": {
+        "allow_latex": "false",
+        "display_name": "Workshop",
+        "submission_due": "2029-01-01T00:00:00+00:00",
+        "submission_start": "2001-01-01T00:00:00+00:00",
+        "text_response": "required",
+        "text_response_editor": "tinymce"
+      },
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "attributes": {
+                    "format": "html"
+                  },
+                  "tag": "description",
+                  "text": "<p>Peer review.</p>"
+                }
+              ],
+              "tag": "prompt"
+            }
+          ],
+          "tag": "prompts"
+        },
+        {
+          "children": [
+            {
+              "attributes": {
+                "feedback": "optional"
+              },
+              "children": [
+                {
+                  "tag": "name",
+                  "text": "0"
+                },
+                {
+                  "tag": "label",
+                  "text": "Quality"
+                },
+                {
+                  "tag": "prompt",
+                  "text": "Evaluate the response based on clarity, evidence, and reasoning."
+                }
+              ],
+              "tag": "criterion"
+            }
+          ],
+          "tag": "rubric"
+        }
+      ],
+      "tag": "openassessment"
+    },
+    "policies/SyntheticMoodleCoreCourse/grading_policy.json": {
+      "GRADER": [],
+      "GRADE_CUTOFFS": {
+        "Pass": 0.5
+      }
+    },
+    "policies/SyntheticMoodleCoreCourse/policy.json": {
+      "course/SyntheticMoodleCoreCourse": {
+        "display_name": "Synthetic Moodle Core Course",
+        "start": "1970-01-01T00:00:00Z"
+      }
+    },
+    "policies/assets.json": {
+      "clip.mp4": {
+        "contentType": "video/mp4",
+        "content_son": {
+          "category": "asset",
+          "course": "Course",
+          "name": "clip.mp4",
+          "org": "Org",
+          "revision": null,
+          "run": "SyntheticMoodleCoreCourse",
+          "tag": "c4x"
+        },
+        "displayname": "clip.mp4",
+        "filename": "asset-v1:Org+Course+SyntheticMoodleCoreCourse+type@asset+block@clip.mp4",
+        "import_path": null,
+        "locked": false,
+        "thumbnail_location": null
+      },
+      "clip2.mp4": {
+        "contentType": "video/mp4",
+        "content_son": {
+          "category": "asset",
+          "course": "Course",
+          "name": "clip2.mp4",
+          "org": "Org",
+          "revision": null,
+          "run": "SyntheticMoodleCoreCourse",
+          "tag": "c4x"
+        },
+        "displayname": "clip2.mp4",
+        "filename": "asset-v1:Org+Course+SyntheticMoodleCoreCourse+type@asset+block@clip2.mp4",
+        "import_path": null,
+        "locked": false,
+        "thumbnail_location": null
+      },
+      "handout.pdf": {
+        "contentType": "application/pdf",
+        "content_son": {
+          "category": "asset",
+          "course": "Course",
+          "name": "handout.pdf",
+          "org": "Org",
+          "revision": null,
+          "run": "SyntheticMoodleCoreCourse",
+          "tag": "c4x"
+        },
+        "displayname": "handout.pdf",
+        "filename": "asset-v1:Org+Course+SyntheticMoodleCoreCourse+type@asset+block@handout.pdf",
+        "import_path": null,
+        "locked": false,
+        "thumbnail_location": null
+      },
+      "missing.pdf": {
+        "contentType": "application/pdf",
+        "content_son": {
+          "category": "asset",
+          "course": "Course",
+          "name": "missing.pdf",
+          "org": "Org",
+          "revision": null,
+          "run": "SyntheticMoodleCoreCourse",
+          "tag": "c4x"
+        },
+        "displayname": "missing.pdf",
+        "filename": "asset-v1:Org+Course+SyntheticMoodleCoreCourse+type@asset+block@missing.pdf",
+        "import_path": null,
+        "locked": false,
+        "thumbnail_location": null
+      },
+      "package.zip": {
+        "contentType": "application/zip",
+        "content_son": {
+          "category": "asset",
+          "course": "Course",
+          "name": "package.zip",
+          "org": "Org",
+          "revision": null,
+          "run": "SyntheticMoodleCoreCourse",
+          "tag": "c4x"
+        },
+        "displayname": "package.zip",
+        "filename": "asset-v1:Org+Course+SyntheticMoodleCoreCourse+type@asset+block@package.zip",
+        "import_path": null,
+        "locked": false,
+        "thumbnail_location": null
+      }
+    },
+    "problem/<id:45>-5828-51a6-8bc2-<id:46>.xml": {
+      "attributes": {
+        "display_name": "Core Quiz"
+      },
+      "children": [
+        {
+          "children": [
+            {
+              "tag": "label",
+              "text": "Pick one"
+            },
+            {
+              "attributes": {
+                "type": "MultipleChoice"
+              },
+              "children": [
+                {
+                  "attributes": {
+                    "correct": "true",
+                    "name": "a"
+                  },
+                  "tag": "choice",
+                  "text": "Alpha"
+                },
+                {
+                  "attributes": {
+                    "correct": "false",
+                    "name": "b"
+                  },
+                  "tag": "choice",
+                  "text": "Beta"
+                }
+              ],
+              "tag": "choicegroup"
+            }
+          ],
+          "tag": "multiplechoiceresponse"
+        },
+        {
+          "children": [
+            {
+              "tag": "label",
+              "text": "Pick many"
+            },
+            {
+              "children": [
+                {
+                  "attributes": {
+                    "correct": "true",
+                    "name": "a"
+                  },
+                  "tag": "choice",
+                  "text": "Red"
+                },
+                {
+                  "attributes": {
+                    "correct": "true",
+                    "name": "b"
+                  },
+                  "tag": "choice",
+                  "text": "Blue"
+                },
+                {
+                  "attributes": {
+                    "correct": "false",
+                    "name": "c"
+                  },
+                  "tag": "choice",
+                  "text": "Green"
+                }
+              ],
+              "tag": "checkboxgroup"
+            }
+          ],
+          "tag": "choiceresponse"
+        },
+        {
+          "children": [
+            {
+              "tag": "label",
+              "text": "True or false"
+            },
+            {
+              "attributes": {
+                "type": "MultipleChoice"
+              },
+              "children": [
+                {
+                  "attributes": {
+                    "correct": "true",
+                    "name": "a"
+                  },
+                  "tag": "choice",
+                  "text": "True"
+                },
+                {
+                  "attributes": {
+                    "correct": "false",
+                    "name": "b"
+                  },
+                  "tag": "choice",
+                  "text": "False"
+                }
+              ],
+              "tag": "choicegroup"
+            }
+          ],
+          "tag": "multiplechoiceresponse"
+        },
+        {
+          "attributes": {
+            "answer": "Answer",
+            "type": "ci"
+          },
+          "children": [
+            {
+              "tag": "label",
+              "text": "Short answer"
+            },
+            {
+              "attributes": {
+                "size": "20"
+              },
+              "tag": "textline"
+            }
+          ],
+          "tag": "stringresponse"
+        },
+        {
+          "attributes": {
+            "answer": "3.14"
+          },
+          "children": [
+            {
+              "tag": "label",
+              "text": "Numerical answer"
+            },
+            {
+              "attributes": {
+                "default": "0.01",
+                "type": "tolerance"
+              },
+              "tag": "responseparam"
+            },
+            {
+              "tag": "formulaequationinput"
+            }
+          ],
+          "tag": "numericalresponse"
+        },
+        {
+          "children": [
+            {
+              "tag": "label",
+              "text": "essay: Write an essay (not fully converted)"
+            },
+            {
+              "attributes": {
+                "type": "MultipleChoice"
+              },
+              "children": [
+                {
+                  "attributes": {
+                    "correct": "false",
+                    "name": "a"
+                  },
+                  "tag": "choice",
+                  "text": "Review required"
+                }
+              ],
+              "tag": "choicegroup"
+            }
+          ],
+          "tag": "multiplechoiceresponse"
+        },
+        {
+          "children": [
+            {
+              "tag": "label",
+              "text": "description: Read this description (not fully converted)"
+            },
+            {
+              "attributes": {
+                "type": "MultipleChoice"
+              },
+              "children": [
+                {
+                  "attributes": {
+                    "correct": "false",
+                    "name": "a"
+                  },
+                  "tag": "choice",
+                  "text": "Review required"
+                }
+              ],
+              "tag": "choicegroup"
+            }
+          ],
+          "tag": "multiplechoiceresponse"
+        },
+        {
+          "children": [
+            {
+              "tag": "label",
+              "text": "mysteryq: Unknown question type (not fully converted)"
+            },
+            {
+              "attributes": {
+                "type": "MultipleChoice"
+              },
+              "children": [
+                {
+                  "attributes": {
+                    "correct": "false",
+                    "name": "a"
+                  },
+                  "tag": "choice",
+                  "text": "Review required"
+                }
+              ],
+              "tag": "choicegroup"
+            }
+          ],
+          "tag": "multiplechoiceresponse"
+        }
+      ],
+      "tag": "problem"
+    },
+    "scorm/<id:47>-fc91-5ded-aa45-<id:48>.xml": {
+      "attributes": {
+        "display_name": "SCORM Package",
+        "has_score": "true",
+        "index_page_path": "index.html",
+        "package_meta": "{\"last_updated\":\"2026-01-01T00:00:00\",\"name\":\"package.zip\",\"sha1\":\"1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\",\"size\":779}",
+        "scorm_package_path": "scorm/<id:47>-fc91-5ded-aa45-<id:48>/package.zip",
+        "scorm_version": "SCORM_12",
+        "weight": "10"
+      },
+      "tag": "scorm"
+    },
+    "sequential/<id:3>-edb2-5228-8562-<id:4>.xml": {
+      "attributes": {
+        "display_name": "Content"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:49>-cd1c-5cbe-a4b0-<id:50>"
+          },
+          "tag": "vertical"
+        }
+      ],
+      "tag": "sequential"
+    },
+    "sequential/<id:7>-0182-5cf8-bdf8-<id:8>.xml": {
+      "attributes": {
+        "display_name": "Content"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:51>-bf32-5716-ab1a-<id:52>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:53>-ac7d-5f48-a530-<id:54>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:55>-a796-55a4-b685-<id:56>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:57>-b5fb-5e27-b027-<id:58>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:59>-d324-5fbf-9be6-<id:60>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:61>-c443-58fa-be18-<id:62>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:63>-10f3-51c0-8942-<id:64>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:65>-7ed4-5f8c-b27f-<id:66>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:67>-9623-5253-801c-<id:68>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:69>-4b7e-5d75-b85d-<id:70>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:71>-d107-5fd6-a9cf-<id:72>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:73>-b380-5ff6-8123-<id:74>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:75>-8358-5808-8976-<id:76>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:77>-ae35-58c1-9371-<id:78>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:79>-8dc6-55d4-826e-<id:80>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:81>-a7e3-53b0-aa1b-<id:82>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:83>-4d08-58ba-9311-<id:84>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:85>-6de2-52f7-b0f0-<id:86>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:87>-15b7-55a3-98e2-<id:88>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:89>-24fc-52d3-8bf1-<id:90>"
+          },
+          "tag": "vertical"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:91>-b798-5f05-86f8-<id:92>"
+          },
+          "tag": "vertical"
+        }
+      ],
+      "tag": "sequential"
+    },
+    "vertical/<id:49>-cd1c-5cbe-a4b0-<id:50>.xml": {
+      "attributes": {
+        "display_name": "Second Page"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:23>-cf75-5a09-b30b-<id:24>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:51>-bf32-5716-ab1a-<id:52>.xml": {
+      "attributes": {
+        "display_name": "Page"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:39>-f707-5922-842e-<id:40>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:53>-ac7d-5f48-a530-<id:54>.xml": {
+      "attributes": {
+        "display_name": "Label HTML"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:27>-1f34-59c1-98b9-<id:28>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:55>-a796-55a4-b685-<id:56>.xml": {
+      "attributes": {
+        "display_name": "Label Video"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:15>-2d65-52d2-9c5c-<id:16>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:57>-b5fb-5e27-b027-<id:58>.xml": {
+      "attributes": {
+        "display_name": "YouTube Link"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:95>-d76f-5f5d-8109-<id:96>"
+          },
+          "tag": "video"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:59>-d324-5fbf-9be6-<id:60>.xml": {
+      "attributes": {
+        "display_name": "External Link"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:37>-f622-55dd-b201-<id:38>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:61>-c443-58fa-be18-<id:62>.xml": {
+      "attributes": {
+        "display_name": "Core Quiz"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:45>-5828-51a6-8bc2-<id:46>"
+          },
+          "tag": "problem"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:63>-10f3-51c0-8942-<id:64>.xml": {
+      "attributes": {
+        "display_name": "Handout"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:33>-1609-519c-a1c1-<id:34>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:65>-7ed4-5f8c-b27f-<id:66>.xml": {
+      "attributes": {
+        "display_name": "Video File"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:93>-bd94-567b-aead-<id:94>"
+          },
+          "tag": "video"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:67>-9623-5253-801c-<id:68>.xml": {
+      "attributes": {
+        "display_name": "SCORM Package"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:47>-fc91-5ded-aa45-<id:48>"
+          },
+          "tag": "scorm"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:69>-4b7e-5d75-b85d-<id:70>.xml": {
+      "attributes": {
+        "display_name": "Forum"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:9>-3c35-5d90-9c6e-<id:10>"
+          },
+          "tag": "discussion"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:71>-d107-5fd6-a9cf-<id:72>.xml": {
+      "attributes": {
+        "display_name": "Workshop"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:25>-150c-5792-83c1-<id:26>"
+          },
+          "tag": "html"
+        },
+        {
+          "attributes": {
+            "url_name": "<id:43>-2563-5c82-a0e1-<id:44>"
+          },
+          "tag": "openassessment"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:73>-b380-5ff6-8123-<id:74>.xml": {
+      "attributes": {
+        "display_name": "Choice"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:19>-b815-5238-8fa8-<id:20>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:75>-8358-5808-8976-<id:76>.xml": {
+      "attributes": {
+        "display_name": "Book"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:41>-529e-5c58-a713-<id:42>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:77>-ae35-58c1-9371-<id:78>.xml": {
+      "attributes": {
+        "display_name": "Glossary"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:13>-980b-5dbb-b950-<id:14>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:79>-8dc6-55d4-826e-<id:80>.xml": {
+      "attributes": {
+        "display_name": "Wiki"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:29>-e60e-5c2a-9926-<id:30>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:81>-a7e3-53b0-aa1b-<id:82>.xml": {
+      "attributes": {
+        "display_name": "Assignment"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:35>-b67c-50d6-ae94-<id:36>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:83>-4d08-58ba-9311-<id:84>.xml": {
+      "attributes": {
+        "display_name": "Lesson"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:11>-c2fe-5695-9ce3-<id:12>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:85>-6de2-52f7-b0f0-<id:86>.xml": {
+      "attributes": {
+        "display_name": "Video Activity"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:97>-f71f-5384-bebe-<id:98>"
+          },
+          "tag": "video"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:87>-15b7-55a3-98e2-<id:88>.xml": {
+      "attributes": {
+        "display_name": "Mystery Module"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:31>-4d49-501c-b762-<id:32>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:89>-24fc-52d3-8bf1-<id:90>.xml": {
+      "attributes": {
+        "display_name": "Missing File"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:21>-dc01-51cc-9292-<id:22>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "vertical/<id:91>-b798-5f05-86f8-<id:92>.xml": {
+      "attributes": {
+        "display_name": "Missing SCORM Package"
+      },
+      "children": [
+        {
+          "attributes": {
+            "url_name": "<id:17>-2bce-5fde-ad15-<id:18>"
+          },
+          "tag": "html"
+        }
+      ],
+      "tag": "vertical"
+    },
+    "video/<id:93>-bd94-567b-aead-<id:94>.xml": {
+      "attributes": {
+        "display_name": "Video File",
+        "download_video": "true",
+        "url_name": "<id:93>-bd94-567b-aead-<id:94>"
+      },
+      "children": [
+        {
+          "attributes": {
+            "src": "/static/clip.mp4"
+          },
+          "tag": "source"
+        }
+      ],
+      "tag": "video"
+    },
+    "video/<id:95>-d76f-5f5d-8109-<id:96>.xml": {
+      "attributes": {
+        "display_name": "YouTube Link",
+        "url_name": "<id:95>-d76f-5f5d-8109-<id:96>",
+        "youtube": "1.00:xyz<id:99>",
+        "youtube_id_1_0": "xyz<id:99>"
+      },
+      "tag": "video"
+    },
+    "video/<id:97>-f71f-5384-bebe-<id:98>.xml": {
+      "attributes": {
+        "display_name": "Video Activity",
+        "download_video": "true",
+        "url_name": "<id:97>-f71f-5384-bebe-<id:98>"
+      },
+      "children": [
+        {
+          "attributes": {
+            "src": "/static/clip2.mp4"
+          },
+          "tag": "source"
+        }
+      ],
+      "tag": "video"
+    }
+  },
+  "files": [
+    {
+      "kind": "xml",
+      "path": "chapter/<id:1>-a9fc-5919-93c1-<id:2>.xml",
+      "size": 140
+    },
+    {
+      "kind": "xml",
+      "path": "chapter/<id:5>-4a90-54b1-a85d-<id:6>.xml",
+      "size": 140
+    },
+    {
+      "kind": "xml",
+      "path": "course/SyntheticMoodleCoreCourse.xml",
+      "size": 249
+    },
+    {
+      "kind": "xml",
+      "path": "course.xml",
+      "size": 112
+    },
+    {
+      "kind": "xml",
+      "path": "discussion/<id:9>-3c35-5d90-9c6e-<id:10>.xml",
+      "size": 199
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:11>-c2fe-5695-9ce3-<id:12>.html",
+      "size": 43
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:11>-c2fe-5695-9ce3-<id:12>.xml",
+      "size": 118
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:13>-980b-5dbb-b950-<id:14>.html",
+      "size": 40
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:13>-980b-5dbb-b950-<id:14>.xml",
+      "size": 120
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:15>-2d65-52d2-9c5c-<id:16>.html",
+      "size": 49
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:15>-2d65-52d2-9c5c-<id:16>.xml",
+      "size": 123
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:17>-2bce-5fde-ad15-<id:18>.html",
+      "size": 64
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:17>-2bce-5fde-ad15-<id:18>.xml",
+      "size": 133
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:19>-b815-5238-8fa8-<id:20>.html",
+      "size": 54
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:19>-b815-5238-8fa8-<id:20>.xml",
+      "size": 118
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:21>-dc01-51cc-9292-<id:22>.html",
+      "size": 120
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:21>-dc01-51cc-9292-<id:22>.xml",
+      "size": 124
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:23>-cf75-5a09-b30b-<id:24>.html",
+      "size": 26
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:23>-cf75-5a09-b30b-<id:24>.xml",
+      "size": 123
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:25>-150c-5792-83c1-<id:26>.html",
+      "size": 19
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:25>-150c-5792-83c1-<id:26>.xml",
+      "size": 132
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:27>-1f34-59c1-98b9-<id:28>.html",
+      "size": 20
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:27>-1f34-59c1-98b9-<id:28>.xml",
+      "size": 122
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:29>-e60e-5c2a-9926-<id:30>.html",
+      "size": 37
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:29>-e60e-5c2a-9926-<id:30>.xml",
+      "size": 116
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:31>-4d49-501c-b762-<id:32>.html",
+      "size": 36
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:31>-4d49-501c-b762-<id:32>.xml",
+      "size": 126
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:33>-1609-519c-a1c1-<id:34>.html",
+      "size": 115
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:33>-1609-519c-a1c1-<id:34>.xml",
+      "size": 119
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:35>-b67c-50d6-ae94-<id:36>.html",
+      "size": 50
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:35>-b67c-50d6-ae94-<id:36>.xml",
+      "size": 122
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:37>-f622-55dd-b201-<id:38>.html",
+      "size": 78
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:37>-f622-55dd-b201-<id:38>.xml",
+      "size": 125
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:39>-f707-5922-842e-<id:40>.html",
+      "size": 19
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:39>-f707-5922-842e-<id:40>.xml",
+      "size": 116
+    },
+    {
+      "kind": "text",
+      "path": "html/<id:41>-529e-5c58-a713-<id:42>.html",
+      "size": 75
+    },
+    {
+      "kind": "xml",
+      "path": "html/<id:41>-529e-5c58-a713-<id:42>.xml",
+      "size": 116
+    },
+    {
+      "kind": "xml",
+      "path": "openassessment/<id:43>-2563-5c82-a0e1-<id:44>.xml",
+      "size": 545
+    },
+    {
+      "kind": "json",
+      "path": "policies/SyntheticMoodleCoreCourse/grading_policy.json",
+      "size": 60
+    },
+    {
+      "kind": "json",
+      "path": "policies/SyntheticMoodleCoreCourse/policy.json",
+      "size": 135
+    },
+    {
+      "kind": "json",
+      "path": "policies/assets.json",
+      "size": 2380
+    },
+    {
+      "kind": "xml",
+      "path": "problem/<id:45>-5828-51a6-8bc2-<id:46>.xml",
+      "size": 1665
+    },
+    {
+      "kind": "binary",
+      "path": "scorm/<id:47>-fc91-5ded-aa45-<id:48>/package.zip",
+      "sha256": "bed2efa5a484bae70238ca07e8a55db426cca624cd1c26f80291c660a8ece475",
+      "size": 779
+    },
+    {
+      "kind": "xml",
+      "path": "scorm/<id:47>-fc91-5ded-aa45-<id:48>.xml",
+      "size": 438
+    },
+    {
+      "kind": "xml",
+      "path": "sequential/<id:3>-edb2-5228-8562-<id:4>.xml",
+      "size": 143
+    },
+    {
+      "kind": "xml",
+      "path": "sequential/<id:7>-0182-5cf8-bdf8-<id:8>.xml",
+      "size": 1263
+    },
+    {
+      "kind": "binary",
+      "path": "static/clip.mp4",
+      "sha256": "222bab81f4fc738e584d6003e6cc31f150b932c967ac66d19916d54723626405",
+      "size": 21
+    },
+    {
+      "kind": "binary",
+      "path": "static/clip2.mp4",
+      "sha256": "cf0294fb77b2bfd71376e3de47c791d4a3d33b475e1d0f776389c9f491309939",
+      "size": 25
+    },
+    {
+      "kind": "binary",
+      "path": "static/handout.pdf",
+      "sha256": "6b88c1c2a48de8f6868943aa598955caaf60e448dd998508ca105ae3e36b1981",
+      "size": 26
+    },
+    {
+      "kind": "binary",
+      "path": "static/package.zip",
+      "sha256": "bed2efa5a484bae70238ca07e8a55db426cca624cd1c26f80291c660a8ece475",
+      "size": 779
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:49>-cd1c-5cbe-a4b0-<id:50>.xml",
+      "size": 139
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:73>-b380-5ff6-8123-<id:74>.xml",
+      "size": 134
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:51>-bf32-5716-ab1a-<id:52>.xml",
+      "size": 132
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:53>-ac7d-5f48-a530-<id:54>.xml",
+      "size": 138
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:87>-15b7-55a3-98e2-<id:88>.xml",
+      "size": 142
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:91>-b798-5f05-86f8-<id:92>.xml",
+      "size": 149
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:55>-a796-55a4-b685-<id:56>.xml",
+      "size": 139
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:65>-7ed4-5f8c-b27f-<id:66>.xml",
+      "size": 139
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:67>-9623-5253-801c-<id:68>.xml",
+      "size": 142
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:59>-d324-5fbf-9be6-<id:60>.xml",
+      "size": 141
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:77>-ae35-58c1-9371-<id:78>.xml",
+      "size": 136
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:81>-a7e3-53b0-aa1b-<id:82>.xml",
+      "size": 138
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:61>-c443-58fa-be18-<id:62>.xml",
+      "size": 140
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:63>-10f3-51c0-8942-<id:64>.xml",
+      "size": 135
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:75>-8358-5808-8976-<id:76>.xml",
+      "size": 132
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:57>-b5fb-5e27-b027-<id:58>.xml",
+      "size": 141
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:69>-4b7e-5d75-b85d-<id:70>.xml",
+      "size": 139
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:89>-24fc-52d3-8bf1-<id:90>.xml",
+      "size": 140
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:85>-6de2-52f7-b0f0-<id:86>.xml",
+      "size": 143
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:71>-d107-5fd6-a9cf-<id:72>.xml",
+      "size": 198
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:79>-8dc6-55d4-826e-<id:80>.xml",
+      "size": 132
+    },
+    {
+      "kind": "xml",
+      "path": "vertical/<id:83>-4d08-58ba-9311-<id:84>.xml",
+      "size": 134
+    },
+    {
+      "kind": "xml",
+      "path": "video/<id:95>-d76f-5f5d-8109-<id:96>.xml",
+      "size": 176
+    },
+    {
+      "kind": "xml",
+      "path": "video/<id:93>-bd94-567b-aead-<id:94>.xml",
+      "size": 179
+    },
+    {
+      "kind": "xml",
+      "path": "video/<id:97>-f71f-5384-bebe-<id:98>.xml",
+      "size": 184
+    }
+  ],
+  "snapshot_version": 1,
+  "target": "openedx"
+}

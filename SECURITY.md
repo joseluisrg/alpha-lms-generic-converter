@@ -33,6 +33,7 @@ Security-sensitive areas include:
 - report rendering and HTML escaping
 - authentication, authorization, and job ownership
 - dependency and supply-chain integrity
+- container image hardening, runtime isolation, and SBOM accuracy
 
 ## Disclosure
 

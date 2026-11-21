@@ -1,0 +1,11 @@
+<moodle_backup>
+  <information>
+    <contents>
+      <activities></activities>
+      <sections>
+        <section><sectionid>1</sectionid><title>Traversal</title><directory>../escape</directory></section>
+      </sections>
+      <course><courseid>1</courseid><title>Traversal</title><directory>course</directory></course>
+    </contents>
+  </information>
+</moodle_backup>

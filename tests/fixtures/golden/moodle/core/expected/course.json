@@ -1,0 +1,1357 @@
+{
+  "case_id": "moodle/core",
+  "course": {
+    "answer_options": [
+      {
+        "is_correct": true,
+        "option_id": "dd6d3254-3838-5a6f-ad79-3e1ae21f33be",
+        "question_id": "fb702773-da36-53fb-9d45-13a8c7ab6516",
+        "text": "Alpha"
+      },
+      {
+        "is_correct": false,
+        "option_id": "b8686396-dc7c-5967-af1a-7bd109f3f034",
+        "question_id": "fb702773-da36-53fb-9d45-13a8c7ab6516",
+        "text": "Beta"
+      },
+      {
+        "is_correct": true,
+        "option_id": "1aae3174-38ff-5344-ae97-301588c32d80",
+        "question_id": "1e360595-984b-542a-94e8-01789335da7d",
+        "text": "Red"
+      },
+      {
+        "is_correct": true,
+        "option_id": "655cee55-674b-5ce2-9767-587f6db226b3",
+        "question_id": "1e360595-984b-542a-94e8-01789335da7d",
+        "text": "Blue"
+      },
+      {
+        "is_correct": false,
+        "option_id": "68aa8676-4165-5d6f-8ae0-c438804dd0b8",
+        "question_id": "1e360595-984b-542a-94e8-01789335da7d",
+        "text": "Green"
+      },
+      {
+        "is_correct": true,
+        "option_id": "e3f324f6-524b-5e14-9dfd-172d6f97b7ec",
+        "question_id": "da3b2c06-1148-520a-aeee-9ccd57b44f3d",
+        "text": "True"
+      },
+      {
+        "is_correct": false,
+        "option_id": "7c961c45-08ad-58a5-9600-9caad351a2fd",
+        "question_id": "da3b2c06-1148-520a-aeee-9ccd57b44f3d",
+        "text": "False"
+      },
+      {
+        "is_correct": true,
+        "option_id": "65001baf-8213-5d4b-8410-318c3d72ecfe",
+        "question_id": "818a11d8-4487-594d-8cc0-e11f9b9d104b",
+        "text": "Answer"
+      },
+      {
+        "is_correct": true,
+        "option_id": "35ccd95f-4417-5831-b881-98d6482356b8",
+        "question_id": "684e3f13-0658-5dd7-a209-0bab5921517d",
+        "text": "3.14"
+      }
+    ],
+    "assessments": [
+      {
+        "assessment_id": "b74f7803-55a7-591a-8111-87c4e4345639",
+        "assessment_type": "quiz",
+        "course_id": "2b06ebf5-6562-5cc4-b64a-537f7a2acd14",
+        "max_score": 14.0,
+        "metadata": {
+          "quiz_activity_id": "7"
+        },
+        "raw_fragment_ids": [],
+        "title": "Core Quiz"
+      }
+    ],
+    "assets": [
+      {
+        "asset_id": "34a0d593-f3b8-5f6a-8828-a5886c503aa3",
+        "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "course_id": "2b06ebf5-6562-5cc4-b64a-537f7a2acd14",
+        "metadata": {
+          "is_video": false,
+          "original_filename": "handout.pdf"
+        },
+        "mime_type": "application/pdf",
+        "path": "files/aa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "raw_fragment_id": null
+      },
+      {
+        "asset_id": "129633cf-3d12-5011-b1c0-179734125179",
+        "checksum": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "course_id": "2b06ebf5-6562-5cc4-b64a-537f7a2acd14",
+        "metadata": {
+          "is_video": true,
+          "original_filename": "clip.mp4"
+        },
+        "mime_type": "video/mp4",
+        "path": "files/bb/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "raw_fragment_id": null
+      },
+      {
+        "asset_id": "734ea4b4-c18e-59ad-8acb-83e5e3dd21dc",
+        "checksum": "",
+        "course_id": "2b06ebf5-6562-5cc4-b64a-537f7a2acd14",
+        "metadata": {
+          "is_scorm": true
+        },
+        "mime_type": "application/zip",
+        "path": "activities/scorm_10/package.zip",
+        "raw_fragment_id": null
+      },
+      {
+        "asset_id": "e3a47133-0ec2-56fb-8bc4-c945aa9abc0c",
+        "checksum": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "course_id": "2b06ebf5-6562-5cc4-b64a-537f7a2acd14",
+        "metadata": {
+          "is_video": true,
+          "original_filename": "clip2.mp4"
+        },
+        "mime_type": "video/mp4",
+        "path": "files/ee/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "raw_fragment_id": null
+      },
+      {
+        "asset_id": "5c57daa7-bd7c-5a26-8480-7d4ee4ce3da7",
+        "checksum": "dddddddddddddddddddddddddddddddddddddddd",
+        "course_id": "2b06ebf5-6562-5cc4-b64a-537f7a2acd14",
+        "metadata": {
+          "is_video": false,
+          "original_filename": "missing.pdf"
+        },
+        "mime_type": "application/pdf",
+        "path": "files/dd/dddddddddddddddddddddddddddddddddddddddd",
+        "raw_fragment_id": null
+      }
+    ],
+    "content_nodes": [
+      {
+        "assessment_id": null,
+        "children": [
+          {
+            "assessment_id": null,
+            "children": [
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Page content</p>",
+                      "intro_html": "Page intro",
+                      "moodle_module": "page"
+                    },
+                    "node_id": "f19d15ad-f707-5922-842e-5ab183d9f20a",
+                    "node_type": "html",
+                    "parent_id": "2d4dc3ce-bf32-5716-ab1a-e1c9f3e06e9a",
+                    "position": 0,
+                    "raw_fragment_ids": [],
+                    "title": "Page"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "2",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "2d4dc3ce-bf32-5716-ab1a-e1c9f3e06e9a",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 0,
+                "raw_fragment_ids": [
+                  "2f7ce2d3-2c42-55fb-9135-a89ba611a210"
+                ],
+                "title": "Page"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Label content</p>"
+                    },
+                    "node_id": "a404248e-1f34-59c1-98b9-aac88e0ac2cb",
+                    "node_type": "html",
+                    "parent_id": "3e0fe26a-ac7d-5f48-a530-06079ee68dbe",
+                    "position": 1,
+                    "raw_fragment_ids": [],
+                    "title": "Label HTML"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "3",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "3e0fe26a-ac7d-5f48-a530-06079ee68dbe",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 1,
+                "raw_fragment_ids": [
+                  "a84c6d82-54b9-5aab-89a0-a80889f41383"
+                ],
+                "title": "Label HTML"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "youtube",
+                      "content_html": "Watch https://www.youtube.com/watch?v=abc12345678",
+                      "externalurl": "youtube.com/watch?v=abc12345678",
+                      "youtube_id": "abc12345678"
+                    },
+                    "node_id": "35b19590-2d65-52d2-9c5c-2c248424f835",
+                    "node_type": "html",
+                    "parent_id": "771c899c-a796-55a4-b685-c04e7ed613b0",
+                    "position": 2,
+                    "raw_fragment_ids": [],
+                    "title": "Label Video"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "4",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "771c899c-a796-55a4-b685-c04e7ed613b0",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 2,
+                "raw_fragment_ids": [
+                  "01b3c50f-b2f4-560f-bca7-b84e3a95e49f"
+                ],
+                "title": "Label Video"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "youtube",
+                      "content_html": "",
+                      "externalurl": "https://www.youtube.com/watch?v=xyz12345678",
+                      "youtube_id": "xyz12345678"
+                    },
+                    "node_id": "3488839c-d76f-5f5d-8109-792e17f02239",
+                    "node_type": "video",
+                    "parent_id": "a43d17cd-b5fb-5e27-b027-0db056ba9619",
+                    "position": 3,
+                    "raw_fragment_ids": [],
+                    "title": "YouTube Link"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "5",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "a43d17cd-b5fb-5e27-b027-0db056ba9619",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 3,
+                "raw_fragment_ids": [
+                  "672521b1-4aa9-5e63-ae83-316634044554"
+                ],
+                "title": "YouTube Link"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "url",
+                      "content_html": "<p><a href=\"https://example.org/resource\">https://example.org/resource</a></p>",
+                      "externalurl": "https://example.org/resource"
+                    },
+                    "node_id": "e954fecc-f622-55dd-b201-28df4accb2e9",
+                    "node_type": "activity",
+                    "parent_id": "84e38df8-d324-5fbf-9be6-bf28cc14761d",
+                    "position": 4,
+                    "raw_fragment_ids": [],
+                    "title": "External Link"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "6",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "84e38df8-d324-5fbf-9be6-bf28cc14761d",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 4,
+                "raw_fragment_ids": [
+                  "bada0b2a-56b4-522d-a769-6bee4ab24279"
+                ],
+                "title": "External Link"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": "b74f7803-55a7-591a-8111-87c4e4345639",
+                    "children": [],
+                    "metadata": {
+                      "content_html": "Quiz intro",
+                      "question_ids": [
+                        "101",
+                        "102",
+                        "103",
+                        "104",
+                        "105",
+                        "106",
+                        "107",
+                        "108"
+                      ],
+                      "quiz_id": null
+                    },
+                    "node_id": "a4273721-5828-51a6-8bc2-bb48be5b6234",
+                    "node_type": "problem",
+                    "parent_id": "8d413939-c443-58fa-be18-0d588cbf1cea",
+                    "position": 5,
+                    "raw_fragment_ids": [],
+                    "title": "Core Quiz"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "7",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "8d413939-c443-58fa-be18-0d588cbf1cea",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 5,
+                "raw_fragment_ids": [
+                  "21c98dab-e14d-5b57-9e84-f171a913692c"
+                ],
+                "title": "Core Quiz"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "resource",
+                      "asset_id": "34a0d593-f3b8-5f6a-8828-a5886c503aa3",
+                      "content_html": "<h3>Handout</h3><p><a href=\"/static/files/aa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\">Download handout.pdf</a></p>"
+                    },
+                    "node_id": "ce885e92-1609-519c-a1c1-da923febc591",
+                    "node_type": "activity",
+                    "parent_id": "9004a0ea-10f3-51c0-8942-4bdaa97f3289",
+                    "position": 6,
+                    "raw_fragment_ids": [],
+                    "title": "Handout"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "8",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "9004a0ea-10f3-51c0-8942-4bdaa97f3289",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 6,
+                "raw_fragment_ids": [
+                  "5e79f9be-43fe-5a77-94b8-cb3dff645c08"
+                ],
+                "title": "Handout"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "video",
+                      "asset_id": "129633cf-3d12-5011-b1c0-179734125179",
+                      "content_html": ""
+                    },
+                    "node_id": "ac6bde10-bd94-567b-aead-641271b1b2ae",
+                    "node_type": "video",
+                    "parent_id": "7978f7c9-7ed4-5f8c-b27f-dc2e54eeb2e8",
+                    "position": 7,
+                    "raw_fragment_ids": [],
+                    "title": "Video File"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "9",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "7978f7c9-7ed4-5f8c-b27f-dc2e54eeb2e8",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 7,
+                "raw_fragment_ids": [
+                  "8fcc4adf-886b-513f-a78f-86daf934093c"
+                ],
+                "title": "Video File"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "asset_id": "734ea4b4-c18e-59ad-8acb-83e5e3dd21dc",
+                      "content_html": "",
+                      "scorm_settings": {
+                        "auto": "0",
+                        "grademethod": "1",
+                        "launch": "1",
+                        "maxgrade": "10",
+                        "sco_launch": "index.html",
+                        "skipview": "2",
+                        "version": "SCORM_1.2"
+                      }
+                    },
+                    "node_id": "cd17f64a-fc91-5ded-aa45-b094d4c1e897",
+                    "node_type": "scorm",
+                    "parent_id": "7d29f6fa-9623-5253-801c-5d06724c1f7e",
+                    "position": 8,
+                    "raw_fragment_ids": [],
+                    "title": "SCORM Package"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "10",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "7d29f6fa-9623-5253-801c-5d06724c1f7e",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 8,
+                "raw_fragment_ids": [
+                  "e9283fb5-6e5e-533b-be4c-98709c0afccb"
+                ],
+                "title": "SCORM Package"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Discuss the course.</p>"
+                    },
+                    "node_id": "eccadbb8-3c35-5d90-9c6e-a37b3f040364",
+                    "node_type": "forum",
+                    "parent_id": "b316bcb7-4b7e-5d75-b85d-7ff858789a86",
+                    "position": 9,
+                    "raw_fragment_ids": [],
+                    "title": "Forum"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "11",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "b316bcb7-4b7e-5d75-b85d-7ff858789a86",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 9,
+                "raw_fragment_ids": [
+                  "5d0b4d57-0ba4-5e47-a43e-25be68610a5c"
+                ],
+                "title": "Forum"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "workshop",
+                      "content_html": "<p>Peer review.</p>",
+                      "moodle_workshop_id": ""
+                    },
+                    "node_id": "97a8d004-2563-5c82-a0e1-390399275f57",
+                    "node_type": "openassessment",
+                    "parent_id": "d303c138-d107-5fd6-a9cf-bce69b49f469",
+                    "position": 10,
+                    "raw_fragment_ids": [],
+                    "title": "Workshop"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "12",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "d303c138-d107-5fd6-a9cf-bce69b49f469",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 10,
+                "raw_fragment_ids": [
+                  "0062dc9f-0e18-5b28-9f30-853e60690de0"
+                ],
+                "title": "Workshop"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<h3>Choice activity: Choice</h3><p>Pick an option.</p>"
+                    },
+                    "node_id": "52cf55d6-b815-5238-8fa8-6516f7c831b7",
+                    "node_type": "html",
+                    "parent_id": "1a4da2ca-b380-5ff6-8123-78f01b2f1566",
+                    "position": 11,
+                    "raw_fragment_ids": [],
+                    "title": "Choice"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "13",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "1a4da2ca-b380-5ff6-8123-78f01b2f1566",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 11,
+                "raw_fragment_ids": [
+                  "854976c4-eae1-58d6-8e08-661a0f6afeba"
+                ],
+                "title": "Choice"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<h3>Book</h3><p>Book intro</p><hr/><h4>Chapter 1</h4><p>Chapter content</p>"
+                    },
+                    "node_id": "fc930bf8-529e-5c58-a713-0c9e1e8c9af0",
+                    "node_type": "html",
+                    "parent_id": "a0521cc2-8358-5808-8976-5a53c6be7790",
+                    "position": 12,
+                    "raw_fragment_ids": [],
+                    "title": "Book"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "14",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "a0521cc2-8358-5808-8976-5a53c6be7790",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 12,
+                "raw_fragment_ids": [
+                  "0ffe3f38-7be9-5280-8b11-db1ec129e76a"
+                ],
+                "title": "Book"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<h3>Glossary: Glossary</h3><p>Terms.</p>"
+                    },
+                    "node_id": "260107d9-980b-5dbb-b950-96ff10532955",
+                    "node_type": "html",
+                    "parent_id": "858c2210-ae35-58c1-9371-c5732d1503d9",
+                    "position": 13,
+                    "raw_fragment_ids": [],
+                    "title": "Glossary"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "15",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "858c2210-ae35-58c1-9371-c5732d1503d9",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 13,
+                "raw_fragment_ids": [
+                  "73e21add-cd49-5123-a4f4-b42d698b2fe7"
+                ],
+                "title": "Glossary"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<h3>Wiki: Wiki</h3><p>Wiki intro.</p>"
+                    },
+                    "node_id": "b4748983-e60e-5c2a-9926-4ea5ec857a4f",
+                    "node_type": "html",
+                    "parent_id": "d3bcbfae-8dc6-55d4-826e-45b32fdb383d",
+                    "position": 14,
+                    "raw_fragment_ids": [],
+                    "title": "Wiki"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "16",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "d3bcbfae-8dc6-55d4-826e-45b32fdb383d",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 14,
+                "raw_fragment_ids": [
+                  "e62d6c4a-913c-56e9-9081-388be6570eac"
+                ],
+                "title": "Wiki"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<h3>Assignment: Assignment</h3><p>Submit work.</p>"
+                    },
+                    "node_id": "e7f3d0e4-b67c-50d6-ae94-b4bcfc0c7d1f",
+                    "node_type": "html",
+                    "parent_id": "8994a0a3-a7e3-53b0-aa1b-265a230719a3",
+                    "position": 15,
+                    "raw_fragment_ids": [],
+                    "title": "Assignment"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "17",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "8994a0a3-a7e3-53b0-aa1b-265a230719a3",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 15,
+                "raw_fragment_ids": [
+                  "8820de22-33b4-5958-b1cc-151c2e3f7521"
+                ],
+                "title": "Assignment"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<h3>Lesson: Lesson</h3><p>Lesson intro.</p>"
+                    },
+                    "node_id": "109e2105-c2fe-5695-9ce3-2d45c9ffd262",
+                    "node_type": "html",
+                    "parent_id": "ded16dfd-4d08-58ba-9311-6c1f5723002e",
+                    "position": 16,
+                    "raw_fragment_ids": [],
+                    "title": "Lesson"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "18",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "ded16dfd-4d08-58ba-9311-6c1f5723002e",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 16,
+                "raw_fragment_ids": [
+                  "daa8cf77-9751-5655-af37-21372aa26e94"
+                ],
+                "title": "Lesson"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "video",
+                      "asset_id": "e3a47133-0ec2-56fb-8bc4-c945aa9abc0c",
+                      "content_html": "",
+                      "video_url": "files/ee/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+                    },
+                    "node_id": "e16c1bb1-f71f-5384-bebe-febbff06e4fa",
+                    "node_type": "video",
+                    "parent_id": "c377ea25-6de2-52f7-b0f0-7e9fac0bbd87",
+                    "position": 17,
+                    "raw_fragment_ids": [],
+                    "title": "Video Activity"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "19",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "c377ea25-6de2-52f7-b0f0-7e9fac0bbd87",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 17,
+                "raw_fragment_ids": [
+                  "6d6e33ca-fda8-5fc9-a6f3-464d780671bb"
+                ],
+                "title": "Video Activity"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Unsupported activity: mystery</p>"
+                    },
+                    "node_id": "b4fbfa7c-4d49-501c-b762-e44bfa3a6d7d",
+                    "node_type": "html",
+                    "parent_id": "41f46e08-15b7-55a3-98e2-07b1820c0226",
+                    "position": 18,
+                    "raw_fragment_ids": [],
+                    "title": "Mystery Module"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "20",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "41f46e08-15b7-55a3-98e2-07b1820c0226",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 18,
+                "raw_fragment_ids": [
+                  "1823b390-2266-50cf-ae3b-03cdc8596fa9"
+                ],
+                "title": "Mystery Module"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "activity_type": "resource",
+                      "asset_id": "5c57daa7-bd7c-5a26-8480-7d4ee4ce3da7",
+                      "content_html": "<h3>Missing File</h3><p><a href=\"/static/files/dd/dddddddddddddddddddddddddddddddddddddddd\">Download missing.pdf</a></p>"
+                    },
+                    "node_id": "69a98645-dc01-51cc-9292-465b766580f3",
+                    "node_type": "activity",
+                    "parent_id": "c3430ffa-24fc-52d3-8bf1-3a7a1cfa9935",
+                    "position": 19,
+                    "raw_fragment_ids": [],
+                    "title": "Missing File"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "21",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "c3430ffa-24fc-52d3-8bf1-3a7a1cfa9935",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 19,
+                "raw_fragment_ids": [
+                  "bb8488ad-3a10-50f6-9769-eebdb7dea7bf"
+                ],
+                "title": "Missing File"
+              },
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Missing SCORM package for activity: Missing SCORM Package</p>"
+                    },
+                    "node_id": "4ed8628a-2bce-5fde-ad15-d4b1af62b887",
+                    "node_type": "html",
+                    "parent_id": "64e4d247-b798-5f05-86f8-7c684c965883",
+                    "position": 20,
+                    "raw_fragment_ids": [],
+                    "title": "Missing SCORM Package"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "22",
+                  "moodle_section_id": "1"
+                },
+                "node_id": "64e4d247-b798-5f05-86f8-7c684c965883",
+                "node_type": "vertical",
+                "parent_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+                "position": 20,
+                "raw_fragment_ids": [
+                  "88d0d914-25e9-5b73-bb37-dfba9fb5e579"
+                ],
+                "title": "Missing SCORM Package"
+              }
+            ],
+            "metadata": {},
+            "node_id": "d3c232d9-0182-5cf8-bdf8-a65201c6ee0c",
+            "node_type": "sequential",
+            "parent_id": "a6a33938-4a90-54b1-a85d-af8eb813625d",
+            "position": 0,
+            "raw_fragment_ids": [],
+            "title": "Content"
+          }
+        ],
+        "metadata": {
+          "moodle_section_id": "1"
+        },
+        "node_id": "a6a33938-4a90-54b1-a85d-af8eb813625d",
+        "node_type": "chapter",
+        "parent_id": null,
+        "position": 0,
+        "raw_fragment_ids": [
+          "ee3056a1-0c74-518b-8926-fc702084afe1"
+        ],
+        "title": "Week One"
+      },
+      {
+        "assessment_id": null,
+        "children": [
+          {
+            "assessment_id": null,
+            "children": [
+              {
+                "assessment_id": null,
+                "children": [
+                  {
+                    "assessment_id": null,
+                    "children": [],
+                    "metadata": {
+                      "content_html": "<p>Second page content</p>",
+                      "intro_html": "Second page intro",
+                      "moodle_module": "page"
+                    },
+                    "node_id": "72aebb6d-cf75-5a09-b30b-ba499177aa84",
+                    "node_type": "html",
+                    "parent_id": "0ab23398-cd1c-5cbe-a4b0-223e828638e2",
+                    "position": 0,
+                    "raw_fragment_ids": [],
+                    "title": "Second Page"
+                  }
+                ],
+                "metadata": {
+                  "moodle_cmid": "23",
+                  "moodle_section_id": "2"
+                },
+                "node_id": "0ab23398-cd1c-5cbe-a4b0-223e828638e2",
+                "node_type": "vertical",
+                "parent_id": "0113929c-edb2-5228-8562-3e9302ba025f",
+                "position": 0,
+                "raw_fragment_ids": [
+                  "3442c8c0-31bb-56b6-b768-6fa32b8348cd"
+                ],
+                "title": "Second Page"
+              }
+            ],
+            "metadata": {},
+            "node_id": "0113929c-edb2-5228-8562-3e9302ba025f",
+            "node_type": "sequential",
+            "parent_id": "87bbe1e1-a9fc-5919-93c1-0b2945f0a0f3",
+            "position": 0,
+            "raw_fragment_ids": [],
+            "title": "Content"
+          }
+        ],
+        "metadata": {
+          "moodle_section_id": "2"
+        },
+        "node_id": "87bbe1e1-a9fc-5919-93c1-0b2945f0a0f3",
+        "node_type": "chapter",
+        "parent_id": null,
+        "position": 1,
+        "raw_fragment_ids": [
+          "6a146175-3e44-5c4e-98b5-687be048e41f"
+        ],
+        "title": "Week Two"
+      }
+    ],
+    "course_id": "2b06ebf5-6562-5cc4-b64a-537f7a2acd14",
+    "lti_links": [],
+    "mapping_notes": [
+      {
+        "code": "VIDEO_ASSETS_FOUND",
+        "fallback_used": false,
+        "message": "Found 2 video file(s) in source. These will be copied to the target course.",
+        "note_id": "5637378e-741a-5229-b803-990045cbe473",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      },
+      {
+        "code": "ESSAY_QUESTION",
+        "fallback_used": false,
+        "message": "Question '7285edbf-fc38-5a5b-b552-75c5bc2bc9be' is an essay/description type. It will be converted as a placeholder requiring manual review.",
+        "note_id": "6e079096-c34a-5895-a841-ceab998cf3a0",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      },
+      {
+        "code": "ESSAY_QUESTION",
+        "fallback_used": false,
+        "message": "Question '66ab4a7b-5e74-50d9-8508-98cdb0f0b2ef' is an essay/description type. It will be converted as a placeholder requiring manual review.",
+        "note_id": "f5d83184-f44c-5996-a8c0-840956e9b0ad",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      },
+      {
+        "code": "UNSUPPORTED_QUESTION_TYPE",
+        "fallback_used": true,
+        "message": "Found 1 question(s) with unsupported types: ['mysteryq']. They will be converted as placeholders.",
+        "note_id": "ae54f893-d409-591c-b98f-463ea16fd171",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      },
+      {
+        "code": "EXTERNAL_URLS",
+        "fallback_used": false,
+        "message": "Found 1 external URL(s). YouTube videos will be converted; other URLs become activity links.",
+        "note_id": "230d5f58-9dcb-5a21-b9e3-733e2f2560bb",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      },
+      {
+        "code": "MIGRATION_SUMMARY",
+        "fallback_used": false,
+        "message": "Course: Synthetic Moodle Core Course | Chapters: 2 | Assessments: 1 | Questions: 8 | Assets: 5 | Warnings: 1 | Errors: 0 | Target: openedx",
+        "note_id": "bf81b48f-5827-51c5-ada0-ceb4e68cbdd0",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      }
+    ],
+    "metadata": {
+      "lang": "en",
+      "schema_version": 2,
+      "shortname": "MoodleCore",
+      "source_key": "MoodleCore"
+    },
+    "questions": [
+      {
+        "assessment_id": "b74f7803-55a7-591a-8111-87c4e4345639",
+        "metadata": {
+          "correct_answer": "Alpha",
+          "correct_answers": [
+            "Alpha"
+          ],
+          "source_question_id": "101"
+        },
+        "points": 2.0,
+        "prompt_text": "Pick one",
+        "question_id": "fb702773-da36-53fb-9d45-13a8c7ab6516",
+        "question_type": "multichoice",
+        "raw_fragment_ids": []
+      },
+      {
+        "assessment_id": "b74f7803-55a7-591a-8111-87c4e4345639",
+        "metadata": {
+          "correct_answer": "Red",
+          "correct_answers": [
+            "Red",
+            "Blue"
+          ],
+          "source_question_id": "102"
+        },
+        "points": 3.0,
+        "prompt_text": "Pick many",
+        "question_id": "1e360595-984b-542a-94e8-01789335da7d",
+        "question_type": "multiselect",
+        "raw_fragment_ids": []
+      },
+      {
+        "assessment_id": "b74f7803-55a7-591a-8111-87c4e4345639",
+        "metadata": {
+          "correct_answer": "True",
+          "correct_answers": [
+            "True"
+          ],
+          "source_question_id": "103"
+        },
+        "points": 1.0,
+        "prompt_text": "True or false",
+        "question_id": "da3b2c06-1148-520a-aeee-9ccd57b44f3d",
+        "question_type": "truefalse",
+        "raw_fragment_ids": []
+      },
+      {
+        "assessment_id": "b74f7803-55a7-591a-8111-87c4e4345639",
+        "metadata": {
+          "correct_answer": "Answer",
+          "correct_answers": [
+            "Answer"
+          ],
+          "source_question_id": "104"
+        },
+        "points": 1.0,
+        "prompt_text": "Short answer",
+        "question_id": "818a11d8-4487-594d-8cc0-e11f9b9d104b",
+        "question_type": "shortanswer",
+        "raw_fragment_ids": []
+      },
+      {
+        "assessment_id": "b74f7803-55a7-591a-8111-87c4e4345639",
+        "metadata": {
+          "correct_answer": "3.14",
+          "correct_answers": [
+            "3.14"
+          ],
+          "source_question_id": "105",
+          "tolerance": "0.01"
+        },
+        "points": 1.0,
+        "prompt_text": "Numerical answer",
+        "question_id": "684e3f13-0658-5dd7-a209-0bab5921517d",
+        "question_type": "numerical",
+        "raw_fragment_ids": []
+      },
+      {
+        "assessment_id": "b74f7803-55a7-591a-8111-87c4e4345639",
+        "metadata": {
+          "requires_manual_review": true,
+          "source_question_id": "106"
+        },
+        "points": 5.0,
+        "prompt_text": "Write an essay",
+        "question_id": "7285edbf-fc38-5a5b-b552-75c5bc2bc9be",
+        "question_type": "essay",
+        "raw_fragment_ids": []
+      },
+      {
+        "assessment_id": "b74f7803-55a7-591a-8111-87c4e4345639",
+        "metadata": {
+          "requires_manual_review": true,
+          "source_question_id": "107"
+        },
+        "points": 0.0,
+        "prompt_text": "Read this description",
+        "question_id": "66ab4a7b-5e74-50d9-8508-98cdb0f0b2ef",
+        "question_type": "description",
+        "raw_fragment_ids": []
+      },
+      {
+        "assessment_id": "b74f7803-55a7-591a-8111-87c4e4345639",
+        "metadata": {
+          "source_question_id": "108"
+        },
+        "points": 1.0,
+        "prompt_text": "Unknown question type",
+        "question_id": "ac253aa0-33af-5aaf-9723-edbb29961fe6",
+        "question_type": "mysteryq",
+        "raw_fragment_ids": []
+      }
+    ],
+    "raw_fragments": [
+      {
+        "checksum": "7efcbb7910bbf2d06a1228607fd484f7b0763ac24c47d6d75c08d9bc9def9129",
+        "fragment_id": "d6762620-9387-515e-aa37-dc0ea3a4b590",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "course/course.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "d6d1b45bfd779499b7fb995a57e14ea8dfd00b527d4e59befc2dd19c1b416ade",
+        "fragment_id": "ee3056a1-0c74-518b-8926-fc702084afe1",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "sections/section_1/section.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "226f0bdaf8820f735b192a730384c3cdc0a9c19dd8666a1d6cfb1673fa8291de",
+        "fragment_id": "2f7ce2d3-2c42-55fb-9135-a89ba611a210",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/page_2/page.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "914f1acbb7294f5e40e71084e84b0c7ee54a4c94b4e66f16276300eaaceb0a54",
+        "fragment_id": "a84c6d82-54b9-5aab-89a0-a80889f41383",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/label_3/label.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "ca1d59ba4f180829f1393809e4ec5e4843ce316505544487b60ba8105e8e7bd7",
+        "fragment_id": "01b3c50f-b2f4-560f-bca7-b84e3a95e49f",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/label_4/label.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "93f00e6c4d5bac643f3ace7b13d62907a39b75ba47a5e5d5f1352cf0fbb8bbf3",
+        "fragment_id": "672521b1-4aa9-5e63-ae83-316634044554",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/url_5/url.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "aea4c1bcfec83fab562dcd3b7e0f27085ec865c6bc493430cd7d1dd3feea1ad3",
+        "fragment_id": "bada0b2a-56b4-522d-a769-6bee4ab24279",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/url_6/url.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "c3efea7224868d45687db7968f2fca97cc361d691b89448460946e5a402e75a4",
+        "fragment_id": "21c98dab-e14d-5b57-9e84-f171a913692c",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/quiz_7/quiz.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "67d3a90137e0f5141d3ff3bd2a4762767bcc958607bc02f9ffdcc29332d90917",
+        "fragment_id": "5e79f9be-43fe-5a77-94b8-cb3dff645c08",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/resource_8/resource.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "c9550a9b7d586398538182034e07d9faf1b754bd064f3c53977fc9686408806a",
+        "fragment_id": "8fcc4adf-886b-513f-a78f-86daf934093c",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/resource_9/resource.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "2b722cae19216af417f03b12dcbb4fe57248bbee3cbac461189a31195d59f59e",
+        "fragment_id": "e9283fb5-6e5e-533b-be4c-98709c0afccb",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/scorm_10/scorm.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "3d71f43bb2476c5d1384f15eb76789036d5c76ef7a9b5bb4efb8912ea9b1c196",
+        "fragment_id": "5d0b4d57-0ba4-5e47-a43e-25be68610a5c",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/forum_11/forum.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "21002e2ce292156d5873da8e6ec5e3a8aba23d836bd73dd47257836c832c3298",
+        "fragment_id": "0062dc9f-0e18-5b28-9f30-853e60690de0",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/workshop_12/workshop.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "3f33da2e79c1ada7fe8d06aa14c3078facbb32e5ecbeb60df6b692194d519829",
+        "fragment_id": "854976c4-eae1-58d6-8e08-661a0f6afeba",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/choice_13/choice.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "7dcb8fdfe90318500264126df9e62cf3e3aed126e8b693b136895a192429ed1a",
+        "fragment_id": "0ffe3f38-7be9-5280-8b11-db1ec129e76a",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/book_14/book.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "321196853ad04762879aef101f61424f6c2dff336ff593a2a2fd31784f0a0fbb",
+        "fragment_id": "73e21add-cd49-5123-a4f4-b42d698b2fe7",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/glossary_15/glossary.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "a2b3aeadcc979b0a3c79a687e170f95498a705717cd54629418922e9fd2bf097",
+        "fragment_id": "e62d6c4a-913c-56e9-9081-388be6570eac",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/wiki_16/wiki.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "3be7ab529dc94dd299cfb77b2698814199b571c33e389c748723ef6f1c54ae0d",
+        "fragment_id": "8820de22-33b4-5958-b1cc-151c2e3f7521",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/assign_17/assign.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "837b02621ef3896ed5f2d30b9e04b0bccca4a9bc5b88472e50b7fbbccb3f876b",
+        "fragment_id": "daa8cf77-9751-5655-af37-21372aa26e94",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/lesson_18/lesson.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "b2e2fc79152e0b0bea78dd620484232adc59f5fef2a2a76c1853056b98892c7d",
+        "fragment_id": "6d6e33ca-fda8-5fc9-a6f3-464d780671bb",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/videofile_19/videofile.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "77ba22f0b108324b0455fe30ab38ded19e45fab4329f26c2e495b8d1458523fa",
+        "fragment_id": "1823b390-2266-50cf-ae3b-03cdc8596fa9",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/mystery_20/mystery.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "6db7d409e5695c2f21b364122a1ae4ebb9b9d31643caa7e6fb0f73963177742e",
+        "fragment_id": "bb8488ad-3a10-50f6-9769-eebdb7dea7bf",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/resource_21/resource.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "58788da689e9545b72ac16b6e151ae89f739cea90215bd11467b274fe576c16a",
+        "fragment_id": "88d0d914-25e9-5b73-bb37-dfba9fb5e579",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/scorm_22/scorm.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "88a931baeef158d8418d1b80ac56170433b952c9472024806c42ed24034b24a4",
+        "fragment_id": "6a146175-3e44-5c4e-98b5-687be048e41f",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "sections/section_2/section.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      },
+      {
+        "checksum": "04315ef9ca31898be8dee64ab375620be714e5d33b6ebe3e2d7cfc6a5bbe9d1b",
+        "fragment_id": "3442c8c0-31bb-56b6-b768-6fa32b8348cd",
+        "kind": "xml",
+        "source_location": {
+          "node_id": null,
+          "package_path": "activities/page_23/page.xml",
+          "source_system": "moodle",
+          "xpath": null
+        }
+      }
+    ],
+    "schema_version": 2,
+    "source_system": "moodle",
+    "title": "Synthetic Moodle Core Course"
+  },
+  "snapshot_version": 1,
+  "source": "moodle"
+}

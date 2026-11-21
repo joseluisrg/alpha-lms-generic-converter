@@ -1,0 +1,6 @@
+<problem display_name="Legacy Check">
+  <stringresponse answer="yes" type="ci">
+    <label>Say yes</label>
+    <textline size="20" />
+  </stringresponse>
+</problem>

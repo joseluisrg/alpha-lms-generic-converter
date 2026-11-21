@@ -1,0 +1,3 @@
+<video display_name="Local Video">
+  <source src="/static/videos/clip.mp4" />
+</video>

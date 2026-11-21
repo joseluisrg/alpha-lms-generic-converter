@@ -1,0 +1,902 @@
+{
+  "schema_version": 1,
+  "matrix_version": 1,
+  "status": "draft",
+  "updated": "2026-11-21",
+  "certification_targets": {
+    "moodle": {
+      "release": "5.3 LTS",
+      "patch": "5.3.1",
+      "php": "8.4",
+      "database": "MariaDB 11.4"
+    },
+    "openedx": {
+      "release": "Verawood",
+      "patch": "Verawood.2",
+      "tutor": "22.0.4"
+    }
+  },
+  "evidence": {
+    "openedx/core": {
+      "fixture": "openedx/core/source",
+      "report": "openedx/core/expected/report.json",
+      "export": {
+        "moodle": "openedx/core/expected/export-moodle.json"
+      }
+    },
+    "openedx/edge-cases": {
+      "fixture": "openedx/edge-cases/source",
+      "report": "openedx/edge-cases/expected/report.json"
+    },
+    "openedx/empty": {
+      "fixture": "openedx/empty/source",
+      "report": "openedx/empty/expected/report.json"
+    },
+    "moodle/core": {
+      "fixture": "moodle/core/source",
+      "report": "moodle/core/expected/report.json",
+      "export": {
+        "openedx": "moodle/core/expected/export-openedx.json"
+      }
+    },
+    "moodle/edge-cases": {
+      "fixture": "moodle/edge-cases/source",
+      "report": "moodle/edge-cases/expected/report.json"
+    }
+  },
+  "known_gaps": [
+    "Live LMS certification is configured but has not completed a green run yet; rows describe current exporter behavior until then.",
+    "Full Open edX Verawood and Tutor import certification is pending.",
+    "LTI launch data and raw fragments are not emitted to target exports.",
+    "HTML fallbacks for Moodle choice, book, glossary, wiki, assignment, and lesson activities do not yet have dedicated report codes."
+  ],
+  "features": [
+    {
+      "id": "moodle.assign",
+      "description": "Moodle assignment activity, title and intro preserved as an HTML fallback.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "HTML fallback requires manual review."
+    },
+    {
+      "id": "moodle.book",
+      "description": "Moodle book chapters rendered into a single HTML activity.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "Book chapter structure is flattened."
+    },
+    {
+      "id": "moodle.choice",
+      "description": "Moodle choice activity represented as a manual-review HTML activity.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "Choice options are not emitted; the title and intro are preserved."
+    },
+    {
+      "id": "moodle.forum",
+      "description": "Moodle forum mapped to an Open edX discussion component.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.glossary",
+      "description": "Moodle glossary represented as an HTML overview.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "Glossary entries are not preserved."
+    },
+    {
+      "id": "moodle.hierarchy",
+      "description": "Moodle sections and activities mapped to an Open edX chapter, sequential, and vertical hierarchy.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.label.html",
+      "description": "Moodle HTML label mapped to an Open edX HTML component.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.label.youtube",
+      "description": "Moodle label containing a YouTube link mapped to an Open edX video component.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.lesson",
+      "description": "Moodle lesson represented as a manual-review HTML activity.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "Lesson pages and navigation are not preserved."
+    },
+    {
+      "id": "moodle.page",
+      "description": "Moodle page body mapped to an Open edX HTML component.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.question.description",
+      "description": "Moodle description question rendered as a placeholder problem.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "Reported as ESSAY_QUESTION and requires manual review."
+    },
+    {
+      "id": "moodle.question.essay",
+      "description": "Moodle essay question rendered as a placeholder problem.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "Reported as ESSAY_QUESTION and requires manual review."
+    },
+    {
+      "id": "moodle.question.multichoice_multi",
+      "description": "Moodle multi-select question mapped to an Open edX checkbox response.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.question.multichoice_single",
+      "description": "Moodle single-select question mapped to an Open edX multiple-choice response.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.question.numerical_tolerance",
+      "description": "Moodle numerical question mapped to an Open edX numerical response.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "Tolerance is emitted as an OLX responseparam and checked during certification."
+    },
+    {
+      "id": "moodle.question.shortanswer",
+      "description": "Moodle short-answer question mapped to an Open edX string response.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.question.truefalse",
+      "description": "Moodle true/false question mapped to an Open edX multiple-choice response.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.question.unknown",
+      "description": "Unknown Moodle question type rendered as a manual-review placeholder.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "Reported as UNSUPPORTED_QUESTION_TYPE."
+    },
+    {
+      "id": "moodle.question_bank_link",
+      "description": "Question-bank entries linked into Moodle quiz assessments.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.quiz",
+      "description": "Moodle quiz mapped to an Open edX problem with its linked questions.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.raw_fragments",
+      "description": "Raw Moodle XML fragments preserved in canonical IR only.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "unsupported",
+      "evidence": "moodle/core",
+      "import_check": null,
+      "notes": "Raw fragments are not emitted to the target export."
+    },
+    {
+      "id": "moodle.resource.file",
+      "description": "Moodle file resource copied and exposed as an HTML download activity.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.resource.missing_file",
+      "description": "Moodle resource with a missing file rendered with a manual-review message.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "The absent file is not recoverable."
+    },
+    {
+      "id": "moodle.resource.video",
+      "description": "Moodle video resource mapped to an Open edX video component.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.scorm",
+      "description": "Moodle SCORM package mapped to an Open edX SCORM XBlock.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.scorm.missing_package",
+      "description": "Moodle SCORM activity without a package rendered as a manual-review HTML fallback.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "The missing package must be supplied manually."
+    },
+    {
+      "id": "moodle.unknown_module",
+      "description": "Unknown Moodle module represented as a manual-review HTML activity.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "Reported as UNSUPPORTED_NODES."
+    },
+    {
+      "id": "moodle.url.external",
+      "description": "Moodle external URL mapped to an Open edX HTML link.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.url.youtube",
+      "description": "Moodle YouTube URL mapped to an Open edX video component.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.validation.null_section_title",
+      "description": "Empty Moodle section title receives a positional fallback title.",
+      "category": "validation",
+      "source": "moodle",
+      "target": null,
+      "status": "control",
+      "evidence": "moodle/edge-cases",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "moodle.validation.stale_manifest_title",
+      "description": "Authoritative course title is read from course.xml when the manifest is stale.",
+      "category": "validation",
+      "source": "moodle",
+      "target": null,
+      "status": "control",
+      "evidence": "moodle/edge-cases",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "moodle.video",
+      "description": "Moodle video file activity mapped to an Open edX video component.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "transformed",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "moodle.wiki",
+      "description": "Moodle wiki represented as a manual-review HTML activity.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "Wiki pages are not preserved."
+    },
+    {
+      "id": "moodle.workshop",
+      "description": "Moodle workshop mapped to an Open edX open assessment stub.",
+      "category": "migration",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "placeholder",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": "The generated open assessment is a stub and requires manual review."
+    },
+    {
+      "id": "openedx.assets.nested",
+      "description": "Nested Open edX static asset paths preserved during parsing and remapped for Moodle files.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": "Moodle uses content-addressed file storage, so nested paths are not retained."
+    },
+    {
+      "id": "openedx.discussion",
+      "description": "Open edX discussion mapped to a Moodle forum.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.hierarchy",
+      "description": "Open edX chapter, sequential, and vertical hierarchy collapsed into Moodle sections and activities.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.html",
+      "description": "Open edX HTML component mapped to a Moodle page or label.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.lti",
+      "description": "Open edX LTI component mapped to a Moodle URL fallback.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "placeholder",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": "LTI launch URL and configuration are not preserved; manual replacement is required."
+    },
+    {
+      "id": "openedx.openassessment",
+      "description": "Open edX open assessment mapped to a Moodle workshop stub.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "placeholder",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": "The generated workshop is a stub and requires manual review."
+    },
+    {
+      "id": "openedx.problem.code_placeholder",
+      "description": "Code-response problem rendered as a Moodle placeholder question.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "placeholder",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": "Reported as UNSUPPORTED_QUESTION_TYPE."
+    },
+    {
+      "id": "openedx.problem.custom_placeholder",
+      "description": "Custom-response problem rendered as a Moodle placeholder question.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "placeholder",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": "Reported as UNSUPPORTED_QUESTION_TYPE."
+    },
+    {
+      "id": "openedx.problem.formula_placeholder",
+      "description": "Formula-response problem rendered as a Moodle placeholder question.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "placeholder",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": "Reported as UNSUPPORTED_QUESTION_TYPE."
+    },
+    {
+      "id": "openedx.problem.legacy_numericalinput",
+      "description": "Legacy Open edX numerical input mapped to a Moodle numerical question.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.problem.legacy_textinput",
+      "description": "Legacy Open edX text input mapped to a Moodle short-answer question.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.problem.multichoice",
+      "description": "Open edX multiple-choice problem mapped to a Moodle multichoice question.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.problem.multiselect",
+      "description": "Open edX multi-select problem mapped to a Moodle multichoice question.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.problem.numerical",
+      "description": "Open edX numerical problem mapped to a Moodle numerical question.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.problem.shortanswer",
+      "description": "Open edX short-answer problem mapped to a Moodle short-answer question.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.problem.truefalse",
+      "description": "Open edX true/false problem mapped to a Moodle truefalse question.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.raw_fragments",
+      "description": "Raw Open edX XML fragments preserved in canonical IR only.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "unsupported",
+      "evidence": "openedx/core",
+      "import_check": null,
+      "notes": "Raw fragments are not emitted to the target export."
+    },
+    {
+      "id": "openedx.scorm",
+      "description": "Open edX SCORM component mapped to a Moodle SCORM activity.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.unknown_component",
+      "description": "Unknown Open edX component rendered as a Moodle label placeholder.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "placeholder",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": "Reported as UNSUPPORTED_NODES."
+    },
+    {
+      "id": "openedx.validation.empty_course",
+      "description": "Empty course produces a validation error before migration.",
+      "category": "validation",
+      "source": "openedx",
+      "target": null,
+      "status": "control",
+      "evidence": "openedx/empty",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "openedx.validation.problem_without_assessment",
+      "description": "Problem without an assessment produces a placeholder warning.",
+      "category": "validation",
+      "source": "openedx",
+      "target": null,
+      "status": "control",
+      "evidence": "openedx/edge-cases",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "openedx.validation.video_without_source",
+      "description": "Video without a source produces a placeholder warning.",
+      "category": "validation",
+      "source": "openedx",
+      "target": null,
+      "status": "control",
+      "evidence": "openedx/edge-cases",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "openedx.video.asset",
+      "description": "Open edX self-hosted video mapped to a Moodle file resource.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "openedx.video.youtube",
+      "description": "Open edX YouTube video mapped to a Moodle URL activity.",
+      "category": "migration",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "transformed",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "roundtrip.moodle_to_openedx",
+      "description": "Moodle to Open edX export parses back into canonical IR in the golden corpus.",
+      "category": "roundtrip",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "control",
+      "evidence": "moodle/core",
+      "import_check": "roundtrip",
+      "notes": ""
+    },
+    {
+      "id": "roundtrip.openedx_to_moodle",
+      "description": "Open edX to Moodle export parses back into canonical IR in the golden corpus.",
+      "category": "roundtrip",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "control",
+      "evidence": "openedx/core",
+      "import_check": "roundtrip",
+      "notes": ""
+    },
+    {
+      "id": "security.archive.bomb",
+      "description": "Compression-ratio and expansion limits reject archive bombs.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/zip-bomb",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "security.archive.device",
+      "description": "Archive device entries are rejected.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/tar-device",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "security.archive.duplicate",
+      "description": "Duplicate archive entries are rejected.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/tar-duplicate",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "security.archive.encrypted_zip",
+      "description": "Encrypted ZIP archives are rejected.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/zip-encrypted",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "security.archive.symlink",
+      "description": "Archive symlink entries are rejected.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/tar-symlink",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "security.path.traversal",
+      "description": "Archive entries escaping the extraction root are rejected.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/openedx-path-traversal",
+      "import_check": null,
+      "notes": "Also covered by invalid/moodle-path-traversal."
+    },
+    {
+      "id": "security.upload.boundaries",
+      "description": "Upload content-length, size, and boundary limits are enforced.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/upload-boundaries",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "security.xml.depth_limit",
+      "description": "XML nesting depth exceeds the configured limit and is rejected.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/xml-depth-limit",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "security.xml.entity_expansion",
+      "description": "XML entity expansion is rejected by the hardened parser.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/xml-entity-expansion",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "security.xml.malformed",
+      "description": "Malformed XML is rejected.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/xml-malformed",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "security.xml.size_limit",
+      "description": "XML document size exceeds the configured limit and is rejected.",
+      "category": "security",
+      "source": "control",
+      "target": null,
+      "status": "control",
+      "evidence": "invalid/xml-size-limit",
+      "import_check": null,
+      "notes": ""
+    },
+    {
+      "id": "target.moodle.assets",
+      "description": "Moodle backup emits file records and content-addressed asset files.",
+      "category": "target",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "native",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "target.moodle.modules",
+      "description": "Moodle backup emits sections, module records, and activity XML.",
+      "category": "target",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "native",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": "Aligned with Moodle 5.3.1 backup metadata."
+    },
+    {
+      "id": "target.moodle.questions",
+      "description": "Moodle backup emits question categories, questions, and answer records.",
+      "category": "target",
+      "source": "openedx",
+      "target": "moodle",
+      "status": "native",
+      "evidence": "openedx/core",
+      "import_check": "moodle:restore",
+      "notes": ""
+    },
+    {
+      "id": "target.openedx.assets",
+      "description": "Open edX export emits static assets and asset policy entries.",
+      "category": "target",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "native",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "target.openedx.components",
+      "description": "Open edX export emits chapter, sequential, vertical, and component XML.",
+      "category": "target",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "native",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    },
+    {
+      "id": "target.openedx.questions",
+      "description": "Open edX export emits problem XML with supported response types.",
+      "category": "target",
+      "source": "moodle",
+      "target": "openedx",
+      "status": "native",
+      "evidence": "moodle/core",
+      "import_check": "openedx:import",
+      "notes": ""
+    }
+  ]
+}

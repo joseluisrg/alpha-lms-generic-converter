@@ -1,0 +1,58 @@
+<problem display_name="Knowledge Check">
+  <multiplechoiceresponse>
+    <label>Pick one</label>
+    <choicegroup type="MultipleChoice">
+      <choice correct="true">Alpha</choice>
+      <choice correct="false">Beta</choice>
+    </choicegroup>
+  </multiplechoiceresponse>
+  <multiplechoiceresponse>
+    <label>True or false</label>
+    <choicegroup type="MultipleChoice">
+      <choice correct="false">True</choice>
+      <choice correct="true">False</choice>
+    </choicegroup>
+  </multiplechoiceresponse>
+  <choiceresponse>
+    <label>Pick one radio</label>
+    <radiogroup>
+      <choice correct="true">One</choice>
+      <choice correct="false">Two</choice>
+    </radiogroup>
+  </choiceresponse>
+  <choiceresponse>
+    <label>Pick many</label>
+    <checkboxgroup>
+      <choice correct="true">Red</choice>
+      <choice correct="true">Blue</choice>
+      <choice correct="false">Green</choice>
+    </checkboxgroup>
+  </choiceresponse>
+  <stringresponse answer="42" type="ci" points="2">
+    <label>Short answer</label>
+    <additional_answer answer="forty-two" />
+    <answer>42.0</answer>
+    <textline size="20" />
+  </stringresponse>
+  <numericalresponse answer="3.14">
+    <label>Numerical</label>
+    <formulaequationinput />
+  </numericalresponse>
+  <textinput>
+    <label>Legacy text input</label>
+    <response correct_answer="legacy" />
+  </textinput>
+  <numericalinput>
+    <label>Legacy numerical input</label>
+    <response correct_answer="2.718" />
+  </numericalinput>
+  <formularesponse>
+    <label>Formula placeholder</label>
+  </formularesponse>
+  <coderesponse>
+    <label>Code placeholder</label>
+  </coderesponse>
+  <customresponse>
+    <label>Custom placeholder</label>
+  </customresponse>
+</problem>

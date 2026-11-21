@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "corpus_version": 1,
+  "snapshot_version": 1,
+  "cases": [
+    {
+      "id": "openedx/core",
+      "kind": "valid",
+      "source": "openedx",
+      "source_dir": "openedx/core/source",
+      "source_sha256": "d4beac4e0b4757c5fd7ab017add20d3f8637ddf14be84094699f5c92c6e37b0a",
+      "targets": [
+        "moodle"
+      ],
+      "roundtrip": true,
+      "features": [
+        "openedx.hierarchy",
+        "openedx.html",
+        "openedx.video.youtube",
+        "openedx.video.asset",
+        "openedx.problem.multichoice",
+        "openedx.problem.truefalse",
+        "openedx.problem.multiselect",
+        "openedx.problem.shortanswer",
+        "openedx.problem.numerical",
+        "openedx.problem.legacy_textinput",
+        "openedx.problem.legacy_numericalinput",
+        "openedx.problem.formula_placeholder",
+        "openedx.problem.code_placeholder",
+        "openedx.problem.custom_placeholder",
+        "openedx.openassessment",
+        "openedx.discussion",
+        "openedx.lti",
+        "openedx.scorm",
+        "openedx.unknown_component",
+        "openedx.assets.nested",
+        "openedx.raw_fragments",
+        "target.moodle.modules",
+        "target.moodle.questions",
+        "target.moodle.assets",
+        "roundtrip.openedx_to_moodle"
+      ],
+      "expected": {
+        "course": "openedx/core/expected/course.json",
+        "report": "openedx/core/expected/report.json",
+        "exports": {
+          "moodle": "openedx/core/expected/export-moodle.json"
+        }
+      }
+    },
+    {
+      "id": "openedx/edge-cases",
+      "kind": "valid",
+      "source": "openedx",
+      "source_dir": "openedx/edge-cases/source",
+      "source_sha256": "2e80e78e58d26062bfab3cf806d224769d54fbc744488309434362f302cee954",
+      "targets": [],
+      "features": [
+        "openedx.validation.problem_without_assessment",
+        "openedx.validation.video_without_source"
+      ],
+      "expected": {
+        "course": "openedx/edge-cases/expected/course.json",
+        "report": "openedx/edge-cases/expected/report.json",
+        "exports": {}
+      }
+    },
+    {
+      "id": "openedx/empty",
+      "kind": "valid",
+      "source": "openedx",
+      "source_dir": "openedx/empty/source",
+      "source_sha256": "dad1756e1e0738e2d52b4a5e572b7baf7544657e34ee5035cbe62c04895ee48a",
+      "targets": [],
+      "features": [
+        "openedx.validation.empty_course"
+      ],
+      "expected": {
+        "course": "openedx/empty/expected/course.json",
+        "report": "openedx/empty/expected/report.json",
+        "exports": {}
+      }
+    },
+    {
+      "id": "moodle/core",
+      "kind": "valid",
+      "source": "moodle",
+      "source_dir": "moodle/core/source",
+      "source_sha256": "6914d745f4010b7d69bf2fbcef46cec30de7b4e825402d93b669eccb8efc9909",
+      "targets": [
+        "openedx"
+      ],
+      "roundtrip": true,
+      "features": [
+        "moodle.hierarchy",
+        "moodle.page",
+        "moodle.label.html",
+        "moodle.label.youtube",
+        "moodle.url.youtube",
+        "moodle.url.external",
+        "moodle.forum",
+        "moodle.quiz",
+        "moodle.resource.file",
+        "moodle.resource.video",
+        "moodle.resource.missing_file",
+        "moodle.scorm",
+        "moodle.scorm.missing_package",
+        "moodle.choice",
+        "moodle.book",
+        "moodle.glossary",
+        "moodle.wiki",
+        "moodle.assign",
+        "moodle.workshop",
+        "moodle.lesson",
+        "moodle.video",
+        "moodle.unknown_module",
+        "moodle.question.multichoice_single",
+        "moodle.question.multichoice_multi",
+        "moodle.question.truefalse",
+        "moodle.question.shortanswer",
+        "moodle.question.numerical_tolerance",
+        "moodle.question.essay",
+        "moodle.question.description",
+        "moodle.question.unknown",
+        "moodle.question_bank_link",
+        "moodle.raw_fragments",
+        "target.openedx.components",
+        "target.openedx.questions",
+        "target.openedx.assets",
+        "roundtrip.moodle_to_openedx"
+      ],
+      "expected": {
+        "course": "moodle/core/expected/course.json",
+        "report": "moodle/core/expected/report.json",
+        "exports": {
+          "openedx": "moodle/core/expected/export-openedx.json"
+        }
+      }
+    },
+    {
+      "id": "moodle/edge-cases",
+      "kind": "valid",
+      "source": "moodle",
+      "source_dir": "moodle/edge-cases/source",
+      "source_sha256": "1ca21dfa392c6ab21e2dce0ba7d0cb0a75a894d1b617329b198ed1ff9cb260ef",
+      "targets": [],
+      "features": [
+        "moodle.validation.stale_manifest_title",
+        "moodle.validation.null_section_title"
+      ],
+      "expected": {
+        "course": "moodle/edge-cases/expected/course.json",
+        "report": "moodle/edge-cases/expected/report.json",
+        "exports": {}
+      }
+    },
+    {
+      "id": "invalid/xml-entity-expansion",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "xml_file",
+      "source_file": "invalid/openedx/entity-expansion.xml",
+      "expected_error": "XmlSecurityError",
+      "features": [
+        "security.xml.entity_expansion"
+      ]
+    },
+    {
+      "id": "invalid/xml-malformed",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "xml_file",
+      "source_file": "invalid/openedx/malformed.xml",
+      "expected_error": "ParseError",
+      "features": [
+        "security.xml.malformed"
+      ]
+    },
+    {
+      "id": "invalid/xml-size-limit",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "xml_text_limits",
+      "payload": "<root>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</root>",
+      "max_bytes": 16,
+      "expected_error": "XmlSecurityError",
+      "features": [
+        "security.xml.size_limit"
+      ]
+    },
+    {
+      "id": "invalid/xml-depth-limit",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "xml_text_limits",
+      "payload": "<a><a><a><a><a></a></a></a></a></a>",
+      "max_depth": 3,
+      "expected_error": "XmlSecurityError",
+      "features": [
+        "security.xml.depth_limit"
+      ]
+    },
+    {
+      "id": "invalid/openedx-path-traversal",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "package_parse",
+      "source_dir": "openedx/traversal/source",
+      "source_sha256": "de796a8d1365d56f7cb41b6d0b9c22e63be00dc6c52634ceed8449015239751e",
+      "expected_error": "UnsafePathError",
+      "features": [
+        "security.path.traversal"
+      ]
+    },
+    {
+      "id": "invalid/moodle-path-traversal",
+      "kind": "invalid",
+      "source": "moodle",
+      "check": "package_parse",
+      "source_dir": "moodle/traversal/source",
+      "source_sha256": "cec50bb21eb0762c892dee88c1744d83c1d36cd5b0271f68795d0cdd0a2378a9",
+      "expected_error": "UnsafePathError",
+      "features": [
+        "security.path.traversal"
+      ]
+    },
+    {
+      "id": "invalid/tar-symlink",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "extract_tar",
+      "binary": "binaries/invalid/tar-symlink.tar.gz",
+      "sha256": "19d5e57c2e9f37c9a9a2d1ecf872d2b64f16e2b61140d9d6f1d2e6f9b96a1851",
+      "size": 92,
+      "expected_error": "ArchiveSecurityError",
+      "features": [
+        "security.archive.symlink"
+      ]
+    },
+    {
+      "id": "invalid/zip-encrypted",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "extract_zip",
+      "binary": "binaries/invalid/zip-encrypted.zip",
+      "sha256": "90a0c2d18fc03bb550559bfb7aeefa9768383ba5863b4d682d930b036841bcfa",
+      "size": 124,
+      "expected_error": "ArchiveSecurityError",
+      "features": [
+        "security.archive.encrypted_zip"
+      ]
+    },
+    {
+      "id": "invalid/tar-duplicate",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "archive_recipe",
+      "recipe": "tar_duplicate",
+      "expected_error": "ArchiveSecurityError",
+      "features": [
+        "security.archive.duplicate"
+      ]
+    },
+    {
+      "id": "invalid/tar-device",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "archive_recipe",
+      "recipe": "tar_device",
+      "expected_error": "ArchiveSecurityError",
+      "features": [
+        "security.archive.device"
+      ]
+    },
+    {
+      "id": "invalid/zip-bomb",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "archive_recipe",
+      "recipe": "zip_bomb",
+      "expected_error": "ArchiveSecurityError",
+      "features": [
+        "security.archive.bomb"
+      ]
+    },
+    {
+      "id": "invalid/upload-boundaries",
+      "kind": "invalid",
+      "source": "openedx",
+      "check": "upload_boundaries",
+      "expected_error": "UploadSecurityError",
+      "features": [
+        "security.upload.boundaries"
+      ]
+    }
+  ],
+  "binary_contracts": [
+    {
+      "id": "openedx/core-contract",
+      "source": "openedx",
+      "path": "binaries/openedx/core-contract.tar.gz",
+      "sha256": "37c799da26e7103673f40aab5c91e722f0206f7e59bc08fd89d6c16df85060eb",
+      "size": 1897,
+      "reason": "Frozen valid package for parser compatibility."
+    },
+    {
+      "id": "moodle/core-contract",
+      "source": "moodle",
+      "path": "binaries/moodle/core-contract.mbz",
+      "sha256": "8318c9ef13a02ecfcff7b122e4c4a3661602859399f3ff9aa99a03fd05902662",
+      "size": 3301,
+      "reason": "Frozen valid package for parser compatibility."
+    }
+  ]
+}

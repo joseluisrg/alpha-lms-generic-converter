@@ -1,0 +1,106 @@
+{
+  "case_id": "openedx/core",
+  "report": {
+    "answer_options": 9,
+    "assessments": 2,
+    "assets": [
+      {
+        "checksum": "6b88c1c2a48de8f6868943aa598955caaf60e448dd998508ca105ae3e36b1981",
+        "id": "93f6fb2d-6249-548f-8ecc-1ee4837d5a41",
+        "path": "static/handout.pdf"
+      },
+      {
+        "checksum": "9d714b0153c5204b5503770a41d5800ed8ba4e24da1a9429b6654397075031b6",
+        "id": "57d3d54e-6cb5-5094-b82f-e1209633a97b",
+        "path": "static/images/diagram.png"
+      },
+      {
+        "checksum": "bed2efa5a484bae70238ca07e8a55db426cca624cd1c26f80291c660a8ece475",
+        "id": "e3a6ac14-dbaa-56f4-a622-91e56896bff6",
+        "path": "static/scorm/package.zip"
+      },
+      {
+        "checksum": "222bab81f4fc738e584d6003e6cc31f150b932c967ac66d19916d54723626405",
+        "id": "69f7a14a-7dd9-53dd-98e5-4f05ff187802",
+        "path": "static/videos/clip.mp4"
+      }
+    ],
+    "components": {
+      "chapters": 2,
+      "html": 2,
+      "problems": 2,
+      "sequentials": 3,
+      "verticals": 4,
+      "videos": 2
+    },
+    "content_nodes": 2,
+    "course_id": "70560d27-f742-5044-bf24-4577f8c52043",
+    "course_title": "Synthetic Open edX Course",
+    "created_at": "1970-01-01T00:00:00Z",
+    "error": null,
+    "integrity_errors": [],
+    "job_id": "golden",
+    "output_path": null,
+    "questions": 12,
+    "schema_version": 2,
+    "source_type": "openedx",
+    "status": "validated",
+    "target_type": "moodle",
+    "total_nodes": 20,
+    "unsupported_features": [
+      "Found 1 nodes with type 'unknown'. These will be converted as placeholders.",
+      "question_type",
+      "target_node_mapping"
+    ],
+    "updated_at": "1970-01-01T00:00:00Z",
+    "validation": [
+      {
+        "code": "UNSUPPORTED_NODES",
+        "fallback_used": true,
+        "message": "Found 1 nodes with type 'unknown'. These will be converted as placeholders.",
+        "note_id": "c0d6e290-d397-5739-b98e-e970e231b65a",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": "moodle"
+      },
+      {
+        "code": "TARGET_UNSUPPORTED_NODES",
+        "fallback_used": true,
+        "message": "1 node(s) are not natively supported by moodle and will be mapped to a fallback.",
+        "note_id": "4e14b082-39b2-56e2-a6af-9e8af6b0db18",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": "moodle"
+      },
+      {
+        "code": "VIDEO_ASSETS_FOUND",
+        "fallback_used": false,
+        "message": "Found 1 video file(s) in source. These will be copied to the target course.",
+        "note_id": "2c2a66b1-0222-568c-a383-008e2d0849c1",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "moodle"
+      },
+      {
+        "code": "UNSUPPORTED_QUESTION_TYPE",
+        "fallback_used": true,
+        "message": "Found 3 question(s) with unsupported types: ['code', 'custom', 'formula']. They will be converted as placeholders.",
+        "note_id": "4284f5e1-ed83-509a-bbff-6d251e3933fe",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": "moodle"
+      },
+      {
+        "code": "MIGRATION_SUMMARY",
+        "fallback_used": false,
+        "message": "Course: Synthetic Open edX Course | Chapters: 2 | Assessments: 2 | Questions: 12 | Assets: 4 | Warnings: 3 | Errors: 0 | Target: moodle",
+        "note_id": "d8780436-c3f0-5d29-8e0e-b7e7b8cb6147",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "moodle"
+      }
+    ]
+  },
+  "snapshot_version": 1,
+  "target": "moodle"
+}

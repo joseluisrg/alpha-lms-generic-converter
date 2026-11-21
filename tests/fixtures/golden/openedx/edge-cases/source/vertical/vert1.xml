@@ -1,0 +1,10 @@
+<vertical display_name="Edge Vertical">
+  <video url_name="vid-nosource" display_name="No Source Video" />
+  <problem url_name="prob-missing" display_name="Missing Problem" />
+  <openassessment url_name="ora-inline" display_name="Inline ORA">
+    <prompt>
+      <description>Inline peer review prompt.</description>
+    </prompt>
+  </openassessment>
+  <html url_name="html-missing" display_name="Missing HTML" />
+</vertical>

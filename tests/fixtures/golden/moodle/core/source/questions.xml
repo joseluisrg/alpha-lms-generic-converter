@@ -1,0 +1,85 @@
+<question_categories>
+  <question_category id="1">
+    <questions>
+      <question id="101">
+        <name>Single choice</name>
+        <questiontext>Pick one</questiontext>
+        <defaultmark>2</defaultmark>
+        <qtype>multichoice</qtype>
+        <plugin_qtype_multichoice_question>
+          <answers>
+            <answer id="1"><answertext>Alpha</answertext><fraction>1</fraction></answer>
+            <answer id="2"><answertext>Beta</answertext><fraction>0</fraction></answer>
+          </answers>
+          <multichoice><single>1</single></multichoice>
+        </plugin_qtype_multichoice_question>
+      </question>
+      <question id="102">
+        <name>Multiple choice</name>
+        <questiontext>Pick many</questiontext>
+        <defaultmark>3</defaultmark>
+        <qtype>multichoice</qtype>
+        <plugin_qtype_multichoice_question>
+          <answers>
+            <answer id="3"><answertext>Red</answertext><fraction>1</fraction></answer>
+            <answer id="4"><answertext>Blue</answertext><fraction>1</fraction></answer>
+            <answer id="5"><answertext>Green</answertext><fraction>0</fraction></answer>
+          </answers>
+          <multichoice><single>0</single></multichoice>
+        </plugin_qtype_multichoice_question>
+      </question>
+      <question id="103">
+        <name>True or false</name>
+        <questiontext>True or false</questiontext>
+        <defaultmark>1</defaultmark>
+        <qtype>truefalse</qtype>
+        <plugin_qtype_truefalse_question>
+          <answers>
+            <answer id="6"><answertext>True</answertext><fraction>1</fraction></answer>
+            <answer id="7"><answertext>False</answertext><fraction>0</fraction></answer>
+          </answers>
+        </plugin_qtype_truefalse_question>
+      </question>
+      <question id="104">
+        <name>Short answer</name>
+        <questiontext>Short answer</questiontext>
+        <defaultmark>1</defaultmark>
+        <qtype>shortanswer</qtype>
+        <plugin_qtype_shortanswer_question>
+          <answers>
+            <answer id="8"><answertext>Answer</answertext><fraction>1</fraction></answer>
+          </answers>
+        </plugin_qtype_shortanswer_question>
+      </question>
+      <question id="105">
+        <name>Numerical</name>
+        <questiontext>Numerical answer</questiontext>
+        <defaultmark>1</defaultmark>
+        <qtype>numerical</qtype>
+        <plugin_qtype_numerical_question>
+          <answers>
+            <answer id="9"><answertext>3.14</answertext><fraction>1</fraction><tolerance>0.01</tolerance></answer>
+          </answers>
+        </plugin_qtype_numerical_question>
+      </question>
+      <question id="106">
+        <name>Essay</name>
+        <questiontext>Write an essay</questiontext>
+        <defaultmark>5</defaultmark>
+        <qtype>essay</qtype>
+      </question>
+      <question id="107">
+        <name>Description</name>
+        <questiontext>Read this description</questiontext>
+        <defaultmark>0</defaultmark>
+        <qtype>description</qtype>
+      </question>
+      <question id="108">
+        <name>Unknown</name>
+        <questiontext>Unknown question type</questiontext>
+        <defaultmark>1</defaultmark>
+        <qtype>mysteryq</qtype>
+      </question>
+    </questions>
+  </question_category>
+</question_categories>

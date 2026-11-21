@@ -1,0 +1,118 @@
+{
+  "case_id": "moodle/core",
+  "report": {
+    "answer_options": 9,
+    "assessments": 1,
+    "assets": [
+      {
+        "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "id": "34a0d593-f3b8-5f6a-8828-a5886c503aa3",
+        "path": "files/aa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      {
+        "checksum": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "id": "129633cf-3d12-5011-b1c0-179734125179",
+        "path": "files/bb/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      },
+      {
+        "checksum": "",
+        "id": "734ea4b4-c18e-59ad-8acb-83e5e3dd21dc",
+        "path": "activities/scorm_10/package.zip"
+      },
+      {
+        "checksum": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "id": "e3a47133-0ec2-56fb-8bc4-c945aa9abc0c",
+        "path": "files/ee/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      {
+        "checksum": "dddddddddddddddddddddddddddddddddddddddd",
+        "id": "5c57daa7-bd7c-5a26-8480-7d4ee4ce3da7",
+        "path": "files/dd/dddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "components": {
+      "chapters": 2,
+      "html": 12,
+      "problems": 1,
+      "sequentials": 2,
+      "verticals": 22,
+      "videos": 3
+    },
+    "content_nodes": 2,
+    "course_id": "2b06ebf5-6562-5cc4-b64a-537f7a2acd14",
+    "course_title": "Synthetic Moodle Core Course",
+    "created_at": "1970-01-01T00:00:00Z",
+    "error": null,
+    "integrity_errors": [],
+    "job_id": "golden",
+    "output_path": null,
+    "questions": 8,
+    "schema_version": 2,
+    "source_type": "moodle",
+    "status": "validated",
+    "target_type": "openedx",
+    "total_nodes": 48,
+    "unsupported_features": [
+      "question_type"
+    ],
+    "updated_at": "1970-01-01T00:00:00Z",
+    "validation": [
+      {
+        "code": "VIDEO_ASSETS_FOUND",
+        "fallback_used": false,
+        "message": "Found 2 video file(s) in source. These will be copied to the target course.",
+        "note_id": "5637378e-741a-5229-b803-990045cbe473",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      },
+      {
+        "code": "ESSAY_QUESTION",
+        "fallback_used": false,
+        "message": "Question '7285edbf-fc38-5a5b-b552-75c5bc2bc9be' is an essay/description type. It will be converted as a placeholder requiring manual review.",
+        "note_id": "6e079096-c34a-5895-a841-ceab998cf3a0",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      },
+      {
+        "code": "ESSAY_QUESTION",
+        "fallback_used": false,
+        "message": "Question '66ab4a7b-5e74-50d9-8508-98cdb0f0b2ef' is an essay/description type. It will be converted as a placeholder requiring manual review.",
+        "note_id": "f5d83184-f44c-5996-a8c0-840956e9b0ad",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      },
+      {
+        "code": "UNSUPPORTED_QUESTION_TYPE",
+        "fallback_used": true,
+        "message": "Found 1 question(s) with unsupported types: ['mysteryq']. They will be converted as placeholders.",
+        "note_id": "ae54f893-d409-591c-b98f-463ea16fd171",
+        "severity": "warning",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      },
+      {
+        "code": "EXTERNAL_URLS",
+        "fallback_used": false,
+        "message": "Found 1 external URL(s). YouTube videos will be converted; other URLs become activity links.",
+        "note_id": "230d5f58-9dcb-5a21-b9e3-733e2f2560bb",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      },
+      {
+        "code": "MIGRATION_SUMMARY",
+        "fallback_used": false,
+        "message": "Course: Synthetic Moodle Core Course | Chapters: 2 | Assessments: 1 | Questions: 8 | Assets: 5 | Warnings: 1 | Errors: 0 | Target: openedx",
+        "note_id": "bf81b48f-5827-51c5-ada0-ceb4e68cbdd0",
+        "severity": "info",
+        "source_fragment_id": null,
+        "target_ref": "openedx"
+      }
+    ]
+  },
+  "snapshot_version": 1,
+  "target": "openedx"
+}

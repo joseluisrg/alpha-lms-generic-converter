@@ -1,0 +1,108 @@
+name: LMS certification
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      target:
+        description: LMS target to certify
+        required: true
+        default: all
+        type: choice
+        options:
+          - all
+          - moodle
+          - openedx
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lms-certification
+  cancel-in-progress: false
+
+jobs:
+  moodle:
+    name: Moodle 5.3.1 import certification
+    if: github.event_name != 'workflow_dispatch' || inputs.target == 'all' || inputs.target == 'moodle'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          sudo apt-get clean
+          available=$(df -BG --output=avail / | tail -1 | tr -dc '0-9')
+          echo "Available disk: ${available} GB"
+          test "$available" -ge 25
+      - run: uv sync --frozen --group dev
+      - name: Download and verify Moodle 5.3.1
+        run: |
+          curl --fail --location --retry 3 --output tests/certification/environments/moodle/moodle-5.3.1.tgz \
+            https://download.moodle.org/download.php/direct/stable503/moodle-5.3.1.tgz
+          echo "820ee2bcd89acc6b91df255b2010bbbab108f29952ab78895a79c4feabf541e7  tests/certification/environments/moodle/moodle-5.3.1.tgz" \
+            | sha256sum --check
+      - name: Run Moodle certification
+        env:
+          MOODLE_DB_PASSWORD: ${{ secrets.MOODLE_DB_PASSWORD || 'certification' }}
+          MOODLE_DB_ROOT_PASSWORD: ${{ secrets.MOODLE_DB_ROOT_PASSWORD || 'certification-root' }}
+          MOODLE_ADMIN_PASSWORD: ${{ secrets.MOODLE_ADMIN_PASSWORD || 'Certification1!' }}
+        run: |
+          uv run python scripts/run_lms_certification.py \
+            --target moodle \
+            --workspace data/certification/moodle \
+            --output data/reports/certification-moodle.json \
+            --run-id "moodle-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+      - name: Upload Moodle evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: moodle-certification-${{ github.run_id }}-${{ github.run_attempt }}
+          if-no-files-found: warn
+          path: |
+            data/reports/certification-moodle.json
+            data/certification/moodle
+
+  openedx:
+    name: Open edX Verawood.2 import certification
+    if: github.event_name != 'workflow_dispatch' || inputs.target == 'all' || inputs.target == 'openedx'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          sudo apt-get clean
+          available=$(df -BG --output=avail / | tail -1 | tr -dc '0-9')
+          echo "Available disk: ${available} GB"
+          test "$available" -ge 25
+      - run: uv sync --frozen --group dev
+      - name: Install Tutor 22.0.4
+        run: |
+          uv tool install --python 3.12 tutor==22.0.4
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Run Open edX certification
+        run: |
+          uv run python scripts/run_lms_certification.py \
+            --target openedx \
+            --workspace data/certification/openedx \
+            --output data/reports/certification-openedx.json \
+            --run-id "openedx-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+      - name: Upload Open edX evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: openedx-certification-${{ github.run_id }}-${{ github.run_attempt }}
+          if-no-files-found: warn
+          path: |
+            data/reports/certification-openedx.json
+            data/certification/openedx

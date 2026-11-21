@@ -1,0 +1,7 @@
+<openassessment display_name="Peer Review">
+  <prompts>
+    <prompt>
+      <description>Write a synthetic essay.</description>
+    </prompt>
+  </prompts>
+</openassessment>

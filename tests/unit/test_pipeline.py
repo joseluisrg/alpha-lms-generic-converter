@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import tarfile
 import xml.etree.ElementTree as ET
@@ -39,6 +40,7 @@ def test_openedx_parse_and_transform(openedx_archive: Path, tmp_path: Path):
     assert shortanswer.metadata["correct_answers"] == ["42"]
     numerical = next(q for q in course.questions if q.question_type == "numerical")
     assert numerical.metadata["correct_answer"] == "3.14"
+    assert numerical.metadata.get("tolerance") is None
     assert any(a.metadata.get("original_filename") == "handout.pdf" for a in course.assets)
 
 
@@ -105,7 +107,17 @@ def test_moodle_to_openedx_target(moodle_archive: Path, tmp_path: Path):
         archive.extractall(extract_dir, filter="data")
 
     assert (extract_dir / "course.xml").exists()
-    assert (extract_dir / "scormxblock").is_dir()
+    assert (extract_dir / "scorm").is_dir()
+    scorm_files = list((extract_dir / "scorm").glob("*.xml"))
+    assert scorm_files
+    scorm_root = ET.parse(scorm_files[0]).getroot()
+    assert scorm_root.tag == "scorm"
+    package_path = extract_dir / str(scorm_root.get("scorm_package_path"))
+    assert package_path.is_file()
+    package_meta = json.loads(str(scorm_root.get("package_meta")))
+    assert package_meta["size"] == package_path.stat().st_size
+    assert package_meta["sha1"] == hashlib.sha1(package_path.read_bytes()).hexdigest()
+    assert scorm_root.get("index_page_path") == "index.html"
     url_name = ET.parse(extract_dir / "course.xml").getroot().get("url_name")
     policy_dir = extract_dir / "policies" / url_name
     assert (policy_dir / "policy.json").exists()
@@ -125,6 +137,8 @@ def test_moodle_to_openedx_target(moodle_archive: Path, tmp_path: Path):
     assert "choiceresponse" in problem_xml or "multiplechoiceresponse" in problem_xml
     assert "stringresponse" in problem_xml
     assert "numericalresponse" in problem_xml
+    assert 'type="tolerance"' in problem_xml
+    assert 'default="0.01"' in problem_xml
     assert "<textinput" not in problem_xml
     assert "<numericalinput" not in problem_xml
 
@@ -166,6 +180,13 @@ def test_moodle_to_moodle_target(moodle_archive: Path, tmp_path: Path):
     assert records_by_name["clip.mp4"].findtext("component") == "mod_resource"
     assert records_by_name["package.zip"].findtext("component") == "mod_scorm"
     assert records_by_name["package.zip"].findtext("filearea") == "package"
+    assert records_by_name["package.zip"].findtext("itemid") == "0"
+
+    scorm_activity = ET.parse(next(extract_dir.glob("activities/scorm_*/scorm.xml"))).getroot()
+    scorm_settings = scorm_activity.find("scorm")
+    assert scorm_settings is not None
+    assert scorm_settings.findtext("launch").isdigit()
+    assert scorm_settings.findtext("scoes/sco/launch") == "index.html"
 
     resource_dirs = list((extract_dir / "activities").glob("resource_*"))
     assert len(resource_dirs) == 2

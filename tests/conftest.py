@@ -195,7 +195,12 @@ def moodle_archive(tmp_path: Path) -> Path:
             <inforef><fileref><file><id>10</id></file></fileref></inforef>
         """,
         "activities/scorm_5/scorm.xml": """\
-            <scorm id="5"><name>SCORM</name><version>SCORM_1.2</version><launch>index.html</launch></scorm>
+            <scorm id="5">
+              <name>SCORM</name>
+              <version>SCORM_1.2</version>
+              <launch>1</launch>
+              <scoes><sco id="1"><launch>index.html</launch></sco></scoes>
+            </scorm>
         """,
         "activities/scorm_5/package.zip": b"PK\x05\x06" + b"\x00" * 18,
         "activities/url_6/url.xml": """\

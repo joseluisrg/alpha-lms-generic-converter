@@ -1,0 +1,21 @@
+<scorm id="10">
+  <name>SCORM Package</name>
+  <version>SCORM_1.2</version>
+  <launch>1</launch>
+  <skipview>2</skipview>
+  <auto>0</auto>
+  <grademethod>1</grademethod>
+  <maxgrade>10</maxgrade>
+  <scoes>
+    <sco id="1">
+      <manifest>imsmanifest.xml</manifest>
+      <organization></organization>
+      <parent>/</parent>
+      <identifier>sco1</identifier>
+      <launch>index.html</launch>
+      <scormtype>sco</scormtype>
+      <title>SCORM Package</title>
+      <sortorder>1</sortorder>
+    </sco>
+  </scoes>
+</scorm>
