@@ -99,6 +99,24 @@ def test_openedx_to_moodle_target(openedx_archive: Path, tmp_path: Path):
     files_root = ET.parse(extract_dir / "files.xml").getroot()
     assert "handout.pdf" in {record.findtext("filename") for record in files_root.findall("file")}
 
+    forum_settings = ET.parse(next(extract_dir.glob("activities/forum_*/forum.xml"))).getroot()
+    assert forum_settings.findtext("forum/assesstimestart") == "0"
+    assert forum_settings.findtext("forum/assesstimefinish") == "0"
+
+    workshop_settings = ET.parse(
+        next(extract_dir.glob("activities/workshop_*/workshop.xml"))
+    ).getroot()
+    assert workshop_settings.findtext("workshop/strategy") == "accumulative"
+    assert workshop_settings.findtext("workshop/submissionstart") == "0"
+    assert workshop_settings.findtext("workshop/assessmentend") == "0"
+
+    for quiz_file in (extract_dir / "activities").glob("quiz_*/quiz.xml"):
+        quiz_settings = ET.parse(quiz_file).getroot().find("quiz")
+        assert quiz_settings is not None
+        assert quiz_settings.findtext("password") == ""
+        assert quiz_settings.findtext("subnet") == ""
+        assert quiz_settings.findtext("browsersecurity") == "-"
+
 
 def test_moodle_to_openedx_target(moodle_archive: Path, tmp_path: Path):
     parsed = ParseService().parse(str(moodle_archive), "moodle", str(tmp_path / "extract"))
@@ -195,6 +213,10 @@ def test_moodle_to_moodle_target(moodle_archive: Path, tmp_path: Path):
     assert scorm_settings is not None
     assert scorm_settings.findtext("launch").isdigit()
     assert scorm_settings.findtext("scoes/sco/launch") == "index.html"
+    assert scorm_settings.findtext("timeopen") == "0"
+    assert scorm_settings.findtext("timeclose") == "0"
+    assert scorm_settings.findtext("md5hash") == "0" * 32
+    assert scorm_settings.findtext("options") == ""
 
     resource_dirs = list((extract_dir / "activities").glob("resource_*"))
     assert len(resource_dirs) == 2

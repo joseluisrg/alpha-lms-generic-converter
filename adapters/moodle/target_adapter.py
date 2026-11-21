@@ -371,6 +371,9 @@ class MoodleTargetAdapter:
         ET.SubElement(root, "sumgrades").text = str(sum(q.points for q in questions))
         ET.SubElement(root, "grade").text = "10.00000"
         ET.SubElement(root, "timemodified").text = str(int(time.time()))
+        ET.SubElement(root, "password").text = ""
+        ET.SubElement(root, "subnet").text = ""
+        ET.SubElement(root, "browsersecurity").text = "-"
 
         instances = ET.SubElement(root, "question_instances")
         for slot, question in enumerate(questions, start=1):
@@ -420,6 +423,8 @@ class MoodleTargetAdapter:
         ET.SubElement(root, "introformat").text = "1"
         ET.SubElement(root, "scormtype").text = "local"
         ET.SubElement(root, "reference").text = ""
+        ET.SubElement(root, "md5hash").text = "0" * 32
+        ET.SubElement(root, "options").text = ""
         version = settings.get("version", "")
         ET.SubElement(root, "version").text = "SCORM_2004" if "2004" in version else "SCORM_1.2"
         ET.SubElement(root, "launch").text = str(sco_id)
@@ -427,6 +432,8 @@ class MoodleTargetAdapter:
         ET.SubElement(root, "auto").text = settings.get("auto", "0")
         ET.SubElement(root, "grademethod").text = settings.get("grademethod", "1")
         ET.SubElement(root, "maxgrade").text = settings.get("maxgrade", "100")
+        ET.SubElement(root, "timeopen").text = "0"
+        ET.SubElement(root, "timeclose").text = "0"
         ET.SubElement(root, "timemodified").text = str(int(time.time()))
         scoes = ET.SubElement(root, "scoes")
         sco = ET.SubElement(scoes, "sco", id=str(sco_id))
@@ -449,7 +456,28 @@ class MoodleTargetAdapter:
         ET.SubElement(root, "intro").text = comp.metadata.get("content_html", "")
         ET.SubElement(root, "introformat").text = "1"
         ET.SubElement(root, "type").text = "general"
+        ET.SubElement(root, "duedate").text = "0"
+        ET.SubElement(root, "cutoffdate").text = "0"
+        ET.SubElement(root, "assessed").text = "0"
+        ET.SubElement(root, "assesstimestart").text = "0"
+        ET.SubElement(root, "assesstimefinish").text = "0"
+        ET.SubElement(root, "scale").text = "0"
+        ET.SubElement(root, "maxbytes").text = "0"
+        ET.SubElement(root, "maxattachments").text = "1"
+        ET.SubElement(root, "forcesubscribe").text = "0"
+        ET.SubElement(root, "trackingtype").text = "1"
+        ET.SubElement(root, "rsstype").text = "0"
+        ET.SubElement(root, "rssarticles").text = "0"
+        ET.SubElement(root, "warnafter").text = "0"
+        ET.SubElement(root, "blockafter").text = "0"
+        ET.SubElement(root, "blockperiod").text = "0"
+        ET.SubElement(root, "completiondiscussions").text = "0"
+        ET.SubElement(root, "completionreplies").text = "0"
+        ET.SubElement(root, "completionposts").text = "0"
+        ET.SubElement(root, "displaywordcount").text = "0"
         ET.SubElement(root, "timemodified").text = str(int(time.time()))
+        for name in ("discussions", "subscriptions", "digests", "readposts", "trackedprefs"):
+            ET.SubElement(root, name)
         self._write_activity_xml(act_dir, "forum.xml", root)
 
     def _write_workshop_xml(self, act_dir: Path, comp: ContentNode) -> None:
@@ -457,6 +485,19 @@ class MoodleTargetAdapter:
         ET.SubElement(root, "name").text = comp.title or "Workshop"
         ET.SubElement(root, "intro").text = comp.metadata.get("content_html", "")
         ET.SubElement(root, "introformat").text = "1"
+        ET.SubElement(root, "instructauthors").text = ""
+        ET.SubElement(root, "instructauthorsformat").text = "1"
+        ET.SubElement(root, "instructreviewers").text = ""
+        ET.SubElement(root, "instructreviewersformat").text = "1"
+        ET.SubElement(root, "strategy").text = "accumulative"
+        ET.SubElement(root, "evaluation").text = "best"
+        ET.SubElement(root, "submissionstart").text = "0"
+        ET.SubElement(root, "submissionend").text = "0"
+        ET.SubElement(root, "assessmentstart").text = "0"
+        ET.SubElement(root, "assessmentend").text = "0"
+        ET.SubElement(root, "nattachments").text = "0"
+        ET.SubElement(root, "submissiontypefile").text = "1"
+        ET.SubElement(root, "submissiontypetext").text = "1"
         ET.SubElement(root, "timemodified").text = str(int(time.time()))
         self._write_activity_xml(act_dir, "workshop.xml", root)
 

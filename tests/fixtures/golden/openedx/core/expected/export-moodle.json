@@ -1,7 +1,7 @@
 {
   "case_id": "openedx/core",
   "contents": {
-    ".ARCHIVE_INDEX": "Moodle archive file index. Count: 89\nactivities/\td\t0\t<mtime>\nactivities/forum_38/\td\t0\t<mtime>\nactivities/forum_38/forum.xml\tf\t289\t<mtime>\nactivities/forum_38/grades.xml\tf\t132\t<mtime>\nactivities/forum_38/module.xml\tf\t622\t<mtime>\nactivities/forum_38/roles.xml\tf\t92\t<mtime>\nactivities/label_21/\td\t0\t<mtime>\nactivities/label_21/grades.xml\tf\t132\t<mtime>\nactivities/label_21/label.xml\tf\t302\t<mtime>\nactivities/label_21/module.xml\tf\t622\t<mtime>\nactivities/label_21/roles.xml\tf\t92\t<mtime>\nactivities/label_47/\td\t0\t<mtime>\nactivities/label_47/grades.xml\tf\t132\t<mtime>\nactivities/label_47/label.xml\tf\t333\t<mtime>\nactivities/label_47/module.xml\tf\t622\t<mtime>\nactivities/label_47/roles.xml\tf\t92\t<mtime>\nactivities/label_52/\td\t0\t<mtime>\nactivities/label_52/grades.xml\tf\t132\t<mtime>\nactivities/label_52/label.xml\tf\t241\t<mtime>\nactivities/label_52/module.xml\tf\t622\t<mtime>\nactivities/label_52/roles.xml\tf\t92\t<mtime>\nactivities/quiz_25/\td\t0\t<mtime>\nactivities/quiz_25/grades.xml\tf\t132\t<mtime>\nactivities/quiz_25/module.xml\tf\t621\t<mtime>\nactivities/quiz_25/quiz.xml\tf\t3854\t<mtime>\nactivities/quiz_25/roles.xml\tf\t92\t<mtime>\nactivities/quiz_49/\td\t0\t<mtime>\nactivities/quiz_49/grades.xml\tf\t132\t<mtime>\nactivities/quiz_49/module.xml\tf\t621\t<mtime>\nactivities/quiz_49/quiz.xml\tf\t1052\t<mtime>\nactivities/quiz_49/roles.xml\tf\t92\t<mtime>\nactivities/resource_55/\td\t0\t<mtime>\nactivities/resource_55/grades.xml\tf\t132\t<mtime>\nactivities/resource_55/inforef.xml\tf\t100\t<mtime>\nactivities/resource_55/module.xml\tf\t625\t<mtime>\nactivities/resource_55/resource.xml\tf\t480\t<mtime>\nactivities/resource_55/roles.xml\tf\t92\t<mtime>\nactivities/scorm_44/\td\t0\t<mtime>\nactivities/scorm_44/grades.xml\tf\t132\t<mtime>\nactivities/scorm_44/inforef.xml\tf\t100\t<mtime>\nactivities/scorm_44/module.xml\tf\t622\t<mtime>\nactivities/scorm_44/roles.xml\tf\t92\t<mtime>\nactivities/scorm_44/scorm.xml\tf\t654\t<mtime>\nactivities/url_23/\td\t0\t<mtime>\nactivities/url_23/grades.xml\tf\t132\t<mtime>\nactivities/url_23/module.xml\tf\t620\t<mtime>\nactivities/url_23/roles.xml\tf\t92\t<mtime>\nactivities/url_23/url.xml\tf\t407\t<mtime>\nactivities/url_42/\td\t0\t<mtime>\nactivities/url_42/grades.xml\tf\t132\t<mtime>\nactivities/url_42/module.xml\tf\t620\t<mtime>\nactivities/url_42/roles.xml\tf\t92\t<mtime>\nactivities/url_42/url.xml\tf\t358\t<mtime>\nactivities/workshop_40/\td\t0\t<mtime>\nactivities/workshop_40/grades.xml\tf\t132\t<mtime>\nactivities/workshop_40/module.xml\tf\t625\t<mtime>\nactivities/workshop_40/roles.xml\tf\t92\t<mtime>\nactivities/workshop_40/workshop.xml\tf\t278\t<mtime>\nbadges.xml\tf\t49\t<mtime>\ncompletion.xml\tf\t60\t<mtime>\ncourse/\td\t0\t<mtime>\ncourse/course.xml\tf\t890\t<mtime>\ncourse/roles.xml\tf\t92\t<mtime>\nfiles/\td\t0\t<mtime>\nfiles/1a/\td\t0\t<mtime>\nfiles/1a/1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\tf\t779\t<mtime>\nfiles/b7/\td\t0\t<mtime>\nfiles/b7/b7283a1dc0a79582a87a3c91deec02d0772c5343\tf\t21\t<mtime>\nfiles/ce/\td\t0\t<mtime>\nfiles/ce/ceb09c940b8c028d87f377f95a98dde4de774937\tf\t21\t<mtime>\nfiles/da/\td\t0\t<mtime>\nfiles/da/da39a3ee5e6b4b0d3255bfef95601890afd80709\tf\t0\t<mtime>\nfiles/ee/\td\t0\t<mtime>\nfiles/ee/eecb6cc2eed6b79b9ba2971106686d38ebcbbf99\tf\t26\t<mtime>\nfiles.xml\tf\t4134\t<mtime>\ngrade_history.xml\tf\t86\t<mtime>\ngradebook.xml\tf\t146\t<mtime>\ngroups.xml\tf\t69\t<mtime>\nmoodle_backup.log\tf\t0\t<mtime>\nmoodle_backup.xml\tf\t3990\t<mtime>\noutcomes.xml\tf\t62\t<mtime>\nquestions.xml\tf\t15357\t<mtime>\nroles.xml\tf\t59\t<mtime>\nscales.xml\tf\t60\t<mtime>\nsections/\td\t0\t<mtime>\nsections/section_20/\td\t0\t<mtime>\nsections/section_20/section.xml\tf\t291\t<mtime>\nsections/section_54/\td\t0\t<mtime>\nsections/section_54/section.xml\tf\t264\t<mtime>",
+    ".ARCHIVE_INDEX": "Moodle archive file index. Count: 89\nactivities/\td\t0\t<mtime>\nactivities/forum_38/\td\t0\t<mtime>\nactivities/forum_38/forum.xml\tf\t927\t<mtime>\nactivities/forum_38/grades.xml\tf\t132\t<mtime>\nactivities/forum_38/module.xml\tf\t622\t<mtime>\nactivities/forum_38/roles.xml\tf\t92\t<mtime>\nactivities/label_21/\td\t0\t<mtime>\nactivities/label_21/grades.xml\tf\t132\t<mtime>\nactivities/label_21/label.xml\tf\t302\t<mtime>\nactivities/label_21/module.xml\tf\t622\t<mtime>\nactivities/label_21/roles.xml\tf\t92\t<mtime>\nactivities/label_47/\td\t0\t<mtime>\nactivities/label_47/grades.xml\tf\t132\t<mtime>\nactivities/label_47/label.xml\tf\t333\t<mtime>\nactivities/label_47/module.xml\tf\t622\t<mtime>\nactivities/label_47/roles.xml\tf\t92\t<mtime>\nactivities/label_52/\td\t0\t<mtime>\nactivities/label_52/grades.xml\tf\t132\t<mtime>\nactivities/label_52/label.xml\tf\t241\t<mtime>\nactivities/label_52/module.xml\tf\t622\t<mtime>\nactivities/label_52/roles.xml\tf\t92\t<mtime>\nactivities/quiz_25/\td\t0\t<mtime>\nactivities/quiz_25/grades.xml\tf\t132\t<mtime>\nactivities/quiz_25/module.xml\tf\t621\t<mtime>\nactivities/quiz_25/quiz.xml\tf\t3912\t<mtime>\nactivities/quiz_25/roles.xml\tf\t92\t<mtime>\nactivities/quiz_49/\td\t0\t<mtime>\nactivities/quiz_49/grades.xml\tf\t132\t<mtime>\nactivities/quiz_49/module.xml\tf\t621\t<mtime>\nactivities/quiz_49/quiz.xml\tf\t1110\t<mtime>\nactivities/quiz_49/roles.xml\tf\t92\t<mtime>\nactivities/resource_55/\td\t0\t<mtime>\nactivities/resource_55/grades.xml\tf\t132\t<mtime>\nactivities/resource_55/inforef.xml\tf\t100\t<mtime>\nactivities/resource_55/module.xml\tf\t625\t<mtime>\nactivities/resource_55/resource.xml\tf\t480\t<mtime>\nactivities/resource_55/roles.xml\tf\t92\t<mtime>\nactivities/scorm_44/\td\t0\t<mtime>\nactivities/scorm_44/grades.xml\tf\t132\t<mtime>\nactivities/scorm_44/inforef.xml\tf\t100\t<mtime>\nactivities/scorm_44/module.xml\tf\t622\t<mtime>\nactivities/scorm_44/roles.xml\tf\t92\t<mtime>\nactivities/scorm_44/scorm.xml\tf\t762\t<mtime>\nactivities/url_23/\td\t0\t<mtime>\nactivities/url_23/grades.xml\tf\t132\t<mtime>\nactivities/url_23/module.xml\tf\t620\t<mtime>\nactivities/url_23/roles.xml\tf\t92\t<mtime>\nactivities/url_23/url.xml\tf\t407\t<mtime>\nactivities/url_42/\td\t0\t<mtime>\nactivities/url_42/grades.xml\tf\t132\t<mtime>\nactivities/url_42/module.xml\tf\t620\t<mtime>\nactivities/url_42/roles.xml\tf\t92\t<mtime>\nactivities/url_42/url.xml\tf\t358\t<mtime>\nactivities/workshop_40/\td\t0\t<mtime>\nactivities/workshop_40/grades.xml\tf\t132\t<mtime>\nactivities/workshop_40/module.xml\tf\t625\t<mtime>\nactivities/workshop_40/roles.xml\tf\t92\t<mtime>\nactivities/workshop_40/workshop.xml\tf\t730\t<mtime>\nbadges.xml\tf\t49\t<mtime>\ncompletion.xml\tf\t60\t<mtime>\ncourse/\td\t0\t<mtime>\ncourse/course.xml\tf\t890\t<mtime>\ncourse/roles.xml\tf\t92\t<mtime>\nfiles/\td\t0\t<mtime>\nfiles/1a/\td\t0\t<mtime>\nfiles/1a/1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\tf\t779\t<mtime>\nfiles/b7/\td\t0\t<mtime>\nfiles/b7/b7283a1dc0a79582a87a3c91deec02d0772c5343\tf\t21\t<mtime>\nfiles/ce/\td\t0\t<mtime>\nfiles/ce/ceb09c940b8c028d87f377f95a98dde4de774937\tf\t21\t<mtime>\nfiles/da/\td\t0\t<mtime>\nfiles/da/da39a3ee5e6b4b0d3255bfef95601890afd80709\tf\t0\t<mtime>\nfiles/ee/\td\t0\t<mtime>\nfiles/ee/eecb6cc2eed6b79b9ba2971106686d38ebcbbf99\tf\t26\t<mtime>\nfiles.xml\tf\t4134\t<mtime>\ngrade_history.xml\tf\t86\t<mtime>\ngradebook.xml\tf\t146\t<mtime>\ngroups.xml\tf\t69\t<mtime>\nmoodle_backup.log\tf\t0\t<mtime>\nmoodle_backup.xml\tf\t3990\t<mtime>\noutcomes.xml\tf\t62\t<mtime>\nquestions.xml\tf\t15357\t<mtime>\nroles.xml\tf\t59\t<mtime>\nscales.xml\tf\t60\t<mtime>\nsections/\td\t0\t<mtime>\nsections/section_20/\td\t0\t<mtime>\nsections/section_20/section.xml\tf\t291\t<mtime>\nsections/section_54/\td\t0\t<mtime>\nsections/section_54/section.xml\tf\t264\t<mtime>",
     "activities/forum_38/forum.xml": {
       "attributes": {
         "contextid": "19",
@@ -30,6 +30,97 @@
             {
               "tag": "type",
               "text": "general"
+            },
+            {
+              "tag": "duedate",
+              "text": "0"
+            },
+            {
+              "tag": "cutoffdate",
+              "text": "0"
+            },
+            {
+              "tag": "assessed",
+              "text": "0"
+            },
+            {
+              "tag": "assesstimestart",
+              "text": "0"
+            },
+            {
+              "tag": "assesstimefinish",
+              "text": "0"
+            },
+            {
+              "tag": "scale",
+              "text": "0"
+            },
+            {
+              "tag": "maxbytes",
+              "text": "0"
+            },
+            {
+              "tag": "maxattachments",
+              "text": "1"
+            },
+            {
+              "tag": "forcesubscribe",
+              "text": "0"
+            },
+            {
+              "tag": "trackingtype",
+              "text": "1"
+            },
+            {
+              "tag": "rsstype",
+              "text": "0"
+            },
+            {
+              "tag": "rssarticles",
+              "text": "0"
+            },
+            {
+              "tag": "warnafter",
+              "text": "0"
+            },
+            {
+              "tag": "blockafter",
+              "text": "0"
+            },
+            {
+              "tag": "blockperiod",
+              "text": "0"
+            },
+            {
+              "tag": "completiondiscussions",
+              "text": "0"
+            },
+            {
+              "tag": "completionreplies",
+              "text": "0"
+            },
+            {
+              "tag": "completionposts",
+              "text": "0"
+            },
+            {
+              "tag": "displaywordcount",
+              "text": "0"
+            },
+            {
+              "tag": "discussions"
+            },
+            {
+              "tag": "subscriptions"
+            },
+            {
+              "tag": "digests"
+            },
+            {
+              "tag": "readposts"
+            },
+            {
+              "tag": "trackedprefs"
             }
           ],
           "tag": "forum"
@@ -723,6 +814,16 @@
               "text": "10.00000"
             },
             {
+              "tag": "password"
+            },
+            {
+              "tag": "subnet"
+            },
+            {
+              "tag": "browsersecurity",
+              "text": "-"
+            },
+            {
               "children": [
                 {
                   "attributes": {
@@ -1351,6 +1452,16 @@
               "text": "10.00000"
             },
             {
+              "tag": "password"
+            },
+            {
+              "tag": "subnet"
+            },
+            {
+              "tag": "browsersecurity",
+              "text": "-"
+            },
+            {
               "children": [
                 {
                   "attributes": {
@@ -1747,6 +1858,13 @@
               "tag": "reference"
             },
             {
+              "tag": "md5hash",
+              "text": "<id:1>"
+            },
+            {
+              "tag": "options"
+            },
+            {
               "tag": "launch",
               "text": "46"
             },
@@ -1765,6 +1883,14 @@
             {
               "tag": "maxgrade",
               "text": "10"
+            },
+            {
+              "tag": "timeopen",
+              "text": "0"
+            },
+            {
+              "tag": "timeclose",
+              "text": "0"
             },
             {
               "children": [
@@ -2234,6 +2360,56 @@
             },
             {
               "tag": "introformat",
+              "text": "1"
+            },
+            {
+              "tag": "instructauthors"
+            },
+            {
+              "tag": "instructauthorsformat",
+              "text": "1"
+            },
+            {
+              "tag": "instructreviewers"
+            },
+            {
+              "tag": "instructreviewersformat",
+              "text": "1"
+            },
+            {
+              "tag": "strategy",
+              "text": "accumulative"
+            },
+            {
+              "tag": "evaluation",
+              "text": "best"
+            },
+            {
+              "tag": "submissionstart",
+              "text": "0"
+            },
+            {
+              "tag": "submissionend",
+              "text": "0"
+            },
+            {
+              "tag": "assessmentstart",
+              "text": "0"
+            },
+            {
+              "tag": "assessmentend",
+              "text": "0"
+            },
+            {
+              "tag": "nattachments",
+              "text": "0"
+            },
+            {
+              "tag": "submissiontypefile",
+              "text": "1"
+            },
+            {
+              "tag": "submissiontypetext",
               "text": "1"
             }
           ],
@@ -2972,7 +3148,7 @@
           "children": [
             {
               "tag": "name",
-              "text": "backup-moodle2-course-19-<id:1>.mbz"
+              "text": "backup-moodle2-course-19-<id:2>.mbz"
             },
             {
               "tag": "moodle_version",
@@ -5468,7 +5644,7 @@
     {
       "kind": "xml",
       "path": "activities/forum_38/forum.xml",
-      "size": 289
+      "size": 927
     },
     {
       "kind": "xml",
@@ -5558,7 +5734,7 @@
     {
       "kind": "xml",
       "path": "activities/quiz_25/quiz.xml",
-      "size": 3854
+      "size": 3912
     },
     {
       "kind": "xml",
@@ -5578,7 +5754,7 @@
     {
       "kind": "xml",
       "path": "activities/quiz_49/quiz.xml",
-      "size": 1052
+      "size": 1110
     },
     {
       "kind": "xml",
@@ -5633,7 +5809,7 @@
     {
       "kind": "xml",
       "path": "activities/scorm_44/scorm.xml",
-      "size": 654
+      "size": 762
     },
     {
       "kind": "xml",
@@ -5693,7 +5869,7 @@
     {
       "kind": "xml",
       "path": "activities/workshop_40/workshop.xml",
-      "size": 278
+      "size": 730
     },
     {
       "kind": "xml",
