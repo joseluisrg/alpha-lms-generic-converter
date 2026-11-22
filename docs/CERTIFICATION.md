@@ -1,9 +1,9 @@
 # LMS certification
 
 The certification harness imports generated Moodle and Open edX packages into
-fresh, pinned LMS environments and then re-exports them. A feature is verified
-only when the re-export still contains the expected structure, questions, assets,
-or manifest records.
+pinned LMS environments on fresh CI runners and then re-exports them. A feature
+is verified when the re-export still contains the expected structure, questions,
+assets, or manifest records within the scope described below.
 
 ## Targets
 
@@ -23,7 +23,7 @@ The current plan covers 57 import-checked features across two golden cases:
 Placeholder features are reported as `expected_gap`. Native and transformed
 features must pass their verifier; a missing or failed verifier fails the case.
 
-## Current certified results
+## Current manual certification results
 
 Two consecutive workflow-dispatched `all` runs passed at commit `8e993d3`:
 
@@ -32,8 +32,9 @@ Two consecutive workflow-dispatched `all` runs passed at commit `8e993d3`:
 | [44935886680](https://github.com/olgakazarina-guds/Team-Delta/actions/runs/44935886680) | 17/23 verified | 22/34 verified | passed |
 | [44937445755](https://github.com/olgakazarina-guds/Team-Delta/actions/runs/44937445755) | 17/23 verified | 22/34 verified | passed |
 
-Aggregate: 39 verified features (6 native, 33 transformed), 18 expected gaps,
-and 0 failures. The machine-readable scorecard is
+Aggregate: 39 verified features (6 native, 33 transformed), 18 lost/expected
+gaps, and 0 failures. These manual runs certify the committed matrix but do not
+satisfy the scheduled release gate. The machine-readable scorecard is
 [`docs/certification-scorecard.json`](certification-scorecard.json).
 
 ## Run flow
@@ -120,9 +121,10 @@ Exit codes are:
 - `2`: plan, configuration, or environment setup error.
 
 Expected gaps do not fail a case, but their count is included in the summary.
-Certification is eligible as a release gate after two consecutive green `all`
-runs against the pinned patches; the two runs recorded above satisfy that
-check. The nightly schedule remains the ongoing regression monitor.
+Certification is eligible as a release gate only after two consecutive green
+scheduled `all` runs pass against the pinned patches. The two manual runs above
+certify the current matrix but do not satisfy that gate. The nightly schedule
+remains the ongoing regression monitor.
 
 ## Evidence and troubleshooting
 
@@ -153,6 +155,14 @@ Common failure modes:
 
 - LTI launch data, raw XML fragments, and placeholder activities are not
   certified as functional target features.
+- Some transformed features are certified by presence or count checks rather
+  than full answer, option, URL, or hierarchy comparison. Asset and SCORM checks
+  compare bytes or archive members.
+- Open edX images are version-pinned through Tutor but are not recorded by
+  digest in the scorecard.
+- The Open edX target uses the runner's Tutor installation and Docker project.
+  Run it only in a disposable CI runner until the target is isolated with a
+  dedicated `TUTOR_ROOT`.
 - The Moodle target is a synthetic high-fidelity fixture, not a complete
   production backup; module metadata is updated iteratively against the first
   live restore.

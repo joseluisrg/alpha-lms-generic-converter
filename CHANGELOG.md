@@ -26,7 +26,7 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 - Nightly and manually dispatched LMS certification workflow with disk guards, checksum-verified Moodle download, separate target jobs, and uploaded reports/logs.
 - Certification schema version 2 with re-export artifact hashes, sizes, commands, exit codes, durations, and log references.
 - Certification guide covering local runs, workflow dispatch, pass criteria, evidence, troubleshooting, and known limitations.
-- Machine-readable certification scorecard recording 39 verified features, 33 transformed plus 6 native, 18 expected gaps, and the two consecutive green `all` runs.
+- Machine-readable certification scorecard recording 39 verified features, 33 transformed plus 6 native, 18 lost/expected gaps, two consecutive manual green `all` runs, and the pending scheduled release gate.
 
 ### Changed
 
@@ -43,7 +43,7 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 
 - Open edX HTML wrappers that omit the `.html` suffix now resolve the payload file, preserving external URL and fallback content through re-export.
 - Open edX SCORM components now keep package metadata inline and import through the target-aware course key, so package storage survives import and re-export.
-- Two consecutive live `all` certification runs now pass against Moodle 5.3.1 and Open edX Verawood.2, verifying 17/23 and 22/34 features respectively.
+- Two consecutive manual live `all` certification runs now pass against Moodle 5.3.1 and Open edX Verawood.2, verifying 17/23 and 22/34 features respectively; two scheduled nightly runs remain the release gate.
 
 ## [0.1.0a1] - 2026-11-18
 

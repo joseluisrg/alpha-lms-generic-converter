@@ -1,8 +1,10 @@
 {
   "schema_version": 1,
   "matrix_version": 1,
-  "status": "certified",
-  "updated": "2026-11-21",
+  "status": "manual_certified",
+  "certification_type": "manual",
+  "release_gate": "pending_scheduled_runs",
+  "updated": "2026-11-22",
   "certification_targets": {
     "moodle": {
       "release": "5.3 LTS",
@@ -45,7 +47,9 @@
     }
   },
   "known_gaps": [
-    "Live certification is green for the committed matrix; feature, adapter, or pinned-patch changes require new runs.",
+    "Manual certification is green for the committed matrix; two consecutive scheduled nightly runs are still required for the release gate.",
+    "Some transformed features are certified by presence or count checks rather than full content comparison; asset and SCORM checks compare bytes.",
+    "Open edX images are version-pinned through Tutor but are not recorded by digest in the scorecard.",
     "LTI launch data and raw fragments are not emitted to target exports.",
     "HTML fallbacks for Moodle choice, book, glossary, wiki, assignment, and lesson activities do not yet have dedicated report codes."
   ],
