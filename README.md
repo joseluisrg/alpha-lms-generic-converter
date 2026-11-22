@@ -6,6 +6,9 @@ LMS Converter parses course packages, maps them to a canonical course model, val
 
 > Status: alpha. The conversion pipeline is usable, but real-LMS certification and production hardening are still in progress. See [`docs/production-readiness-plan.md`](docs/production-readiness-plan.md).
 
+# Feature addition ledger-rollback
+This branch we start working on the ledger-rollback feature.
+
 ## Features
 
 - Moodle `.mbz` and Open edX `.tar.gz` inspection.
@@ -14,6 +17,8 @@ LMS Converter parses course packages, maps them to a canonical course model, val
 - Archive, path, and XML input hardening.
 - HTML and JSON migration reports.
 - SQLite job history with lifecycle states.
+- **Provenance ledger** — every job transition is recorded as an immutable event with a tamper-evident hash chain, so you always know what happened and when.
+- **Rollback** — restore a job to any previous artifact version without deleting history.
 - Optional Streamlit UI.
 
 ## Requirements
@@ -47,14 +52,38 @@ uv sync --group dev
 uv run lms-converter --help
 uv run lms-converter --version
 
+# Inspect a course package
 uv run lms-converter inspect course.mbz --source moodle --report
 uv run lms-converter inspect course.tar.gz --source openedx --validate-for moodle
 
+# Migrate between LMS platforms
 uv run lms-converter migrate course.mbz --target openedx --output course.tar.gz
 uv run lms-converter migrate course.tar.gz --target moodle --output course.mbz
 
+# Generate a migration report (HTML or JSON), including the full event ledger
 uv run lms-converter report <job-id> --format html --output report.html
+uv run lms-converter report <job-id> --format json
+
+# Show the immutable provenance ledger for a job
+uv run lms-converter ledger <job-id>
+uv run lms-converter ledger <job-id> --owner alice
+
+# Roll back a job to its most recent artifact version
+uv run lms-converter rollback <job-id>
+
+# Roll back to a specific earlier version
+uv run lms-converter rollback <job-id> --version 1
 ```
+
+### Command reference
+
+| Command | What it does |
+| --- | --- |
+| `inspect` | Parse a course package, build the canonical model, validate migration readiness |
+| `migrate` | Convert a course from one LMS to another and produce an output archive |
+| `report` | Render an HTML or JSON report for a completed job, including ledger history |
+| `ledger` | Print the full event history for a job: each transition, actor, timestamp, and output fingerprint |
+| `rollback` | Copy a previous artifact into a new version slot, reset the job to `inspected`, and record a `rolled_back` event |
 
 ## Streamlit UI
 

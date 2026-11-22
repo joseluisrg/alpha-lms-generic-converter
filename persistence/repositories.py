@@ -9,13 +9,17 @@ migrated, and failed jobs.
 from __future__ import annotations
 
 import json
+import shutil
 import sqlite3
+import uuid
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Dict, Iterator, List, Optional
 
 from core.config import get_settings
-from core.errors import JobAccessError
+from core.errors import JobAccessError, LedgerRollbackError
+from core.identity import sha256_bytes, sha256_text, tool_version
+from domain.entities import Course
 
 DEFAULT_OWNER = "local"
 
@@ -25,6 +29,8 @@ _REQUIRED_COLUMNS = {
     "error": "TEXT",
     "updated_at": "TIMESTAMP",
     "owner": "TEXT NOT NULL DEFAULT 'local'",
+    # ST-4: path to versioned manifest.json written after each migration
+    "manifest_path": "TEXT",
 }
 
 
@@ -73,6 +79,27 @@ def _ensure_schema(conn: sqlite3.Connection) -> None:
     for name, definition in _REQUIRED_COLUMNS.items():
         if name not in existing:
             conn.execute(f"ALTER TABLE jobs ADD COLUMN {name} {definition}")
+
+    # PR-05 coordination: assign the next schema version number here
+    # once the PRAGMA user_version migration system lands in PR-05.
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS job_events (
+            event_id      TEXT PRIMARY KEY,
+            job_id        TEXT NOT NULL,
+            owner         TEXT NOT NULL DEFAULT 'local',
+            event         TEXT NOT NULL,
+            step          TEXT NOT NULL DEFAULT '',
+            input_hash    TEXT NOT NULL DEFAULT '',
+            output_hash   TEXT NOT NULL DEFAULT '',
+            tool_version  TEXT NOT NULL DEFAULT '',
+            actor         TEXT NOT NULL DEFAULT 'local',
+            prev_event_id TEXT,
+            recorded_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (job_id) REFERENCES jobs(job_id)
+        )
+        """
+    )
     conn.commit()
 
 
@@ -114,8 +141,10 @@ def save_job(
     """Save a newly inspected job and its canonical course snapshot."""
     init_db()
     with _connect() as conn:
+        # Fetch the previous canonical Course snapshot (if any) so we can
+        # record it as course_before in the ledger event.
         existing = conn.execute(
-            "SELECT owner FROM jobs WHERE job_id = ?", (job_id,)
+            "SELECT owner, course_json FROM jobs WHERE job_id = ?", (job_id,)
         ).fetchone()
         if existing and existing["owner"] != owner:
             raise JobAccessError(f"Job {job_id} belongs to another owner")
@@ -148,6 +177,25 @@ def save_job(
         )
         conn.commit()
 
+    # Append ledger event after the jobs row is committed.
+    # course_before = whatever Course was stored before this call (None on
+    # first insert).  course_after = the new Course being saved now.
+    course_before: Any = None
+    if existing and existing["course_json"]:
+        try:
+            course_before = Course.model_validate_json(existing["course_json"])
+        except Exception:
+            pass  # graceful fallback; input_hash will be hash of empty string
+    append_job_event(
+        job_id=job_id,
+        event=status,
+        step="parse|transform|validate",
+        course_before=course_before,
+        course_after=course,
+        owner=owner,
+        actor=owner,
+    )
+
 
 def save_migration_job(
     job_id: str,
@@ -163,8 +211,9 @@ def save_migration_job(
     """Mark an existing job as migrated, preserving its report when omitted."""
     init_db()
     with _connect() as conn:
+        # Also fetch course_json so we can compute course_before for the ledger.
         existing = conn.execute(
-            "SELECT report_json, extracted_path, owner FROM jobs WHERE job_id = ?",
+            "SELECT report_json, extracted_path, owner, course_json FROM jobs WHERE job_id = ?",
             (job_id,),
         ).fetchone()
 
@@ -209,6 +258,40 @@ def save_migration_job(
         )
         conn.commit()
 
+    # Append ledger event after committing the job row.
+    course_before: Any = None
+    if existing and existing["course_json"]:
+        try:
+            course_before = Course.model_validate_json(existing["course_json"])
+        except Exception:
+            pass
+    append_job_event(
+        job_id=job_id,
+        event="migrated",
+        step="export",
+        course_before=course_before,
+        course_after=course,
+        owner=effective_owner,
+        actor=effective_owner,
+    )
+
+    # Write a versioned artifact manifest with the full hash chain.
+    # Only when output_path is provided (i.e. a real artifact was produced).
+    if output_path:
+        output_root = get_settings().output_dir / job_id
+        existing_manifests = sorted(output_root.glob("v*/manifest.json"))
+        version = len(existing_manifests) + 1
+        all_events = get_job_events(job_id, owner=effective_owner)
+        manifest_path_str = write_artifact_manifest(
+            job_id, version, output_path, all_events, effective_owner
+        )
+        with _connect() as conn:
+            conn.execute(
+                "UPDATE jobs SET manifest_path = ? WHERE job_id = ?",
+                (manifest_path_str, job_id),
+            )
+            conn.commit()
+
 
 def mark_job_failed(
     job_id: str, error: str, *, owner: Optional[str] = None
@@ -236,6 +319,18 @@ def mark_job_failed(
             )
         conn.commit()
 
+    # Append failed event; no course snapshot available at failure time so
+    # both input_hash and output_hash will be empty strings.
+    append_job_event(
+        job_id=job_id,
+        event="failed",
+        step="",
+        course_before=None,
+        course_after=None,
+        owner=owner or DEFAULT_OWNER,
+        actor=owner or DEFAULT_OWNER,
+    )
+
 
 def get_job(job_id: str, *, owner: Optional[str] = None) -> Optional[Dict[str, Any]]:
     """Retrieve a job by ID, optionally constrained to its owner."""
@@ -246,7 +341,7 @@ def get_job(job_id: str, *, owner: Optional[str] = None) -> Optional[Dict[str, A
                 """
                 SELECT job_id, source_type, target_type, status, owner,
                        course_json, report_json, extracted_path, output_path,
-                       error, created_at, updated_at
+                       error, created_at, updated_at, manifest_path
                 FROM jobs WHERE job_id = ?
                 """,
                 (job_id,),
@@ -256,7 +351,7 @@ def get_job(job_id: str, *, owner: Optional[str] = None) -> Optional[Dict[str, A
                 """
                 SELECT job_id, source_type, target_type, status, owner,
                        course_json, report_json, extracted_path, output_path,
-                       error, created_at, updated_at
+                       error, created_at, updated_at, manifest_path
                 FROM jobs WHERE job_id = ? AND owner = ?
                 """,
                 (job_id, owner),
@@ -297,14 +392,382 @@ def list_jobs(
 
 
 def delete_job(job_id: str, *, owner: Optional[str] = None) -> bool:
-    """Delete a job. Returns whether a row was removed."""
+    """Delete a job and its ledger events. Returns whether a row was removed.
+
+    ``job_events`` rows reference ``jobs`` via a foreign key so they are removed
+    first within the same transaction.  When *owner* is supplied, ledger rows are
+    only deleted if the job belongs to that owner; a mismatched owner returns
+    False without touching anything.
+
+    See the plan (Part F) for the known limitation: this administrative path
+    removes ledger rows without leaving a trace.  A future ``admin_events``
+    table is proposed to record such destructive operations.
+    """
     init_db()
     with _connect() as conn:
         if owner is None:
+            # Delete ledger rows first to satisfy the foreign-key constraint.
+            conn.execute("DELETE FROM job_events WHERE job_id = ?", (job_id,))
             cursor = conn.execute("DELETE FROM jobs WHERE job_id = ?", (job_id,))
         else:
+            # Only cascade into ledger rows when the job actually belongs to
+            # this owner; otherwise the jobs DELETE will simply find zero rows.
+            existing = conn.execute(
+                "SELECT owner FROM jobs WHERE job_id = ?", (job_id,)
+            ).fetchone()
+            if existing and existing["owner"] == owner:
+                conn.execute(
+                    "DELETE FROM job_events WHERE job_id = ?", (job_id,)
+                )
             cursor = conn.execute(
                 "DELETE FROM jobs WHERE job_id = ? AND owner = ?", (job_id, owner)
             )
         conn.commit()
         return cursor.rowcount > 0
+
+
+# ---------------------------------------------------------------------------
+# Ledger helpers
+# ---------------------------------------------------------------------------
+
+
+def _serialize_course_no_fragments(course: Any) -> str:
+    """Serialize a Course with raw_fragments cleared (PII guard).
+
+    ``input_hash`` and ``output_hash`` in job_events are computed from this
+    representation so raw XML source text is never stored in hashes or manifests.
+
+    Known limitation: the hash is a byte-level digest of the Pydantic JSON
+    serialisation.  Semantically equivalent values that differ in format
+    (e.g. ``1.0`` vs ``1``, ``null`` vs omitted key) will produce different
+    hashes even though the course content is unchanged.  The hash is intended
+    as a quick change-detector, not a semantic equivalence checker.
+    """
+    if course is None:
+        return ""
+    if hasattr(course, "model_copy"):
+        # Pydantic v2: in-memory copy with raw_fragments stripped
+        stripped = course.model_copy(update={"raw_fragments": []})
+        return stripped.model_dump_json()
+    if hasattr(course, "dict"):
+        d = course.dict()
+        d["raw_fragments"] = []
+        return json.dumps(d)
+    return json.dumps({})
+
+
+def append_job_event(
+    job_id: str,
+    event: str,
+    step: str,
+    course_before: Any,
+    course_after: Any,
+    owner: str,
+    actor: str,
+) -> None:
+    """Append an immutable event row to job_events.
+
+    This is the only write path for job_events — rows are never updated or
+    deleted during normal operation (see purge_ledger_entries_before for the
+    maintenance-only delete path used by PR-06 retention).
+    """
+    init_db()
+    event_id = str(uuid.uuid4())
+    input_hash = sha256_text(_serialize_course_no_fragments(course_before))
+    output_hash = sha256_text(_serialize_course_no_fragments(course_after))
+    ver = tool_version()
+
+    with _connect() as conn:
+        prev_row = conn.execute(
+            """
+            SELECT event_id FROM job_events
+            WHERE job_id = ?
+            ORDER BY recorded_at DESC
+            LIMIT 1
+            """,
+            (job_id,),
+        ).fetchone()
+        prev_event_id = prev_row["event_id"] if prev_row else None
+
+        conn.execute(
+            """
+            INSERT INTO job_events
+                (event_id, job_id, owner, event, step,
+                 input_hash, output_hash, tool_version, actor, prev_event_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                event_id, job_id, owner, event, step,
+                input_hash, output_hash, ver, actor, prev_event_id,
+            ),
+        )
+        conn.commit()
+
+
+def get_job_events(
+    job_id: str, *, owner: Optional[str] = None
+) -> List[Dict[str, Any]]:
+    """Return all ledger events for a job, ordered oldest first.
+
+    When *owner* is provided only events whose ``owner`` column matches are
+    returned — identical scoping to :func:`get_job`.
+    """
+    init_db()
+    with _connect() as conn:
+        if owner is None:
+            rows = conn.execute(
+                """
+                SELECT event_id, job_id, owner, event, step,
+                       input_hash, output_hash, tool_version, actor,
+                       prev_event_id, recorded_at
+                FROM job_events
+                WHERE job_id = ?
+                ORDER BY recorded_at ASC
+                """,
+                (job_id,),
+            ).fetchall()
+        else:
+            rows = conn.execute(
+                """
+                SELECT event_id, job_id, owner, event, step,
+                       input_hash, output_hash, tool_version, actor,
+                       prev_event_id, recorded_at
+                FROM job_events
+                WHERE job_id = ? AND owner = ?
+                ORDER BY recorded_at ASC
+                """,
+                (job_id, owner),
+            ).fetchall()
+    return [dict(row) for row in rows]
+
+
+def purge_ledger_entries_before(
+    cutoff_ts: str, *, owner: Optional[str] = None
+) -> int:
+    """Delete job_events rows recorded before *cutoff_ts*.
+
+    This is a maintenance-only operation intended to be called by the PR-06
+    retention scheduler.  It is never wired into any automatic write path.
+
+    Returns the number of rows deleted.
+    """
+    init_db()
+    with _connect() as conn:
+        if owner is None:
+            cursor = conn.execute(
+                "DELETE FROM job_events WHERE recorded_at < ?",
+                (cutoff_ts,),
+            )
+        else:
+            cursor = conn.execute(
+                "DELETE FROM job_events WHERE recorded_at < ? AND owner = ?",
+                (cutoff_ts, owner),
+            )
+        conn.commit()
+        return cursor.rowcount
+
+
+# ---------------------------------------------------------------------------
+# Artifact manifest (hash chain on disk)
+# ---------------------------------------------------------------------------
+
+
+def write_artifact_manifest(
+    job_id: str,
+    version: int,
+    artifact_path: str,
+    events: List[Dict[str, Any]],
+    owner: str,
+) -> str:
+    """Write a versioned JSON manifest to disk and return its path.
+
+    The manifest captures the full ``job_events`` chain up to this point plus
+    a SHA-256 hash of the artifact file bytes.  Each chain entry's ``prev_hash``
+    is the SHA-256 of the previous entry serialised as canonical JSON
+    (``json.dumps(..., sort_keys=True)``), forming a tamper-evident chain.
+
+    Manifest location: ``{output_dir}/{job_id}/v{version}/manifest.json``
+    """
+    sorted_events = sorted(events, key=lambda e: e["recorded_at"])
+
+    chain: List[Dict[str, Any]] = []
+    for i, event in enumerate(sorted_events):
+        prev_hash: Optional[str] = None
+        if i > 0:
+            prev_hash = sha256_text(
+                json.dumps(chain[i - 1], sort_keys=True, ensure_ascii=False)
+            )
+        chain.append(
+            {
+                "event_id": event["event_id"],
+                "event": event["event"],
+                "step": event["step"],
+                "input_hash": event["input_hash"],
+                "output_hash": event["output_hash"],
+                "tool_version": event["tool_version"],
+                "actor": event["actor"],
+                "recorded_at": event["recorded_at"],
+                "prev_hash": prev_hash,
+            }
+        )
+
+    artifact_file = Path(artifact_path)
+    artifact_hash = sha256_bytes(artifact_file.read_bytes()) if artifact_file.exists() else ""
+
+    manifest = {
+        "schema_version": 1,
+        "job_id": job_id,
+        "version": version,
+        "artifact_path": str(artifact_path),
+        "artifact_hash": artifact_hash,
+        "chain": chain,
+    }
+
+    out_dir = get_settings().output_dir / job_id / f"v{version}"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    manifest_path = out_dir / "manifest.json"
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    return str(manifest_path)
+
+
+def get_manifest(
+    job_id: str, version: int, *, owner: str = DEFAULT_OWNER
+) -> Dict[str, Any]:
+    """Read and return the versioned manifest for a job.
+
+    Raises :class:`~core.errors.LedgerRollbackError` if the manifest file does
+    not exist.  Performs a basic tamper-guard check on the ``job_id`` field.
+    """
+    manifest_path = (
+        get_settings().output_dir / job_id / f"v{version}" / "manifest.json"
+    )
+    if not manifest_path.exists():
+        raise LedgerRollbackError(
+            f"No manifest found for job {job_id!r} version {version} "
+            f"(expected {manifest_path})"
+        )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("job_id") != job_id:
+        raise LedgerRollbackError(
+            f"Manifest job_id mismatch: expected {job_id!r}, "
+            f"found {manifest.get('job_id')!r}"
+        )
+    return manifest
+
+
+# ---------------------------------------------------------------------------
+# Rollback
+# ---------------------------------------------------------------------------
+
+
+def rollback_job(
+    job_id: str,
+    *,
+    version: Optional[int] = None,
+    owner: str = DEFAULT_OWNER,
+) -> Dict[str, Any]:
+    """Restore a job to an earlier artifact version.
+
+    Copies the artifact referenced by *version* (or the highest available
+    version when *version* is ``None``) into a new ``v{N+1}`` directory,
+    resets the ``jobs`` row to ``status='inspected'``, appends a
+    ``rolled_back`` event, and writes a new manifest for the rollback.
+
+    Returns the updated job dict.
+
+    Raises
+    ------
+    JobAccessError
+        If *job_id* does not exist or is not owned by *owner*.
+    LedgerRollbackError
+        If no manifests exist for the job, or the target artifact file is
+        missing on disk.
+    """
+    # Step 1: verify job exists and owner matches
+    job = get_job(job_id, owner=owner)
+    if job is None:
+        raise JobAccessError(
+            f"Job {job_id!r} not found or not owned by {owner!r}"
+        )
+
+    # Step 2: discover all versioned manifests on disk
+    output_root = get_settings().output_dir / job_id
+    manifest_paths = sorted(
+        output_root.glob("v*/manifest.json"),
+        key=lambda p: int(p.parent.name[1:]),
+    )
+    if not manifest_paths:
+        raise LedgerRollbackError(
+            f"No manifests found for job {job_id!r}. "
+            "Run a migration first to create a manifest."
+        )
+
+    # Step 3: resolve target version
+    if version is None:
+        target_version = max(int(p.parent.name[1:]) for p in manifest_paths)
+    else:
+        target_version = version
+
+    # Step 4: load manifest (raises LedgerRollbackError if missing)
+    manifest = get_manifest(job_id, target_version, owner=owner)
+
+    # Step 5: verify artifact file exists on disk
+    artifact_path = Path(manifest["artifact_path"])
+    if not artifact_path.exists():
+        raise LedgerRollbackError(
+            f"Artifact file not found: {artifact_path}. "
+            "Cannot roll back without the original artifact."
+        )
+
+    # Step 6: determine new version number and copy artifact
+    new_version = len(manifest_paths) + 1
+    dest_dir = output_root / f"v{new_version}"
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    new_artifact = dest_dir / artifact_path.name
+    shutil.copy2(artifact_path, new_artifact)
+
+    # Step 7: reset the jobs row to 'inspected' (no migration outputs)
+    with _connect() as conn:
+        conn.execute(
+            """
+            UPDATE jobs
+               SET status = 'inspected',
+                   output_path = NULL,
+                   manifest_path = NULL,
+                   error = NULL,
+                   updated_at = CURRENT_TIMESTAMP
+             WHERE job_id = ?
+            """,
+            (job_id,),
+        )
+        conn.commit()
+
+    # Step 8: append the rolled_back ledger event
+    append_job_event(
+        job_id,
+        "rolled_back",
+        "rollback",
+        None,
+        None,
+        owner,
+        owner,
+    )
+
+    # Step 9: write a new manifest capturing the full post-rollback chain
+    all_events = get_job_events(job_id, owner=owner)
+    new_manifest_path = write_artifact_manifest(
+        job_id, new_version, str(new_artifact), all_events, owner
+    )
+
+    # Step 10: persist the new manifest path in the jobs row
+    with _connect() as conn:
+        conn.execute(
+            "UPDATE jobs SET manifest_path = ? WHERE job_id = ?",
+            (new_manifest_path, job_id),
+        )
+        conn.commit()
+
+    # Step 11: return the refreshed job dict
+    return get_job(job_id, owner=owner)  # type: ignore[return-value]
