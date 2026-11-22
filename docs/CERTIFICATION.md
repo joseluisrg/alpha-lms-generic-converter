@@ -23,6 +23,19 @@ The current plan covers 57 import-checked features across two golden cases:
 Placeholder features are reported as `expected_gap`. Native and transformed
 features must pass their verifier; a missing or failed verifier fails the case.
 
+## Current certified results
+
+Two consecutive workflow-dispatched `all` runs passed at commit `8e993d3`:
+
+| Run | Moodle | Open edX | Result |
+| --- | --- | --- | --- |
+| [44935886680](https://github.com/olgakazarina-guds/Team-Delta/actions/runs/44935886680) | 17/23 verified | 22/34 verified | passed |
+| [44937445755](https://github.com/olgakazarina-guds/Team-Delta/actions/runs/44937445755) | 17/23 verified | 22/34 verified | passed |
+
+Aggregate: 39 verified features (6 native, 33 transformed), 18 expected gaps,
+and 0 failures. The machine-readable scorecard is
+[`docs/certification-scorecard.json`](certification-scorecard.json).
+
 ## Run flow
 
 1. Build a deterministic target archive from a golden case.
@@ -76,7 +89,9 @@ uv run python scripts/run_lms_certification.py \
 ```
 
 The target enables the forum plugin, disables SMTP, launches the Tutor stack,
-runs `./manage.py cms xlint`, imports the course, and exports it again. Tutor
+runs `./manage.py cms xlint`, imports the course through the target-aware
+`import_course_from_xml` path, and exports it again. Passing the destination
+course key keeps SCORM package storage keyed to the imported block. Tutor
 startup and image pulls can take several minutes.
 
 ## Nightly and manual runs
@@ -105,8 +120,9 @@ Exit codes are:
 - `2`: plan, configuration, or environment setup error.
 
 Expected gaps do not fail a case, but their count is included in the summary.
-The project should not require certification as a release gate until two
-consecutive scheduled runs pass against the pinned patches.
+Certification is eligible as a release gate after two consecutive green `all`
+runs against the pinned patches; the two runs recorded above satisfy that
+check. The nightly schedule remains the ongoing regression monitor.
 
 ## Evidence and troubleshooting
 

@@ -137,7 +137,8 @@ The canonical model and adapter boundary are the intended extension points for
 future formats and LMS targets. Common Cartridge, QTI, direct LMS APIs, a
 React UI, and horizontal scaling are outside the current release scope.
 
-The versioned fidelity scorecard and real-LMS import harness depend on the
-certification targets and LMS environment access tracked in the production
-readiness plan. See [`production-readiness-plan.md`](production-readiness-plan.md)
-for the current milestone and decision status.
+The versioned fidelity scorecard and real-LMS import harness are delivered
+against the pinned certification targets. See
+[`certification-scorecard.json`](certification-scorecard.json) for results and
+[`production-readiness-plan.md`](production-readiness-plan.md) for the current
+milestone and decision status.

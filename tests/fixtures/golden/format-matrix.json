@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "matrix_version": 1,
-  "status": "draft",
+  "status": "certified",
   "updated": "2026-11-21",
   "certification_targets": {
     "moodle": {
@@ -45,8 +45,7 @@
     }
   },
   "known_gaps": [
-    "Live LMS certification is configured but has not completed a green run yet; rows describe current exporter behavior until then.",
-    "Full Open edX Verawood and Tutor import certification is pending.",
+    "Live certification is green for the committed matrix; feature, adapter, or pinned-patch changes require new runs.",
     "LTI launch data and raw fragments are not emitted to target exports.",
     "HTML fallbacks for Moodle choice, book, glossary, wiki, assignment, and lesson activities do not yet have dedicated report codes."
   ],

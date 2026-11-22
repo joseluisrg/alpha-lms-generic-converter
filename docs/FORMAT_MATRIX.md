@@ -5,9 +5,10 @@
 | Field | Value |
 | --- | --- |
 | Matrix version | 1 |
-| Status | Draft; real targets implemented, live imports pending |
+| Status | Certified against pinned targets; two consecutive green runs |
 | Date | 2026-11-21 |
 | Machine-readable source | `tests/fixtures/golden/format-matrix.json` |
+| Certification scorecard | `docs/certification-scorecard.json` |
 | Certification plan | `docs/production-readiness-plan.md` |
 
 ## Certification targets
@@ -17,8 +18,11 @@
 | Moodle | 5.3 LTS (pin 5.3.1 in the harness) | PHP 8.4 and MariaDB 11.4 |
 | Open edX | Verawood (Verawood.2) | Tutor 22.0.4 |
 
-These are selected targets, not completed certification results. The import
-checks listed below run against pinned test environments in PR-08.
+The import checks below pass against the pinned environments. Two consecutive
+`all` certification runs completed successfully at commit `8e993d3`:
+Moodle verified 17 of 23 features with 6 expected gaps; Open edX verified 22 of
+34 features with 12 expected gaps. The aggregate scorecard is 39 verified
+features, 33 transformed plus 6 native, and 18 expected gaps.
 
 ## Status definitions
 
@@ -132,11 +136,10 @@ exporter, not proof that a live LMS import succeeds.
 | `security.xml.malformed` | Malformed XML is rejected. | control | - | `invalid/xml-malformed` | - |
 | `security.xml.size_limit` | XML document size exceeds the configured limit and is rejected. | control | - | `invalid/xml-size-limit` | - |
 
-## Known gaps before certification
+## Known gaps after certification
 
-- No live LMS imports have completed a green certification run yet. The rows
-  describe current exporter behavior until the nightly harness reports success.
-- Full Open edX Verawood and Tutor import certification is pending.
+- Live certification is green for the committed matrix; any change to a
+  feature status, target adapter, or pinned LMS patch requires new runs.
 - LTI launch data and raw fragments are not emitted to target exports.
 - HTML fallbacks for Moodle choice, book, glossary, wiki, assignment, and
   lesson activities do not yet have dedicated report codes.
@@ -147,6 +150,7 @@ exporter, not proof that a live LMS import succeeds.
   changes.
 - Increment `schema_version` when the matrix structure changes.
 - Record a new certification run against the exact Moodle and Open edX patch
-  versions in `certification-results.json` when PR-08 lands.
+  versions in `docs/certification-scorecard.json` when a feature status or
+  target adapter changes.
 - Do not promote a row to `native` or `transformed` without evidence from both
   the golden corpus and a live pinned LMS import.
