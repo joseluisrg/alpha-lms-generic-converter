@@ -581,18 +581,6 @@
       ],
       "tag": "problem"
     },
-    "scorm/<id:47>-fc91-5ded-aa45-<id:48>.xml": {
-      "attributes": {
-        "display_name": "SCORM Package",
-        "has_score": "true",
-        "index_page_path": "index.html",
-        "package_meta": "{\"last_updated\":\"2026-01-01T00:00:00\",\"name\":\"package.zip\",\"sha1\":\"1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\",\"size\":779}",
-        "scorm_package_path": "scorm/<id:47>-fc91-5ded-aa45-<id:48>/package.zip",
-        "scorm_version": "SCORM_12",
-        "weight": "10"
-      },
-      "tag": "scorm"
-    },
     "sequential/<id:3>-edb2-5228-8562-<id:4>.xml": {
       "attributes": {
         "display_name": "Content"
@@ -874,7 +862,14 @@
       "children": [
         {
           "attributes": {
-            "url_name": "<id:47>-fc91-5ded-aa45-<id:48>"
+            "display_name": "SCORM Package",
+            "has_score": "true",
+            "index_page_path": "index.html",
+            "package_meta": "{\"last_updated\":\"2026-01-01T00:00:00\",\"name\":\"package.zip\",\"sha1\":\"1ad97bb9898d1ca66cb8f59d2714ae40dd4fc483\",\"size\":779}",
+            "scorm_package_path": "scorm/<id:47>-fc91-5ded-aa45-<id:48>/package.zip",
+            "scorm_version": "SCORM_12",
+            "url_name": "<id:47>-fc91-5ded-aa45-<id:48>",
+            "weight": "10"
           },
           "tag": "scorm"
         }
@@ -1316,11 +1311,6 @@
     },
     {
       "kind": "xml",
-      "path": "scorm/<id:47>-fc91-5ded-aa45-<id:48>.xml",
-      "size": 438
-    },
-    {
-      "kind": "xml",
       "path": "sequential/<id:3>-edb2-5228-8562-<id:4>.xml",
       "size": 143
     },
@@ -1396,7 +1386,7 @@
     {
       "kind": "xml",
       "path": "vertical/<id:67>-9623-5253-801c-<id:68>.xml",
-      "size": 142
+      "size": 532
     },
     {
       "kind": "xml",

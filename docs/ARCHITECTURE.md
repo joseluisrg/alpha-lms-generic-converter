@@ -12,8 +12,9 @@ The high-level component diagram is available at
 
 LMS Converter is a self-hosted tool for moving course content between Moodle and
 Open edX. It reads LMS export packages, normalizes them into a canonical course
-model, validates migration readiness, writes a preserved/transformed/lost
-report, and generates a target-format package.
+model, validates migration readiness, writes a migration report, and generates a
+target-format package. The certification scorecard records preserved,
+transformed, and lost feature counts.
 
 The application deliberately uses package exchange rather than direct LMS APIs:
 
@@ -51,8 +52,9 @@ does not call an internal HTTP API.
    conditions and produces review notes.
 5. **Map and export** (`core/migrate.py`, target adapters): converts the
    canonical model into the requested target format.
-6. **Report** (`core/report.py`, `core/process_report.py`): records preserved,
-   transformed, and lost content as JSON or escaped HTML.
+6. **Report** (`core/report.py`, `core/process_report.py`): records validation
+   notes and unsupported content as JSON or escaped HTML; the certification
+   scorecard records preserved, transformed, and lost feature counts.
 7. **Persist** (`persistence/repositories.py`): stores job metadata, owner,
    lifecycle state, course snapshot, report, and artifact paths in SQLite.
 
@@ -137,7 +139,8 @@ The canonical model and adapter boundary are the intended extension points for
 future formats and LMS targets. Common Cartridge, QTI, direct LMS APIs, a
 React UI, and horizontal scaling are outside the current release scope.
 
-The versioned fidelity scorecard and real-LMS import harness depend on the
-certification targets and LMS environment access tracked in the production
-readiness plan. See [`production-readiness-plan.md`](production-readiness-plan.md)
-for the current milestone and decision status.
+The versioned fidelity scorecard and real-LMS import harness are delivered
+against the pinned certification targets. See
+[`certification-scorecard.json`](certification-scorecard.json) for results and
+[`production-readiness-plan.md`](production-readiness-plan.md) for the current
+milestone and decision status.

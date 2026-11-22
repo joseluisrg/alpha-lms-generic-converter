@@ -112,13 +112,15 @@ def test_openedx_import_records_management_commands(tmp_path: Path, monkeypatch)
     result = target.import_artifact(_artifact(tmp_path), tmp_path / "work")
 
     assert result.status == ImportStatus.PASSED
-    assert result.command[:7] == [
+    assert result.command[:8] == [
         "tutor",
         "local",
         "exec",
         "cms",
         "./manage.py",
         "cms",
-        "import",
+        "shell",
+        "-c",
     ]
-    assert result.command[7:] == ["/tmp/certification-import", "course"]
+    assert "import_course_from_xml" in result.command[8]
+    assert "target_id=CourseKey.from_string" in result.command[8]

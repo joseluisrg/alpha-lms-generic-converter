@@ -4,9 +4,9 @@
 
 | Field | Value |
 | --- | --- |
-| Document version | 2.3 |
+| Document version | 2.4 |
 | Status | Draft for approval |
-| Date | 2026-11-21 |
+| Date | 2026-11-22 |
 | Owner | Team Delta |
 | Approver | TBD |
 | Repository | `olgakazarina-guds/Team-Delta` |
@@ -26,7 +26,7 @@ This plan covers the production-readiness release: a self-hosted CLI and web pil
 
 ## 2. Current baseline
 
-Status as of 2026-11-21.
+Status as of 2026-11-22.
 
 | Area | Status | Evidence | Remaining work |
 | --- | --- | --- | --- |
@@ -34,11 +34,11 @@ Status as of 2026-11-21.
 | Packaging and configuration | Complete | `uv build` succeeds; clean-venv wheel install works; `lms-converter --version` works outside the repository; centralized `Settings` added in `5729227`; tag-driven release workflow with version/changelog checks, release artifacts, checksums, and CI artifact retention added in `.github/workflows/release.yml`, `scripts/check_release.py`, and `docs/RELEASING.md` | — |
 | Security and input controls | Complete | Committed in `235b2f5`; bounded uploads, archive and XML limits, output containment, production auth, owner-scoped jobs, and sanitized UI errors; PR-11 adds a digest-pinned non-root container, hash-locked runtime dependencies, SBOM generation, and CI container smoke checks | Add image vulnerability scanning |
 | Persistence | Complete | SQLite job records, lifecycle states, owner field, and `PRAGMA user_version` schema migrations exist; PR-05 removed DDL from repository reads; PR-06 adds configurable retention cleanup with dry-run mode; PR-10 adds a backup/restore integration drill | — |
-| Migration fidelity | Partial | Canonical model, Moodle/Open edX adapters, validation notes, and JSON/HTML reports exist; PR-07 adds a synthetic golden corpus with canonical IR, report, and target-export snapshots plus malformed and malicious fixtures; the draft format matrix publishes status and import-check expectations for every supported feature | Build the real-LMS import harness and versioned fidelity scorecard |
-| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); 318 tests with an 80% coverage floor enforced; ruff, mypy, bandit, and pip-audit gates run in CI; PR-11 adds container build, non-root, CLI smoke, web health, and SBOM generation/validation checks; PR-10 adds the backup/restore drill and the format-matrix checks extend the golden suite | Add nightly performance and fuzz layers |
+| Migration fidelity | Complete | Canonical model, Moodle/Open edX adapters, validation notes, JSON/HTML reports, and the synthetic golden corpus exist; the manually certified format matrix and `docs/certification-scorecard.json` publish 39 verified features, 33 transformed plus 6 native, and 18 lost/expected gaps | — |
+| Testing and CI | Complete | First clean-checkout CI run passed all jobs at `15ddef5` (quality, tests on 3.12 and 3.13, package build/install/smoke); the full test suite with an 80% coverage floor is enforced; ruff, mypy, bandit, and pip-audit gates run in CI; PR-11 adds container build, non-root, CLI smoke, web health, and SBOM generation/validation checks; PR-10 adds the backup/restore drill and the format-matrix checks extend the golden suite | Add nightly performance and fuzz layers |
 | Operations | Partial | PR-11 adds a hardened Dockerfile, Compose deployment, health checks, resource limits, log rotation, and a deployment guide; PR-10 adds backup, restore, rollback, retention, and incident procedures plus an automated recovery drill | Add metrics and alerting; schedule and verify production backups |
-| Documentation | Partial | README, security policy, contribution guide, changelog, license, release checklist, container deployment guide, architecture reference, operator runbook, and draft format matrix exist | Publish certification results in the scorecard |
-| Real-LMS certification | Partial | Moodle 5.3.1 and Open edX Verawood.2 environments are implemented with restore/import and re-export verification; the harness plans 57 import features and emits a schema-v2 result contract; nightly and manual workflows are configured | Complete a green live run and publish the certification report |
+| Documentation | Complete | README, security policy, contribution guide, changelog, license, release checklist, container deployment guide, architecture reference, operator runbook, format matrix, certification guide, and machine-readable certification scorecard exist | — |
+| Real-LMS certification | Partial | Moodle 5.3.1 and Open edX Verawood.2 environments import and re-export generated packages; two consecutive manual `all` runs `44935886680` and `44937445755` passed at `8e993d3`, verifying 17/23 Moodle and 22/34 Open edX features with 18 lost/expected gaps | Run two consecutive scheduled nightly `all` runs before the release gate |
 
 ## 3. Objectives and success criteria
 
@@ -193,7 +193,7 @@ A release is approved only when:
 - No open P0/P1 security findings remain.
 - Existing databases migrate without data loss.
 - Backup and restore have been exercised.
-- The supported feature matrix passes LMS import certification.
+- The supported feature matrix passes two consecutive scheduled nightly LMS `all` runs with no failures.
 - The container image builds, runs as non-root, and ships with an SBOM.
 - README, changelog, security policy, and operator runbook match the release.
 - Project Lead, Tech Lead, QA, and Security/DevOps have signed off.

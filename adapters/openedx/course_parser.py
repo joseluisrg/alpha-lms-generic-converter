@@ -45,7 +45,7 @@ class OpenEdxCourseParser:
         """Extract an Open edX export and return its structured course data."""
         self.fragments = []
         self._course_key = ""
-        extracted_root = self.reader.extract(archive_path, work_dir)
+        extracted_root = self.reader.extract(archive_path, work_dir).resolve()
 
         root_course_xml = extracted_root / "course.xml"
         if root_course_xml.exists():
@@ -341,7 +341,10 @@ class OpenEdxCourseParser:
             if not html_filename:
                 return None
 
-            html_path = resolve_under(extracted_root / "html", html_filename)
+            html_root = extracted_root / "html"
+            html_path = resolve_under(html_root, html_filename)
+            if not html_path.exists() and not html_filename.endswith(".html"):
+                html_path = resolve_under(html_root, f"{html_filename}.html")
             if not html_path.exists():
                 logger.warning("HTML payload not found: %s", html_path)
                 return None

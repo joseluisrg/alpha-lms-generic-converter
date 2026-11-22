@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any
 
@@ -114,3 +115,55 @@ def test_format_matrix_doc_statuses_match_json():
         cells = rows[feature["id"]]
         assert cells[2] == feature["status"]
         assert cells[3] == (feature["import_check"] or "-")
+
+
+def test_certification_scorecard_matches_format_matrix():
+    scorecard = json.loads(
+        (REPO_ROOT / "docs" / "certification-scorecard.json").read_text(encoding="utf-8")
+    )
+    assert scorecard["status"] == MATRIX["status"] == "manual_certified"
+    assert scorecard["certification_type"] == MATRIX["certification_type"] == "manual"
+    assert scorecard["release_gate"] == MATRIX["release_gate"] == "pending_scheduled_runs"
+    assert scorecard["matrix_version"] == MATRIX["matrix_version"]
+    assert len(scorecard["manual_green_all_runs"]) >= 2
+    assert all(
+        run["trigger"] == "workflow_dispatch" and run["conclusion"] == "success"
+        for run in scorecard["manual_green_all_runs"]
+    )
+    assert scorecard["scheduled_green_all_runs"] == []
+
+    for target, import_check in (
+        ("moodle", "moodle:restore"),
+        ("openedx", "openedx:import"),
+    ):
+        features = [feature for feature in FEATURES if feature["import_check"] == import_check]
+        expected = scorecard["targets"][target]
+        preserved = sum(feature["status"] == "native" for feature in features)
+        transformed = sum(feature["status"] == "transformed" for feature in features)
+        expected_gap = sum(feature["status"] == "placeholder" for feature in features)
+
+        assert expected["features_total"] == len(features)
+        assert expected["preserved"] == preserved
+        assert expected["transformed"] == transformed
+        assert expected["verified"] == preserved + transformed
+        assert expected["lost"] == expected_gap
+        assert expected["expected_gap"] == expected_gap
+        assert expected["failed"] == 0
+
+    totals = scorecard["totals"]
+    assert totals["features_total"] == sum(
+        target["features_total"] for target in scorecard["targets"].values()
+    )
+    assert totals["preserved"] == sum(
+        target["preserved"] for target in scorecard["targets"].values()
+    )
+    assert totals["transformed"] == sum(
+        target["transformed"] for target in scorecard["targets"].values()
+    )
+    assert totals["verified"] == totals["preserved"] + totals["transformed"]
+    assert totals["lost"] == sum(target["lost"] for target in scorecard["targets"].values())
+    assert totals["expected_gap"] == sum(
+        target["expected_gap"] for target in scorecard["targets"].values()
+    )
+    assert totals["preserved"] + totals["transformed"] + totals["lost"] == totals["features_total"]
+    assert totals["failed"] == 0

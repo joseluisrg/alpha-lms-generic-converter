@@ -89,12 +89,7 @@ class OpenEdxTarget:
                 "xlint.log",
                 timeout=900,
             )
-            import_result = self._run_tutor(
-                [*CMS_COMMAND, "import", REMOTE_IMPORT_DIR, "course"],
-                work_dir,
-                "import.log",
-                timeout=1800,
-            )
+            import_result = self._import_course(course_key, work_dir)
             self._import_command = list(import_result.command)
             self._import_exit_code = import_result.exit_code
             self._export_reimport(course_key, work_dir)
@@ -245,6 +240,32 @@ class OpenEdxTarget:
             work_dir,
             "copy-import.log",
             timeout=300,
+        )
+
+    def _import_course(self, course_key: str, work_dir: Path) -> CommandResult:
+        code = (
+            "from opaque_keys.edx.keys import CourseKey; "
+            "from xmodule.modulestore import ModuleStoreEnum; "
+            "from xmodule.modulestore.django import modulestore; "
+            "from xmodule.modulestore.xml_importer import import_course_from_xml; "
+            "from xmodule.contentstore.django import contentstore; "
+            "import_course_from_xml("
+            "modulestore(), "
+            "ModuleStoreEnum.UserID.mgmt_command, "
+            f"{REMOTE_IMPORT_DIR!r}, "
+            "['course'], "
+            "load_error_blocks=False, "
+            "static_content_store=contentstore(), "
+            "verbose=True, "
+            "create_if_not_present=True, "
+            f"target_id=CourseKey.from_string({course_key!r})"
+            ")"
+        )
+        return self._run_tutor(
+            [*CMS_COMMAND, "shell", "-c", code],
+            work_dir,
+            "import.log",
+            timeout=1800,
         )
 
     def _export_reimport(self, course_key: str, work_dir: Path) -> None:

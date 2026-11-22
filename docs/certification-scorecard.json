@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "scorecard_version": 1,
+  "generated_at": "2026-11-21T19:02:42Z",
+  "updated_at": "2026-11-22T01:51:58Z",
+  "matrix_version": 1,
+  "certification_commit": "8e993d3165232b94b361258db1d62055b5d8e7cc",
+  "status": "manual_certified",
+  "certification_type": "manual",
+  "release_gate": "pending_scheduled_runs",
+  "count_definitions": {
+    "preserved": "Native feature represented directly in the target format.",
+    "transformed": "Feature converted into a different but functional target representation.",
+    "lost": "Feature not represented natively or transformed; equal to expected_gap for this matrix.",
+    "expected_gap": "Matrix placeholder accepted as a documented gap that requires manual review."
+  },
+  "targets": {
+    "moodle": {
+      "release": "5.3 LTS",
+      "patch": "5.3.1",
+      "runtime": "PHP 8.4 and MariaDB 11.4",
+      "import_check": "moodle:restore",
+      "features_total": 23,
+      "preserved": 3,
+      "transformed": 14,
+      "verified": 17,
+      "lost": 6,
+      "expected_gap": 6,
+      "failed": 0
+    },
+    "openedx": {
+      "release": "Verawood",
+      "patch": "Verawood.2",
+      "runtime": "Tutor 22.0.4",
+      "import_check": "openedx:import",
+      "features_total": 34,
+      "preserved": 3,
+      "transformed": 19,
+      "verified": 22,
+      "lost": 12,
+      "expected_gap": 12,
+      "failed": 0
+    }
+  },
+  "totals": {
+    "features_total": 57,
+    "preserved": 6,
+    "transformed": 33,
+    "verified": 39,
+    "lost": 18,
+    "expected_gap": 18,
+    "failed": 0
+  },
+  "manual_green_all_runs": [
+    {
+      "run_id": 44935886680,
+      "url": "https://github.com/olgakazarina-guds/Team-Delta/actions/runs/44935886680",
+      "created_at": "2026-11-21T18:30:21Z",
+      "trigger": "workflow_dispatch",
+      "conclusion": "success",
+      "moodle_verified": 17,
+      "openedx_verified": 22
+    },
+    {
+      "run_id": 44937445755,
+      "url": "https://github.com/olgakazarina-guds/Team-Delta/actions/runs/44937445755",
+      "created_at": "2026-11-21T18:47:37Z",
+      "trigger": "workflow_dispatch",
+      "conclusion": "success",
+      "moodle_verified": 17,
+      "openedx_verified": 22
+    }
+  ],
+  "scheduled_green_all_runs": [],
+  "evidence": {
+    "workflow": ".github/workflows/lms-certification.yml",
+    "report_schema_version": 2,
+    "format_matrix": "tests/fixtures/golden/format-matrix.json"
+  }
+}
