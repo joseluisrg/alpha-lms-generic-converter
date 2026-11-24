@@ -19,6 +19,7 @@ This branch we start working on the ledger-rollback feature.
 - SQLite job history with lifecycle states.
 - **Provenance ledger** — every job transition is recorded as an immutable event with a tamper-evident hash chain, so you always know what happened and when.
 - **Rollback** — restore a job to any previous artifact version without deleting history.
+- **Accessibility check** — flags images without a meaningful alt text (missing, or only a file name) in Open edX and Moodle courses, as warnings with the code `ALT_ATTRIBUTE_MISSING`.
 - Optional Streamlit UI.
 
 ## Requirements

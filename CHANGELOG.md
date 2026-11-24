@@ -39,8 +39,15 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 - 17 unit tests in `tests/unit/test_ledger.py` covering AC-1 through AC-14,
   including HTML rendering, XSS-escape verification, PII exclusion, tamper
   detection, and rollback owner scoping.
-
-
+- **Accessibility check for images** (`core/accessibility.py`): every HTML
+  page of the canonical course is scanned for `<img>` tags without a
+  meaningful alt text (no `alt` attribute, or only a file name such as
+  `chart.png`). Each finding is reported as a warning with the code
+  `ALT_ATTRIBUTE_MISSING` in the validation report. Works for Open edX and
+  Moodle courses; intentionally empty `alt=""` (decorative images) is not
+  flagged.
+- Test courses `a11y_openedx_archive` and `a11y_moodle_archive` in
+  `tests/conftest.py`, plus 2 unit tests and 1 integration test.
 - Apache-2.0 license.
 - Central environment-driven configuration for paths, upload limits, archive limits, XML limits, environment, and auth mode.
 - Installable wheel with all adapter, CLI, core, domain, and persistence packages.
