@@ -39,15 +39,23 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
 - 17 unit tests in `tests/unit/test_ledger.py` covering AC-1 through AC-14,
   including HTML rendering, XSS-escape verification, PII exclusion, tamper
   detection, and rollback owner scoping.
-- **Accessibility check for images** (`core/accessibility.py`): every HTML
+- **Accessibility check for images** (`core/quality.py`): every HTML
   page of the canonical course is scanned for `<img>` tags without a
   meaningful alt text (no `alt` attribute, or only a file name such as
-  `chart.png`). Each finding is reported as a warning with the code
-  `ALT_ATTRIBUTE_MISSING` in the validation report. Works for Open edX and
-  Moodle courses; intentionally empty `alt=""` (decorative images) is not
-  flagged.
+  `chart.png`). Works for Open edX and Moodle courses; intentionally empty
+  `alt=""` (decorative images) is not flagged.
+- **Accessibility finding format** (`Finding` in `core/quality.py`): each
+  finding has `code`, `severity`, `message`, `source_object` (kind and ID of
+  the affected course component) and `recommendation`, as agreed in the
+  team document. `run_quality_checks` collects all checks.
+- **Accessibility section in HTML/JSON reports**: `build_report_data` adds an
+  `"accessibility"` block with a summary by severity and all findings; the
+  HTML report gains an "Accessibility & Content Quality" table after
+  "Validation Warnings & Errors". Findings no longer appear in the
+  validation list (`core/validate.py` is unchanged from upstream).
 - Test courses `a11y_openedx_archive` and `a11y_moodle_archive` in
-  `tests/conftest.py`, plus 2 unit tests and 1 integration test.
+  `tests/conftest.py`, plus unit tests for the check, the finding ID and
+  the report section, and 1 integration test.
 - Apache-2.0 license.
 - Central environment-driven configuration for paths, upload limits, archive limits, XML limits, environment, and auth mode.
 - Installable wheel with all adapter, CLI, core, domain, and persistence packages.
