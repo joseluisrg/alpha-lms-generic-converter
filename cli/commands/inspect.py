@@ -11,12 +11,13 @@ Commands show course structure, transformation notes, and migration validation.
 import logging
 import json
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Annotated, Any, Dict, List
 
 import typer
 
 from core.ingest import IngestService
 from core.logging_conf import setup_logging
+from core.preflight import build_moodle_openedx_report
 from core.process_report import ProcessReporter
 
 logger = logging.getLogger(__name__)
@@ -49,6 +50,9 @@ def inspect_command(
         report: bool = typer.Option(
             False, "--report", "-r", help="Print a per-step success/failure report at the end"
         ),
+        preflight: Annotated[
+            bool, typer.Option("--preflight", help="Show the Moodle-to-Open-edX Advisor report")
+        ] = False,
 ) -> None:
     """
     Inspect a course and show its structure, warnings, and migration readiness.
@@ -65,6 +69,15 @@ def inspect_command(
     if not source:
         source = _detect_source(path)
         logger.info("Auto-detected source LMS: %s", source)
+
+    if preflight and (
+        source != "moodle" or (validate_for or "").strip().lower() != "openedx"
+    ):
+        typer.echo(
+            "Error: --preflight requires a Moodle source and --validate-for openedx.",
+            err=True,
+        )
+        raise typer.Exit(2)
 
     typer.echo(f"Inspecting {source.title()} course from {path}...")
 
@@ -88,16 +101,30 @@ def inspect_command(
         course = result["course"]
         parsed = result.get("parsed", {})
 
-        # Print course summary
-        _print_course_summary(course, result)
+        if not preflight:
+            _print_course_summary(course, result)
 
         # Show original structure if requested
         if show_source or verbose:
             _print_original_structure(parsed, source)
 
         # Show transformed structure if verbose or validating
-        if verbose or validate_for:
+        if verbose or (validate_for and not preflight):
             _print_transformed_structure(course, validate_for)
+
+        if preflight:
+            preflight_report = build_moodle_openedx_report(
+                course,
+                result["job_id"],
+                result["report"],
+                extracted_path=result["extracted_path"],
+            )
+            if output:
+                with reporter.step("Save Preflight JSON report"):
+                    _save_output(preflight_report, output)
+            else:
+                typer.echo(json.dumps(preflight_report, indent=2))
+            return
 
         # Show validation notes
         _print_validation_notes(result, validate_for)
