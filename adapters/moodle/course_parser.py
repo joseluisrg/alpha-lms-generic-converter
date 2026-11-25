@@ -19,6 +19,7 @@ Usage:
 """
 
 import logging
+import re
 import uuid
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -592,20 +593,7 @@ class MoodleCourseParser:
     def _parse_scorm(
         self, root, activity_info, extracted, manifest, assessments, assets
     ):
-        """
-        Parse a Moodle 'SCORM' activity.
-        
-        SCORM packages contain their own internal manifest and assets. For MVP
-        purposes, only the activity name is captured. Full SCORM unpacking is
-        slated for Phase 2.
-        
-        Args:
-            root: Parsed XML root element
-            activity_info: Activity metadata from manifest
-            
-        Returns:
-            Dictionary with title, node_type=SCORM, and metadata.activity_type
-        """
+        """Read SCORM settings and link the activity to its package ZIP."""
         # Read the SCORM settings from scorm.xml
         inner = root.find("scorm")
         if inner is None:
@@ -620,39 +608,75 @@ class MoodleCourseParser:
             "maxgrade": inner.findtext("maxgrade", ""),
         }
 
-        # Find the SCORM zip file in the backup structure
         activity_dir = activity_info["directory"]
         zip_path = resolve_under(extracted, f"{activity_dir}/package.zip")
         if not zip_path.is_file():
             zip_path = resolve_under(extracted, f"{activity_dir}/package")
 
-        if zip_path.is_file():
-            relative_zip = zip_path.relative_to(extracted).as_posix()
-            asset_id = self._asset_id(relative_zip)
-            assets.append({
-                "asset_id": asset_id,
-                "path": relative_zip,
-                "mime_type": "application/zip",
-                "checksum": "",
-                "original_zip_path": relative_zip,
-                "version": scorm_settings.get("version", ""),
-                "is_scorm": True,
-            })
+        original_filename = None
+        if not zip_path.is_file():
+            stored_package = self._find_scorm_package(
+                extracted, activity_dir, manifest.get("file_records", {})
+            )
+            if stored_package is None:
+                return {
+                    "title": title,
+                    "node_type": NodeType.HTML.value,
+                    "metadata": {"content_html": f"<p>Missing SCORM package for activity: {title}</p>"},
+                }
+            zip_path, original_filename = stored_package
 
-            return {
-                "title": title,
-                "node_type": NodeType.SCORM.value,
-                "metadata": {
-                    "scorm_settings": scorm_settings,
-                    "asset_id": asset_id,
-                },
-            }
-        else:
-            return {
-                "title": title,
-                "node_type": NodeType.HTML.value,
-                "metadata": {"content_html": f"<p>Missing SCORM package for activity: {title}</p>"},
-            }
+        relative_zip = zip_path.relative_to(extracted).as_posix()
+        asset_id = self._asset_id(relative_zip)
+        asset = {
+            "asset_id": asset_id,
+            "path": relative_zip,
+            "mime_type": "application/zip",
+            "checksum": "",
+            "original_zip_path": relative_zip,
+            "version": scorm_settings.get("version", ""),
+            "is_scorm": True,
+        }
+        if original_filename is not None:
+            # Multiple activities can point to the same payload in the file store.
+            asset_id = stable_id("asset", self._course_key, activity_dir, relative_zip)
+            asset["asset_id"] = asset_id
+            asset["original_filename"] = original_filename
+        assets.append(asset)
+
+        return {
+            "title": title,
+            "node_type": NodeType.SCORM.value,
+            "metadata": {
+                "scorm_settings": scorm_settings,
+                "asset_id": asset_id,
+            },
+        }
+
+    def _find_scorm_package(
+        self, extracted: Path, activity_dir: str, file_records: Dict[str, Any]
+    ) -> tuple[Path, str] | None:
+        """Look up the activity's ZIP in Moodle's content-addressed file store."""
+        file_ids = set(self.reader.read_inforef(extracted, activity_dir))
+        packages = [
+            record
+            for file_id in file_ids
+            if (record := file_records.get(file_id))
+            and record.get("component") == "mod_scorm"
+            and record.get("filearea") == "package"
+            and record.get("filename", "").lower().endswith(".zip")
+        ]
+        if len(packages) != 1:
+            return None
+
+        package = packages[0]
+        content_hash = package.get("contenthash", "")
+        if not re.fullmatch(r"[0-9a-fA-F]{40}", content_hash):
+            return None
+        path = resolve_under(extracted, f"files/{content_hash[:2]}/{content_hash}")
+        if not path.is_file():
+            return None
+        return path, package["filename"]
 
     def _parse_choice(self, root, activity_info, extracted, manifest, assessments, assets):
         inner = root.find("choice")
