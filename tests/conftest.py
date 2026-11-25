@@ -147,6 +147,7 @@ def a11y_openedx_archive(tmp_path: Path) -> Path:
             <vertical display_name="Vertical One">
               <html url_name="html1" display_name="Intro HTML" />
               <video url_name="vid1" display_name="Lecture Video" />
+               <video url_name="vid2" display_name="Captioned Video" />
             </vertical>
         """,
         "html/html1.xml": """\
@@ -160,6 +161,9 @@ def a11y_openedx_archive(tmp_path: Path) -> Path:
         """,
         "video/vid1.xml": """\
             <video display_name="Lecture Video" youtube_id_1_0="abc12345678" />
+        """,
+        "video/vid2.xml": """\
+            <video display_name="Captioned Video" youtube_id_1_0="def12345678" sub="def12345678" />
         """,
         "static/handout.pdf": b"%PDF-1.4 fixture handout",
         "static/cpu.png": b"fake image cpu",
@@ -370,6 +374,8 @@ def a11y_moodle_archive(tmp_path: Path) -> Path:
                 &lt;img src="@@PLUGINFILE@@/cpu.png"&gt;
                 &lt;img src="@@PLUGINFILE@@/chart.png" alt="chart.png"&gt;
                 &lt;img src="@@PLUGINFILE@@/diagram.png" alt="Diagram of a computer with CPU and memory"&gt;
+                &lt;video src="@@PLUGINFILE@@/lecture.mp4"&gt;&lt;/video&gt;
+                &lt;video src="@@PLUGINFILE@@/intro.mp4"&gt;&lt;track kind="captions" src="@@PLUGINFILE@@/intro.vtt"&gt;&lt;/video&gt;
               </content>
             </page>
         """,

@@ -15,4 +15,4 @@ def test_alt_text_findings_appear_only_in_accessibility_section(a11y_openedx_arc
 
     validation_codes = [note["code"] for note in data["validation"]]
     assert "ALT_ATTRIBUTE_MISSING" not in validation_codes
-    assert len(data["accessibility"]["findings"]) == 2
+    assert len(data["accessibility"]["findings"]) == 3

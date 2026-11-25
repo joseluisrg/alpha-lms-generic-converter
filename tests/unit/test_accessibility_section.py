@@ -16,9 +16,9 @@ def test_report_has_own_accessibility_section(a11y_openedx_archive: Path, tmp_pa
     data = build_report_data("job-a11y", {"status": "completed"}, course, [])
 
     section = data["accessibility"]
-    assert section["summary"]["by_severity"] == {"info": 0, "warning": 2, "error": 0}
-    assert len(section["findings"]) == 2
-    assert all(f["code"] == "ALT_ATTRIBUTE_MISSING" for f in section["findings"])
+    assert section["summary"]["by_severity"] == {"info": 0, "warning": 3, "error": 0}
+    codes = sorted(f["code"] for f in section["findings"])
+    assert codes == ["ALT_ATTRIBUTE_MISSING", "ALT_ATTRIBUTE_MISSING", "VIDEO_CAPTIONS_MISSING"]
     assert all(f["source_object"]["kind"] == "content_node" for f in section["findings"])
 
 
@@ -28,5 +28,5 @@ def test_html_report_shows_accessibility_section(a11y_openedx_archive: Path, tmp
     page = render_html_report("job-a11y", {"status": "completed"}, course, [])
 
     assert "Accessibility &amp; Content Quality" in page
-    assert "2 warnings" in page
+    assert "3 warnings" in page
     assert "cpu.png" in page
