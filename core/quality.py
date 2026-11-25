@@ -45,3 +45,16 @@ def check_alt_text(course: Course) -> List[Finding]:
                     recommendation="Add a short description of what the image shows.",
                 ))
     return findings
+
+
+def run_quality_checks(course: Course) -> List[Finding]:
+    """Run all accessibility and content quality checks."""
+    return check_alt_text(course)
+
+
+def summarize(findings: List[Finding]) -> Dict[str, Dict[str, int]]:
+    """Count findings per severity, e.g. {"info": 0, "warning": 2, "error": 0}."""
+    by_severity = {"info": 0, "warning": 0, "error": 0}
+    for finding in findings:
+        by_severity[finding.severity.value] += 1
+    return {"by_severity": by_severity}

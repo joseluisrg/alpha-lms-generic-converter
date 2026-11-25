@@ -11,6 +11,7 @@ import html
 import json
 from typing import Any, Dict, Iterable, List, Optional
 
+from core.quality import run_quality_checks, summarize
 from domain.entities import ContentNode, Course
 
 
@@ -74,6 +75,7 @@ def build_report_data(
         }
         for entry in (ledger_entries or [])
     ]
+    quality_findings = run_quality_checks(course)
     return {
         "schema_version": 2,
         "job_id": job_id,
@@ -105,6 +107,10 @@ def build_report_data(
         "validation": items,
         "integrity_errors": course.integrity_errors(),
         "ledger": ledger_display,
+        "accessibility": {
+            "summary": summarize(quality_findings),
+            "findings": [f.model_dump(mode="json") for f in quality_findings],
+        },
     }
 
 
@@ -207,6 +213,20 @@ def render_html_report(
         for entry in data["ledger"]
     ) or '<tr><td colspan="5">No ledger entries.</td></tr>'
 
+  # Build the Accessibility & Content Quality section — each value is HTML-escaped
+    a11y = data["accessibility"]
+    counts = a11y["summary"]["by_severity"]
+    a11y_summary = f"{counts['warning']} warnings, {counts['error']} errors, {counts['info']} info"
+    a11y_rows = "\n".join(
+        f"<tr class=\"{e(finding['severity'])}\"><td>{e(finding['severity'])}</td>"
+        f"<td>{e(finding['code'])}</td>"
+        f"<td>{e(finding['message'])}</td>"
+        f"<td><code>{e(finding['source_object']['kind'])}: {e(finding['source_object']['id'])}</code></td>"
+        f"<td>{e(finding['recommendation'])}</td></tr>"
+        for finding in a11y["findings"]
+    ) or '<tr><td colspan="5">No accessibility findings.</td></tr>'
+
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -246,6 +266,12 @@ def render_html_report(
     <table>
         <tr><th>Severity</th><th>Code</th><th>Message</th></tr>
 {chr(10).join(note_rows)}
+    </table>
+     <h2>Accessibility &amp; Content Quality</h2>
+    <p>{e(a11y_summary)}</p>
+    <table>
+        <tr><th>Severity</th><th>Code</th><th>Message</th><th>Location (ID)</th><th>Recommendation</th></tr>
+{a11y_rows}
     </table>
     <h2>Integrity Checks</h2>
     <ul>
