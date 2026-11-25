@@ -24,6 +24,21 @@ uv run --no-sync pytest tests/integration/test_moodle_essay_export.py tests/inte
 
 The test fixture creates `essay.mbz` in the test's temporary directory with one multiple-choice question and one essay question. The tests cover the generated placeholder, the single Advisor finding, stable IDs across runs, the standard inspection JSON, and the ledger event. The package-file test removes the PDF payload from a copy of the test archive while preserving the activity reference and file record. An import into an Open edX instance requires a separate check.
 
+### SCORM packages
+
+The Moodle parser checks the activity directory first, then looks up the
+activity's ZIP through `inforef.xml` and `files.xml`. It uses the original ZIP
+filename when resolving a package from the Moodle file store. A missing or
+ambiguous package produces an HTML fallback. The Advisor's package-file rule
+checks the files represented as assets in the course model.
+
+```powershell
+uv run --no-sync pytest tests/integration/test_moodle_scorm_package.py
+```
+
+The synthetic test cases cover both storage layouts, missing and ambiguous
+packages, and the SCORM component's link to the ZIP in the Open edX export.
+
 ## Demo with both findings
 
 Run the block from the repository root in PowerShell. The demo uses the

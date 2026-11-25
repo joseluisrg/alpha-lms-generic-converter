@@ -70,8 +70,7 @@ class MoodleBackupReader:
         - course_info:   basic course title and directory from the manifest header
         - sections:      ordered list of {section_id, title, directory}
         - activities:    dict keyed by cmid -> {cmid, module_name, title, directory, section_id}
-        - file_records:  dict keyed by file id -> {contenthash, filename, mimetype, filepath}
-                         (populated by read_file_records)
+        - file_records:  file metadata keyed by file ID (see read_file_records)
 
         Note: <moduleid> and <cmid> are both used across Moodle versions for the same thing.
         We try moduleid first and fall back to cmid so both variants are handled.
@@ -122,7 +121,8 @@ class MoodleBackupReader:
     def read_file_records(self, extracted: Path) -> Dict[str, Any]:
         """
         Parse files.xml (the global file table at the backup root) and return a dict
-        keyed by file id -> {contenthash, filename, mimetype, filepath}.
+        keyed by file ID. Records include the filename, content hash, MIME type,
+        path, component, and file area.
 
         files.xml is separate from moodle_backup.xml and lists every file that was
         included in the backup, including drafts and deleted items.  Some records will
@@ -147,6 +147,8 @@ class MoodleBackupReader:
                 "filename": record.findtext("filename", ""),
                 "mimetype": record.findtext("mimetype", ""),
                 "filepath": record.findtext("filepath", "/"),
+                "component": record.findtext("component", ""),
+                "filearea": record.findtext("filearea", ""),
             }
         return records
 
