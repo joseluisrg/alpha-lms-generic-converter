@@ -6,13 +6,15 @@ course teams, Preflight and the Ledger can refer to the same item.
 
 from __future__ import annotations
 
-from typing import Dict, List
+from html.parser import HTMLParser
+from typing import Dict, Iterable, List
 
 from pydantic import BaseModel
 
-from core.accessibility import _alt_problem, _ImageCollector, _iterate_nodes
-from domain.entities import Course
+from domain.entities import ContentNode, Course
 from domain.enums import NodeType, Severity
+
+IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".jfif")
 
 
 class Finding(BaseModel):
@@ -23,6 +25,33 @@ class Finding(BaseModel):
     message: str
     source_object: Dict[str, str]
     recommendation: str
+
+
+class _ImageCollector(HTMLParser):
+    """Collect all <img> tags of an HTML text with their attributes."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.images: List[dict] = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "img":
+            self.images.append(dict(attrs))
+
+
+def _iterate_nodes(nodes: Iterable[ContentNode]):
+    for node in nodes:
+        yield node
+        yield from _iterate_nodes(node.children)
+
+
+def _alt_problem(image: dict) -> str | None:
+    if "alt" not in image:
+        return "has no alt text"
+    alt = (image["alt"] or "").strip()
+    if alt.lower().endswith(IMAGE_EXTENSIONS):
+        return "has only a file name as alt text"
+    return None
 
 
 def check_alt_text(course: Course) -> List[Finding]:
