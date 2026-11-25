@@ -44,6 +44,13 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
   meaningful alt text (no `alt` attribute, or only a file name such as
   `chart.png`). Works for Open edX and Moodle courses; intentionally empty
   `alt=""` (decorative images) is not flagged.
+- **Accessibility check for videos** (`check_video_captions` in
+  `core/quality.py`): Open edX video components are checked for a `sub`
+  attribute, `transcripts` or a `<transcript>` element in their source XML;
+  `<video>` tags inside HTML pages (Open edX and Moodle) are checked for a
+  `<track kind="captions">` or `kind="subtitles"`. Missing captions are
+  reported as `VIDEO_CAPTIONS_MISSING`. Videos whose captions cannot be
+  verified from the export (e.g. Moodle YouTube links) are not reported.
 - **Accessibility finding format** (`Finding` in `core/quality.py`): each
   finding has `code`, `severity`, `message`, `source_object` (kind and ID of
   the affected course component) and `recommendation`, as agreed in the
@@ -54,8 +61,9 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
   "Validation Warnings & Errors". Findings no longer appear in the
   validation list (`core/validate.py` is unchanged from upstream).
 - Test courses `a11y_openedx_archive` and `a11y_moodle_archive` in
-  `tests/conftest.py`, plus unit tests for the check, the finding ID and
-  the report section, and 1 integration test.
+  `tests/conftest.py` (images and videos with and without captions), plus
+  unit tests for both checks, the finding ID and the report section, and
+  1 integration test.
 - Apache-2.0 license.
 - Central environment-driven configuration for paths, upload limits, archive limits, XML limits, environment, and auth mode.
 - Installable wheel with all adapter, CLI, core, domain, and persistence packages.
