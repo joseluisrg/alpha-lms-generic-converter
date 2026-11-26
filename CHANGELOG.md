@@ -51,6 +51,14 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
   `<track kind="captions">` or `kind="subtitles"`. Missing captions are
   reported as `VIDEO_CAPTIONS_MISSING`. Videos whose captions cannot be
   verified from the export (e.g. Moodle YouTube links) are not reported.
+- **External link check, on request only** (`check_external_links` in
+  `core/quality.py`): external `http`/`https` links in course pages are
+  requested (HEAD, falling back to GET; 5 s timeout) and reported as
+  `EXTERNAL_LINK_UNREACHABLE` if they answer with an error (400 or higher)
+  or not at all. Internal links are skipped. The check goes online, so it
+  only runs with `run_quality_checks(course, check_links=True)`; tests
+  inject simulated responses instead of real requests. Not yet exposed in
+  the CLI or Streamlit UI.
 - **Accessibility finding format** (`Finding` in `core/quality.py`): each
   finding has `code`, `severity`, `message`, `source_object` (kind and ID of
   the affected course component) and `recommendation`, as agreed in the
