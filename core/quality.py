@@ -6,8 +6,10 @@ course teams, Preflight and the Ledger can refer to the same item.
 
 from __future__ import annotations
 
+import urllib.error
+import urllib.request
 from html.parser import HTMLParser
-from typing import Dict, Iterable, List
+from typing import Callable, Dict, Iterable, List, Optional
 from xml.etree.ElementTree import ParseError
 
 from pydantic import BaseModel
@@ -139,9 +141,70 @@ def check_video_captions(course: Course) -> List[Finding]:
     return findings
 
 
-def run_quality_checks(course: Course) -> List[Finding]:
-    """Run all accessibility and content quality checks."""
-    return check_alt_text(course) + check_video_captions(course)
+class _LinkCollector(HTMLParser):
+    """Collect all external links (http/https) of an HTML text."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.links: List[str] = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "a":
+            href = (dict(attrs).get("href") or "").strip()
+            if href.lower().startswith(("http://", "https://")) and href not in self.links:
+                self.links.append(href)
+
+
+def _http_status(url: str, timeout: float = 5.0) -> Optional[int]:
+    """Ask the internet for a URL; return the HTTP status, or None if there is no answer."""
+    for method in ("HEAD", "GET"):
+        request = urllib.request.Request(
+            url, method=method, headers={"User-Agent": "lms-converter-accessibility-check"}
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return response.status
+        except urllib.error.HTTPError as error:
+            if error.code == 405 and method == "HEAD":
+                continue
+            return error.code
+        except (urllib.error.URLError, TimeoutError, ValueError):
+            return None
+    return None
+
+
+def check_external_links(
+    course: Course, fetch_status: Callable[[str], Optional[int]] = _http_status
+) -> List[Finding]:
+    """Report external links that answer with an error or not at all (goes online: on request only)."""
+    findings: List[Finding] = []
+    for node in _iterate_nodes(course.content_nodes):
+        collector = _LinkCollector()
+        collector.feed(node.metadata.get("content_html", "") or "")
+        for url in collector.links:
+            status = fetch_status(url)
+            if status is None or status >= 400:
+                answer = f"HTTP {status}" if status else "no answer"
+                findings.append(Finding(
+                    code="EXTERNAL_LINK_UNREACHABLE",
+                    severity=Severity.WARNING,
+                    message=f'Link "{url}" is not reachable ({answer}) (page: {node.title})',
+                    source_object={"kind": "content_node", "id": node.node_id},
+                    recommendation="Fix the link or remove it if the page no longer exists.",
+                ))
+    return findings
+
+
+def run_quality_checks(
+    course: Course,
+    check_links: bool = False,
+    fetch_status: Optional[Callable[[str], Optional[int]]] = None,
+) -> List[Finding]:
+    """Run all accessibility and content quality checks; external links only on request."""
+    findings = check_alt_text(course) + check_video_captions(course)
+    if check_links:
+        findings += check_external_links(course, fetch_status or _http_status)
+    return findings
 
 
 def summarize(findings: List[Finding]) -> Dict[str, Dict[str, int]]:

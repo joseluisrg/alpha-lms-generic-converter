@@ -158,6 +158,9 @@ def a11y_openedx_archive(tmp_path: Path) -> Path:
             <img src="/static/cpu.png">
             <img src="/static/chart.png" alt="chart.png">
             <img src="/static/diagram.png" alt="Diagram of a computer with CPU and memory">
+             <a href="https://example.org/working">Working link</a>
+            <a href="https://example.org/broken">Broken link</a>
+            <a href="#images">Back to images</a>
         """,
         "video/vid1.xml": """\
             <video display_name="Lecture Video" youtube_id_1_0="abc12345678" />
@@ -376,6 +379,9 @@ def a11y_moodle_archive(tmp_path: Path) -> Path:
                 &lt;img src="@@PLUGINFILE@@/diagram.png" alt="Diagram of a computer with CPU and memory"&gt;
                 &lt;video src="@@PLUGINFILE@@/lecture.mp4"&gt;&lt;/video&gt;
                 &lt;video src="@@PLUGINFILE@@/intro.mp4"&gt;&lt;track kind="captions" src="@@PLUGINFILE@@/intro.vtt"&gt;&lt;/video&gt;
+                &lt;a href="https://example.org/working"&gt;Working link&lt;/a&gt;
+                &lt;a href="https://example.org/broken"&gt;Broken link&lt;/a&gt;
+                &lt;a href="#images"&gt;Back to images&lt;/a&gt;
               </content>
             </page>
         """,
