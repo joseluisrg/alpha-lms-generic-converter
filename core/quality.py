@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import urllib.error
 import urllib.request
+import ssl
 from html.parser import HTMLParser
 from typing import Callable, Dict, Iterable, List, Optional
 from xml.etree.ElementTree import ParseError
@@ -155,6 +156,15 @@ class _LinkCollector(HTMLParser):
                 self.links.append(href)
 
 
+def _ssl_context() -> ssl.SSLContext:
+    """Trusted certificates for https: certifi's list if installed, else the system default."""
+    try:
+        import certifi
+    except ImportError:
+        return ssl.create_default_context()
+    return ssl.create_default_context(cafile=certifi.where())
+
+
 def _http_status(url: str, timeout: float = 5.0) -> Optional[int]:
     """Ask the internet for a URL; return the HTTP status, or None if there is no answer."""
     for method in ("HEAD", "GET"):
@@ -162,7 +172,7 @@ def _http_status(url: str, timeout: float = 5.0) -> Optional[int]:
             url, method=method, headers={"User-Agent": "lms-converter-accessibility-check"}
         )
         try:
-            with urllib.request.urlopen(request, timeout=timeout) as response:
+            with urllib.request.urlopen(request, timeout=timeout, context=_ssl_context()) as response:
                 return response.status
         except urllib.error.HTTPError as error:
             if error.code == 405 and method == "HEAD":
