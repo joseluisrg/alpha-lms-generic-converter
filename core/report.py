@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import html
 import json
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Callable, Dict, Iterable, List, Optional
 
 from core.quality import run_quality_checks, summarize
 from domain.entities import ContentNode, Course
@@ -56,6 +56,8 @@ def build_report_data(
     course: Course,
     report_items: Iterable[Any],
     ledger_entries: Optional[List[Dict[str, Any]]] = None,
+    check_links: bool = False,
+    fetch_status: Optional[Callable[[str], Optional[int]]] = None,
 ) -> Dict[str, Any]:
     """Return a stable, JSON-serializable report document.
 
@@ -75,7 +77,7 @@ def build_report_data(
         }
         for entry in (ledger_entries or [])
     ]
-    quality_findings = run_quality_checks(course)
+    quality_findings = run_quality_checks(course, check_links=check_links, fetch_status=fetch_status)
     return {
         "schema_version": 2,
         "job_id": job_id,
@@ -120,10 +122,12 @@ def render_json_report(
     course: Course,
     report_items: Iterable[Any],
     ledger_entries: Optional[List[Dict[str, Any]]] = None,
+    check_links: bool = False,
+    fetch_status: Optional[Callable[[str], Optional[int]]] = None,
 ) -> str:
     """Render the report as deterministic, human-readable JSON."""
     return json.dumps(
-        build_report_data(job_id, job, course, report_items, ledger_entries),
+        build_report_data(job_id, job, course, report_items, ledger_entries, check_links, fetch_status),
         indent=2,
         ensure_ascii=False,
         default=str,
@@ -136,9 +140,11 @@ def render_html_report(
     course: Course,
     report_items: Iterable[Any],
     ledger_entries: Optional[List[Dict[str, Any]]] = None,
+    check_links: bool = False,
+    fetch_status: Optional[Callable[[str], Optional[int]]] = None,
 ) -> str:
     """Render a self-contained HTML report with all untrusted text escaped."""
-    data = build_report_data(job_id, job, course, report_items, ledger_entries)
+    data = build_report_data(job_id, job, course, report_items, ledger_entries, check_links, fetch_status)
     e = lambda value: html.escape(str(value if value is not None else ""), quote=True)
     components = data["components"]
 

@@ -76,9 +76,9 @@ def count_node_type(nodes, target_type):
         count += count_node_type(node.children, target_type)
     return count
 
-def generate_html_report(job_id, job, course, report_items):
+def generate_html_report(job_id, job, course, report_items, check_links=False):
     """Delegate to the escaped, shared report renderer."""
-    return render_html_report(job_id, job, course, report_items)
+    return render_html_report(job_id, job, course, report_items, check_links=check_links)
 
 
 # Utility: convert objects to JSON-serializable
@@ -231,6 +231,7 @@ with st.sidebar:
     st.markdown("### Report")
     job_id_input = st.text_input("Job ID", placeholder="Enter job ID to view report", key="job_id_input")
     report_format = st.selectbox("Report format", ["json", "html"], key="report_format_selector")
+    check_links = st.checkbox("Also check external links (goes online, slower)", key="check_links_checkbox")
     if st.button("Generate Report", key="generate_report_btn"):
         if job_id_input:
             init_db()
@@ -261,7 +262,11 @@ def report_dialog():
         try:
             course = Course.model_validate_json(job["course_json"])
             report_items = json.loads(job["report_json"])
-            html_content = generate_html_report(job_id, job, course, report_items)
+            html_content = generate_html_report(
+                job_id, job, course, report_items,
+                check_links=st.session_state.get("check_links_checkbox", False),
+            )
+
             st.info("The escaped HTML report is ready to download.")
             st.download_button(
                 label="Download HTML Report",

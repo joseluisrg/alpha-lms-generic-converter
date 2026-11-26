@@ -56,9 +56,12 @@ The format follows Keep a Changelog, and the project intends to use semantic ver
   requested (HEAD, falling back to GET; 5 s timeout) and reported as
   `EXTERNAL_LINK_UNREACHABLE` if they answer with an error (400 or higher)
   or not at all. Internal links are skipped. The check goes online, so it
-  only runs with `run_quality_checks(course, check_links=True)`; tests
-  inject simulated responses instead of real requests. Not yet exposed in
-  the CLI or Streamlit UI.
+  only runs on request: checkbox "Also check external links" in the
+  Streamlit report sidebar (HTML report), `lms-converter report <job-id>
+  --check-links` (HTML and JSON), or `run_quality_checks(course,
+  check_links=True)` in code. Uses certifi's certificate list for https
+  when available, so links are not wrongly reported as unreachable.
+  Tests inject simulated responses instead of real requests.
 - **Accessibility finding format** (`Finding` in `core/quality.py`): each
   finding has `code`, `severity`, `message`, `source_object` (kind and ID of
   the affected course component) and `recommendation`, as agreed in the

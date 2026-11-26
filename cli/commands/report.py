@@ -15,6 +15,7 @@ def report_command(
     job_id: str = typer.Argument(..., help="Job ID from previous inspection or migration"),
     format: str = typer.Option("html", "--format", "-f", help="Output format: json or html"),
     output: str = typer.Option(None, "--output", "-o", help="Save report to file"),
+    check_links: bool = typer.Option(False, "--check-links", help="Also check external links (goes online, slower)"),
 ):
     """Generate a detailed report for a previous job."""
     job = get_job(job_id)
@@ -37,9 +38,9 @@ def report_command(
 
     report_format = format.strip().lower()
     if report_format == "json":
-        content = render_json_report(job_id, job, course, report_items, ledger_entries)
+        content = render_json_report(job_id, job, course, report_items, ledger_entries, check_links=check_links)
     elif report_format == "html":
-        content = render_html_report(job_id, job, course, report_items, ledger_entries)
+        content = render_html_report(job_id, job, course, report_items, ledger_entries, check_links=check_links)
     else:
         typer.echo(f"Error: Unsupported report format {format!r}", err=True)
         raise typer.Exit(1)
